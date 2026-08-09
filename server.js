@@ -15,7 +15,15 @@ app.post("/ask", async (req, res) => {
     const question = req.body.question;
 
     if (!question) {
-      return res.status(400).json({ error: "Question is required" });
+      return res.status(400).json({
+        error: "Question is required"
+      });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({
+        error: "GEMINI_API_KEY is missing in Render"
+      });
     }
 
     const response = await fetch(
@@ -42,14 +50,33 @@ app.post("/ask", async (req, res) => {
 
     const data = await response.json();
 
+    if (!response.ok) {
+      console.error("Gemini API Error:", data);
+
+      return res.status(response.status).json({
+        error:
+          data?.error?.message ||
+          "Gemini API request failed"
+      });
+    }
+
     const answer =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Sorry, I could not generate an answer.";
+      data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!answer) {
+      return res.status(500).json({
+        error: "Gemini did not return an answer"
+      });
+    }
 
     res.json({ answer });
+
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
+    console.error("Server Error:", error);
+
+    res.status(500).json({
+      error: "Something went wrong: " + error.message
+    });
   }
 });
 
@@ -58,4 +85,14 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+              
+            
+          
+        
+      
+
+
+    
+    
               
