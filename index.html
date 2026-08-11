@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Itta AI Tutor</title>
+
+  <title>Itta Study IQ</title>
+
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="app">
-    <h1>🤖 Itta AI Tutor</h1>
+    <h1>🤖 Itta Study IQ</h1>
     <p class="subtitle">Your simple AI study helper</p>
 
     <section class="card">
       <label for="question">Ask a study question</label>
+
       <textarea id="question" placeholder="Type your question here..."></textarea>
+
       <button onclick="askTutor()">Ask Itta AI</button>
-      <div id="answer" class="answer">Your answer will appear here.</div>
+
+      <div id="answer" class="answer">
+        Your answer will appear here.
+      </div>
     </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
