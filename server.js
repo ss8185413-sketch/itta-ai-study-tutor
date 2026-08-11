@@ -1,15 +1,21 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// Serve frontend files
+app.use(express.static(__dirname));
+
+// Home page
 app.get("/", (req, res) => {
-  res.send("Itta AI Tutor Server is running!");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
+// AI question endpoint
 app.post("/ask", async (req, res) => {
   try {
     const question = req.body.question;
