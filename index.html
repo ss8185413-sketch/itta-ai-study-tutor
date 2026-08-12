@@ -15,17 +15,35 @@
     <h1>✨ Itta Study IQ</h1>
     <p class="subtitle">Your simple AI study helper</p>
 
+    <!-- AI Study Section -->
     <section class="card">
       <label for="question">Ask a study question</label>
 
-      <textarea id="question" placeholder="Type your question here..."></textarea>
+      <textarea
+        id="question"
+        placeholder="Type your question here..."
+      ></textarea>
 
-      <button onclick="askTutor()">Ask Itta AI</button>
+      <div class="button-row">
+        <button onclick="askTutor()">Ask Itta AI</button>
+        <button id="micBtn" onclick="startMic()">🎙️</button>
+      </div>
 
       <div id="answer" class="answer">
         Your answer will appear here.
       </div>
     </section>
+
+    <!-- Quiz Section -->
+    <section class="card" id="quizSection">
+      <h2>🧠 Study Quiz</h2>
+      <p>Test your knowledge with a quick quiz.</p>
+
+      <button onclick="startQuiz()">Start Quiz</button>
+
+      <div id="quizBox"></div>
+    </section>
+
   </main>
 
   <script src="script.js"></script>
