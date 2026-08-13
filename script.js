@@ -1,96 +1,118 @@
-async function askTutor() {
-    const question = document.getElementById("question").value.trim();
-    const answer = document.getElementById("answer");
+/* 🧠 Class 10 Quiz */
 
-    if (!question) {
-        answer.innerText = "Please type a question first.";
-        return;
+const quizQuestions = [
+    {
+        question: "What is the capital of India?",
+        options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
+        answer: 1
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Venus", "Mars", "Jupiter"],
+        answer: 2
+    },
+    {
+        question: "What is the chemical formula of water?",
+        options: ["CO2", "H2O", "O2", "NaCl"],
+        answer: 1
+    },
+    {
+        question: "Who wrote the Indian national anthem?",
+        options: [
+            "Rabindranath Tagore",
+            "Bankim Chandra Chattopadhyay",
+            "Kazi Nazrul Islam",
+            "Sarat Chandra Chattopadhyay"
+        ],
+        answer: 0
+    },
+    {
+        question: "What is 12 × 8?",
+        options: ["86", "96", "108", "112"],
+        answer: 1
+    },
+    {
+        question: "Which gas do plants mainly absorb during photosynthesis?",
+        options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+        answer: 2
+    },
+    {
+        question: "How many states are there in India?",
+        options: ["26", "28", "29", "30"],
+        answer: 1
+    },
+    {
+        question: "Which is the largest ocean in the world?",
+        options: [
+            "Atlantic Ocean",
+            "Indian Ocean",
+            "Pacific Ocean",
+            "Arctic Ocean"
+        ],
+        answer: 2
+    },
+    {
+        question: "What is the square of 15?",
+        options: ["125", "200", "225", "250"],
+        answer: 2
+    },
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        options: ["Brain", "Lungs", "Heart", "Kidney"],
+        answer: 2
     }
+];
 
-    answer.innerText = "Thinking... 🤖";
+let currentQuestion = 0;
+let score = 0;
 
-    try {
-        const response = await fetch(
-            "https://itta-ai-study-tutor.onrender.com/ask",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    question: question
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            answer.innerText =
-                data.error || "Server error occurred.";
-            return;
-        }
-
-        if (data.answer) {
-            answer.innerText = data.answer;
-        } else {
-            answer.innerText = "No answer received.";
-        }
-
-    } catch (error) {
-        console.error("Error:", error);
-
-        answer.innerText =
-            "Could not connect to the server.";
-    }
-}
-
-
-/* 🎙️ Voice Mic */
-function startMic() {
-    const question = document.getElementById("question");
-    const micBtn = document.getElementById("micBtn");
-
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
-
-    if (!SpeechRecognition) {
-        alert("Voice input is not supported on this browser.");
-        return;
-    }
-
-    const recognition = new SpeechRecognition();
-
-    recognition.lang = "en-IN";
-    recognition.continuous = false;
-    recognition.interimResults = false;
-
-    micBtn.innerText = "🔴 Listening...";
-
-    recognition.start();
-
-    recognition.onresult = function(event) {
-        question.value = event.results[0][0].transcript;
-    };
-
-    recognition.onerror = function() {
-        micBtn.innerText = "🎙️";
-        alert("Could not hear your voice. Please try again.");
-    };
-
-    recognition.onend = function() {
-        micBtn.innerText = "🎙️";
-    };
-}
-
-
-/* 🧠 Quiz */
 function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    showQuestion();
+}
+
+function showQuestion() {
+    const quizBox = document.getElementById("quizBox");
+    const q = quizQuestions[currentQuestion];
+
+    quizBox.innerHTML = `
+        <h3>Question ${currentQuestion + 1} of ${quizQuestions.length}</h3>
+        <p><strong>${q.question}</strong></p>
+
+        ${q.options.map((option, index) => `
+            <button onclick="checkAnswer(${index})">
+                ${option}
+            </button>
+        `).join("")}
+    `;
+}
+
+function checkAnswer(selectedAnswer) {
+    const q = quizQuestions[currentQuestion];
+
+    if (selectedAnswer === q.answer) {
+        score++;
+        alert("✅ Correct!");
+    } else {
+        alert("❌ Wrong answer!");
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < quizQuestions.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
     const quizBox = document.getElementById("quizBox");
 
     quizBox.innerHTML = `
-        <p><strong>Quiz is coming soon! 🚀</strong></p>
-        <p>We will add the questions next.</p>
+        <h3>🎉 Quiz Completed!</h3>
+        <p>Your Score: <strong>${score} / ${quizQuestions.length}</strong></p>
+        <button onclick="startQuiz()">🔄 Play Again</button>
     `;
-        }
+                  }
