@@ -6,16 +6,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-// Serve frontend files
 app.use(express.static(__dirname));
 
-// Home page
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// AI question endpoint
 app.post("/ask", async (req, res) => {
   try {
     const question = req.body.question;
@@ -34,6 +30,35 @@ app.post("/ask", async (req, res) => {
       });
     }
 
+    const prompt = `
+You are an expert Class 10 study tutor.
+
+Answer the student's question clearly and accurately.
+
+IMPORTANT:
+If the question can be explained better with a diagram, create a simple educational SVG diagram.
+
+Return ONLY valid JSON in exactly this format:
+
+{
+  "answer": "Your complete text answer here",
+  "diagram": "SVG code here or empty string if no diagram is useful"
+}
+
+Rules:
+- The answer must be plain text.
+- If a diagram is useful, diagram must be valid standalone SVG.
+- Keep diagrams simple, clean and educational.
+- Use labels inside the SVG.
+- Do NOT use external images, URLs or external files.
+- If a diagram is not useful, return an empty string for diagram.
+- Do not put Markdown code fences around the SVG.
+- Do not add any text outside the JSON.
+
+Student question:
+${question}
+`;
+
     const response = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=" +
         apiKey,
@@ -47,7 +72,7 @@ app.post("/ask", async (req, res) => {
             {
               parts: [
                 {
-                  text: question
+                  text: prompt
                 }
               ]
             }
@@ -66,16 +91,38 @@ app.post("/ask", async (req, res) => {
       });
     }
 
-    const answer =
+    let result =
       data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    if (!answer) {
+    if (!result) {
       return res.status(500).json({
         error: "Gemini did not return an answer"
       });
     }
 
-    res.json({ answer });
+    // Remove accidental Markdown code fences
+    result = result
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/\s*```$/i, "")
+      .trim();
+
+    let parsed;
+
+    try {
+      parsed = JSON.parse(result);
+    } catch (error) {
+      console.error("JSON Parse Error:", result);
+
+      return res.status(500).json({
+        error: "AI returned an invalid response"
+      });
+    }
+
+    res.json({
+      answer: parsed.answer || "No answer received.",
+      diagram: parsed.diagram || ""
+    });
 
   } catch (error) {
     console.error("Server Error:", error);
