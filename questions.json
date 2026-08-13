@@ -1,0 +1,67 @@
+[
+  {
+    "question": "If the roots of x² - 5x + 6 = 0 are α and β, what is α + β?",
+    "options": ["5", "6", "-5", "-6"],
+    "answer": 0
+  },
+  {
+    "question": "Which part of the cell controls most of its activities?",
+    "options": ["Cell wall", "Nucleus", "Cytoplasm", "Vacuole"],
+    "answer": 1
+  },
+  {
+    "question": "Which gas is released during photosynthesis?",
+    "options": ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+    "answer": 2
+  },
+  {
+    "question": "Which soil is most suitable for growing cotton?",
+    "options": ["Alluvial soil", "Black soil", "Laterite soil", "Mountain soil"],
+    "answer": 1
+  },
+  {
+    "question": "Who founded the Brahmo Samaj?",
+    "options": [
+      "Raja Ram Mohan Roy",
+      "Swami Vivekananda",
+      "Dayanand Saraswati",
+      "Ishwar Chandra Vidyasagar"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "If sin θ = 3/5 for an acute angle θ, what is cos θ?",
+    "options": ["3/4", "4/5", "5/4", "2/5"],
+    "answer": 1
+  },
+  {
+    "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+    "options": ["Pulmonary artery", "Aorta", "Pulmonary vein", "Vena cava"],
+    "answer": 2
+  },
+  {
+    "question": "Which fundamental right is associated with equality before law?",
+    "options": [
+      "Right to Freedom",
+      "Right to Equality",
+      "Right against Exploitation",
+      "Cultural and Educational Rights"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the HCF of 96 and 144?",
+    "options": ["24", "36", "48", "72"],
+    "answer": 2
+  },
+  {
+    "question": "Which phenomenon explains why the sky appears blue?",
+    "options": [
+      "Reflection",
+      "Refraction",
+      "Scattering of light",
+      "Dispersion"
+    ],
+    "answer": 2
+  }
+    ]
