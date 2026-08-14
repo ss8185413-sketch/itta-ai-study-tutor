@@ -1,96 +1,96 @@
 [
   {
-    "question": "ভারতের সংবিধান কবে কার্যকর হয়?",
+    "question": "When did the Constitution of India come into effect?",
     "options": [
-      "১৫ আগস্ট ১৯৪৭",
-      "২৬ জানুয়ারি ১৯৫০",
-      "২৬ নভেম্বর ১৯৪৯",
-      "২ অক্টোবর ১৯৫০"
+      "15 August 1947",
+      "26 January 1950",
+      "26 November 1949",
+      "2 October 1950"
     ],
-    "answer": "২৬ জানুয়ারি ১৯৫০"
+    "answer": "26 January 1950"
   },
   {
-    "question": "ভারতের জাতীয় পশু কোনটি?",
+    "question": "What is the national animal of India?",
     "options": [
-      "সিংহ",
-      "বাঘ",
-      "হাতি",
-      "হরিণ"
+      "Lion",
+      "Tiger",
+      "Elephant",
+      "Deer"
     ],
-    "answer": "বাঘ"
+    "answer": "Tiger"
   },
   {
-    "question": "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
+    "question": "Who was the first President of India?",
     "options": [
-      "ড. রাজেন্দ্র প্রসাদ",
-      "জওহরলাল নেহরু",
-      "সর্দার প্যাটেল",
-      "ড. বি. আর. আম্বেদকর"
+      "Dr. Rajendra Prasad",
+      "Jawaharlal Nehru",
+      "Sardar Patel",
+      "Dr. B. R. Ambedkar"
     ],
-    "answer": "ড. রাজেন্দ্র প্রসাদ"
+    "answer": "Dr. Rajendra Prasad"
   },
   {
-    "question": "পৃথিবীর বৃহত্তম মহাসাগর কোনটি?",
+    "question": "Which is the largest ocean in the world?",
     "options": [
-      "আটলান্টিক মহাসাগর",
-      "ভারত মহাসাগর",
-      "প্রশান্ত মহাসাগর",
-      "আর্কটিক মহাসাগর"
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Pacific Ocean",
+      "Arctic Ocean"
     ],
-    "answer": "প্রশান্ত মহাসাগর"
+    "answer": "Pacific Ocean"
   },
   {
-    "question": "ভারতের মুদ্রার নাম কী?",
+    "question": "What is the name of the currency of India?",
     "options": [
-      "ডলার",
-      "রুপি",
-      "টাকা",
-      "দিনার"
+      "Dollar",
+      "Rupee",
+      "Taka",
+      "Dinar"
     ],
-    "answer": "রুপি"
+    "answer": "Rupee"
   },
   {
-    "question": "সূর্যের সবচেয়ে কাছের গ্রহ কোনটি?",
+    "question": "Which planet is closest to the Sun?",
     "options": [
-      "শুক্র",
-      "পৃথিবী",
-      "বুধ",
-      "মঙ্গল"
+      "Venus",
+      "Earth",
+      "Mercury",
+      "Mars"
     ],
-    "answer": "বুধ"
+    "answer": "Mercury"
   },
   {
-    "question": "ভারতের জাতীয় ফুল কোনটি?",
+    "question": "What is the national flower of India?",
     "options": [
-      "গোলাপ",
-      "পদ্ম",
-      "জবা",
-      "সূর্যমুখী"
+      "Rose",
+      "Lotus",
+      "Hibiscus",
+      "Sunflower"
     ],
-    "answer": "পদ্ম"
+    "answer": "Lotus"
   },
   {
-    "question": "‘জন গণ মন’-এর রচয়িতা কে?",
+    "question": "Who wrote 'Jana Gana Mana'?",
     "options": [
-      "কাজী নজরুল ইসলাম",
-      "রবীন্দ্রনাথ ঠাকুর",
-      "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
-      "শরৎচন্দ্র চট্টোপাধ্যায়"
+      "Kazi Nazrul Islam",
+      "Rabindranath Tagore",
+      "Bankim Chandra Chattopadhyay",
+      "Sarat Chandra Chattopadhyay"
     ],
-    "answer": "রবীন্দ্রনাথ ঠাকুর"
+    "answer": "Rabindranath Tagore"
   },
   {
-    "question": "ভারতের রাজধানী কোনটি?",
+    "question": "What is the capital of India?",
     "options": [
-      "মুম্বাই",
-      "কলকাতা",
-      "নয়াদিল্লি",
-      "চেন্নাই"
+      "Mumbai",
+      "Kolkata",
+      "New Delhi",
+      "Chennai"
     ],
-    "answer": "নয়াদিল্লি"
+    "answer": "New Delhi"
   },
   {
-    "question": "জলের রাসায়নিক সংকেত কী?",
+    "question": "What is the chemical formula of water?",
     "options": [
       "CO₂",
       "O₂",
@@ -98,5 +98,106 @@
       "H₂"
     ],
     "answer": "H₂O"
+  },
+
+  {
+    "question": "What is 25% of 200?",
+    "options": [
+      "25",
+      "40",
+      "50",
+      "75"
+    ],
+    "answer": "50"
+  },
+  {
+    "question": "What is the value of 15 × 8?",
+    "options": [
+      "100",
+      "120",
+      "125",
+      "140"
+    ],
+    "answer": "120"
+  },
+  {
+    "question": "What is 144 ÷ 12?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "14"
+    ],
+    "answer": "12"
+  },
+  {
+    "question": "If a pen costs ₹20, how much will 5 pens cost?",
+    "options": [
+      "₹80",
+      "₹90",
+      "₹100",
+      "₹120"
+    ],
+    "answer": "₹100"
+  },
+  {
+    "question": "What is the average of 10, 20 and 30?",
+    "options": [
+      "15",
+      "20",
+      "25",
+      "30"
+    ],
+    "answer": "20"
+  },
+  {
+    "question": "A number is increased from 100 to 120. What is the percentage increase?",
+    "options": [
+      "10%",
+      "15%",
+      "20%",
+      "25%"
+    ],
+    "answer": "20%"
+  },
+  {
+    "question": "What is the square of 15?",
+    "options": [
+      "125",
+      "200",
+      "225",
+      "250"
+    ],
+    "answer": "225"
+  },
+  {
+    "question": "What is the HCF of 12 and 18?",
+    "options": [
+      "2",
+      "3",
+      "6",
+      "9"
+    ],
+    "answer": "6"
+  },
+  {
+    "question": "What is the LCM of 4 and 6?",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "24"
+    ],
+    "answer": "12"
+  },
+  {
+    "question": "A train travels 60 km in 1 hour. How far will it travel in 3 hours?",
+    "options": [
+      "120 km",
+      "150 km",
+      "180 km",
+      "200 km"
+    ],
+    "answer": "180 km"
   }
     ]
