@@ -277,6 +277,9 @@ function selectQuizAnswer(selected) {
 // COMPETITIVE MOCK TEST
 // =========================
 
+// SSC questions will be loaded separately
+// from ssc_questions.json
+
 const mockQuestions = {
 
     UPSC: [
@@ -312,37 +315,7 @@ const mockQuestions = {
     ],
 
 
-    SSC: [
-
-        {
-            question:
-                "ভারতের রাজধানী কোনটি?",
-
-            options: [
-                "মুম্বাই",
-                "কলকাতা",
-                "নয়াদিল্লি",
-                "চেন্নাই"
-            ],
-
-            answer: 2
-        },
-
-        {
-            question:
-                "ভারতের জাতীয় পশু কোনটি?",
-
-            options: [
-                "সিংহ",
-                "বাঘ",
-                "হাতি",
-                "হরিণ"
-            ],
-
-            answer: 1
-        }
-
-    ],
+    SSC: [],
 
 
     BANK: [
@@ -485,11 +458,89 @@ let currentMockIndex = 0;
 let mockScore = 0;
 
 
-// Start Mock Test
+// =========================
+// START MOCK TEST
+// =========================
 
-function startMockTest(exam) {
+async function startMockTest(exam) {
 
     currentMockExam = exam;
+
+    // =========================
+    // SSC SEPARATE QUESTION BANK
+    // =========================
+
+    if (exam === "SSC") {
+
+        try {
+
+            const response =
+                await fetch("ssc_questions.json");
+
+            if (!response.ok) {
+                throw new Error(
+                    "SSC question file not found"
+                );
+            }
+
+            const sscQuestions =
+                await response.json();
+
+            mockQuestions.SSC =
+                sscQuestions;
+
+        } catch (error) {
+
+            console.error(
+                "SSC Question Bank Error:",
+                error
+            );
+
+            const box =
+                document.getElementById("mockTestBox");
+
+            box.innerHTML = `
+                <div class="mock-result">
+
+                    <h2>⚠️ SSC Question Bank Error</h2>
+
+                    <p>
+                        SSC question bank load করা যায়নি।
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+    }
+
+
+    // Check question availability
+
+    if (
+        !mockQuestions[exam] ||
+        mockQuestions[exam].length === 0
+    ) {
+
+        const box =
+            document.getElementById("mockTestBox");
+
+        box.innerHTML = `
+            <div class="mock-result">
+
+                <h2>⚠️ No Questions Available</h2>
+
+                <p>
+                    এই পরীক্ষার জন্য এখনো প্রশ্ন যোগ করা হয়নি।
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
 
     currentMockQuestions =
         [...mockQuestions[exam]]
@@ -502,7 +553,9 @@ function startMockTest(exam) {
 }
 
 
-// Show Mock Question
+// =========================
+// SHOW MOCK QUESTION
+// =========================
 
 function showMockQuestion() {
 
@@ -524,8 +577,13 @@ function showMockQuestion() {
         <div class="mock-question">
 
             <p>
+                ${currentMockExam} Mock Test
+            </p>
+
+            <p>
                 প্রশ্ন ${currentMockIndex + 1}
-                / ${currentMockQuestions.length}
+                /
+                ${currentMockQuestions.length}
             </p>
 
             <h3>
@@ -548,7 +606,9 @@ function showMockQuestion() {
 }
 
 
-// Select Mock Answer
+// =========================
+// SELECT MOCK ANSWER
+// =========================
 
 function selectMockAnswer(selected) {
 
@@ -565,12 +625,22 @@ function selectMockAnswer(selected) {
 }
 
 
-// Mock Result
+// =========================
+// MOCK RESULT
+// =========================
 
 function showMockResult() {
 
     const box =
         document.getElementById("mockTestBox");
+
+    const total =
+        currentMockQuestions.length;
+
+    const percentage =
+        total > 0
+            ? Math.round((mockScore / total) * 100)
+            : 0;
 
     box.innerHTML = `
 
@@ -585,7 +655,14 @@ function showMockResult() {
                 <strong>
                     ${mockScore}
                     /
-                    ${currentMockQuestions.length}
+                    ${total}
+                </strong>
+            </p>
+
+            <p>
+                Percentage:
+                <strong>
+                    ${percentage}%
                 </strong>
             </p>
 
@@ -597,4 +674,4 @@ function showMockResult() {
 
         </div>
     `;
-                    }
+            }
