@@ -1,6 +1,6 @@
 // ======================================================
 // ITTA STUDY IQ
-// COMPLETE WORKING SCRIPT.JS
+// COMPLETE SCRIPT.JS
 // ======================================================
 
 
@@ -33,12 +33,12 @@ function shuffleArray(array) {
 function getExamName(exam) {
 
     const names = {
-        UPSC: "🇮🇳 UPSC",
-        SSC: "📚 SSC",
-        BANK: "🏦 Bank",
-        WBP: "👮 WBP",
-        KOLKATA_POLICE: "🚔 Kolkata Police",
-        RAILWAY: "🚆 Railway"
+        UPSC: "UPSC",
+        SSC: "SSC",
+        BANK: "Bank",
+        WBP: "WBP",
+        KOLKATA_POLICE: "Kolkata Police",
+        RAILWAY: "Railway"
     };
 
     return names[exam] || exam;
@@ -66,10 +66,8 @@ async function askTutor() {
         questionBox.value.trim();
 
     if (!question) {
-
         answer.innerText =
             "Please type a question first.";
-
         return;
     }
 
@@ -107,52 +105,40 @@ async function askTutor() {
 
         answer.innerHTML = "";
 
-        const answerText =
+        const text =
             document.createElement("div");
 
-        answerText.innerText =
+        text.innerText =
             data.answer ||
             "No answer received.";
 
-        answer.appendChild(answerText);
+        answer.appendChild(text);
 
-
-        // DIAGRAM
 
         if (data.diagram) {
 
-            const diagramTitle =
+            const title =
                 document.createElement("h3");
 
-            diagramTitle.innerText =
+            title.innerText =
                 "📊 Diagram";
 
-            diagramTitle.style.marginTop =
-                "20px";
-
-            answer.appendChild(
-                diagramTitle
-            );
+            answer.appendChild(title);
 
 
-            const diagramBox =
+            const diagram =
                 document.createElement("div");
 
-            diagramBox.style.marginTop =
-                "10px";
-
-            diagramBox.style.overflow =
-                "auto";
-
-            diagramBox.style.textAlign =
-                "center";
-
-            diagramBox.innerHTML =
+            diagram.innerHTML =
                 data.diagram;
 
-            answer.appendChild(
-                diagramBox
-            );
+            diagram.style.overflow =
+                "auto";
+
+            diagram.style.textAlign =
+                "center";
+
+            answer.appendChild(diagram);
         }
 
     } catch (error) {
@@ -191,7 +177,7 @@ function startMic() {
     if (!SpeechRecognition) {
 
         questionBox.placeholder =
-            "Voice recognition is not supported on this browser.";
+            "Voice recognition is not supported.";
 
         return;
     }
@@ -221,12 +207,8 @@ function startMic() {
     recognition.onresult =
         function (event) {
 
-            const text =
-                event.results[0][0]
-                .transcript;
-
             questionBox.value =
-                text;
+                event.results[0][0].transcript;
         };
 
 
@@ -262,7 +244,7 @@ function startMic() {
     } catch (error) {
 
         console.error(
-            "Microphone start error:",
+            "Mic start error:",
             error
         );
     }
@@ -410,9 +392,7 @@ function showQuizQuestion() {
                 <p>
                     Score:
                     <strong>
-                        ${quizScore}
-                        /
-                        ${currentQuiz.length}
+                        ${quizScore}/${currentQuiz.length}
                     </strong>
                 </p>
 
@@ -423,9 +403,7 @@ function showQuizQuestion() {
                     </strong>
                 </p>
 
-                <button
-                    onclick="startQuiz()"
-                >
+                <button onclick="startQuiz()">
                     🔄 Try Again
                 </button>
 
@@ -456,16 +434,19 @@ function showQuizQuestion() {
             <div class="mock-options">
 
                 ${q.options.map(
-                    (option, index) => `
+                    function(option, index) {
 
-                    <button
-                        class="option-btn"
-                        onclick="selectQuizAnswer(${index})"
-                    >
-                        ${escapeHTML(option)}
-                    </button>
+                        return `
 
-                `
+                            <button
+                                class="option-btn"
+                                onclick="selectQuizAnswer(${index})"
+                            >
+                                ${escapeHTML(option)}
+                            </button>
+
+                        `;
+                    }
                 ).join("")}
 
             </div>
@@ -497,7 +478,7 @@ function selectQuizAnswer(selected) {
 
 
     buttons.forEach(
-        button => {
+        function(button) {
             button.disabled = true;
         }
     );
@@ -533,7 +514,7 @@ function selectQuizAnswer(selected) {
 
 
     setTimeout(
-        () => {
+        function() {
 
             quizIndex++;
 
@@ -546,27 +527,18 @@ function selectQuizAnswer(selected) {
 
 
 // ======================================================
-// COMPETITIVE MOCK TEST
-// ======================================================
-
-
-// ======================================================
-// QUESTION FILES
+// MOCK TEST
 // ======================================================
 
 const mockQuestionFiles = {
 
-    UPSC:
-        "upsc_questions.json",
+    UPSC: "upsc_questions.json",
 
-    SSC:
-        "ssc_questions.json",
+    SSC: "ssc_questions.json",
 
-    BANK:
-        "bank_questions.json",
+    BANK: "bank_questions.json",
 
-    WBP:
-        "wbp_questions.json",
+    WBP: "wbp_questions.json",
 
     KOLKATA_POLICE:
         "kolkata_police_questions.json",
@@ -576,10 +548,6 @@ const mockQuestionFiles = {
 
 };
 
-
-// ======================================================
-// MOCK VARIABLES
-// ======================================================
 
 let currentMockExam = "";
 
@@ -609,18 +577,16 @@ async function startMockTest(exam) {
         );
 
     if (!box) {
-
         console.error(
             "mockTestBox not found."
         );
-
         return;
     }
 
 
-    // SSC PART SELECTION
-
     if (exam === "SSC") {
+
+        currentMockPart = "";
 
         await showSSCParts();
 
@@ -628,27 +594,16 @@ async function startMockTest(exam) {
     }
 
 
-    // OTHER EXAMS
-
     const file =
         mockQuestionFiles[exam];
+
 
     if (!file) {
 
         box.innerHTML = `
-
             <div class="mock-result">
-
-                <h2>
-                    ⚠️ Exam Error
-                </h2>
-
-                <p>
-                    Invalid exam selected.
-                </p>
-
+                <h2>⚠️ Invalid Exam</h2>
             </div>
-
         `;
 
         return;
@@ -662,7 +617,7 @@ async function startMockTest(exam) {
 
 
 // ======================================================
-// SSC PART SELECTION
+// SSC PARTS
 // ======================================================
 
 async function showSSCParts() {
@@ -678,19 +633,10 @@ async function showSSCParts() {
 
 
     box.innerHTML = `
-
         <div class="mock-result">
-
-            <h2>
-                📚 SSC Mock Test
-            </h2>
-
-            <p>
-                Loading Parts...
-            </p>
-
+            <h2>📚 SSC Mock Test</h2>
+            <p>Loading Parts...</p>
         </div>
-
     `;
 
 
@@ -703,9 +649,8 @@ async function showSSCParts() {
 
 
         if (!response.ok) {
-
             throw new Error(
-                "SSC question file could not be loaded."
+                "SSC JSON not found."
             );
         }
 
@@ -721,7 +666,7 @@ async function showSSCParts() {
         ) {
 
             throw new Error(
-                "SSC JSON must contain Part-wise questions."
+                "SSC JSON must contain Parts."
             );
         }
 
@@ -729,10 +674,13 @@ async function showSSCParts() {
         const parts =
             Object.keys(data)
                 .filter(
-                    key =>
-                        Array.isArray(
+                    function(key) {
+
+                        return Array.isArray(
                             data[key]
-                        )
+                        );
+
+                    }
                 );
 
 
@@ -762,7 +710,7 @@ async function showSSCParts() {
 
 
         parts.forEach(
-            part => {
+            function(part) {
 
                 const questions =
                     data[part];
@@ -808,8 +756,7 @@ async function showSSCParts() {
                         <br>
 
                         <small>
-                            Questions
-                            ${start}-${end}
+                            Questions ${start}-${end}
                         </small>
 
                     </button>
@@ -831,11 +778,10 @@ async function showSSCParts() {
         box.innerHTML =
             html;
 
-
     } catch (error) {
 
         console.error(
-            "SSC Part Error:",
+            "SSC Error:",
             error
         );
 
@@ -849,11 +795,7 @@ async function showSSCParts() {
                 </h2>
 
                 <p>
-                    SSC Parts could not be loaded.
-                </p>
-
-                <p>
-                    Please check:
+                    Could not load
                     ssc_questions.json
                 </p>
 
@@ -876,6 +818,7 @@ async function startSSCPart(part) {
     currentMockPart =
         part;
 
+
     const box =
         document.getElementById(
             "mockTestBox"
@@ -891,7 +834,7 @@ async function startSSCPart(part) {
         <div class="mock-result">
 
             <h2>
-                📚 Loading SSC ${escapeHTML(part)}...
+                📚 Loading ${escapeHTML(part)}...
             </h2>
 
         </div>
@@ -908,9 +851,8 @@ async function startSSCPart(part) {
 
 
         if (!response.ok) {
-
             throw new Error(
-                "SSC question file could not be loaded."
+                "SSC JSON not found."
             );
         }
 
@@ -921,14 +863,12 @@ async function startSSCPart(part) {
 
         if (
             !data[part] ||
-            !Array.isArray(
-                data[part]
-            ) ||
+            !Array.isArray(data[part]) ||
             data[part].length === 0
         ) {
 
             throw new Error(
-                "Selected SSC Part is empty."
+                "Selected part is empty."
             );
         }
 
@@ -948,7 +888,6 @@ async function startSSCPart(part) {
 
         showMockQuestion();
 
-
     } catch (error) {
 
         console.error(
@@ -966,7 +905,7 @@ async function startSSCPart(part) {
                 </h2>
 
                 <p>
-                    SSC Part could not be loaded.
+                    Could not load this SSC Part.
                 </p>
 
             </div>
@@ -977,7 +916,7 @@ async function startSSCPart(part) {
 
 
 // ======================================================
-// LOAD OTHER EXAM QUESTIONS
+// LOAD OTHER EXAMS
 // ======================================================
 
 async function loadMockQuestions(file) {
@@ -1014,7 +953,7 @@ async function loadMockQuestions(file) {
         if (!response.ok) {
 
             throw new Error(
-                "Question file could not be loaded."
+                "JSON file not found."
             );
         }
 
@@ -1026,7 +965,7 @@ async function loadMockQuestions(file) {
         if (!Array.isArray(data)) {
 
             throw new Error(
-                "This exam JSON must contain an array."
+                "JSON must contain an array."
             );
         }
 
@@ -1051,11 +990,10 @@ async function loadMockQuestions(file) {
 
         showMockQuestion();
 
-
     } catch (error) {
 
         console.error(
-            "Question Bank Error:",
+            "Mock Test Error:",
             error
         );
 
@@ -1074,7 +1012,8 @@ async function loadMockQuestions(file) {
                 </p>
 
                 <p>
-                    Make sure the JSON file is in the same folder.
+                    Check that the JSON file exists
+                    in your GitHub repository.
                 </p>
 
             </div>
@@ -1134,7 +1073,7 @@ function showMockQuestion() {
                 </h2>
 
                 <p>
-                    This question does not have valid options.
+                    Question options are missing.
                 </p>
 
             </div>
@@ -1156,5 +1095,56 @@ function showMockQuestion() {
         currentMockPart
     ) {
 
-        const partNumber =
-  
+        let partNumber =
+            currentMockPart
+                .toLowerCase()
+                .replace(
+                    "part",
+                    ""
+                )
+                .trim();
+
+
+        if (!partNumber) {
+            partNumber = "1";
+        }
+
+
+        title +=
+            " - Part " +
+            partNumber;
+    }
+
+
+    box.innerHTML = `
+
+        <div class="mock-question">
+
+            <p>
+                <strong>
+                    ${escapeHTML(title)}
+                </strong>
+            </p>
+
+            <p>
+                Question
+                ${currentMockIndex + 1}
+                /
+                ${currentMockQuestions.length}
+            </p>
+
+            <h3>
+                ${escapeHTML(q.question)}
+            </h3>
+
+            <div class="mock-options">
+
+                ${q.options.map(
+                    function(option, index) {
+
+                        return `
+
+                            <button
+                                class="option-btn"
+                                onclick="selectMockAnswer(${index})"
+     
