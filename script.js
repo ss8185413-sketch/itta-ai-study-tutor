@@ -1,18 +1,34 @@
-// =========================
+// ======================================================
+// ITTA STUDY IQ
+// COMPLETE SCRIPT.JS
+// ======================================================
+
+
+// ======================================================
 // AI STUDY TUTOR
-// =========================
+// ======================================================
 
 async function askTutor() {
 
-    const question =
-        document.getElementById("question").value.trim();
+    const questionBox =
+        document.getElementById("question");
 
     const answer =
         document.getElementById("answer");
 
+    if (!questionBox || !answer) {
+        console.error("AI Tutor elements not found.");
+        return;
+    }
+
+    const question =
+        questionBox.value.trim();
+
     if (!question) {
+
         answer.innerText =
             "Please type a question first.";
+
         return;
     }
 
@@ -103,7 +119,7 @@ async function askTutor() {
     } catch (error) {
 
         console.error(
-            "Error:",
+            "AI Tutor Error:",
             error
         );
 
@@ -113,19 +129,25 @@ async function askTutor() {
 }
 
 
-// =========================
+// ======================================================
 // MICROPHONE
-// =========================
+// ======================================================
 
 function startMic() {
 
     const questionBox =
         document.getElementById("question");
 
+    const micBtn =
+        document.getElementById("micBtn");
+
+    if (!questionBox) {
+        return;
+    }
+
     const SpeechRecognition =
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
-
 
     if (!SpeechRecognition) {
 
@@ -135,10 +157,8 @@ function startMic() {
         return;
     }
 
-
     const recognition =
         new SpeechRecognition();
-
 
     recognition.lang =
         "en-IN";
@@ -151,9 +171,6 @@ function startMic() {
 
 
     recognition.onstart = function () {
-
-        const micBtn =
-            document.getElementById("micBtn");
 
         if (micBtn) {
             micBtn.innerText =
@@ -175,10 +192,12 @@ function startMic() {
 
 
     recognition.onerror =
-        function () {
+        function (error) {
 
-            const micBtn =
-                document.getElementById("micBtn");
+            console.error(
+                "Microphone Error:",
+                error
+            );
 
             if (micBtn) {
                 micBtn.innerText =
@@ -190,9 +209,6 @@ function startMic() {
     recognition.onend =
         function () {
 
-            const micBtn =
-                document.getElementById("micBtn");
-
             if (micBtn) {
                 micBtn.innerText =
                     "🎙️";
@@ -200,25 +216,35 @@ function startMic() {
         };
 
 
-    recognition.start();
+    try {
+
+        recognition.start();
+
+    } catch (error) {
+
+        console.error(
+            "Microphone start error:",
+            error
+        );
+    }
 }
 
 
-// =========================
+// ======================================================
 // STUDY QUIZ
-// =========================
+// ======================================================
 
 const quizQuestions = [
 
     {
         question:
-            "ভারতের রাজধানী কোনটি?",
+            "Which city is the capital of India?",
 
         options: [
-            "মুম্বাই",
-            "কলকাতা",
-            "নয়াদিল্লি",
-            "চেন্নাই"
+            "Mumbai",
+            "Kolkata",
+            "New Delhi",
+            "Chennai"
         ],
 
         answer: 2
@@ -227,13 +253,13 @@ const quizQuestions = [
 
     {
         question:
-            "ভারতের জাতীয় পশু কোনটি?",
+            "What is the national animal of India?",
 
         options: [
-            "সিংহ",
-            "বাঘ",
-            "হাতি",
-            "হরিণ"
+            "Lion",
+            "Tiger",
+            "Elephant",
+            "Deer"
         ],
 
         answer: 1
@@ -242,13 +268,13 @@ const quizQuestions = [
 
     {
         question:
-            "ভারতের সংবিধান কবে কার্যকর হয়?",
+            "When did the Constitution of India come into effect?",
 
         options: [
-            "১৫ আগস্ট ১৯৪৭",
-            "২৬ জানুয়ারি ১৯৫০",
-            "২৬ নভেম্বর ১৯৪৯",
-            "২ অক্টোবর ১৯৫০"
+            "15 August 1947",
+            "26 January 1950",
+            "26 November 1949",
+            "2 October 1950"
         ],
 
         answer: 1
@@ -257,13 +283,13 @@ const quizQuestions = [
 
     {
         question:
-            "ভারতের জাতীয় ফুল কোনটি?",
+            "What is the national flower of India?",
 
         options: [
-            "গোলাপ",
-            "পদ্ম",
-            "জবা",
-            "সূর্যমুখী"
+            "Rose",
+            "Lotus",
+            "Hibiscus",
+            "Sunflower"
         ],
 
         answer: 1
@@ -272,13 +298,13 @@ const quizQuestions = [
 
     {
         question:
-            "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
+            "Who was the first President of India?",
 
         options: [
-            "জওহরলাল নেহরু",
-            "ড. রাজেন্দ্র প্রসাদ",
-            "সর্দার প্যাটেল",
-            "ড. বি. আর. আম্বেদকর"
+            "Jawaharlal Nehru",
+            "Dr. Rajendra Prasad",
+            "Sardar Patel",
+            "Dr. B. R. Ambedkar"
         ],
 
         answer: 1
@@ -294,9 +320,9 @@ let quizIndex = 0;
 let quizScore = 0;
 
 
-// =========================
+// ======================================================
 // START QUIZ
-// =========================
+// ======================================================
 
 function startQuiz() {
 
@@ -306,7 +332,6 @@ function startQuiz() {
             () => Math.random() - 0.5
         );
 
-
     quizIndex = 0;
 
     quizScore = 0;
@@ -315,9 +340,9 @@ function startQuiz() {
 }
 
 
-// =========================
+// ======================================================
 // SHOW QUIZ QUESTION
-// =========================
+// ======================================================
 
 function showQuizQuestion() {
 
@@ -326,8 +351,8 @@ function showQuizQuestion() {
             "quizBox"
         );
 
-
     if (!box) {
+        console.error("quizBox not found.");
         return;
     }
 
@@ -336,6 +361,13 @@ function showQuizQuestion() {
         quizIndex >=
         currentQuiz.length
     ) {
+
+        const percentage =
+            Math.round(
+                (quizScore /
+                    currentQuiz.length) *
+                100
+            );
 
         box.innerHTML = `
 
@@ -346,7 +378,7 @@ function showQuizQuestion() {
                 </h2>
 
                 <p>
-                    তোমার স্কোর:
+                    Score:
                     <strong>
                         ${quizScore}
                         /
@@ -354,10 +386,17 @@ function showQuizQuestion() {
                     </strong>
                 </p>
 
+                <p>
+                    Percentage:
+                    <strong>
+                        ${percentage}%
+                    </strong>
+                </p>
+
                 <button
                     onclick="startQuiz()"
                 >
-                    🔄 আবার Quiz দাও
+                    🔄 Try Again
                 </button>
 
             </div>
@@ -377,25 +416,29 @@ function showQuizQuestion() {
         <div class="mock-question">
 
             <h3>
-                ${quizIndex + 1}.
-                ${q.question}
+                Question ${quizIndex + 1}
             </h3>
 
+            <p>
+                ${escapeHTML(q.question)}
+            </p>
 
-            ${q.options.map(
-                (option, index) => `
+            <div class="mock-options">
 
-                <button
-                    class="option-btn"
-                    onclick="
-                        selectQuizAnswer(${index})
-                    "
-                >
-                    ${option}
-                </button>
+                ${q.options.map(
+                    (option, index) => `
 
-            `
-            ).join("")}
+                    <button
+                        class="option-btn"
+                        onclick="selectQuizAnswer(${index})"
+                    >
+                        ${escapeHTML(option)}
+                    </button>
+
+                `
+                ).join("")}
+
+            </div>
 
         </div>
 
@@ -403,29 +446,75 @@ function showQuizQuestion() {
 }
 
 
-// =========================
+// ======================================================
 // SELECT QUIZ ANSWER
-// =========================
+// ======================================================
 
 function selectQuizAnswer(selected) {
 
-    const correct =
-        currentQuiz[
-            quizIndex
-        ].answer;
+    const question =
+        currentQuiz[quizIndex];
 
-
-    if (
-        selected === correct
-    ) {
-
-        quizScore++;
+    if (!question) {
+        return;
     }
 
 
-    quizIndex++;
+    const buttons =
+        document.querySelectorAll(
+            "#quizBox .option-btn"
+        );
 
-    showQuizQuestion();
+
+    buttons.forEach(
+        button => {
+            button.disabled = true;
+        }
+    );
+
+
+    if (
+        Number(selected) ===
+        Number(question.answer)
+    ) {
+
+        quizScore++;
+
+        if (buttons[selected]) {
+
+            buttons[selected]
+                .classList.add("correct");
+
+        }
+
+    } else {
+
+        if (buttons[selected]) {
+
+            buttons[selected]
+                .classList.add("wrong");
+
+        }
+
+        if (buttons[question.answer]) {
+
+            buttons[question.answer]
+                .classList.add("correct");
+
+        }
+    }
+
+
+    setTimeout(
+        () => {
+
+            quizIndex++;
+
+            showQuizQuestion();
+
+        },
+        800
+    );
 }
 
 
@@ -434,9 +523,9 @@ function selectQuizAnswer(selected) {
 // ======================================================
 
 
-// =========================
-// SEPARATE JSON FILES
-// =========================
+// ======================================================
+// JSON FILES
+// ======================================================
 
 const mockQuestionFiles = {
 
@@ -461,9 +550,9 @@ const mockQuestionFiles = {
 };
 
 
-// =========================
+// ======================================================
 // MOCK VARIABLES
-// =========================
+// ======================================================
 
 let currentMockExam = "";
 
@@ -475,37 +564,22 @@ let currentMockIndex = 0;
 
 let mockScore = 0;
 
+let mockAnswered = false;
 
-// =========================
+
+// ======================================================
 // START MOCK TEST
-// =========================
+// ======================================================
 
 async function startMockTest(exam) {
 
     currentMockExam =
         exam;
 
-
-    const file =
-        mockQuestionFiles[exam];
-
-
-    if (!file) {
-
-        console.error(
-            "Question file not found:",
-            exam
-        );
-
-        return;
-    }
-
-
     const box =
         document.getElementById(
             "mockTestBox"
         );
-
 
     if (!box) {
 
@@ -518,7 +592,7 @@ async function startMockTest(exam) {
 
 
     // =========================
-    // SSC PART SELECTION
+    // SSC
     // =========================
 
     if (exam === "SSC") {
@@ -533,8 +607,34 @@ async function startMockTest(exam) {
     // OTHER EXAMS
     // =========================
 
-    loadMockQuestions(file);
+    const file =
+        mockQuestionFiles[exam];
 
+    if (!file) {
+
+        box.innerHTML = `
+
+            <div class="mock-result">
+
+                <h2>
+                    ⚠️ Exam Error
+                </h2>
+
+                <p>
+                    Invalid exam selected.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    currentMockPart = "";
+
+    await loadMockQuestions(file);
 }
 
 
@@ -549,7 +649,6 @@ async function showSSCParts() {
             "mockTestBox"
         );
 
-
     if (!box) {
         return;
     }
@@ -562,10 +661,6 @@ async function showSSCParts() {
             <h2>
                 📚 SSC Mock Test
             </h2>
-
-            <p>
-                Select a Part
-            </p>
 
             <p>
                 Loading Parts...
@@ -587,7 +682,7 @@ async function showSSCParts() {
         if (!response.ok) {
 
             throw new Error(
-                "Could not load SSC question file."
+                "SSC question file could not be loaded."
             );
         }
 
@@ -596,15 +691,14 @@ async function showSSCParts() {
             await response.json();
 
 
-        // Check Part structure
-
         if (
             !data ||
-            typeof data !== "object"
+            typeof data !== "object" ||
+            Array.isArray(data)
         ) {
 
             throw new Error(
-                "Invalid SSC JSON structure."
+                "SSC JSON must contain Part-wise questions."
             );
         }
 
@@ -636,7 +730,7 @@ async function showSSCParts() {
                 </h2>
 
                 <p>
-                    Select the Part you want to attempt
+                    Select a Part
                 </p>
 
                 <div class="mock-options">
@@ -645,18 +739,25 @@ async function showSSCParts() {
 
 
         parts.forEach(
-            (part, index) => {
+            part => {
 
                 const questions =
                     data[part];
 
 
-                const partNumber =
+                let partNumber =
                     part
+                    .toLowerCase()
                     .replace(
                         "part",
                         ""
-                    );
+                    )
+                    .trim();
+
+
+                if (!partNumber) {
+                    partNumber = "1";
+                }
 
 
                 const start =
@@ -676,19 +777,21 @@ async function showSSCParts() {
 
                     <button
                         class="option-btn"
-                        onclick="
-                            startSSCPart('${part}')
-                        "
+                        onclick="startSSCPart('${escapeAttribute(part)}')"
                     >
-                        📘 Part ${partNumber}
+
+                        📘 Part ${escapeHTML(partNumber)}
+
                         <br>
+
                         <small>
-                            Questions ${start}-${end}
+                            Questions
+                            ${start}-${end}
                         </small>
+
                     </button>
 
                 `;
-
             }
         );
 
@@ -723,11 +826,12 @@ async function showSSCParts() {
                 </h2>
 
                 <p>
-                    SSC Parts load করা যায়নি।
+                    SSC Parts could not be loaded.
                 </p>
 
                 <p>
-                    Check ssc_questions.json
+                    Please check:
+                    ssc_questions.json
                 </p>
 
             </div>
@@ -749,12 +853,10 @@ async function startSSCPart(part) {
     currentMockPart =
         part;
 
-
     const box =
         document.getElementById(
             "mockTestBox"
         );
-
 
     if (!box) {
         return;
@@ -766,12 +868,8 @@ async function startSSCPart(part) {
         <div class="mock-result">
 
             <h2>
-                📚 Loading SSC ${part}...
+                📚 Loading SSC ${escapeHTML(part)}...
             </h2>
-
-            <p>
-                Please wait...
-            </p>
 
         </div>
 
@@ -789,7 +887,7 @@ async function startSSCPart(part) {
         if (!response.ok) {
 
             throw new Error(
-                "Could not load SSC question file."
+                "SSC question file could not be loaded."
             );
         }
 
@@ -813,18 +911,16 @@ async function startSSCPart(part) {
 
 
         currentMockQuestions =
-            [...data[part]]
-            .sort(
-                () =>
-                    Math.random() - 0.5
+            shuffleArray(
+                data[part]
             );
 
 
-        currentMockIndex =
-            0;
+        currentMockIndex = 0;
 
-        mockScore =
-            0;
+        mockScore = 0;
+
+        mockAnswered = false;
 
 
         showMockQuestion();
@@ -847,8 +943,7 @@ async function startSSCPart(part) {
                 </h2>
 
                 <p>
-                    ${part}
-                    load করা যায়নি।
+                    SSC Part could not be loaded.
                 </p>
 
             </div>
@@ -869,7 +964,6 @@ async function loadMockQuestions(file) {
             "mockTestBox"
         );
 
-
     if (!box) {
         return;
     }
@@ -882,10 +976,6 @@ async function loadMockQuestions(file) {
             <h2>
                 📚 Loading Questions...
             </h2>
-
-            <p>
-                Please wait...
-            </p>
 
         </div>
 
@@ -901,22 +991,24 @@ async function loadMockQuestions(file) {
         if (!response.ok) {
 
             throw new Error(
-                "Could not load " +
-                file
+                "Question file could not be loaded."
             );
         }
 
 
-        const questions =
+        const data =
             await response.json();
 
 
-        if (
-            !Array.isArray(
-                questions
-            ) ||
-            questions.length === 0
-        ) {
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "This exam JSON must contain an array."
+            );
+        }
+
+
+        if (data.length === 0) {
 
             throw new Error(
                 "Question bank is empty."
@@ -924,23 +1016,14 @@ async function loadMockQuestions(file) {
         }
 
 
-        currentMockPart =
-            "";
-
-
         currentMockQuestions =
-            [...questions]
-            .sort(
-                () =>
-                    Math.random() - 0.5
-            );
+            shuffleArray(data);
 
+        currentMockIndex = 0;
 
-        currentMockIndex =
-            0;
+        mockScore = 0;
 
-        mockScore =
-            0;
+        mockAnswered = false;
 
 
         showMockQuestion();
@@ -963,13 +1046,8 @@ async function loadMockQuestions(file) {
                 </h2>
 
                 <p>
-                    ${file}
-                    load করা যায়নি।
-                </p>
-
-                <p>
-                    Check the JSON file name
-                    and GitHub folder.
+                    ${escapeHTML(file)}
+                    could not be loaded.
                 </p>
 
             </div>
@@ -979,9 +1057,9 @@ async function loadMockQuestions(file) {
 }
 
 
-// =========================
+// ======================================================
 // SHOW MOCK QUESTION
-// =========================
+// ======================================================
 
 function showMockQuestion() {
 
@@ -989,6 +1067,10 @@ function showMockQuestion() {
         document.getElementById(
             "mockTestBox"
         );
+
+    if (!box) {
+        return;
+    }
 
 
     if (
@@ -1002,10 +1084,38 @@ function showMockQuestion() {
     }
 
 
+    mockAnswered = false;
+
+
     const q =
         currentMockQuestions[
             currentMockIndex
         ];
+
+
+    if (
+        !q ||
+        !Array.isArray(q.options)
+    ) {
+
+        box.innerHTML = `
+
+            <div class="mock-result">
+
+                <h2>
+                    ⚠️ Invalid Question
+                </h2>
+
+                <p>
+                    This question does not have valid options.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
 
 
     let title =
@@ -1021,10 +1131,12 @@ function showMockQuestion() {
 
         const partNumber =
             currentMockPart
+            .toLowerCase()
             .replace(
                 "part",
                 ""
-            );
+            )
+            .trim();
 
 
         title +=
@@ -1038,209 +1150,22 @@ function showMockQuestion() {
         <div class="mock-question">
 
             <p>
-
                 <strong>
-                    ${title}
+                    ${escapeHTML(title)}
                 </strong>
-
-                Mock Test
-
             </p>
 
-
             <p>
-
                 Question
                 ${currentMockIndex + 1}
                 /
                 ${currentMockQuestions.length}
-
             </p>
 
-
             <h3>
-                ${q.question}
+                ${escapeHTML(q.question)}
             </h3>
-
 
             <div class="mock-options">
 
                 ${q.options.map(
-                    (option, index) => `
-
-                    <button
-                        class="option-btn"
-                        onclick="
-                            selectMockAnswer(${index})
-                        "
-                    >
-                        ${option}
-                    </button>
-
-                `
-                ).join("")}
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-// =========================
-// EXAM NAME
-// =========================
-
-function getExamName(exam) {
-
-    const names = {
-
-        UPSC:
-            "UPSC",
-
-        SSC:
-            "SSC",
-
-        BANK:
-            "Bank",
-
-        WBP:
-            "WBP",
-
-        KOLKATA_POLICE:
-            "Kolkata Police",
-
-        RAILWAY:
-            "Railway"
-
-    };
-
-
-    return (
-        names[exam] ||
-        exam
-    );
-}
-
-
-// =========================
-// SELECT MOCK ANSWER
-// =========================
-
-function selectMockAnswer(selected) {
-
-    const question =
-        currentMockQuestions[
-            currentMockIndex
-        ];
-
-
-    const selectedText =
-        question.options[
-            selected
-        ];
-
-
-    const correctText =
-        question.answer;
-
-
-    const buttons =
-        document.querySelectorAll(
-            "#mockTestBox .option-btn"
-        );
-
-
-    // Disable buttons
-
-    buttons.forEach(
-        button => {
-
-            button.disabled =
-                true;
-
-        }
-    );
-
-
-    // =========================
-    // CORRECT / WRONG
-    // =========================
-
-    buttons.forEach(
-        button => {
-
-            const buttonText =
-                button.innerText.trim();
-
-
-            if (
-                buttonText ===
-                correctText.trim()
-            ) {
-
-                button.classList.add(
-                    "correct"
-                );
-            }
-
-
-            if (
-                buttonText ===
-                selectedText.trim() &&
-                selectedText.trim() !==
-                correctText.trim()
-            ) {
-
-                button.classList.add(
-                    "wrong"
-                );
-            }
-
-        }
-    );
-
-
-    // =========================
-    // SCORE
-    // =========================
-
-    if (
-        selectedText.trim() ===
-        correctText.trim()
-    ) {
-
-        mockScore++;
-    }
-
-
-    // =========================
-    // NEXT QUESTION
-    // =========================
-
-    setTimeout(
-        () => {
-
-            currentMockIndex++;
-
-            showMockQuestion();
-
-        },
-        800
-    );
-}
-
-
-// =========================
-// MOCK RESULT
-// =========================
-
-function showMockResult() {
-
-    const box =
-        document.getElementById(
-            "mockTestBox"
-        );
-
-                
