@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What is the full form of RBI?",
+    "options": [
+      "Reserve Bank of India",
+      "Rural Bank of India",
+      "Regional Bank of India",
+      "Reserve Banking Institution"
+    ],
+    "answer": "Reserve Bank of India"
+  },
+  {
+    "question": "Which institution is known as the central bank of India?",
+    "options": [
+      "State Bank of India",
+      "Reserve Bank of India",
+      "Punjab National Bank",
+      "Bank of Baroda"
+    ],
+    "answer": "Reserve Bank of India"
+  },
+  {
+    "question": "What is the full form of NEFT?",
+    "options": [
+      "National Electronic Funds Transfer",
+      "National Easy Funds Transaction",
+      "New Electronic Fund Transfer",
+      "National Exchange Fund Transfer"
+    ],
+    "answer": "National Electronic Funds Transfer"
+  },
+  {
+    "question": "Which bank is the largest public sector bank in India?",
+    "options": [
+      "Punjab National Bank",
+      "Bank of Baroda",
+      "State Bank of India",
+      "Canara Bank"
+    ],
+    "answer": "State Bank of India"
+  },
+  {
+    "question": "What does ATM stand for?",
+    "options": [
+      "Automatic Transfer Machine",
+      "Automated Teller Machine",
+      "Advanced Teller Machine",
+      "Automated Transaction Method"
+    ],
+    "answer": "Automated Teller Machine"
+  },
+  {
+    "question": "What is the full form of KYC in banking?",
+    "options": [
+      "Keep Your Cash",
+      "Know Your Customer",
+      "Know Your Credit",
+      "Keep Your Customer"
+    ],
+    "answer": "Know Your Customer"
+  },
+  {
+    "question": "Which organization regulates the banking system in India?",
+    "options": [
+      "SEBI",
+      "RBI",
+      "IRDAI",
+      "NITI Aayog"
+    ],
+    "answer": "RBI"
+  },
+  {
+    "question": "What is the full form of UPI?",
+    "options": [
+      "Unified Payment Interface",
+      "Unified Payments Interface",
+      "Universal Payment India",
+      "United Payments Interface"
+    ],
+    "answer": "Unified Payments Interface"
+  },
+  {
+    "question": "Which financial institution regulates the securities market in India?",
+    "options": [
+      "RBI",
+      "SEBI",
+      "NABARD",
+      "SIDBI"
+    ],
+    "answer": "SEBI"
+  },
+  {
+    "question": "What is the full form of EMI?",
+    "options": [
+      "Equated Monthly Instalment",
+      "Easy Monthly Interest",
+      "Equal Money Investment",
+      "Equated Money Interest"
+    ],
+    "answer": "Equated Monthly Instalment"
+  }
+]
