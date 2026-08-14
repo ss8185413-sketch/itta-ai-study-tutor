@@ -467,6 +467,8 @@ const mockQuestionFiles = {
 
 let currentMockExam = "";
 
+let currentMockPart = "";
+
 let currentMockQuestions = [];
 
 let currentMockIndex = 0;
@@ -515,7 +517,363 @@ async function startMockTest(exam) {
     }
 
 
-    // Loading
+    // =========================
+    // SSC PART SELECTION
+    // =========================
+
+    if (exam === "SSC") {
+
+        await showSSCParts();
+
+        return;
+    }
+
+
+    // =========================
+    // OTHER EXAMS
+    // =========================
+
+    loadMockQuestions(file);
+
+}
+
+
+// ======================================================
+// SSC PART SELECTION
+// ======================================================
+
+async function showSSCParts() {
+
+    const box =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!box) {
+        return;
+    }
+
+
+    box.innerHTML = `
+
+        <div class="mock-result">
+
+            <h2>
+                📚 SSC Mock Test
+            </h2>
+
+            <p>
+                Select a Part
+            </p>
+
+            <p>
+                Loading Parts...
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                mockQuestionFiles.SSC
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load SSC question file."
+            );
+        }
+
+
+        const data =
+            await response.json();
+
+
+        // Check Part structure
+
+        if (
+            !data ||
+            typeof data !== "object"
+        ) {
+
+            throw new Error(
+                "Invalid SSC JSON structure."
+            );
+        }
+
+
+        const parts =
+            Object.keys(data)
+            .filter(
+                key =>
+                    Array.isArray(
+                        data[key]
+                    )
+            );
+
+
+        if (parts.length === 0) {
+
+            throw new Error(
+                "No SSC Parts found."
+            );
+        }
+
+
+        let html = `
+
+            <div class="mock-question">
+
+                <h2>
+                    📚 SSC Mock Test
+                </h2>
+
+                <p>
+                    Select the Part you want to attempt
+                </p>
+
+                <div class="mock-options">
+
+        `;
+
+
+        parts.forEach(
+            (part, index) => {
+
+                const questions =
+                    data[part];
+
+
+                const partNumber =
+                    part
+                    .replace(
+                        "part",
+                        ""
+                    );
+
+
+                const start =
+                    (
+                        (Number(partNumber) - 1) *
+                        50
+                    ) + 1;
+
+
+                const end =
+                    start +
+                    questions.length -
+                    1;
+
+
+                html += `
+
+                    <button
+                        class="option-btn"
+                        onclick="
+                            startSSCPart('${part}')
+                        "
+                    >
+                        📘 Part ${partNumber}
+                        <br>
+                        <small>
+                            Questions ${start}-${end}
+                        </small>
+                    </button>
+
+                `;
+
+            }
+        );
+
+
+        html += `
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        box.innerHTML =
+            html;
+
+
+    } catch (error) {
+
+        console.error(
+            "SSC Part Error:",
+            error
+        );
+
+
+        box.innerHTML = `
+
+            <div class="mock-result">
+
+                <h2>
+                    ⚠️ SSC Question Bank Error
+                </h2>
+
+                <p>
+                    SSC Parts load করা যায়নি।
+                </p>
+
+                <p>
+                    Check ssc_questions.json
+                </p>
+
+            </div>
+
+        `;
+    }
+}
+
+
+// ======================================================
+// START SSC PART
+// ======================================================
+
+async function startSSCPart(part) {
+
+    currentMockExam =
+        "SSC";
+
+    currentMockPart =
+        part;
+
+
+    const box =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!box) {
+        return;
+    }
+
+
+    box.innerHTML = `
+
+        <div class="mock-result">
+
+            <h2>
+                📚 Loading SSC ${part}...
+            </h2>
+
+            <p>
+                Please wait...
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                mockQuestionFiles.SSC
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load SSC question file."
+            );
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data[part] ||
+            !Array.isArray(
+                data[part]
+            ) ||
+            data[part].length === 0
+        ) {
+
+            throw new Error(
+                "Selected SSC Part is empty."
+            );
+        }
+
+
+        currentMockQuestions =
+            [...data[part]]
+            .sort(
+                () =>
+                    Math.random() - 0.5
+            );
+
+
+        currentMockIndex =
+            0;
+
+        mockScore =
+            0;
+
+
+        showMockQuestion();
+
+
+    } catch (error) {
+
+        console.error(
+            "SSC Part Error:",
+            error
+        );
+
+
+        box.innerHTML = `
+
+            <div class="mock-result">
+
+                <h2>
+                    ⚠️ Error
+                </h2>
+
+                <p>
+                    ${part}
+                    load করা যায়নি।
+                </p>
+
+            </div>
+
+        `;
+    }
+}
+
+
+// ======================================================
+// LOAD OTHER EXAM QUESTIONS
+// ======================================================
+
+async function loadMockQuestions(file) {
+
+    const box =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!box) {
+        return;
+    }
+
 
     box.innerHTML = `
 
@@ -554,7 +912,9 @@ async function startMockTest(exam) {
 
 
         if (
-            !Array.isArray(questions) ||
+            !Array.isArray(
+                questions
+            ) ||
             questions.length === 0
         ) {
 
@@ -564,9 +924,9 @@ async function startMockTest(exam) {
         }
 
 
-        // =========================
-        // SHUFFLE QUESTIONS
-        // =========================
+        currentMockPart =
+            "";
+
 
         currentMockQuestions =
             [...questions]
@@ -576,9 +936,11 @@ async function startMockTest(exam) {
             );
 
 
-        currentMockIndex = 0;
+        currentMockIndex =
+            0;
 
-        mockScore = 0;
+        mockScore =
+            0;
 
 
         showMockQuestion();
@@ -646,6 +1008,31 @@ function showMockQuestion() {
         ];
 
 
+    let title =
+        getExamName(
+            currentMockExam
+        );
+
+
+    if (
+        currentMockExam === "SSC" &&
+        currentMockPart
+    ) {
+
+        const partNumber =
+            currentMockPart
+            .replace(
+                "part",
+                ""
+            );
+
+
+        title +=
+            " - Part " +
+            partNumber;
+    }
+
+
     box.innerHTML = `
 
         <div class="mock-question">
@@ -653,9 +1040,7 @@ function showMockQuestion() {
             <p>
 
                 <strong>
-                    ${getExamName(
-                        currentMockExam
-                    )}
+                    ${title}
                 </strong>
 
                 Mock Test
@@ -858,65 +1243,4 @@ function showMockResult() {
             "mockTestBox"
         );
 
-
-    const total =
-        currentMockQuestions.length;
-
-
-    const percentage =
-        total > 0
-            ? Math.round(
-                (mockScore / total) *
-                100
-            )
-            : 0;
-
-
-    box.innerHTML = `
-
-        <div class="mock-result">
-
-            <h2>
-                🎉 Mock Test Complete!
-            </h2>
-
-
-            <h3>
-                ${getExamName(
-                    currentMockExam
-                )}
-            </h3>
-
-
-            <p>
-                Score:
-                <strong>
-                    ${mockScore}
-                    /
-                    ${total}
-                </strong>
-            </p>
-
-
-            <p>
-                Percentage:
-                <strong>
-                    ${percentage}%
-                </strong>
-            </p>
-
-
-            <button
-                onclick="
-                    startMockTest(
-                        '${currentMockExam}'
-                    )
-                "
-            >
-                🔄 Try Again
-            </button>
-
-        </div>
-
-    `;
-}
+                
