@@ -1,0 +1,102 @@
+[
+  {
+    "question": "In which year was the Kolkata Police established in its present form?",
+    "options": [
+      "1845",
+      "1856",
+      "1866",
+      "1872"
+    ],
+    "answer": "1866"
+  },
+  {
+    "question": "What is the emergency police helpline number in India?",
+    "options": [
+      "100",
+      "101",
+      "102",
+      "108"
+    ],
+    "answer": "100"
+  },
+  {
+    "question": "Which city is served by the Kolkata Police?",
+    "options": [
+      "Siliguri",
+      "Kolkata",
+      "Durgapur",
+      "Howrah"
+    ],
+    "answer": "Kolkata"
+  },
+  {
+    "question": "What is the headquarters of Kolkata Police known as?",
+    "options": [
+      "Lalbazar",
+      "Writers' Building",
+      "Nabanna",
+      "Kolkata Police Ground"
+    ],
+    "answer": "Lalbazar"
+  },
+  {
+    "question": "Which river flows along the western side of Kolkata?",
+    "options": [
+      "Damodar",
+      "Teesta",
+      "Hooghly",
+      "Mahananda"
+    ],
+    "answer": "Hooghly"
+  },
+  {
+    "question": "Who heads the Kolkata Police?",
+    "options": [
+      "Superintendent of Police",
+      "Commissioner of Police",
+      "District Magistrate",
+      "Chief Secretary"
+    ],
+    "answer": "Commissioner of Police"
+  },
+  {
+    "question": "Which famous monument is located near the Maidan area of Kolkata?",
+    "options": [
+      "Victoria Memorial",
+      "India Gate",
+      "Gateway of India",
+      "Charminar"
+    ],
+    "answer": "Victoria Memorial"
+  },
+  {
+    "question": "Which festival is particularly famous in Kolkata?",
+    "options": [
+      "Durga Puja",
+      "Bihu",
+      "Onam",
+      "Pongal"
+    ],
+    "answer": "Durga Puja"
+  },
+  {
+    "question": "Which organization is responsible for investigating serious criminal cases in Kolkata under its jurisdiction?",
+    "options": [
+      "Kolkata Police Detective Department",
+      "Indian Army",
+      "Forest Department",
+      "Municipal Corporation"
+    ],
+    "answer": "Kolkata Police Detective Department"
+  },
+  {
+    "question": "Which of the following is a major responsibility of Kolkata Police?",
+    "options": [
+      "Maintaining law and order",
+      "Managing railways",
+      "Issuing passports",
+      "Conducting national elections"
+    ],
+    "answer": "Maintaining law and order"
+  }
+]
