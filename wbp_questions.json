@@ -1,0 +1,102 @@
+[
+  {
+    "question": "When was the West Bengal Police established?",
+    "options": [
+      "1947",
+      "1950",
+      "1956",
+      "1960"
+    ],
+    "answer": "1950"
+  },
+  {
+    "question": "What is the emergency helpline number for police services in India?",
+    "options": [
+      "100",
+      "101",
+      "102",
+      "108"
+    ],
+    "answer": "100"
+  },
+  {
+    "question": "Which river is known as the 'Sorrow of Bengal'?",
+    "options": [
+      "Hooghly",
+      "Damodar",
+      "Teesta",
+      "Mahananda"
+    ],
+    "answer": "Damodar"
+  },
+  {
+    "question": "What is the capital of West Bengal?",
+    "options": [
+      "Siliguri",
+      "Howrah",
+      "Kolkata",
+      "Durgapur"
+    ],
+    "answer": "Kolkata"
+  },
+  {
+    "question": "Which national park in West Bengal is famous for the Royal Bengal Tiger?",
+    "options": [
+      "Sundarbans National Park",
+      "Jaldapara National Park",
+      "Gorumara National Park",
+      "Neora Valley National Park"
+    ],
+    "answer": "Sundarbans National Park"
+  },
+  {
+    "question": "Which mountain range is located in the northern part of West Bengal?",
+    "options": [
+      "Aravalli Range",
+      "Western Ghats",
+      "Himalayas",
+      "Vindhya Range"
+    ],
+    "answer": "Himalayas"
+  },
+  {
+    "question": "Which festival is widely celebrated in West Bengal?",
+    "options": [
+      "Durga Puja",
+      "Onam",
+      "Bihu",
+      "Pongal"
+    ],
+    "answer": "Durga Puja"
+  },
+  {
+    "question": "Which city is known as the 'Queen of the Hills' in West Bengal?",
+    "options": [
+      "Darjeeling",
+      "Kolkata",
+      "Malda",
+      "Asansol"
+    ],
+    "answer": "Darjeeling"
+  },
+  {
+    "question": "Which sea lies to the south of West Bengal?",
+    "options": [
+      "Arabian Sea",
+      "Bay of Bengal",
+      "Red Sea",
+      "Caspian Sea"
+    ],
+    "answer": "Bay of Bengal"
+  },
+  {
+    "question": "Who is responsible for maintaining law and order at the district level in West Bengal Police?",
+    "options": [
+      "District Magistrate",
+      "Superintendent of Police",
+      "Chief Secretary",
+      "Mayor"
+    ],
+    "answer": "Superintendent of Police"
+  }
+    ]
