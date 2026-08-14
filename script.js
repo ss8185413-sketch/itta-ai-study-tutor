@@ -2,6 +2,18 @@
 // ITTA STUDY IQ - MAIN SCRIPT
 // ===============================
 
+
+// ===============================
+// GLOBAL VARIABLES
+// ===============================
+
+let currentQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedExam = "";
+let selectedPart = "";
+
+
 // ===============================
 // AI STUDY TUTOR
 // ===============================
@@ -12,7 +24,7 @@ async function askTutor() {
     const answerBox = document.getElementById("answer");
 
     if (!questionBox || !answerBox) {
-        console.error("Question or Answer element not found.");
+        console.error("AI Tutor elements not found.");
         return;
     }
 
@@ -38,63 +50,66 @@ async function askTutor() {
         });
 
         if (!response.ok) {
-            throw new Error("Server error: " + response.status);
+            throw new Error("Server Error: " + response.status);
         }
 
         const data = await response.json();
 
         if (data.answer) {
             answerBox.innerText = data.answer;
-        } else if (data.text) {
+        }
+        else if (data.text) {
             answerBox.innerText = data.text;
-        } else {
-            answerBox.innerText = "Sorry, no answer received.";
+        }
+        else {
+            answerBox.innerText =
+                "Sorry, no answer received.";
         }
 
-    } catch (error) {
+    }
+    catch (error) {
 
         console.error("AI Tutor Error:", error);
 
         answerBox.innerText =
             "Something went wrong. Please try again.";
+
     }
 }
 
 
 // ===============================
-// ENTER KEY FOR AI TUTOR
+// AI ENTER KEY
 // ===============================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const questionBox = document.getElementById("question");
+    const questionBox =
+        document.getElementById("question");
 
     if (questionBox) {
 
-        questionBox.addEventListener("keydown", function (event) {
+        questionBox.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Enter" && !event.shiftKey) {
+                if (
+                    event.key === "Enter" &&
+                    !event.shiftKey
+                ) {
 
-                event.preventDefault();
-                askTutor();
+                    event.preventDefault();
+
+                    askTutor();
+
+                }
 
             }
-
-        });
+        );
 
     }
 
 });
-
-
-// ===============================
-// MOCK TEST DATA
-// ===============================
-
-let currentQuestions = [];
-let currentQuestionIndex = 0;
-let score = 0;
-let selectedExam = "";
 
 
 // ===============================
@@ -104,87 +119,297 @@ let selectedExam = "";
 async function startMockTest(exam) {
 
     selectedExam = exam;
+    selectedPart = "";
+
+    currentQuestions = [];
     currentQuestionIndex = 0;
     score = 0;
 
+
+    // ===============================
+    // SSC PART SELECTION
+    // ===============================
+
+    if (exam === "SSC") {
+
+        showSSCParts();
+
+        return;
+
+    }
+
+
+    // ===============================
+    // OTHER EXAMS
+    // ===============================
+
+    let fileName = "";
+
+    if (exam === "UPSC") {
+        fileName = "upsc_questions.json";
+    }
+    else if (exam === "BANK") {
+        fileName = "bank_questions.json";
+    }
+    else if (exam === "WBP") {
+        fileName = "wbp_questions.json";
+    }
+    else if (exam === "KOLKATA_POLICE") {
+        fileName = "kolkata_police_questions.json";
+    }
+    else if (exam === "RAILWAY") {
+        fileName = "railway_questions.json";
+    }
+    else {
+
+        alert("Exam not found.");
+
+        return;
+
+    }
+
+
     try {
 
-        let fileName = "";
-
-        if (exam === "SSC") {
-            fileName = "ssc_questions.json";
-        }
-        else if (exam === "UPSC") {
-            fileName = "upsc_questions.json";
-        }
-        else if (exam === "Bank") {
-            fileName = "bank_questions.json";
-        }
-        else if (exam === "WBP") {
-            fileName = "wbp_questions.json";
-        }
-        else if (exam === "Kolkata Police") {
-            fileName = "kolkata_police_questions.json";
-        }
-        else if (exam === "Railway") {
-            fileName = "railway_questions.json";
-        }
-        else {
-            alert("Exam not found.");
-            return;
-        }
-
-        const response = await fetch(fileName);
+        const response =
+            await fetch(fileName);
 
         if (!response.ok) {
-            throw new Error("Question file not found.");
+
+            throw new Error(
+                "Question file not found: " + fileName
+            );
+
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
-        if (!Array.isArray(data) || data.length === 0) {
-            alert("No questions found.");
+
+        if (!Array.isArray(data)) {
+
+            alert(
+                "Question file format is incorrect."
+            );
+
             return;
+
         }
 
-        currentQuestions = shuffleArray(data).slice(
-            0,
-            Math.min(10, data.length)
-        );
+
+        if (data.length === 0) {
+
+            alert("No questions found.");
+
+            return;
+
+        }
+
+
+        currentQuestions =
+            shuffleArray(data).slice(
+                0,
+                Math.min(10, data.length)
+            );
+
 
         showMockTest();
 
-    } catch (error) {
+    }
+    catch (error) {
 
-        console.error("Mock Test Error:", error);
+        console.error(
+            "Mock Test Error:",
+            error
+        );
 
         alert(
-            "Question file load হচ্ছে না।\n\n" +
-            "Check করো JSON file-এর নাম এবং location ঠিক আছে কিনা।"
+            "Question file load হচ্ছে না.\n\n" +
+            "File name এবং location check করো."
         );
 
     }
+
 }
 
 
 // ===============================
-// SHUFFLE QUESTIONS
+// SHOW SSC PARTS
+// ===============================
+
+function showSSCParts() {
+
+    const container =
+        document.getElementById("mockTestBox");
+
+    if (!container) {
+
+        console.error(
+            "mockTestBox element not found."
+        );
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="ssc-parts">
+
+            <h3>📚 SSC Mock Test</h3>
+
+            <p>
+                Select a Part
+            </p>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part1')"
+            >
+                📖 Part 1
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+// ===============================
+// START SSC PART
+// ===============================
+
+async function startSSCPart(partName) {
+
+    selectedExam = "SSC";
+    selectedPart = partName;
+
+    currentQuestionIndex = 0;
+    score = 0;
+    currentQuestions = [];
+
+
+    try {
+
+        const response =
+            await fetch("ssc_questions.json");
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "SSC JSON file not found."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        // Check selected part
+
+        if (
+            !data ||
+            !Array.isArray(data[partName])
+        ) {
+
+            alert(
+                "SSC " +
+                partName +
+                " পাওয়া যায়নি."
+            );
+
+            return;
+
+        }
+
+
+        const partQuestions =
+            data[partName];
+
+
+        if (partQuestions.length === 0) {
+
+            alert(
+                "এই Part-এ কোনো প্রশ্ন নেই."
+            );
+
+            return;
+
+        }
+
+
+        // Random 10 questions
+
+        currentQuestions =
+            shuffleArray(
+                partQuestions
+            ).slice(
+                0,
+                Math.min(10, partQuestions.length)
+            );
+
+
+        showMockTest();
+
+    }
+    catch (error) {
+
+        console.error(
+            "SSC Part Error:",
+            error
+        );
+
+        alert(
+            "SSC question file load হচ্ছে না."
+        );
+
+    }
+
+}
+
+
+// ===============================
+// SHUFFLE ARRAY
 // ===============================
 
 function shuffleArray(array) {
 
-    const newArray = [...array];
+    const newArray =
+        [...array];
 
-    for (let i = newArray.length - 1; i > 0; i--) {
 
-        const j = Math.floor(Math.random() * (i + 1));
+    for (
+        let i = newArray.length - 1;
+        i > 0;
+        i--
+    ) {
 
-        [newArray[i], newArray[j]] =
-            [newArray[j], newArray[i]];
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+
+        [
+            newArray[i],
+            newArray[j]
+        ] =
+        [
+            newArray[j],
+            newArray[i]
+        ];
 
     }
 
+
     return newArray;
+
 }
 
 
@@ -195,22 +420,36 @@ function shuffleArray(array) {
 function showMockTest() {
 
     const container =
-        document.getElementById("mockTest");
+        document.getElementById(
+            "mockTestBox"
+        );
+
 
     if (!container) {
-        console.error("mockTest element not found.");
+
+        console.error(
+            "mockTestBox not found."
+        );
+
         return;
+
     }
 
-    container.innerHTML = "";
 
     const question =
-        currentQuestions[currentQuestionIndex];
+        currentQuestions[
+            currentQuestionIndex
+        ];
+
 
     if (!question) {
+
         showResult();
+
         return;
+
     }
+
 
     const questionText =
         question.question ||
@@ -218,19 +457,25 @@ function showMockTest() {
         question.q ||
         "Question not found";
 
+
     const options =
         question.options ||
         question.answers ||
         [];
 
+
     let html = "";
 
+
     html += `
+
         <div class="mock-question">
 
             <h3>
-                Question ${currentQuestionIndex + 1}
-                / ${currentQuestions.length}
+                Question
+                ${currentQuestionIndex + 1}
+                /
+                ${currentQuestions.length}
             </h3>
 
             <p>
@@ -238,32 +483,51 @@ function showMockTest() {
             </p>
 
             <div class="options">
+
     `;
 
-    options.forEach(function (option, index) {
 
-        html += `
-            <button
-                type="button"
-                class="option-btn"
-                onclick="selectAnswer(${index})">
+    options.forEach(
+        function (option, index) {
 
-                ${escapeHTML(String(option))}
+            html += `
 
-            </button>
-        `;
+                <button
+                    type="button"
+                    class="option-btn"
+                    onclick="
+                        selectAnswer(${index})
+                    "
+                >
 
-    });
+                    ${escapeHTML(
+                        String(option)
+                    )}
+
+                </button>
+
+            `;
+
+        }
+    );
+
 
     html += `
+
             </div>
 
-            <div id="feedback"></div>
+            <div
+                id="feedback"
+            ></div>
 
         </div>
+
     `;
 
-    container.innerHTML = html;
+
+    container.innerHTML =
+        html;
+
 }
 
 
@@ -271,12 +535,28 @@ function showMockTest() {
 // SELECT ANSWER
 // ===============================
 
-function selectAnswer(selectedIndex) {
+function selectAnswer(
+    selectedIndex
+) {
 
     const question =
-        currentQuestions[currentQuestionIndex];
+        currentQuestions[
+            currentQuestionIndex
+        ];
 
-    if (!question) return;
+
+    if (!question) {
+
+        return;
+
+    }
+
+
+    const options =
+        question.options ||
+        question.answers ||
+        [];
+
 
     const correctAnswer =
         question.answer ??
@@ -284,152 +564,283 @@ function selectAnswer(selectedIndex) {
         question.correct ??
         question.correct_option;
 
-    const options =
-        question.options ||
-        question.answers ||
-        [];
 
     const buttons =
-        document.querySelectorAll(".option-btn");
+        document.querySelectorAll(
+            ".option-btn"
+        );
 
-    buttons.forEach(function (button) {
 
-        button.disabled = true;
+    buttons.forEach(
+        function (button) {
 
-    });
+            button.disabled = true;
 
-    const feedback =
-        document.getElementById("feedback");
+        }
+    );
+
 
     let correctIndex = -1;
 
-    if (typeof correctAnswer === "number") {
 
-        correctIndex = correctAnswer;
+    // Answer is number
 
-    }
-    else if (typeof correctAnswer === "string") {
+    if (
+        typeof correctAnswer ===
+        "number"
+    ) {
 
         correctIndex =
-            options.findIndex(function (option) {
+            correctAnswer;
 
-                return String(option).trim().toLowerCase() ===
-                    correctAnswer.trim().toLowerCase();
+    }
 
-            });
 
-        if (correctIndex === -1) {
+    // Answer is text
 
-            const letters = ["A", "B", "C", "D"];
+    else if (
+        typeof correctAnswer ===
+        "string"
+    ) {
+
+        correctIndex =
+            options.findIndex(
+                function (option) {
+
+                    return (
+                        String(option)
+                            .trim()
+                            .toLowerCase()
+                        ===
+                        correctAnswer
+                            .trim()
+                            .toLowerCase()
+                    );
+
+                }
+            );
+
+
+        // A / B / C / D support
+
+        if (
+            correctIndex === -1
+        ) {
+
+            const letters =
+                [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                ];
+
 
             correctIndex =
                 letters.indexOf(
-                    correctAnswer.trim().toUpperCase()
+                    correctAnswer
+                        .trim()
+                        .toUpperCase()
                 );
 
         }
 
     }
 
-    if (selectedIndex === correctIndex) {
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    if (
+        selectedIndex ===
+        correctIndex
+    ) {
 
         score++;
 
+
         if (feedback) {
+
             feedback.innerHTML =
                 "<p>✅ Correct!</p>";
+
         }
 
-    } else {
+    }
+    else {
 
         if (feedback) {
+
             feedback.innerHTML =
                 "<p>❌ Incorrect!</p>";
+
         }
 
     }
 
-    setTimeout(function () {
 
-        currentQuestionIndex++;
+    // Next question
 
-        if (
-            currentQuestionIndex <
-            currentQuestions.length
-        ) {
+    setTimeout(
+        function () {
 
-            showMockTest();
+            currentQuestionIndex++;
 
-        } else {
 
-            showResult();
+            if (
+                currentQuestionIndex <
+                currentQuestions.length
+            ) {
 
-        }
+                showMockTest();
 
-    }, 900);
+            }
+            else {
+
+                showResult();
+
+            }
+
+        },
+        900
+    );
+
 }
 
 
 // ===============================
-// RESULT
+// SHOW RESULT
 // ===============================
 
 function showResult() {
 
     const container =
-        document.getElementById("mockTest");
+        document.getElementById(
+            "mockTestBox"
+        );
 
-    if (!container) return;
+
+    if (!container) {
+
+        return;
+
+    }
+
 
     const total =
         currentQuestions.length;
 
+
     const percentage =
         total > 0
-            ? Math.round((score / total) * 100)
+            ? Math.round(
+                (score / total) * 100
+            )
             : 0;
+
+
+    let testName =
+        selectedExam;
+
+
+    if (
+        selectedExam === "SSC" &&
+        selectedPart
+    ) {
+
+        testName =
+            "SSC - " +
+            selectedPart
+                .replace(
+                    "part",
+                    "Part "
+                );
+
+    }
+
 
     container.innerHTML = `
 
         <div class="result-box">
 
-            <h2>🎉 Test Complete!</h2>
+            <h2>
+                🎉 Test Complete!
+            </h2>
 
             <p>
-                Exam: ${escapeHTML(selectedExam)}
+                Exam:
+                ${escapeHTML(testName)}
             </p>
 
             <h3>
-                Score: ${score} / ${total}
+                Score:
+                ${score}
+                /
+                ${total}
             </h3>
 
             <h3>
-                Percentage: ${percentage}%
+                Percentage:
+                ${percentage}%
             </h3>
+
 
             <button
                 type="button"
-                onclick="restartMockTest()">
+                onclick="restartMockTest()"
+            >
 
                 🔄 Try Again
+
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startMockTest('SSC')"
+            >
+
+                📚 Choose Part
 
             </button>
 
         </div>
 
     `;
+
 }
 
 
 // ===============================
-// RESTART TEST
+// RESTART
 // ===============================
 
 function restartMockTest() {
 
-    if (!selectedExam) return;
+    if (
+        selectedExam === "SSC" &&
+        selectedPart
+    ) {
 
-    startMockTest(selectedExam);
+        startSSCPart(
+            selectedPart
+        );
+
+        return;
+
+    }
+
+
+    if (selectedExam) {
+
+        startMockTest(
+            selectedExam
+        );
+
+    }
 
 }
 
@@ -441,97 +852,135 @@ function restartMockTest() {
 function escapeHTML(value) {
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 // ===============================
-// SAFE BUTTON CONNECTION
+// SIMPLE QUIZ SUPPORT
 // ===============================
 
-document.addEventListener("DOMContentLoaded", function () {
+function startQuiz() {
 
-    // AI Tutor button
-    const tutorButton =
-        document.getElementById("askButton");
+    const quizBox =
+        document.getElementById(
+            "quizBox"
+        );
 
-    if (tutorButton) {
 
-        tutorButton.onclick = function () {
-            askTutor();
-        };
+    if (!quizBox) {
+
+        return;
 
     }
 
 
-    // SSC
-    const sscButton =
-        document.getElementById("sscButton");
+    quizBox.innerHTML = `
 
-    if (sscButton) {
-        sscButton.onclick = function () {
-            startMockTest("SSC");
-        };
+        <div>
+
+            <h3>
+                🧠 Quiz
+            </h3>
+
+            <p>
+                Quiz system is ready.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+// ===============================
+// MICROPHONE SUPPORT
+// ===============================
+
+function startMic() {
+
+    const questionBox =
+        document.getElementById(
+            "question"
+        );
+
+
+    if (!questionBox) {
+
+        return;
+
     }
 
 
-    // UPSC
-    const upscButton =
-        document.getElementById("upscButton");
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
 
-    if (upscButton) {
-        upscButton.onclick = function () {
-            startMockTest("UPSC");
-        };
+
+    if (!SpeechRecognition) {
+
+        alert(
+            "Voice input is not supported on this browser."
+        );
+
+        return;
+
     }
 
 
-    // Bank
-    const bankButton =
-        document.getElementById("bankButton");
+    const recognition =
+        new SpeechRecognition();
 
-    if (bankButton) {
-        bankButton.onclick = function () {
-            startMockTest("Bank");
+
+    recognition.lang =
+        "en-IN";
+
+
+    recognition.interimResults =
+        false;
+
+
+    recognition.onresult =
+        function (event) {
+
+            questionBox.value =
+                event.results[0][0].transcript;
+
         };
-    }
 
 
-    // WBP
-    const wbpButton =
-        document.getElementById("wbpButton");
+    recognition.onerror =
+        function (error) {
 
-    if (wbpButton) {
-        wbpButton.onclick = function () {
-            startMockTest("WBP");
+            console.error(
+                "Microphone Error:",
+                error
+            );
+
         };
-    }
 
 
-    // Kolkata Police
-    const kpButton =
-        document.getElementById("kolkataPoliceButton");
+    recognition.start();
 
-    if (kpButton) {
-        kpButton.onclick = function () {
-            startMockTest("Kolkata Police");
-        };
-    }
-
-
-    // Railway
-    const railwayButton =
-        document.getElementById("railwayButton");
-
-    if (railwayButton) {
-        railwayButton.onclick = function () {
-            startMockTest("Railway");
-        };
-    }
-
-});
+            }
