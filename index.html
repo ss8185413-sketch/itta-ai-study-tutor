@@ -12,6 +12,7 @@
 
 <body>
   <main class="app">
+
     <h1>✨ Itta Study IQ</h1>
     <p class="subtitle">Your simple AI study helper</p>
 
@@ -34,7 +35,8 @@
       </div>
     </section>
 
-    <!-- Quiz Section -->
+
+    <!-- Study Quiz -->
     <section class="card" id="quizSection">
       <h2>🧠 Study Quiz</h2>
       <p>Test your knowledge with a quick quiz.</p>
@@ -44,8 +46,50 @@
       <div id="quizBox"></div>
     </section>
 
+
+    <!-- Competitive Exam Mock Test -->
+    <section class="card mock-card">
+
+      <h2>📝 Competitive Exam Mock Test</h2>
+
+      <p class="mock-subtitle">
+        Choose an exam and start your mock test.
+      </p>
+
+      <div class="exam-grid">
+
+        <button class="exam-btn" onclick="startMockTest('UPSC')">
+          🇮🇳 UPSC
+        </button>
+
+        <button class="exam-btn" onclick="startMockTest('SSC')">
+          📚 SSC
+        </button>
+
+        <button class="exam-btn" onclick="startMockTest('BANK')">
+          🏦 Bank
+        </button>
+
+        <button class="exam-btn" onclick="startMockTest('WBP')">
+          👮 WBP
+        </button>
+
+        <button class="exam-btn" onclick="startMockTest('KOLKATA_POLICE')">
+          👮 Kolkata Police
+        </button>
+
+        <button class="exam-btn" onclick="startMockTest('RAILWAY')">
+          🚆 Railway
+        </button>
+
+      </div>
+
+      <div id="mockTestBox"></div>
+
+    </section>
+
   </main>
 
   <script src="script.js"></script>
 </body>
-</html>
+      </html>
