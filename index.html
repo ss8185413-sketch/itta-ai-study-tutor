@@ -1,95 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Itta Study IQ</title>
+    <meta charset="UTF-8">
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Itta Study IQ</title>
+
+
+    <!-- PWA -->
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
+
 <body>
-  <main class="app">
 
-    <h1>✨ Itta Study IQ</h1>
-    <p class="subtitle">Your simple AI study helper</p>
 
-    <!-- AI Study Section -->
+<main class="app">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <h1>
+        ✨ Itta Study IQ
+    </h1>
+
+
+    <p class="subtitle">
+        Your simple AI study helper
+    </p>
+
+
+    <!-- =========================
+         AI STUDY TUTOR
+    ========================== -->
+
     <section class="card">
-      <label for="question">Ask a study question</label>
 
-      <textarea
-        id="question"
-        placeholder="Type your question here..."
-      ></textarea>
-
-      <div class="button-row">
-        <button onclick="askTutor()">Ask Itta AI</button>
-        <button id="micBtn" onclick="startMic()">🎙️</button>
-      </div>
-
-      <div id="answer" class="answer">
-        Your answer will appear here.
-      </div>
-    </section>
+        <h2>
+            🤖 AI Study Tutor
+        </h2>
 
 
-    <!-- Study Quiz -->
-    <section class="card" id="quizSection">
-      <h2>🧠 Study Quiz</h2>
-      <p>Test your knowledge with a quick quiz.</p>
-
-      <button onclick="startQuiz()">Start Quiz</button>
-
-      <div id="quizBox"></div>
-    </section>
+        <label for="question">
+            Ask a study question
+        </label>
 
 
-    <!-- Competitive Exam Mock Test -->
-    <section class="card mock-card">
+        <textarea
+            id="question"
+            placeholder="Type your question here..."
+        ></textarea>
 
-      <h2>📝 Competitive Exam Mock Test</h2>
 
-      <p class="mock-subtitle">
-        Choose an exam and start your mock test.
-      </p>
+        <div class="button-row">
 
-      <div class="exam-grid">
+            <button
+                onclick="askTutor()"
+            >
+                Ask Itta AI ✨
+            </button>
 
-        <button class="exam-btn" onclick="startMockTest('UPSC')">
-          🇮🇳 UPSC
-        </button>
 
-        <button class="exam-btn" onclick="startMockTest('SSC')">
-          📚 SSC
-        </button>
+            <button
+                id="micBtn"
+                onclick="startMic()"
+            >
+                🎙️
+            </button>
 
-        <button class="exam-btn" onclick="startMockTest('BANK')">
-          🏦 Bank
-        </button>
+        </div>
 
-        <button class="exam-btn" onclick="startMockTest('WBP')">
-          👮 WBP
-        </button>
 
-        <button class="exam-btn" onclick="startMockTest('KOLKATA_POLICE')">
-          👮 Kolkata Police
-        </button>
-
-        <button class="exam-btn" onclick="startMockTest('RAILWAY')">
-          🚆 Railway
-        </button>
-
-      </div>
-
-      <div id="mockTestBox"></div>
+        <div
+            id="answer"
+            class="answer"
+        >
+            Your answer will appear here.
+        </div>
 
     </section>
 
-  </main>
 
-  <script src="script.js"></script>
+    <!-- =========================
+         STUDY QUIZ
+    ========================== -->
+
+    <section
+        class="card"
+        id="quizSection"
+    >
+
+        <h2>
+            🧠 Study Quiz
+        </h2>
+
+
+        <p>
+            Test your knowledge with a quick quiz.
+        </p>
+
+
+        <button
+            onclick="startQuiz()"
+        >
+            ▶️ Start Quiz
+        </button>
+
+
+        <div
+            id="quizBox"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================
+         COMPETITIVE MOCK TEST
+    ========================== -->
+
+    <section
+        class="card mock-card"
+    >
+
+        <h2>
+            📝 Competitive Exam Mock Test
+        </h2>
+
+
+        <p class="mock-subtitle">
+            Choose an exam and start your mock test.
+        </p>
+
+
+        <!-- EXAM BUTTONS -->
+
+        <div class="exam-grid">
+
+
+            <!-- UPSC -->
+
+            <button
+                class="exam-btn"
+                onclick="startMockTest('UPSC')"
+            >
+                🇮🇳 UPSC
+            </button>
+
+
+            <!-- SSC -->
+
+            <button
+                class="exam-btn"
+                onclick="startMockTest('SSC')"
+            >
+                📚 SSC
+            </button>
+
+
+            <!-- BANK -->
+
+            <button
+                class="exam-btn"
+                onclick="startMockTest('BANK')"
+            >
+                🏦 Bank
+            </button>
+
+
+            <!-- WBP -->
+
+            <button
+                class="exam-btn"
+                onclick="startMockTest('WBP')"
+            >
+                👮 WBP
+            </button>
+
+
+            <!-- KOLKATA POLICE -->
+
+            <button
+                class="exam-btn"
+                onclick="
+                    startMockTest(
+                        'KOLKATA_POLICE'
+                    )
+                "
+            >
+                🚔 Kolkata Police
+            </button>
+
+
+            <!-- RAILWAY -->
+
+            <button
+                class="exam-btn"
+                onclick="
+                    startMockTest(
+                        'RAILWAY'
+                    )
+                "
+            >
+                🚆 Railway
+            </button>
+
+
+        </div>
+
+
+        <!-- MOCK TEST QUESTIONS -->
+
+        <div
+            id="mockTestBox"
+        >
+
+            <p>
+                Select an exam to start your mock test.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="script.js"></script>
+
+
 </body>
-      </html>
+
+  </html>
