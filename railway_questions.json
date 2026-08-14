@@ -1,0 +1,102 @@
+[
+  {
+    "question": "If tan θ = 3/4, where θ is an acute angle, what is the value of sin θ?",
+    "options": [
+      "3/5",
+      "4/5",
+      "5/3",
+      "4/3"
+    ],
+    "answer": "3/5"
+  },
+  {
+    "question": "A train 180 metres long is running at 54 km/h. How much time will it take to cross a pole?",
+    "options": [
+      "10 seconds",
+      "12 seconds",
+      "15 seconds",
+      "18 seconds"
+    ],
+    "answer": "12 seconds"
+  },
+  {
+    "question": "If cos θ = 12/13, where θ is an acute angle, what is the value of tan θ?",
+    "options": [
+      "5/12",
+      "12/5",
+      "5/13",
+      "13/5"
+    ],
+    "answer": "5/12"
+  },
+  {
+    "question": "A sum becomes ₹7,200 in 2 years at 20% per annum simple interest. What was the principal amount?",
+    "options": [
+      "₹5,000",
+      "₹5,500",
+      "₹6,000",
+      "₹6,500"
+    ],
+    "answer": "₹5,000"
+  },
+  {
+    "question": "Which fundamental force is responsible for keeping planets in their orbits around the Sun?",
+    "options": [
+      "Electromagnetic force",
+      "Gravitational force",
+      "Strong nuclear force",
+      "Weak nuclear force"
+    ],
+    "answer": "Gravitational force"
+  },
+  {
+    "question": "Which part of the Indian Constitution deals with Fundamental Duties?",
+    "options": [
+      "Part III",
+      "Part IV",
+      "Part IVA",
+      "Part V"
+    ],
+    "answer": "Part IVA"
+  },
+  {
+    "question": "A man walks 10 metres north, then turns right and walks 10 metres. He then turns right again and walks 10 metres. In which direction is he from his starting point?",
+    "options": [
+      "North",
+      "South",
+      "East",
+      "West"
+    ],
+    "answer": "East"
+  },
+  {
+    "question": "If the average of five consecutive integers is 24, what is the largest integer?",
+    "options": [
+      "24",
+      "25",
+      "26",
+      "27"
+    ],
+    "answer": "26"
+  },
+  {
+    "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Carbon dioxide",
+      "Hydrogen"
+    ],
+    "answer": "Carbon dioxide"
+  },
+  {
+    "question": "A clock shows 3:00. What is the angle between the hour hand and the minute hand?",
+    "options": [
+      "60°",
+      "90°",
+      "120°",
+      "180°"
+    ],
+    "answer": "90°"
+  }
+]
