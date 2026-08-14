@@ -1,7 +1,48 @@
 // ======================================================
 // ITTA STUDY IQ
-// COMPLETE SCRIPT.JS
+// COMPLETE WORKING SCRIPT.JS
 // ======================================================
+
+
+// ======================================================
+// HELPER FUNCTIONS
+// ======================================================
+
+function escapeHTML(text) {
+    return String(text ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+function escapeAttribute(text) {
+    return String(text ?? "")
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+}
+
+
+function shuffleArray(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}
+
+
+function getExamName(exam) {
+
+    const names = {
+        UPSC: "🇮🇳 UPSC",
+        SSC: "📚 SSC",
+        BANK: "🏦 Bank",
+        WBP: "👮 WBP",
+        KOLKATA_POLICE: "🚔 Kolkata Police",
+        RAILWAY: "🚆 Railway"
+    };
+
+    return names[exam] || exam;
+}
 
 
 // ======================================================
@@ -76,9 +117,7 @@ async function askTutor() {
         answer.appendChild(answerText);
 
 
-        // =========================
         // DIAGRAM
-        // =========================
 
         if (data.diagram) {
 
@@ -192,11 +231,11 @@ function startMic() {
 
 
     recognition.onerror =
-        function (error) {
+        function (event) {
 
             console.error(
                 "Microphone Error:",
-                error
+                event
             );
 
             if (micBtn) {
@@ -250,7 +289,6 @@ const quizQuestions = [
         answer: 2
     },
 
-
     {
         question:
             "What is the national animal of India?",
@@ -264,7 +302,6 @@ const quizQuestions = [
 
         answer: 1
     },
-
 
     {
         question:
@@ -280,7 +317,6 @@ const quizQuestions = [
         answer: 1
     },
 
-
     {
         question:
             "What is the national flower of India?",
@@ -294,7 +330,6 @@ const quizQuestions = [
 
         answer: 1
     },
-
 
     {
         question:
@@ -327,10 +362,7 @@ let quizScore = 0;
 function startQuiz() {
 
     currentQuiz =
-        [...quizQuestions]
-        .sort(
-            () => Math.random() - 0.5
-        );
+        shuffleArray(quizQuestions);
 
     quizIndex = 0;
 
@@ -347,9 +379,7 @@ function startQuiz() {
 function showQuizQuestion() {
 
     const box =
-        document.getElementById(
-            "quizBox"
-        );
+        document.getElementById("quizBox");
 
     if (!box) {
         console.error("quizBox not found.");
@@ -484,7 +514,6 @@ function selectQuizAnswer(selected) {
 
             buttons[selected]
                 .classList.add("correct");
-
         }
 
     } else {
@@ -493,14 +522,12 @@ function selectQuizAnswer(selected) {
 
             buttons[selected]
                 .classList.add("wrong");
-
         }
 
         if (buttons[question.answer]) {
 
             buttons[question.answer]
                 .classList.add("correct");
-
         }
     }
 
@@ -524,7 +551,7 @@ function selectQuizAnswer(selected) {
 
 
 // ======================================================
-// JSON FILES
+// QUESTION FILES
 // ======================================================
 
 const mockQuestionFiles = {
@@ -591,9 +618,7 @@ async function startMockTest(exam) {
     }
 
 
-    // =========================
-    // SSC
-    // =========================
+    // SSC PART SELECTION
 
     if (exam === "SSC") {
 
@@ -603,9 +628,7 @@ async function startMockTest(exam) {
     }
 
 
-    // =========================
     // OTHER EXAMS
-    // =========================
 
     const file =
         mockQuestionFiles[exam];
@@ -705,12 +728,12 @@ async function showSSCParts() {
 
         const parts =
             Object.keys(data)
-            .filter(
-                key =>
-                    Array.isArray(
-                        data[key]
-                    )
-            );
+                .filter(
+                    key =>
+                        Array.isArray(
+                            data[key]
+                        )
+                );
 
 
         if (parts.length === 0) {
@@ -747,12 +770,12 @@ async function showSSCParts() {
 
                 let partNumber =
                     part
-                    .toLowerCase()
-                    .replace(
-                        "part",
-                        ""
-                    )
-                    .trim();
+                        .toLowerCase()
+                        .replace(
+                            "part",
+                            ""
+                        )
+                        .trim();
 
 
                 if (!partNumber) {
@@ -1050,6 +1073,10 @@ async function loadMockQuestions(file) {
                     could not be loaded.
                 </p>
 
+                <p>
+                    Make sure the JSON file is in the same folder.
+                </p>
+
             </div>
 
         `;
@@ -1130,42 +1157,4 @@ function showMockQuestion() {
     ) {
 
         const partNumber =
-            currentMockPart
-            .toLowerCase()
-            .replace(
-                "part",
-                ""
-            )
-            .trim();
-
-
-        title +=
-            " - Part " +
-            partNumber;
-    }
-
-
-    box.innerHTML = `
-
-        <div class="mock-question">
-
-            <p>
-                <strong>
-                    ${escapeHTML(title)}
-                </strong>
-            </p>
-
-            <p>
-                Question
-                ${currentMockIndex + 1}
-                /
-                ${currentMockQuestions.length}
-            </p>
-
-            <h3>
-                ${escapeHTML(q.question)}
-            </h3>
-
-            <div class="mock-options">
-
-                ${q.options.map(
+  
