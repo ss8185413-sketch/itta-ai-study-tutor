@@ -1,203 +1,484 @@
-[
-  {
-    "question": "When did the Constitution of India come into effect?",
-    "options": [
-      "15 August 1947",
-      "26 January 1950",
-      "26 November 1949",
-      "2 October 1950"
-    ],
-    "answer": "26 January 1950"
-  },
-  {
-    "question": "What is the national animal of India?",
-    "options": [
-      "Lion",
-      "Tiger",
-      "Elephant",
-      "Deer"
-    ],
-    "answer": "Tiger"
-  },
-  {
-    "question": "Who was the first President of India?",
-    "options": [
-      "Dr. Rajendra Prasad",
-      "Jawaharlal Nehru",
-      "Sardar Patel",
-      "Dr. B. R. Ambedkar"
-    ],
-    "answer": "Dr. Rajendra Prasad"
-  },
-  {
-    "question": "Which is the largest ocean in the world?",
-    "options": [
-      "Atlantic Ocean",
-      "Indian Ocean",
-      "Pacific Ocean",
-      "Arctic Ocean"
-    ],
-    "answer": "Pacific Ocean"
-  },
-  {
-    "question": "What is the name of the currency of India?",
-    "options": [
-      "Dollar",
-      "Rupee",
-      "Taka",
-      "Dinar"
-    ],
-    "answer": "Rupee"
-  },
-  {
-    "question": "Which planet is closest to the Sun?",
-    "options": [
-      "Venus",
-      "Earth",
-      "Mercury",
-      "Mars"
-    ],
-    "answer": "Mercury"
-  },
-  {
-    "question": "What is the national flower of India?",
-    "options": [
-      "Rose",
-      "Lotus",
-      "Hibiscus",
-      "Sunflower"
-    ],
-    "answer": "Lotus"
-  },
-  {
-    "question": "Who wrote 'Jana Gana Mana'?",
-    "options": [
-      "Kazi Nazrul Islam",
-      "Rabindranath Tagore",
-      "Bankim Chandra Chattopadhyay",
-      "Sarat Chandra Chattopadhyay"
-    ],
-    "answer": "Rabindranath Tagore"
-  },
-  {
-    "question": "What is the capital of India?",
-    "options": [
-      "Mumbai",
-      "Kolkata",
-      "New Delhi",
-      "Chennai"
-    ],
-    "answer": "New Delhi"
-  },
-  {
-    "question": "What is the chemical formula of water?",
-    "options": [
-      "CO₂",
-      "O₂",
-      "H₂O",
-      "H₂"
-    ],
-    "answer": "H₂O"
-  },
-
-  {
-    "question": "What is 25% of 200?",
-    "options": [
-      "25",
-      "40",
-      "50",
-      "75"
-    ],
-    "answer": "50"
-  },
-  {
-    "question": "What is the value of 15 × 8?",
-    "options": [
-      "100",
-      "120",
-      "125",
-      "140"
-    ],
-    "answer": "120"
-  },
-  {
-    "question": "What is 144 ÷ 12?",
-    "options": [
-      "10",
-      "11",
-      "12",
-      "14"
-    ],
-    "answer": "12"
-  },
-  {
-    "question": "If a pen costs ₹20, how much will 5 pens cost?",
-    "options": [
-      "₹80",
-      "₹90",
-      "₹100",
-      "₹120"
-    ],
-    "answer": "₹100"
-  },
-  {
-    "question": "What is the average of 10, 20 and 30?",
-    "options": [
-      "15",
-      "20",
-      "25",
-      "30"
-    ],
-    "answer": "20"
-  },
-  {
-    "question": "A number is increased from 100 to 120. What is the percentage increase?",
-    "options": [
-      "10%",
-      "15%",
-      "20%",
-      "25%"
-    ],
-    "answer": "20%"
-  },
-  {
-    "question": "What is the square of 15?",
-    "options": [
-      "125",
-      "200",
-      "225",
-      "250"
-    ],
-    "answer": "225"
-  },
-  {
-    "question": "What is the HCF of 12 and 18?",
-    "options": [
-      "2",
-      "3",
-      "6",
-      "9"
-    ],
-    "answer": "6"
-  },
-  {
-    "question": "What is the LCM of 4 and 6?",
-    "options": [
-      "8",
-      "10",
-      "12",
-      "24"
-    ],
-    "answer": "12"
-  },
-  {
-    "question": "A train travels 60 km in 1 hour. How far will it travel in 3 hours?",
-    "options": [
-      "120 km",
-      "150 km",
-      "180 km",
-      "200 km"
-    ],
-    "answer": "180 km"
-  }
-    ]
+{
+  "part1": [
+    {
+      "question": "Which Article of the Indian Constitution guarantees the Right to Constitutional Remedies?",
+      "options": [
+        "Article 14",
+        "Article 19",
+        "Article 21",
+        "Article 32"
+      ],
+      "answer": "Article 32"
+    },
+    {
+      "question": "Where was the first session of the Indian National Congress held in 1885?",
+      "options": [
+        "Calcutta",
+        "Bombay",
+        "Madras",
+        "Allahabad"
+      ],
+      "answer": "Bombay"
+    },
+    {
+      "question": "In which year was the Battle of Plassey fought?",
+      "options": [
+        "1756",
+        "1757",
+        "1764",
+        "1772"
+      ],
+      "answer": "1757"
+    },
+    {
+      "question": "The Godavari River drains into which body of water?",
+      "options": [
+        "Arabian Sea",
+        "Bay of Bengal",
+        "Lakshadweep Sea",
+        "Red Sea"
+      ],
+      "answer": "Bay of Bengal"
+    },
+    {
+      "question": "If 40% of a number is 72, what is the number?",
+      "options": [
+        "160",
+        "180",
+        "200",
+        "220"
+      ],
+      "answer": "180"
+    },
+    {
+      "question": "Which organ of the human body secretes insulin?",
+      "options": [
+        "Liver",
+        "Pancreas",
+        "Thyroid",
+        "Kidney"
+      ],
+      "answer": "Pancreas"
+    },
+    {
+      "question": "Which sector received the highest priority in India's First Five-Year Plan?",
+      "options": [
+        "Heavy Industry",
+        "Agriculture and Irrigation",
+        "Information Technology",
+        "Nuclear Energy"
+      ],
+      "answer": "Agriculture and Irrigation"
+    },
+    {
+      "question": "If A : B = 3 : 5 and B : C = 10 : 7, then what is A : C?",
+      "options": [
+        "3 : 7",
+        "6 : 7",
+        "7 : 6",
+        "5 : 7"
+      ],
+      "answer": "6 : 7"
+    },
+    {
+      "question": "Which Indian state is known as the 'Abode of Clouds'?",
+      "options": [
+        "Assam",
+        "Meghalaya",
+        "Sikkim",
+        "Arunachal Pradesh"
+      ],
+      "answer": "Meghalaya"
+    },
+    {
+      "question": "A train running at 72 km/h covers what distance in 25 seconds?",
+      "options": [
+        "400 metres",
+        "450 metres",
+        "500 metres",
+        "550 metres"
+      ],
+      "answer": "500 metres"
+    },
+    {
+      "question": "The Fundamental Duties were added to the Indian Constitution by which Constitutional Amendment?",
+      "options": [
+        "24th Amendment",
+        "42nd Amendment",
+        "44th Amendment",
+        "52nd Amendment"
+      ],
+      "answer": "42nd Amendment"
+    },
+    {
+      "question": "Which scientist is closely associated with the Green Revolution in India?",
+      "options": [
+        "Homi J. Bhabha",
+        "M. S. Swaminathan",
+        "Vikram Sarabhai",
+        "Satyendra Nath Bose"
+      ],
+      "answer": "M. S. Swaminathan"
+    },
+    {
+      "question": "Which is the longest river of the Peninsular Plateau of India?",
+      "options": [
+        "Krishna",
+        "Kaveri",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Godavari"
+    },
+    {
+      "question": "The cost price of an article is ₹800 and its selling price is ₹920. What is the profit percentage?",
+      "options": [
+        "10%",
+        "12%",
+        "15%",
+        "20%"
+      ],
+      "answer": "15%"
+    },
+    {
+      "question": "Who can vote in the election of the President of India?",
+      "options": [
+        "Only members of the Lok Sabha",
+        "Only members of the Rajya Sabha",
+        "Elected Members of Parliament and elected Members of Legislative Assemblies",
+        "All citizens of India"
+      ],
+      "answer": "Elected Members of Parliament and elected Members of Legislative Assemblies"
+    },
+    {
+      "question": "Which site of the Indus Valley Civilization is located in present-day Pakistan?",
+      "options": [
+        "Lothal",
+        "Kalibangan",
+        "Harappa",
+        "Dholavira"
+      ],
+      "answer": "Harappa"
+    },
+    {
+      "question": "In which medium does sound travel at the highest speed?",
+      "options": [
+        "Vacuum",
+        "Gas",
+        "Liquid",
+        "Solid"
+      ],
+      "answer": "Solid"
+    },
+    {
+      "question": "A number is reduced by 25% and becomes 450. What was the original number?",
+      "options": [
+        "500",
+        "550",
+        "600",
+        "650"
+      ],
+      "answer": "600"
+    },
+    {
+      "question": "Which institution is the central bank of India?",
+      "options": [
+        "SBI",
+        "RBI",
+        "SEBI",
+        "NABARD"
+      ],
+      "answer": "RBI"
+    },
+    {
+      "question": "In which year was the Quit India Movement launched?",
+      "options": [
+        "1930",
+        "1935",
+        "1942",
+        "1946"
+      ],
+      "answer": "1942"
+    },
+    {
+      "question": "In which direction does the Narmada River primarily flow?",
+      "options": [
+        "East",
+        "West",
+        "North",
+        "South"
+      ],
+      "answer": "West"
+    },
+    {
+      "question": "The average of 5 numbers is 24. What is their total sum?",
+      "options": [
+        "100",
+        "110",
+        "120",
+        "125"
+      ],
+      "answer": "120"
+    },
+    {
+      "question": "Deficiency of Vitamin C causes which disease?",
+      "options": [
+        "Rickets",
+        "Scurvy",
+        "Beriberi",
+        "Night Blindness"
+      ],
+      "answer": "Scurvy"
+    },
+    {
+      "question": "When was the first meeting of the Constituent Assembly of India held?",
+      "options": [
+        "9 December 1946",
+        "15 August 1947",
+        "26 November 1949",
+        "26 January 1950"
+      ],
+      "answer": "9 December 1946"
+    },
+    {
+      "question": "What is the simple interest on ₹5,000 at 8% per annum for 2 years?",
+      "options": [
+        "₹600",
+        "₹700",
+        "₹800",
+        "₹900"
+      ],
+      "answer": "₹800"
+    },
+    {
+      "question": "Which type of soil is particularly suitable for cotton cultivation in India?",
+      "options": [
+        "Alluvial Soil",
+        "Black Soil",
+        "Red Soil",
+        "Laterite Soil"
+      ],
+      "answer": "Black Soil"
+    },
+    {
+      "question": "In which year did the Jallianwala Bagh massacre take place?",
+      "options": [
+        "1917",
+        "1919",
+        "1921",
+        "1922"
+      ],
+      "answer": "1919"
+    },
+    {
+      "question": "A rectangle has a length of 15 cm and a breadth of 8 cm. What is its area?",
+      "options": [
+        "100 sq. cm",
+        "110 sq. cm",
+        "120 sq. cm",
+        "130 sq. cm"
+      ],
+      "answer": "120 sq. cm"
+    },
+    {
+      "question": "Which substance primarily carries oxygen in human blood?",
+      "options": [
+        "Plasma",
+        "Haemoglobin",
+        "Platelets",
+        "White Blood Cells"
+      ],
+      "answer": "Haemoglobin"
+    },
+    {
+      "question": "Under which Article of the Indian Constitution is the Finance Commission constituted?",
+      "options": [
+        "Article 280",
+        "Article 300",
+        "Article 315",
+        "Article 324"
+      ],
+      "answer": "Article 280"
+    },
+    {
+      "question": "A person travels 60 km at 40 km/h and another 60 km at 60 km/h. What is the average speed for the entire journey?",
+      "options": [
+        "45 km/h",
+        "48 km/h",
+        "50 km/h",
+        "52 km/h"
+      ],
+      "answer": "48 km/h"
+    },
+    {
+      "question": "Which organization is primarily responsible for the estimation of National Income in India?",
+      "options": [
+        "RBI",
+        "NSO",
+        "SEBI",
+        "NITI Aayog"
+      ],
+      "answer": "NSO"
+    },
+    {
+      "question": "The Santhal Rebellion of 1855–56 was mainly associated with which region?",
+      "options": [
+        "Deccan",
+        "Santhal Pargana",
+        "Malabar",
+        "Punjab"
+      ],
+      "answer": "Santhal Pargana"
+    },
+    {
+      "question": "If 3/5 of a number is 72, what is the number?",
+      "options": [
+        "100",
+        "110",
+        "120",
+        "125"
+      ],
+      "answer": "120"
+    },
+    {
+      "question": "The ozone layer is mainly found in which layer of the atmosphere?",
+      "options": [
+        "Troposphere",
+        "Stratosphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Stratosphere"
+    },
+    {
+      "question": "Which event is commonly referred to as the First War of Indian Independence?",
+      "options": [
+        "Revolt of 1857",
+        "Indigo Revolt",
+        "Santhal Rebellion",
+        "Paika Rebellion"
+      ],
+      "answer": "Revolt of 1857"
+    },
+    {
+      "question": "If the price of an article increases by 20%, what will be its new price if the original price was ₹1,000?",
+      "options": [
+        "₹1,100",
+        "₹1,150",
+        "₹1,200",
+        "₹1,250"
+      ],
+      "answer": "₹1,200"
+    },
+    {
+      "question": "Who presides over a joint sitting of the Parliament of India?",
+      "options": [
+        "The President",
+        "The Vice-President",
+        "The Speaker of the Lok Sabha",
+        "The Chairman of the Rajya Sabha"
+      ],
+      "answer": "The Speaker of the Lok Sabha"
+    },
+    {
+      "question": "Which of the following is a major greenhouse gas?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Hydrogen"
+      ],
+      "answer": "Carbon Dioxide"
+    },
+    {
+      "question": "A train is 180 metres long and is moving at 54 km/h. How much time will it take to cross a pole?",
+      "options": [
+        "10 seconds",
+        "12 seconds",
+        "15 seconds",
+        "18 seconds"
+      ],
+      "answer": "12 seconds"
+    },
+    {
+      "question": "Which organization replaced the Planning Commission of India?",
+      "options": [
+        "NITI Aayog",
+        "Finance Commission",
+        "SEBI",
+        "NABARD"
+      ],
+      "answer": "NITI Aayog"
+    },
+    {
+      "question": "Who was the first woman ruler of the Delhi Sultanate?",
+      "options": [
+        "Nur Jahan",
+        "Razia Sultan",
+        "Chand Bibi",
+        "Rani Durgavati"
+      ],
+      "answer": "Razia Sultan"
+    },
+    {
+      "question": "If the radius of a circle is 7 cm, what is its circumference? Take π = 22/7.",
+      "options": [
+        "22 cm",
+        "44 cm",
+        "49 cm",
+        "154 cm"
+      ],
+      "answer": "44 cm"
+    },
+    {
+      "question": "Which gas is present in the highest proportion in Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Carbon Dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Nitrogen"
+    },
+    {
+      "question": "At what age do the judges of the Supreme Court of India retire?",
+      "options": [
+        "60 years",
+        "62 years",
+        "65 years",
+        "70 years"
+      ],
+      "answer": "65 years"
+    },
+    {
+      "question": "The passing marks in an examination are 40%. A candidate scored 220 marks and failed by 20 marks. What are the maximum marks?",
+      "options": [
+        "500",
+        "550",
+        "600",
+        "650"
+      ],
+      "answer": "600"
+    },
+    {
+      "question": "Which Indian state shares its land boundary with the highest number of other Indian states?",
+      "options": [
+        "Madhya Pradesh",
+        "Uttar Pradesh",
+        "Rajasthan",
+        "Bihar"
+      ],
+      "answer": "Uttar Pradesh"
+    },
+    {
+      "question": "The words 'Socialist' and 'Secular' were added to the Preamble of the Indian Constitution by which Amendment?",
+      "options": [
+        "24th Amendment",
+        "42nd Amendment",
+        "44th Amendment",
+        "73rd Amendment"
+      ],
+      "answer": "42nd Amendment"
+    }
+  ]
+    }
