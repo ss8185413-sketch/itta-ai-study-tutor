@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Which amendment added the words 'Socialist' and 'Secular' to the Preamble of the Indian Constitution?",
+    "options": [
+      "42nd Amendment",
+      "44th Amendment",
+      "73rd Amendment",
+      "86th Amendment"
+    ],
+    "answer": "42nd Amendment"
+  },
+  {
+    "question": "Which Article of the Indian Constitution guarantees equality before the law?",
+    "options": [
+      "Article 12",
+      "Article 14",
+      "Article 19",
+      "Article 21"
+    ],
+    "answer": "Article 14"
+  },
+  {
+    "question": "Who was the first Governor-General of independent India?",
+    "options": [
+      "Lord Mountbatten",
+      "Lord Canning",
+      "Warren Hastings",
+      "Lord Curzon"
+    ],
+    "answer": "Lord Mountbatten"
+  },
+  {
+    "question": "Which institution replaced the Planning Commission of India?",
+    "options": [
+      "Finance Commission",
+      "NITI Aayog",
+      "National Development Council",
+      "Reserve Bank of India"
+    ],
+    "answer": "NITI Aayog"
+  },
+  {
+    "question": "Which Indian state is crossed by the Tropic of Cancer?",
+    "options": [
+      "Kerala",
+      "Punjab",
+      "Madhya Pradesh",
+      "Tamil Nadu"
+    ],
+    "answer": "Madhya Pradesh"
+  },
+  {
+    "question": "Who presents the Union Budget in the Parliament of India?",
+    "options": [
+      "President",
+      "Prime Minister",
+      "Finance Minister",
+      "Lok Sabha Speaker"
+    ],
+    "answer": "Finance Minister"
+  },
+  {
+    "question": "What was the primary objective of the Green Revolution in India?",
+    "options": [
+      "Increase industrial production",
+      "Increase agricultural production",
+      "Increase mineral production",
+      "Increase exports"
+    ],
+    "answer": "Increase agricultural production"
+  },
+  {
+    "question": "Which institution is regarded as the guardian of the Constitution of India?",
+    "options": [
+      "Parliament",
+      "President",
+      "Supreme Court",
+      "Election Commission"
+    ],
+    "answer": "Supreme Court"
+  },
+  {
+    "question": "Which organization is responsible for compiling India's national income estimates?",
+    "options": [
+      "Reserve Bank of India",
+      "NITI Aayog",
+      "National Statistical Office",
+      "Finance Commission"
+    ],
+    "answer": "National Statistical Office"
+  },
+  {
+    "question": "When were the first general elections held in independent India?",
+    "options": [
+      "1947–48",
+      "1949–50",
+      "1951–52",
+      "1955–56"
+    ],
+    "answer": "1951–52"
+  }
+    ]
