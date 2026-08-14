@@ -3,65 +3,109 @@
 // =========================
 
 async function askTutor() {
-    const question = document.getElementById("question").value.trim();
-    const answer = document.getElementById("answer");
+
+    const question =
+        document.getElementById("question").value.trim();
+
+    const answer =
+        document.getElementById("answer");
 
     if (!question) {
-        answer.innerText = "Please type a question first.";
+        answer.innerText =
+            "Please type a question first.";
         return;
     }
 
-    answer.innerHTML = "Thinking... ✨";
+    answer.innerHTML =
+        "Thinking... ✨";
 
     try {
+
         const response = await fetch(
             "https://itta-ai-study-tutor.onrender.com/ask",
             {
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     question: question
                 })
             }
         );
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         if (!response.ok) {
+
             answer.innerText =
-                data.error || "Server error occurred.";
+                data.error ||
+                "Server error occurred.";
+
             return;
         }
 
         answer.innerHTML = "";
 
-        const answerText = document.createElement("div");
+        const answerText =
+            document.createElement("div");
+
         answerText.innerText =
-            data.answer || "No answer received.";
+            data.answer ||
+            "No answer received.";
 
         answer.appendChild(answerText);
 
+
+        // =========================
+        // DIAGRAM
+        // =========================
+
         if (data.diagram) {
-            const diagramTitle = document.createElement("h3");
-            diagramTitle.innerText = "📊 Diagram";
-            diagramTitle.style.marginTop = "20px";
 
-            answer.appendChild(diagramTitle);
+            const diagramTitle =
+                document.createElement("h3");
 
-            const diagramBox = document.createElement("div");
-            diagramBox.style.marginTop = "10px";
-            diagramBox.style.overflow = "auto";
-            diagramBox.style.textAlign = "center";
+            diagramTitle.innerText =
+                "📊 Diagram";
 
-            diagramBox.innerHTML = data.diagram;
+            diagramTitle.style.marginTop =
+                "20px";
 
-            answer.appendChild(diagramBox);
+            answer.appendChild(
+                diagramTitle
+            );
+
+
+            const diagramBox =
+                document.createElement("div");
+
+            diagramBox.style.marginTop =
+                "10px";
+
+            diagramBox.style.overflow =
+                "auto";
+
+            diagramBox.style.textAlign =
+                "center";
+
+            diagramBox.innerHTML =
+                data.diagram;
+
+            answer.appendChild(
+                diagramBox
+            );
         }
 
     } catch (error) {
-        console.error("Error:", error);
+
+        console.error(
+            "Error:",
+            error
+        );
 
         answer.innerText =
             "Could not connect to the server.";
@@ -82,40 +126,79 @@ function startMic() {
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
 
+
     if (!SpeechRecognition) {
+
         questionBox.placeholder =
             "Voice recognition is not supported on this browser.";
+
         return;
     }
 
-    const recognition = new SpeechRecognition();
 
-    recognition.lang = "en-IN";
-    recognition.interimResults = false;
-    recognition.continuous = false;
+    const recognition =
+        new SpeechRecognition();
+
+
+    recognition.lang =
+        "en-IN";
+
+    recognition.interimResults =
+        false;
+
+    recognition.continuous =
+        false;
+
 
     recognition.onstart = function () {
-        document.getElementById("micBtn").innerText =
-            "🔴 Listening...";
+
+        const micBtn =
+            document.getElementById("micBtn");
+
+        if (micBtn) {
+            micBtn.innerText =
+                "🔴 Listening...";
+        }
     };
 
-    recognition.onresult = function (event) {
 
-        const text =
-            event.results[0][0].transcript;
+    recognition.onresult =
+        function (event) {
 
-        questionBox.value = text;
-    };
+            const text =
+                event.results[0][0]
+                .transcript;
 
-    recognition.onerror = function () {
-        document.getElementById("micBtn").innerText =
-            "🎙️";
-    };
+            questionBox.value =
+                text;
+        };
 
-    recognition.onend = function () {
-        document.getElementById("micBtn").innerText =
-            "🎙️";
-    };
+
+    recognition.onerror =
+        function () {
+
+            const micBtn =
+                document.getElementById("micBtn");
+
+            if (micBtn) {
+                micBtn.innerText =
+                    "🎙️";
+            }
+        };
+
+
+    recognition.onend =
+        function () {
+
+            const micBtn =
+                document.getElementById("micBtn");
+
+            if (micBtn) {
+                micBtn.innerText =
+                    "🎙️";
+            }
+        };
+
 
     recognition.start();
 }
@@ -126,146 +209,219 @@ function startMic() {
 // =========================
 
 const quizQuestions = [
+
     {
-        question: "ভারতের রাজধানী কোনটি?",
+        question:
+            "ভারতের রাজধানী কোনটি?",
+
         options: [
             "মুম্বাই",
             "কলকাতা",
             "নয়াদিল্লি",
             "চেন্নাই"
         ],
+
         answer: 2
     },
 
+
     {
-        question: "ভারতের জাতীয় পশু কোনটি?",
+        question:
+            "ভারতের জাতীয় পশু কোনটি?",
+
         options: [
             "সিংহ",
             "বাঘ",
             "হাতি",
             "হরিণ"
         ],
+
         answer: 1
     },
 
+
     {
-        question: "ভারতের সংবিধান কবে কার্যকর হয়?",
+        question:
+            "ভারতের সংবিধান কবে কার্যকর হয়?",
+
         options: [
             "১৫ আগস্ট ১৯৪৭",
             "২৬ জানুয়ারি ১৯৫০",
             "২৬ নভেম্বর ১৯৪৯",
             "২ অক্টোবর ১৯৫০"
         ],
+
         answer: 1
     },
 
+
     {
-        question: "ভারতের জাতীয় ফুল কোনটি?",
+        question:
+            "ভারতের জাতীয় ফুল কোনটি?",
+
         options: [
             "গোলাপ",
             "পদ্ম",
             "জবা",
             "সূর্যমুখী"
         ],
+
         answer: 1
     },
 
+
     {
-        question: "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
+        question:
+            "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
+
         options: [
             "জওহরলাল নেহরু",
             "ড. রাজেন্দ্র প্রসাদ",
             "সর্দার প্যাটেল",
             "ড. বি. আর. আম্বেদকর"
         ],
+
         answer: 1
     }
+
 ];
 
+
 let currentQuiz = [];
+
 let quizIndex = 0;
+
 let quizScore = 0;
 
 
-// Start Quiz
+// =========================
+// START QUIZ
+// =========================
 
 function startQuiz() {
 
     currentQuiz =
         [...quizQuestions]
-        .sort(() => Math.random() - 0.5);
+        .sort(
+            () => Math.random() - 0.5
+        );
+
 
     quizIndex = 0;
+
     quizScore = 0;
 
     showQuizQuestion();
 }
 
 
-// Show Quiz Question
+// =========================
+// SHOW QUIZ QUESTION
+// =========================
 
 function showQuizQuestion() {
 
     const box =
-        document.getElementById("quizBox");
+        document.getElementById(
+            "quizBox"
+        );
 
-    if (quizIndex >= currentQuiz.length) {
+
+    if (!box) {
+        return;
+    }
+
+
+    if (
+        quizIndex >=
+        currentQuiz.length
+    ) {
 
         box.innerHTML = `
+
             <div class="mock-result">
 
-                <h2>🎉 Quiz Complete!</h2>
+                <h2>
+                    🎉 Quiz Complete!
+                </h2>
 
                 <p>
                     তোমার স্কোর:
                     <strong>
-                        ${quizScore} / ${currentQuiz.length}
+                        ${quizScore}
+                        /
+                        ${currentQuiz.length}
                     </strong>
                 </p>
 
-                <button onclick="startQuiz()">
+                <button
+                    onclick="startQuiz()"
+                >
                     🔄 আবার Quiz দাও
                 </button>
 
             </div>
+
         `;
 
         return;
     }
 
-    const q = currentQuiz[quizIndex];
+
+    const q =
+        currentQuiz[quizIndex];
+
 
     box.innerHTML = `
+
         <div class="mock-question">
 
             <h3>
-                ${quizIndex + 1}. ${q.question}
+                ${quizIndex + 1}.
+                ${q.question}
             </h3>
 
-            ${q.options.map((option, index) => `
+
+            ${q.options.map(
+                (option, index) => `
+
                 <button
                     class="option-btn"
-                    onclick="selectQuizAnswer(${index})"
+                    onclick="
+                        selectQuizAnswer(${index})
+                    "
                 >
                     ${option}
                 </button>
-            `).join("")}
+
+            `
+            ).join("")}
 
         </div>
+
     `;
 }
 
 
-// Select Quiz Answer
+// =========================
+// SELECT QUIZ ANSWER
+// =========================
 
 function selectQuizAnswer(selected) {
 
     const correct =
-        currentQuiz[quizIndex].answer;
+        currentQuiz[
+            quizIndex
+        ].answer;
 
-    if (selected === correct) {
+
+    if (
+        selected === correct
+    ) {
+
         quizScore++;
     }
+
 
     quizIndex++;
 
@@ -273,188 +429,48 @@ function selectQuizAnswer(selected) {
 }
 
 
-// =========================
+// ======================================================
 // COMPETITIVE MOCK TEST
+// ======================================================
+
+
+// =========================
+// SEPARATE JSON FILES
 // =========================
 
-// SSC questions will be loaded separately
-// from ssc_questions.json
+const mockQuestionFiles = {
 
-const mockQuestions = {
+    UPSC:
+        "upsc_questions.json",
 
-    UPSC: [
+    SSC:
+        "ssc_questions.json",
 
-        {
-            question:
-                "ভারতের সংবিধান কবে কার্যকর হয়?",
+    BANK:
+        "bank_questions.json",
 
-            options: [
-                "১৫ আগস্ট ১৯৪৭",
-                "২৬ জানুয়ারি ১৯৫০",
-                "২৬ নভেম্বর ১৯৪৯",
-                "২ অক্টোবর ১৯৫০"
-            ],
+    WBP:
+        "wbp_questions.json",
 
-            answer: 1
-        },
+    KOLKATA_POLICE:
+        "kolkata_police_questions.json",
 
-        {
-            question:
-                "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
-
-            options: [
-                "জওহরলাল নেহরু",
-                "ড. রাজেন্দ্র প্রসাদ",
-                "সর্দার প্যাটেল",
-                "ড. বি. আর. আম্বেদকর"
-            ],
-
-            answer: 1
-        }
-
-    ],
-
-
-    SSC: [],
-
-
-    BANK: [
-
-        {
-            question:
-                "RBI-এর পূর্ণরূপ কী?",
-
-            options: [
-                "Reserve Bank of India",
-                "Royal Bank of India",
-                "Regional Bank of India",
-                "Reserve Banking Institution"
-            ],
-
-            answer: 0
-        },
-
-        {
-            question:
-                "ভারতের কেন্দ্রীয় ব্যাংক কোনটি?",
-
-            options: [
-                "SBI",
-                "PNB",
-                "RBI",
-                "BOI"
-            ],
-
-            answer: 2
-        }
-
-    ],
-
-
-    WBP: [
-
-        {
-            question:
-                "West Bengal-এর রাজধানী কোনটি?",
-
-            options: [
-                "হাওড়া",
-                "কলকাতা",
-                "দুর্গাপুর",
-                "শিলিগুড়ি"
-            ],
-
-            answer: 1
-        },
-
-        {
-            question:
-                "West Bengal Police কোন রাজ্যের পুলিশ বাহিনী?",
-
-            options: [
-                "বিহার",
-                "ওড়িশা",
-                "পশ্চিমবঙ্গ",
-                "ঝাড়খণ্ড"
-            ],
-
-            answer: 2
-        }
-
-    ],
-
-
-    KOLKATA_POLICE: [
-
-        {
-            question:
-                "কলকাতা কোন রাজ্যের রাজধানী?",
-
-            options: [
-                "বিহার",
-                "পশ্চিমবঙ্গ",
-                "অসম",
-                "ওড়িশা"
-            ],
-
-            answer: 1
-        },
-
-        {
-            question:
-                "কলকাতা পুলিশ কোন শহরের আইন-শৃঙ্খলা রক্ষা করে?",
-
-            options: [
-                "দুর্গাপুর",
-                "কলকাতা",
-                "হাওড়া",
-                "শিলিগুড়ি"
-            ],
-
-            answer: 1
-        }
-
-    ],
-
-
-    RAILWAY: [
-
-        {
-            question:
-                "ভারতীয় রেলের সদর দপ্তর কোথায়?",
-
-            options: [
-                "মুম্বাই",
-                "নয়াদিল্লি",
-                "কলকাতা",
-                "চেন্নাই"
-            ],
-
-            answer: 1
-        },
-
-        {
-            question:
-                "ভারতীয় রেলের প্রধান পরিবহন মাধ্যম কী?",
-
-            options: [
-                "রেলপথ",
-                "জলপথ",
-                "আকাশপথ",
-                "সড়কপথ"
-            ],
-
-            answer: 0
-        }
-
-    ]
+    RAILWAY:
+        "railway_questions.json"
 
 };
 
 
+// =========================
+// MOCK VARIABLES
+// =========================
+
 let currentMockExam = "";
+
 let currentMockQuestions = [];
+
 let currentMockIndex = 0;
+
 let mockScore = 0;
 
 
@@ -464,92 +480,140 @@ let mockScore = 0;
 
 async function startMockTest(exam) {
 
-    currentMockExam = exam;
-
-    // =========================
-    // SSC SEPARATE QUESTION BANK
-    // =========================
-
-    if (exam === "SSC") {
-
-        try {
-
-            const response =
-                await fetch("ssc_questions.json");
-
-            if (!response.ok) {
-                throw new Error(
-                    "SSC question file not found"
-                );
-            }
-
-            const sscQuestions =
-                await response.json();
-
-            mockQuestions.SSC =
-                sscQuestions;
-
-        } catch (error) {
-
-            console.error(
-                "SSC Question Bank Error:",
-                error
-            );
-
-            const box =
-                document.getElementById("mockTestBox");
-
-            box.innerHTML = `
-                <div class="mock-result">
-
-                    <h2>⚠️ SSC Question Bank Error</h2>
-
-                    <p>
-                        SSC question bank load করা যায়নি।
-                    </p>
-
-                </div>
-            `;
-
-            return;
-        }
-    }
+    currentMockExam =
+        exam;
 
 
-    // Check question availability
+    const file =
+        mockQuestionFiles[exam];
 
-    if (
-        !mockQuestions[exam] ||
-        mockQuestions[exam].length === 0
-    ) {
 
-        const box =
-            document.getElementById("mockTestBox");
+    if (!file) {
 
-        box.innerHTML = `
-            <div class="mock-result">
-
-                <h2>⚠️ No Questions Available</h2>
-
-                <p>
-                    এই পরীক্ষার জন্য এখনো প্রশ্ন যোগ করা হয়নি।
-                </p>
-
-            </div>
-        `;
+        console.error(
+            "Question file not found:",
+            exam
+        );
 
         return;
     }
 
 
-    currentMockQuestions =
-        [...mockQuestions[exam]]
-        .sort(() => Math.random() - 0.5);
+    const box =
+        document.getElementById(
+            "mockTestBox"
+        );
 
-    currentMockIndex = 0;
-    mockScore = 0;
 
-    showMockQuestion();
+    if (!box) {
+
+        console.error(
+            "mockTestBox not found."
+        );
+
+        return;
+    }
+
+
+    // Loading
+
+    box.innerHTML = `
+
+        <div class="mock-result">
+
+            <h2>
+                📚 Loading Questions...
+            </h2>
+
+            <p>
+                Please wait...
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(file);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load " +
+                file
+            );
+        }
+
+
+        const questions =
+            await response.json();
+
+
+        if (
+            !Array.isArray(questions) ||
+            questions.length === 0
+        ) {
+
+            throw new Error(
+                "Question bank is empty."
+            );
+        }
+
+
+        // =========================
+        // SHUFFLE QUESTIONS
+        // =========================
+
+        currentMockQuestions =
+            [...questions]
+            .sort(
+                () =>
+                    Math.random() - 0.5
+            );
+
+
+        currentMockIndex = 0;
+
+        mockScore = 0;
+
+
+        showMockQuestion();
+
+
+    } catch (error) {
+
+        console.error(
+            "Question Bank Error:",
+            error
+        );
+
+
+        box.innerHTML = `
+
+            <div class="mock-result">
+
+                <h2>
+                    ⚠️ Question Bank Error
+                </h2>
+
+                <p>
+                    ${file}
+                    load করা যায়নি।
+                </p>
+
+                <p>
+                    Check the JSON file name
+                    and GitHub folder.
+                </p>
+
+            </div>
+
+        `;
+    }
 }
 
 
@@ -560,49 +624,118 @@ async function startMockTest(exam) {
 function showMockQuestion() {
 
     const box =
-        document.getElementById("mockTestBox");
+        document.getElementById(
+            "mockTestBox"
+        );
 
-    if (currentMockIndex >= currentMockQuestions.length) {
+
+    if (
+        currentMockIndex >=
+        currentMockQuestions.length
+    ) {
 
         showMockResult();
 
         return;
     }
 
+
     const q =
-        currentMockQuestions[currentMockIndex];
+        currentMockQuestions[
+            currentMockIndex
+        ];
+
 
     box.innerHTML = `
 
         <div class="mock-question">
 
             <p>
-                ${currentMockExam} Mock Test
+
+                <strong>
+                    ${getExamName(
+                        currentMockExam
+                    )}
+                </strong>
+
+                Mock Test
+
             </p>
 
+
             <p>
-                প্রশ্ন ${currentMockIndex + 1}
+
+                Question
+                ${currentMockIndex + 1}
                 /
                 ${currentMockQuestions.length}
+
             </p>
+
 
             <h3>
                 ${q.question}
             </h3>
 
-            ${q.options.map((option, index) => `
 
-                <button
-                    class="option-btn"
-                    onclick="selectMockAnswer(${index})"
-                >
-                    ${option}
-                </button>
+            <div class="mock-options">
 
-            `).join("")}
+                ${q.options.map(
+                    (option, index) => `
+
+                    <button
+                        class="option-btn"
+                        onclick="
+                            selectMockAnswer(${index})
+                        "
+                    >
+                        ${option}
+                    </button>
+
+                `
+                ).join("")}
+
+            </div>
 
         </div>
+
     `;
+}
+
+
+// =========================
+// EXAM NAME
+// =========================
+
+function getExamName(exam) {
+
+    const names = {
+
+        UPSC:
+            "UPSC",
+
+        SSC:
+            "SSC",
+
+        BANK:
+            "Bank",
+
+        WBP:
+            "WBP",
+
+        KOLKATA_POLICE:
+            "Kolkata Police",
+
+        RAILWAY:
+            "Railway"
+
+    };
+
+
+    return (
+        names[exam] ||
+        exam
+    );
 }
 
 
@@ -612,16 +745,105 @@ function showMockQuestion() {
 
 function selectMockAnswer(selected) {
 
-    const correct =
-        currentMockQuestions[currentMockIndex].answer;
+    const question =
+        currentMockQuestions[
+            currentMockIndex
+        ];
 
-    if (selected === correct) {
+
+    const selectedText =
+        question.options[
+            selected
+        ];
+
+
+    const correctText =
+        question.answer;
+
+
+    const buttons =
+        document.querySelectorAll(
+            "#mockTestBox .option-btn"
+        );
+
+
+    // Disable buttons
+
+    buttons.forEach(
+        button => {
+
+            button.disabled =
+                true;
+
+        }
+    );
+
+
+    // =========================
+    // CORRECT / WRONG
+    // =========================
+
+    buttons.forEach(
+        button => {
+
+            const buttonText =
+                button.innerText.trim();
+
+
+            if (
+                buttonText ===
+                correctText.trim()
+            ) {
+
+                button.classList.add(
+                    "correct"
+                );
+            }
+
+
+            if (
+                buttonText ===
+                selectedText.trim() &&
+                selectedText.trim() !==
+                correctText.trim()
+            ) {
+
+                button.classList.add(
+                    "wrong"
+                );
+            }
+
+        }
+    );
+
+
+    // =========================
+    // SCORE
+    // =========================
+
+    if (
+        selectedText.trim() ===
+        correctText.trim()
+    ) {
+
         mockScore++;
     }
 
-    currentMockIndex++;
 
-    showMockQuestion();
+    // =========================
+    // NEXT QUESTION
+    // =========================
+
+    setTimeout(
+        () => {
+
+            currentMockIndex++;
+
+            showMockQuestion();
+
+        },
+        800
+    );
 }
 
 
@@ -632,32 +854,49 @@ function selectMockAnswer(selected) {
 function showMockResult() {
 
     const box =
-        document.getElementById("mockTestBox");
+        document.getElementById(
+            "mockTestBox"
+        );
+
 
     const total =
         currentMockQuestions.length;
 
+
     const percentage =
         total > 0
-            ? Math.round((mockScore / total) * 100)
+            ? Math.round(
+                (mockScore / total) *
+                100
+            )
             : 0;
+
 
     box.innerHTML = `
 
         <div class="mock-result">
 
-            <h2>🎉 Mock Test Complete!</h2>
+            <h2>
+                🎉 Mock Test Complete!
+            </h2>
 
-            <h3>${currentMockExam}</h3>
+
+            <h3>
+                ${getExamName(
+                    currentMockExam
+                )}
+            </h3>
+
 
             <p>
-                তোমার স্কোর:
+                Score:
                 <strong>
                     ${mockScore}
                     /
                     ${total}
                 </strong>
             </p>
+
 
             <p>
                 Percentage:
@@ -666,12 +905,18 @@ function showMockResult() {
                 </strong>
             </p>
 
+
             <button
-                onclick="startMockTest('${currentMockExam}')"
+                onclick="
+                    startMockTest(
+                        '${currentMockExam}'
+                    )
+                "
             >
-                🔄 আবার পরীক্ষা দাও
+                🔄 Try Again
             </button>
 
         </div>
+
     `;
-            }
+}
