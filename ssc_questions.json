@@ -5018,5 +5018,507 @@
       ],
       "answer": "Bengali script"
     }
+  ],
+  "part11": [
+    {
+      "question": "Which Article of the Indian Constitution guarantees equality before law and equal protection of laws?",
+      "options": [
+        "Article 14",
+        "Article 15",
+        "Article 16",
+        "Article 17"
+      ],
+      "answer": "Article 14"
+    },
+    {
+      "question": "The Fourth Buddhist Council was held during the reign of which ruler?",
+      "options": [
+        "Ashoka",
+        "Kanishka",
+        "Harshavardhana",
+        "Chandragupta Maurya"
+      ],
+      "answer": "Kanishka"
+    },
+    {
+      "question": "Which river is known as the 'Ganga of South India'?",
+      "options": [
+        "Krishna",
+        "Kaveri",
+        "Godavari",
+        "Tungabhadra"
+      ],
+      "answer": "Godavari"
+    },
+    {
+      "question": "How many members are there in the Monetary Policy Committee (MPC) of the RBI?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": "6"
+    },
+    {
+      "question": "In which organ is urea primarily produced in the human body?",
+      "options": [
+        "Kidney",
+        "Liver",
+        "Pancreas",
+        "Spleen"
+      ],
+      "answer": "Liver"
+    },
+    {
+      "question": "If 40% of a number is 72, what is the number?",
+      "options": [
+        "160",
+        "180",
+        "200",
+        "220"
+      ],
+      "answer": "180"
+    },
+    {
+      "question": "Find the next number: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158"
+    },
+    {
+      "question": "Which part of the CPU performs arithmetic and logical operations?",
+      "options": [
+        "CU",
+        "ALU",
+        "RAM",
+        "Register"
+      ],
+      "answer": "ALU"
+    },
+    {
+      "question": "Who was the first Governor-General of Bengal?",
+      "options": [
+        "Warren Hastings",
+        "Lord Cornwallis",
+        "Lord William Bentinck",
+        "Lord Canning"
+      ],
+      "answer": "Warren Hastings"
+    },
+    {
+      "question": "Fundamental Duties were added to the Indian Constitution by which Amendment?",
+      "options": [
+        "42nd Amendment",
+        "44th Amendment",
+        "52nd Amendment",
+        "73rd Amendment"
+      ],
+      "answer": "42nd Amendment"
+    },
+    {
+      "question": "Which gas is the most abundant in the Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Argon"
+      ],
+      "answer": "Nitrogen"
+    },
+    {
+      "question": "What does Revenue Deficit mean?",
+      "options": [
+        "Difference between capital expenditure and capital receipts",
+        "Difference between revenue expenditure and revenue receipts",
+        "Difference between total expenditure and total income",
+        "Difference between imports and exports"
+      ],
+      "answer": "Difference between revenue expenditure and revenue receipts"
+    },
+    {
+      "question": "Deficiency of which vitamin can cause Pernicious Anaemia?",
+      "options": [
+        "Vitamin A",
+        "Vitamin B12",
+        "Vitamin C",
+        "Vitamin K"
+      ],
+      "answer": "Vitamin B12"
+    },
+    {
+      "question": "A product is purchased for Rs. 800 and sold for Rs. 920. What is the profit percentage?",
+      "options": [
+        "12%",
+        "15%",
+        "18%",
+        "20%"
+      ],
+      "answer": "15%"
+    },
+    {
+      "question": "If CAT is coded as DBU, then how will DOG be coded?",
+      "options": [
+        "EPH",
+        "EPG",
+        "FPH",
+        "DOH"
+      ],
+      "answer": "EPH"
+    },
+    {
+      "question": "Which of the following is an open-source operating system?",
+      "options": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "iOS"
+      ],
+      "answer": "Linux"
+    },
+    {
+      "question": "Which Indus Valley Civilization site is particularly famous for its sophisticated water reservoirs?",
+      "options": [
+        "Lothal",
+        "Kalibangan",
+        "Dholavira",
+        "Harappa"
+      ],
+      "answer": "Dholavira"
+    },
+    {
+      "question": "Who elects the Vice-President of India?",
+      "options": [
+        "Only members of the Lok Sabha",
+        "Only members of the Rajya Sabha",
+        "Members of both Houses of Parliament",
+        "Members of Parliament and State Legislative Assemblies"
+      ],
+      "answer": "Members of both Houses of Parliament"
+    },
+    {
+      "question": "Which Indian state is known for extensive black soil and is suitable for cotton cultivation?",
+      "options": [
+        "Punjab",
+        "Maharashtra",
+        "West Bengal",
+        "Assam"
+      ],
+      "answer": "Maharashtra"
+    },
+    {
+      "question": "What is the full form of GDP?",
+      "options": [
+        "Gross Domestic Product",
+        "General Domestic Product",
+        "Gross Development Product",
+        "General Development Production"
+      ],
+      "answer": "Gross Domestic Product"
+    },
+    {
+      "question": "In which medium does light travel at its maximum speed?",
+      "options": [
+        "Water",
+        "Glass",
+        "Air",
+        "Vacuum"
+      ],
+      "answer": "Vacuum"
+    },
+    {
+      "question": "A train is moving at 72 km/h. How many metres does it cover in one second?",
+      "options": [
+        "18 m",
+        "20 m",
+        "22 m",
+        "24 m"
+      ],
+      "answer": "20 m"
+    },
+    {
+      "question": "A person walks 10 metres north, then 10 metres east, and finally 10 metres south. In which direction is he from his starting point?",
+      "options": [
+        "North",
+        "South",
+        "East",
+        "West"
+      ],
+      "answer": "East"
+    },
+    {
+      "question": "What is the full form of URL?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Resource Link",
+        "Uniform Reference Link",
+        "Universal Reference Locator"
+      ],
+      "answer": "Uniform Resource Locator"
+    },
+    {
+      "question": "The Quit India Movement was launched in which year?",
+      "options": [
+        "1939",
+        "1940",
+        "1942",
+        "1946"
+      ],
+      "answer": "1942"
+    },
+    {
+      "question": "Which Article of the Indian Constitution deals with the Right to Constitutional Remedies?",
+      "options": [
+        "Article 21",
+        "Article 32",
+        "Article 44",
+        "Article 51"
+      ],
+      "answer": "Article 32"
+    },
+    {
+      "question": "Which of the following states is NOT crossed by the Tropic of Cancer?",
+      "options": [
+        "Gujarat",
+        "Madhya Pradesh",
+        "Odisha",
+        "West Bengal"
+      ],
+      "answer": "Odisha"
+    },
+    {
+      "question": "Which measure can the RBI generally adopt to control inflation?",
+      "options": [
+        "Increase interest rates",
+        "Decrease interest rates",
+        "Increase government expenditure",
+        "Reduce taxes"
+      ],
+      "answer": "Increase interest rates"
+    },
+    {
+      "question": "Which component of blood is mainly responsible for transporting oxygen?",
+      "options": [
+        "Plasma",
+        "Haemoglobin",
+        "Platelets",
+        "White Blood Cells"
+      ],
+      "answer": "Haemoglobin"
+    },
+    {
+      "question": "The ages of A and B are in the ratio 3:5. If their total age is 64 years, what is B's age?",
+      "options": [
+        "24",
+        "32",
+        "40",
+        "48"
+      ],
+      "answer": "40"
+    },
+    {
+      "question": "If the letters of a word are reversed to form 'NOITACUDE', what is the original word?",
+      "options": [
+        "EDUCATION",
+        "EXAMINATION",
+        "OPERATION",
+        "INFORMATION"
+      ],
+      "answer": "EDUCATION"
+    },
+    {
+      "question": "Which type of computer memory is generally considered permanent or non-volatile?",
+      "options": [
+        "RAM",
+        "ROM",
+        "Cache",
+        "Register"
+      ],
+      "answer": "ROM"
+    },
+    {
+      "question": "The Battle of Plassey was fought in which year?",
+      "options": [
+        "1756",
+        "1757",
+        "1764",
+        "1772"
+      ],
+      "answer": "1757"
+    },
+    {
+      "question": "Who elects the Speaker of the Lok Sabha?",
+      "options": [
+        "The President",
+        "The Prime Minister",
+        "Members of the Lok Sabha",
+        "Members of the Rajya Sabha"
+      ],
+      "answer": "Members of the Lok Sabha"
+    },
+    {
+      "question": "Which is the largest freshwater lake in India?",
+      "options": [
+        "Chilika Lake",
+        "Wular Lake",
+        "Loktak Lake",
+        "Sambhar Lake"
+      ],
+      "answer": "Wular Lake"
+    },
+    {
+      "question": "Which institution currently publishes India's national income estimates?",
+      "options": [
+        "RBI",
+        "NITI Aayog",
+        "NSO",
+        "Finance Commission"
+      ],
+      "answer": "NSO"
+    },
+    {
+      "question": "Newton's Third Law of Motion is associated with which concept?",
+      "options": [
+        "Inertia",
+        "Force and acceleration",
+        "Action and reaction",
+        "Gravitation"
+      ],
+      "answer": "Action and reaction"
+    },
+    {
+      "question": "What is the smaller angle between the hour hand and minute hand of a clock at 3:30?",
+      "options": [
+        "60°",
+        "75°",
+        "90°",
+        "105°"
+      ],
+      "answer": "75°"
+    },
+    {
+      "question": "P is the brother of Q. R is the mother of Q. S is the father of R. What is S's relation to P?",
+      "options": [
+        "Father",
+        "Maternal Grandfather",
+        "Brother",
+        "Uncle"
+      ],
+      "answer": "Maternal Grandfather"
+    },
+    {
+      "question": "What is the primary purpose of phishing?",
+      "options": [
+        "To increase computer speed",
+        "To fraudulently obtain personal information",
+        "To compress files",
+        "To detect viruses"
+      ],
+      "answer": "To fraudulently obtain personal information"
+    },
+    {
+      "question": "Who was the first woman President of India?",
+      "options": [
+        "Sarojini Naidu",
+        "Pratibha Patil",
+        "Indira Gandhi",
+        "Sushma Swaraj"
+      ],
+      "answer": "Pratibha Patil"
+    },
+    {
+      "question": "The 'Basic Structure Doctrine' of the Indian Constitution is associated with which case?",
+      "options": [
+        "Kesavananda Bharati Case",
+        "Golaknath Case",
+        "Minerva Mills Case",
+        "Maneka Gandhi Case"
+      ],
+      "answer": "Kesavananda Bharati Case"
+    },
+    {
+      "question": "Which Indian river flows through a rift valley?",
+      "options": [
+        "Ganga",
+        "Narmada",
+        "Yamuna",
+        "Godavari"
+      ],
+      "answer": "Narmada"
+    },
+    {
+      "question": "What does the Balance of Payments primarily record?",
+      "options": [
+        "Only domestic production",
+        "Economic transactions between a country and the rest of the world",
+        "Only government revenue",
+        "Only bank deposits"
+      ],
+      "answer": "Economic transactions between a country and the rest of the world"
+    },
+    {
+      "question": "The ozone layer is mainly located in which layer of the atmosphere?",
+      "options": [
+        "Troposphere",
+        "Stratosphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Stratosphere"
+    },
+    {
+      "question": "A can complete a work in 12 days and B can complete it in 18 days. How many days will they take together?",
+      "options": [
+        "6 days",
+        "7.2 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7.2 days"
+    },
+    {
+      "question": "Find the next number: 2, 6, 12, 20, 30, ?",
+      "options": [
+        "40",
+        "42",
+        "44",
+        "46"
+      ],
+      "answer": "42"
+    },
+    {
+      "question": "In MS Excel, a formula generally begins with which symbol?",
+      "options": [
+        "#",
+        "@",
+        "=",
+        "$"
+      ],
+      "answer": "="
+    },
+    {
+      "question": "Who was the first woman president of the Indian National Congress?",
+      "options": [
+        "Sarojini Naidu",
+        "Annie Besant",
+        "Aruna Asaf Ali",
+        "Vijaya Lakshmi Pandit"
+      ],
+      "answer": "Annie Besant"
+    },
+    {
+      "question": "The President of India is elected by which method?",
+      "options": [
+        "Simple majority",
+        "Proportional representation by means of a single transferable vote",
+        "Only Lok Sabha voting",
+        "Only State Legislative Assembly voting"
+      ],
+      "answer": "Proportional representation by means of a single transferable vote"
+    }
   ]
 }
