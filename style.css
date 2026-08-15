@@ -1,3 +1,7 @@
+/* ===============================
+   ITTA STUDY IQ - MAIN STYLE
+================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -26,6 +30,11 @@ h1 {
   margin-bottom: 30px;
 }
 
+
+/* ===============================
+   CARD
+================================ */
+
 .card {
   background: white;
   padding: 24px;
@@ -33,6 +42,11 @@ h1 {
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
+
+
+/* ===============================
+   AI TUTOR
+================================ */
 
 label {
   display: block;
@@ -90,7 +104,9 @@ button:hover {
 }
 
 
-/* Mock Test */
+/* ===============================
+   MOCK TEST
+================================ */
 
 .mock-card {
   margin-top: 25px;
@@ -116,9 +132,70 @@ button:hover {
   background: #2563eb;
 }
 
+
+/* ===============================
+   MOCK TEST BOX
+================================ */
+
 #mockTestBox {
   margin-top: 25px;
 }
+
+
+/* ===============================
+   SSC PARTS
+================================ */
+
+.ssc-parts {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+
+.ssc-parts h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.ssc-parts p {
+  text-align: center;
+  color: #64748b;
+}
+
+
+/* ===============================
+   SSC PART BUTTON GRID
+================================ */
+
+.ssc-part-buttons {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+
+/* SSC Part Button */
+
+.ssc-part-buttons button {
+  margin-top: 0;
+
+  background: #2563eb;
+
+  min-height: 50px;
+
+  font-size: 15px;
+}
+
+
+/* ===============================
+   MOCK QUESTION
+================================ */
 
 .mock-question {
   background: #f8fafc;
@@ -129,6 +206,15 @@ button:hover {
 
 .mock-question h3 {
   margin-top: 0;
+}
+
+
+/* ===============================
+   OPTIONS
+================================ */
+
+.options {
+  margin-top: 15px;
 }
 
 .option-btn {
@@ -142,6 +228,22 @@ button:hover {
   background: #eef2ff;
 }
 
+
+/* ===============================
+   FEEDBACK
+================================ */
+
+#feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* ===============================
+   RESULT
+================================ */
+
 .mock-result {
   margin-top: 20px;
   padding: 20px;
@@ -150,17 +252,93 @@ button:hover {
   text-align: center;
 }
 
+.result-box {
+  margin-top: 20px;
+  padding: 22px;
+  background: #eef2ff;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.result-box h2 {
+  margin-top: 0;
+}
+
+
+/* ===============================
+   QUIZ
+================================ */
+
+#quizBox {
+  margin-top: 15px;
+}
+
+
+/* ===============================
+   CURRENT AFFAIRS
+================================ */
+
+.current-affairs-content {
+  line-height: 1.6;
+}
+
+.current-affairs-content h3 {
+  margin-top: 22px;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
 @media (max-width: 500px) {
+
+  .app {
+    padding: 30px 15px;
+  }
+
 
   .exam-grid {
     grid-template-columns: 1fr;
   }
 
+
   .button-row {
     flex-direction: column;
   }
 
+
   #micBtn {
     width: 100%;
   }
+
+
+  /* SSC Part buttons */
+
+  .ssc-part-buttons {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+
+  .ssc-part-buttons button {
+    font-size: 14px;
+
+    padding: 12px 8px;
+  }
+
+}
+
+
+/* ===============================
+   VERY SMALL SCREEN
+================================ */
+
+@media (max-width: 350px) {
+
+  .ssc-part-buttons {
+    grid-template-columns: 1fr;
+  }
+
   }
