@@ -62,8 +62,7 @@ async function askTutor() {
             answerBox.innerText = data.text;
         }
         else {
-            answerBox.innerText =
-                "Sorry, no answer received.";
+            answerBox.innerText = "Sorry, no answer received.";
         }
 
     }
@@ -259,9 +258,7 @@ function showSSCParts() {
 
             <h3>📚 SSC Mock Test</h3>
 
-            <p>
-                Select a Part
-            </p>
+            <p>Select a Part</p>
 
 
             <button
@@ -269,6 +266,78 @@ function showSSCParts() {
                 onclick="startSSCPart('part1')"
             >
                 📖 Part 1
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part2')"
+            >
+                📖 Part 2
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part3')"
+            >
+                📖 Part 3
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part4')"
+            >
+                📖 Part 4
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part5')"
+            >
+                📖 Part 5
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part6')"
+            >
+                📖 Part 6
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part7')"
+            >
+                📖 Part 7
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part8')"
+            >
+                📖 Part 8
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part9')"
+            >
+                📖 Part 9
+            </button>
+
+
+            <button
+                type="button"
+                onclick="startSSCPart('part10')"
+            >
+                📖 Part 10
             </button>
 
         </div>
@@ -311,7 +380,9 @@ async function startSSCPart(partName) {
             await response.json();
 
 
-        // Check selected part
+        // ===============================
+        // CHECK SELECTED PART
+        // ===============================
 
         if (
             !data ||
@@ -344,7 +415,9 @@ async function startSSCPart(partName) {
         }
 
 
-        // Random 10 questions
+        // ===============================
+        // RANDOM 10 QUESTIONS
+        // ===============================
 
         currentQuestions =
             shuffleArray(
@@ -495,9 +568,7 @@ function showMockTest() {
                 <button
                     type="button"
                     class="option-btn"
-                    onclick="
-                        selectAnswer(${index})
-                    "
+                    onclick="selectAnswer(${index})"
                 >
 
                     ${escapeHTML(
@@ -516,9 +587,7 @@ function showMockTest() {
 
             </div>
 
-            <div
-                id="feedback"
-            ></div>
+            <div id="feedback"></div>
 
         </div>
 
@@ -583,7 +652,9 @@ function selectAnswer(
     let correctIndex = -1;
 
 
-    // Answer is number
+    // ===============================
+    // ANSWER IS NUMBER
+    // ===============================
 
     if (
         typeof correctAnswer ===
@@ -596,7 +667,9 @@ function selectAnswer(
     }
 
 
-    // Answer is text
+    // ===============================
+    // ANSWER IS TEXT
+    // ===============================
 
     else if (
         typeof correctAnswer ===
@@ -621,7 +694,9 @@ function selectAnswer(
             );
 
 
-        // A / B / C / D support
+        // ===============================
+        // A / B / C / D SUPPORT
+        // ===============================
 
         if (
             correctIndex === -1
@@ -682,7 +757,9 @@ function selectAnswer(
     }
 
 
-    // Next question
+    // ===============================
+    // NEXT QUESTION
+    // ===============================
 
     setTimeout(
         function () {
@@ -983,4 +1060,4 @@ function startMic() {
 
     recognition.start();
 
-            }
+                }
