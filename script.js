@@ -125,6 +125,10 @@ async function startMockTest(exam) {
     score = 0;
 
 
+    // ===========================
+    // SSC
+    // ===========================
+
     if (exam === "SSC") {
 
         showSSCParts();
@@ -134,23 +138,33 @@ async function startMockTest(exam) {
     }
 
 
+    // ===========================
+    // OTHER EXAMS
+    // ===========================
+
     let fileName = "";
+
 
     if (exam === "UPSC") {
         fileName = "upsc_questions.json";
     }
+
     else if (exam === "BANK") {
         fileName = "bank_questions.json";
     }
+
     else if (exam === "WBP") {
         fileName = "wbp_questions.json";
     }
+
     else if (exam === "KOLKATA_POLICE") {
         fileName = "kolkata_police_questions.json";
     }
+
     else if (exam === "RAILWAY") {
         fileName = "railway_questions.json";
     }
+
     else {
 
         alert("Exam not found.");
@@ -165,6 +179,7 @@ async function startMockTest(exam) {
         const response =
             await fetch(fileName);
 
+
         if (!response.ok) {
 
             throw new Error(
@@ -172,6 +187,7 @@ async function startMockTest(exam) {
             );
 
         }
+
 
         const data =
             await response.json();
@@ -226,12 +242,14 @@ async function startMockTest(exam) {
 
 // ===============================
 // SHOW SSC PARTS
+// PART 1 - PART 20
 // ===============================
 
 function showSSCParts() {
 
     const container =
         document.getElementById("mockTestBox");
+
 
     if (!container) {
 
@@ -244,83 +262,52 @@ function showSSCParts() {
     }
 
 
+    let buttonsHTML = "";
+
+
+    // ===========================
+    // CREATE PART 1 - PART 20
+    // ===========================
+
+    for (
+        let i = 1;
+        i <= 20;
+        i++
+    ) {
+
+        buttonsHTML += `
+
+            <button
+                type="button"
+                onclick="startSSCPart('part${i}')"
+            >
+
+                📖 Part ${i}
+
+            </button>
+
+        `;
+
+    }
+
+
     container.innerHTML = `
 
         <div class="ssc-parts">
 
-            <h3>📚 SSC Mock Test</h3>
+            <h3>
+                📚 SSC Mock Test
+            </h3>
 
-            <p>Select a Part</p>
+            <p>
+                Select a Part
+            </p>
 
-            <button
-                type="button"
-                onclick="startSSCPart('part1')"
-            >
-                📖 Part 1
-            </button>
+            <div class="ssc-part-buttons">
 
-            <button
-                type="button"
-                onclick="startSSCPart('part2')"
-            >
-                📖 Part 2
-            </button>
+                ${buttonsHTML}
 
-            <button
-                type="button"
-                onclick="startSSCPart('part3')"
-            >
-                📖 Part 3
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part4')"
-            >
-                📖 Part 4
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part5')"
-            >
-                📖 Part 5
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part6')"
-            >
-                📖 Part 6
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part7')"
-            >
-                📖 Part 7
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part8')"
-            >
-                📖 Part 8
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part9')"
-            >
-                📖 Part 9
-            </button>
-
-            <button
-                type="button"
-                onclick="startSSCPart('part10')"
-            >
-                📖 Part 10
-            </button>
+            </div>
 
         </div>
 
@@ -393,12 +380,19 @@ async function startSSCPart(partName) {
         }
 
 
+        // =======================
+        // RANDOM 10 QUESTIONS
+        // =======================
+
         currentQuestions =
             shuffleArray(
                 partQuestions
             ).slice(
                 0,
-                Math.min(10, partQuestions.length)
+                Math.min(
+                    10,
+                    partQuestions.length
+                )
             );
 
 
@@ -439,7 +433,8 @@ function shuffleArray(array) {
 
         const j =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
 
@@ -519,15 +514,23 @@ function showMockTest() {
         <div class="mock-question">
 
             <h3>
+
                 Question
                 ${currentQuestionIndex + 1}
                 /
                 ${currentQuestions.length}
+
             </h3>
 
+
             <p>
-                ${escapeHTML(questionText)}
+
+                ${escapeHTML(
+                    questionText
+                )}
+
             </p>
+
 
             <div class="options">
 
@@ -560,6 +563,7 @@ function showMockTest() {
     html += `
 
             </div>
+
 
             <div id="feedback"></div>
 
@@ -624,6 +628,10 @@ function selectAnswer(selectedIndex) {
     let correctIndex = -1;
 
 
+    // ===========================
+    // ANSWER AS NUMBER
+    // ===========================
+
     if (
         typeof correctAnswer ===
         "number"
@@ -634,6 +642,10 @@ function selectAnswer(selectedIndex) {
 
     }
 
+
+    // ===========================
+    // ANSWER AS TEXT
+    // ===========================
 
     else if (
         typeof correctAnswer ===
@@ -657,6 +669,10 @@ function selectAnswer(selectedIndex) {
                 }
             );
 
+
+        // ========================
+        // A / B / C / D SUPPORT
+        // ========================
 
         if (
             correctIndex === -1
@@ -705,6 +721,7 @@ function selectAnswer(selectedIndex) {
         }
 
     }
+
     else {
 
         if (feedback) {
@@ -716,6 +733,10 @@ function selectAnswer(selectedIndex) {
 
     }
 
+
+    // ===========================
+    // NEXT QUESTION
+    // ===========================
 
     setTimeout(
         function () {
@@ -731,6 +752,7 @@ function selectAnswer(selectedIndex) {
                 showMockTest();
 
             }
+
             else {
 
                 showResult();
@@ -802,35 +824,50 @@ function showResult() {
                 🎉 Test Complete!
             </h2>
 
+
             <p>
+
                 Exam:
                 ${escapeHTML(testName)}
+
             </p>
 
+
             <h3>
+
                 Score:
                 ${score}
                 /
                 ${total}
+
             </h3>
 
+
             <h3>
+
                 Percentage:
                 ${percentage}%
+
             </h3>
+
 
             <button
                 type="button"
                 onclick="restartMockTest()"
             >
+
                 🔄 Try Again
+
             </button>
+
 
             <button
                 type="button"
                 onclick="startMockTest('SSC')"
             >
+
                 📚 Choose Part
+
             </button>
 
         </div>
@@ -878,11 +915,26 @@ function restartMockTest() {
 function escapeHTML(value) {
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -913,6 +965,7 @@ function startQuiz() {
             <h3>
                 🧠 Quiz
             </h3>
+
 
             <p>
                 Quiz system is ready.
@@ -976,7 +1029,8 @@ function startMic() {
         function (event) {
 
             questionBox.value =
-                event.results[0][0].transcript;
+                event.results[0][0]
+                    .transcript;
 
         };
 
@@ -1028,6 +1082,7 @@ function loadCurrentAffairs() {
                 📅 Weekly Current Affairs
             </h3>
 
+
             <p>
                 <strong>
                     9 – 15 August 2026
@@ -1039,15 +1094,21 @@ function loadCurrentAffairs() {
                 🇮🇳 National Affairs
             </h3>
 
+
             <p>
                 🇮🇳 India celebrated its
-                <strong>80th Independence Day</strong>
+                <strong>
+                    80th Independence Day
+                </strong>
                 on 15 August 2026.
             </p>
 
+
             <p>
                 🇮🇳 The
-                <strong>Har Ghar Tiranga 2026</strong>
+                <strong>
+                    Har Ghar Tiranga 2026
+                </strong>
                 campaign is being observed from
                 9 to 17 August 2026.
             </p>
@@ -1056,6 +1117,7 @@ function loadCurrentAffairs() {
             <h3>
                 🌍 International Affairs
             </h3>
+
 
             <p>
                 🌏 Important international events
@@ -1068,6 +1130,7 @@ function loadCurrentAffairs() {
                 💰 Economy & Banking
             </h3>
 
+
             <p>
                 💰 Important Economy and Banking
                 updates will be included in the
@@ -1078,6 +1141,7 @@ function loadCurrentAffairs() {
             <h3>
                 🔬 Science & Technology
             </h3>
+
 
             <p>
                 🔬 Important Science and Technology
@@ -1090,6 +1154,7 @@ function loadCurrentAffairs() {
                 🏆 Sports
             </h3>
 
+
             <p>
                 🏆 Important national and international
                 sports updates will be added here.
@@ -1100,6 +1165,7 @@ function loadCurrentAffairs() {
                 🏅 Awards & Appointments
             </h3>
 
+
             <p>
                 🏅 Important awards and appointments
                 will be updated weekly.
@@ -1109,6 +1175,7 @@ function loadCurrentAffairs() {
             <h3>
                 🏛️ Government Schemes
             </h3>
+
 
             <p>
                 🏛️ Important government schemes,
@@ -1121,6 +1188,7 @@ function loadCurrentAffairs() {
                 📍 West Bengal Current Affairs
             </h3>
 
+
             <p>
                 📍 Important West Bengal-related
                 current affairs will be added here.
@@ -1131,14 +1199,20 @@ function loadCurrentAffairs() {
                 📝 Quick Revision
             </h3>
 
+
             <p>
                 1. India's 80th Independence Day —
-                <strong>15 August 2026</strong>
+                <strong>
+                    15 August 2026
+                </strong>
             </p>
+
 
             <p>
                 2. Har Ghar Tiranga 2026 —
-                <strong>9–17 August 2026</strong>
+                <strong>
+                    9–17 August 2026
+                </strong>
             </p>
 
 
@@ -1151,4 +1225,4 @@ function loadCurrentAffairs() {
 
     `;
 
-                }
+}
