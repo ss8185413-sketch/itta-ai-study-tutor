@@ -380,10 +380,6 @@ async function startSSCPart(partName) {
             await response.json();
 
 
-        // ===============================
-        // CHECK SELECTED PART
-        // ===============================
-
         if (
             !data ||
             !Array.isArray(data[partName])
@@ -414,10 +410,6 @@ async function startSSCPart(partName) {
 
         }
 
-
-        // ===============================
-        // RANDOM 10 QUESTIONS
-        // ===============================
 
         currentQuestions =
             shuffleArray(
@@ -652,10 +644,6 @@ function selectAnswer(
     let correctIndex = -1;
 
 
-    // ===============================
-    // ANSWER IS NUMBER
-    // ===============================
-
     if (
         typeof correctAnswer ===
         "number"
@@ -666,10 +654,6 @@ function selectAnswer(
 
     }
 
-
-    // ===============================
-    // ANSWER IS TEXT
-    // ===============================
 
     else if (
         typeof correctAnswer ===
@@ -693,10 +677,6 @@ function selectAnswer(
                 }
             );
 
-
-        // ===============================
-        // A / B / C / D SUPPORT
-        // ===============================
 
         if (
             correctIndex === -1
@@ -756,10 +736,6 @@ function selectAnswer(
 
     }
 
-
-    // ===============================
-    // NEXT QUESTION
-    // ===============================
 
     setTimeout(
         function () {
@@ -892,7 +868,7 @@ function showResult() {
 
 
 // ===============================
-// RESTART
+// RESTART MOCK TEST
 // ===============================
 
 function restartMockTest() {
@@ -1060,4 +1036,179 @@ function startMic() {
 
     recognition.start();
 
-                }
+}
+
+
+// ===============================
+// WEEKLY CURRENT AFFAIRS
+// ===============================
+
+function loadCurrentAffairs() {
+
+    const box =
+        document.getElementById(
+            "currentAffairsBox"
+        );
+
+
+    if (!box) {
+
+        console.error(
+            "currentAffairsBox not found."
+        );
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="current-affairs-content">
+
+            <h3>
+                📅 Weekly Current Affairs
+            </h3>
+
+            <p>
+                <strong>
+                    9 – 15 August 2026
+                </strong>
+            </p>
+
+
+            <!-- NATIONAL -->
+
+            <h3>
+                🇮🇳 National Affairs
+            </h3>
+
+            <p>
+                🇮🇳 India celebrated its
+                <strong>80th Independence Day</strong>
+                on 15 August 2026.
+            </p>
+
+            <p>
+                🇮🇳 The
+                <strong>Har Ghar Tiranga 2026</strong>
+                campaign is being observed from
+                9 to 17 August 2026.
+            </p>
+
+
+            <!-- INTERNATIONAL -->
+
+            <h3>
+                🌍 International Affairs
+            </h3>
+
+            <p>
+                🌏 A major earthquake was reported
+                near Flores Island, Indonesia,
+                on 15 August 2026.
+            </p>
+
+
+            <!-- ECONOMY -->
+
+            <h3>
+                💰 Economy & Banking
+            </h3>
+
+            <p>
+                💰 India's foreign exchange reserves
+                crossed approximately
+                <strong>$700 billion</strong>
+                in the latest reported data.
+            </p>
+
+
+            <!-- SCIENCE -->
+
+            <h3>
+                🔬 Science & Technology
+            </h3>
+
+            <p>
+                🔬 Science and technology developments
+                from India and around the world are
+                included in this week's revision.
+            </p>
+
+
+            <!-- SPORTS -->
+
+            <h3>
+                🏆 Sports
+            </h3>
+
+            <p>
+                🏆 Important national and international
+                sports updates will be added here
+                every week.
+            </p>
+
+
+            <!-- AWARDS -->
+
+            <h3>
+                🏅 Awards & Appointments
+            </h3>
+
+            <p>
+                🏅 Important awards and appointments
+                will be updated weekly.
+            </p>
+
+
+            <!-- GOVERNMENT -->
+
+            <h3>
+                🏛️ Government Schemes
+            </h3>
+
+            <p>
+                🏛️ Important government schemes,
+                campaigns and announcements will be
+                updated every week.
+            </p>
+
+
+            <!-- WEST BENGAL -->
+
+            <h3>
+                📍 West Bengal Current Affairs
+            </h3>
+
+            <p>
+                📍 Important West Bengal-related
+                current affairs will be added to
+                the weekly update.
+            </p>
+
+
+            <!-- QUICK REVISION -->
+
+            <h3>
+                📝 Quick Revision
+            </h3>
+
+            <p>
+                1. India's 80th Independence Day —
+                <strong>15 August 2026</strong>
+            </p>
+
+            <p>
+                2. Har Ghar Tiranga 2026 —
+                <strong>9–17 August 2026</strong>
+            </p>
+
+            <p>
+                3. India's forex reserves —
+                approximately <strong>$707 billion</strong>
+                as of 7 August 2026.
+            </p>
+
+
+        
