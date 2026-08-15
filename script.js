@@ -125,10 +125,6 @@ async function startMockTest(exam) {
     score = 0;
 
 
-    // ===============================
-    // SSC PART SELECTION
-    // ===============================
-
     if (exam === "SSC") {
 
         showSSCParts();
@@ -137,10 +133,6 @@ async function startMockTest(exam) {
 
     }
 
-
-    // ===============================
-    // OTHER EXAMS
-    // ===============================
 
     let fileName = "";
 
@@ -260,14 +252,12 @@ function showSSCParts() {
 
             <p>Select a Part</p>
 
-
             <button
                 type="button"
                 onclick="startSSCPart('part1')"
             >
                 📖 Part 1
             </button>
-
 
             <button
                 type="button"
@@ -276,14 +266,12 @@ function showSSCParts() {
                 📖 Part 2
             </button>
 
-
             <button
                 type="button"
                 onclick="startSSCPart('part3')"
             >
                 📖 Part 3
             </button>
-
 
             <button
                 type="button"
@@ -292,14 +280,12 @@ function showSSCParts() {
                 📖 Part 4
             </button>
 
-
             <button
                 type="button"
                 onclick="startSSCPart('part5')"
             >
                 📖 Part 5
             </button>
-
 
             <button
                 type="button"
@@ -308,14 +294,12 @@ function showSSCParts() {
                 📖 Part 6
             </button>
 
-
             <button
                 type="button"
                 onclick="startSSCPart('part7')"
             >
                 📖 Part 7
             </button>
-
 
             <button
                 type="button"
@@ -324,14 +308,12 @@ function showSSCParts() {
                 📖 Part 8
             </button>
 
-
             <button
                 type="button"
                 onclick="startSSCPart('part9')"
             >
                 📖 Part 9
             </button>
-
 
             <button
                 type="button"
@@ -596,9 +578,7 @@ function showMockTest() {
 // SELECT ANSWER
 // ===============================
 
-function selectAnswer(
-    selectedIndex
-) {
+function selectAnswer(selectedIndex) {
 
     const question =
         currentQuestions[
@@ -806,11 +786,10 @@ function showResult() {
 
         testName =
             "SSC - " +
-            selectedPart
-                .replace(
-                    "part",
-                    "Part "
-                );
+            selectedPart.replace(
+                "part",
+                "Part "
+            );
 
     }
 
@@ -840,24 +819,18 @@ function showResult() {
                 ${percentage}%
             </h3>
 
-
             <button
                 type="button"
                 onclick="restartMockTest()"
             >
-
                 🔄 Try Again
-
             </button>
-
 
             <button
                 type="button"
                 onclick="startMockTest('SSC')"
             >
-
                 📚 Choose Part
-
             </button>
 
         </div>
@@ -905,26 +878,11 @@ function restartMockTest() {
 function escapeHTML(value) {
 
     return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
@@ -1077,8 +1035,6 @@ function loadCurrentAffairs() {
             </p>
 
 
-            <!-- NATIONAL -->
-
             <h3>
                 🇮🇳 National Affairs
             </h3>
@@ -1097,47 +1053,38 @@ function loadCurrentAffairs() {
             </p>
 
 
-            <!-- INTERNATIONAL -->
-
             <h3>
                 🌍 International Affairs
             </h3>
 
             <p>
-                🌏 A major earthquake was reported
-                near Flores Island, Indonesia,
-                on 15 August 2026.
+                🌏 Important international events
+                from this week will be included
+                in the weekly revision.
             </p>
 
-
-            <!-- ECONOMY -->
 
             <h3>
                 💰 Economy & Banking
             </h3>
 
             <p>
-                💰 India's foreign exchange reserves
-                crossed approximately
-                <strong>$700 billion</strong>
-                in the latest reported data.
+                💰 Important Economy and Banking
+                updates will be included in the
+                weekly revision.
             </p>
 
-
-            <!-- SCIENCE -->
 
             <h3>
                 🔬 Science & Technology
             </h3>
 
             <p>
-                🔬 Science and technology developments
-                from India and around the world are
-                included in this week's revision.
+                🔬 Important Science and Technology
+                developments will be updated every
+                week.
             </p>
 
-
-            <!-- SPORTS -->
 
             <h3>
                 🏆 Sports
@@ -1145,12 +1092,9 @@ function loadCurrentAffairs() {
 
             <p>
                 🏆 Important national and international
-                sports updates will be added here
-                every week.
+                sports updates will be added here.
             </p>
 
-
-            <!-- AWARDS -->
 
             <h3>
                 🏅 Awards & Appointments
@@ -1161,8 +1105,6 @@ function loadCurrentAffairs() {
                 will be updated weekly.
             </p>
 
-
-            <!-- GOVERNMENT -->
 
             <h3>
                 🏛️ Government Schemes
@@ -1175,20 +1117,15 @@ function loadCurrentAffairs() {
             </p>
 
 
-            <!-- WEST BENGAL -->
-
             <h3>
                 📍 West Bengal Current Affairs
             </h3>
 
             <p>
                 📍 Important West Bengal-related
-                current affairs will be added to
-                the weekly update.
+                current affairs will be added here.
             </p>
 
-
-            <!-- QUICK REVISION -->
 
             <h3>
                 📝 Quick Revision
@@ -1204,11 +1141,14 @@ function loadCurrentAffairs() {
                 <strong>9–17 August 2026</strong>
             </p>
 
+
             <p>
-                3. India's forex reserves —
-                approximately <strong>$707 billion</strong>
-                as of 7 August 2026.
+                ⭐ New Weekly Current Affairs will
+                be updated here every week.
             </p>
 
+        </div>
 
-        
+    `;
+
+                }
