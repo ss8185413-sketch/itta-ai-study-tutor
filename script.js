@@ -2,7 +2,6 @@
 // ITTA STUDY IQ - MAIN SCRIPT
 // ===============================
 
-
 // ===============================
 // GLOBAL VARIABLES
 // ===============================
@@ -177,13 +176,19 @@ async function startMockTest(exam) {
     try {
 
         const response =
-            await fetch(fileName);
+            await fetch(
+                fileName + "?v=" + Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
 
 
         if (!response.ok) {
 
             throw new Error(
-                "Question file not found: " + fileName
+                "Question file not found: " +
+                fileName
             );
 
         }
@@ -332,14 +337,24 @@ async function startSSCPart(partName) {
 
     try {
 
+        // IMPORTANT:
+        // Cache-busting ensures latest JSON loads
+
         const response =
-            await fetch("ssc_questions.json");
+            await fetch(
+                "ssc_questions.json?v=" +
+                Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
 
 
         if (!response.ok) {
 
             throw new Error(
-                "SSC JSON file not found."
+                "SSC JSON file not found: " +
+                response.status
             );
 
         }
@@ -349,15 +364,27 @@ async function startSSCPart(partName) {
             await response.json();
 
 
+        // ===========================
+        // CHECK PART
+        // ===========================
+
         if (
             !data ||
-            !Array.isArray(data[partName])
+            !Object.prototype.hasOwnProperty.call(
+                data,
+                partName
+            )
         ) {
 
             alert(
                 "SSC " +
                 partName +
                 " পাওয়া যায়নি."
+            );
+
+            console.error(
+                "Available Parts:",
+                Object.keys(data || {})
             );
 
             return;
@@ -369,10 +396,24 @@ async function startSSCPart(partName) {
             data[partName];
 
 
-        if (partQuestions.length === 0) {
+        // ===========================
+        // CHECK QUESTION ARRAY
+        // ===========================
+
+        if (
+            !Array.isArray(partQuestions)
+        ) {
 
             alert(
-                "এই Part-এ কোনো প্রশ্ন নেই."
+                "SSC " +
+                partName +
+                " এর question format ঠিক নেই."
+            );
+
+            console.error(
+                partName +
+                " is not an array:",
+                partQuestions
             );
 
             return;
@@ -380,9 +421,28 @@ async function startSSCPart(partName) {
         }
 
 
-        // =======================
+        // ===========================
+        // CHECK EMPTY
+        // ===========================
+
+        if (
+            partQuestions.length === 0
+        ) {
+
+            alert(
+                "SSC " +
+                partName +
+                " এ কোনো প্রশ্ন নেই."
+            );
+
+            return;
+
+        }
+
+
+        // ===========================
         // RANDOM 10 QUESTIONS
-        // =======================
+        // ===========================
 
         currentQuestions =
             shuffleArray(
@@ -396,6 +456,14 @@ async function startSSCPart(partName) {
             );
 
 
+        console.log(
+            "Loaded:",
+            partName,
+            "Questions:",
+            partQuestions.length
+        );
+
+
         showMockTest();
 
     }
@@ -407,7 +475,8 @@ async function startSSCPart(partName) {
         );
 
         alert(
-            "SSC question file load হচ্ছে না."
+            "SSC question file load হচ্ছে না.\n\n" +
+            "File name/location check করো."
         );
 
     }
@@ -1184,45 +1253,4 @@ function loadCurrentAffairs() {
             </p>
 
 
-            <h3>
-                📍 West Bengal Current Affairs
-            </h3>
-
-
-            <p>
-                📍 Important West Bengal-related
-                current affairs will be added here.
-            </p>
-
-
-            <h3>
-                📝 Quick Revision
-            </h3>
-
-
-            <p>
-                1. India's 80th Independence Day —
-                <strong>
-                    15 August 2026
-                </strong>
-            </p>
-
-
-            <p>
-                2. Har Ghar Tiranga 2026 —
-                <strong>
-                    9–17 August 2026
-                </strong>
-            </p>
-
-
-            <p>
-                ⭐ New Weekly Current Affairs will
-                be updated here every week.
-            </p>
-
-        </div>
-
-    `;
-
-}
+  
