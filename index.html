@@ -12,16 +12,10 @@
 
     <title>Itta Study IQ</title>
 
-
-    <!-- PWA -->
-
     <link
         rel="manifest"
         href="manifest.json"
     >
-
-
-    <!-- CSS -->
 
     <link
         rel="stylesheet"
@@ -30,30 +24,20 @@
 
 </head>
 
-
 <body>
 
-
 <main class="app">
-
-
-    <!-- =========================
-         HEADER
-    ========================== -->
 
     <h1>
         ✨ Itta Study IQ
     </h1>
-
 
     <p class="subtitle">
         Your simple AI study helper
     </p>
 
 
-    <!-- =========================
-         AI STUDY TUTOR
-    ========================== -->
+    <!-- AI TUTOR -->
 
     <section class="card">
 
@@ -61,28 +45,26 @@
             ✨ AI Study Tutor
         </h2>
 
-
         <label for="question">
             Ask a study question
         </label>
-
 
         <textarea
             id="question"
             placeholder="Type your question here..."
         ></textarea>
 
-
         <div class="button-row">
 
             <button
+                type="button"
                 onclick="askTutor()"
             >
                 Ask Itta AI ✨
             </button>
 
-
             <button
+                type="button"
                 id="micBtn"
                 onclick="startMic()"
             >
@@ -90,7 +72,6 @@
             </button>
 
         </div>
-
 
         <div
             id="answer"
@@ -102,9 +83,7 @@
     </section>
 
 
-    <!-- =========================
-         STUDY QUIZ
-    ========================== -->
+    <!-- STUDY QUIZ -->
 
     <section
         class="card"
@@ -115,129 +94,89 @@
             🧠 Study Quiz
         </h2>
 
-
         <p>
             Test your knowledge with a quick quiz.
         </p>
 
-
         <button
+            type="button"
             onclick="startQuiz()"
         >
             ▶️ Start Quiz
         </button>
 
-
-        <div
-            id="quizBox"
-        ></div>
+        <div id="quizBox"></div>
 
     </section>
 
 
-    <!-- =========================
-         COMPETITIVE MOCK TEST
-    ========================== -->
+    <!-- MOCK TEST -->
 
-    <section
-        class="card mock-card"
-    >
+    <section class="card mock-card">
 
         <h2>
             📝 Competitive Exam Mock Test
         </h2>
-
 
         <p class="mock-subtitle">
             Choose an exam and start your mock test.
         </p>
 
 
-        <!-- =========================
-             EXAM BUTTONS
-        ========================== -->
-
         <div class="exam-grid">
 
-
-            <!-- UPSC -->
-
             <button
+                type="button"
                 class="exam-btn"
                 onclick="startMockTest('UPSC')"
             >
                 🇮🇳 UPSC
             </button>
 
-
-            <!-- SSC -->
-
             <button
+                type="button"
                 class="exam-btn"
                 onclick="startMockTest('SSC')"
             >
                 📚 SSC
             </button>
 
-
-            <!-- BANK -->
-
             <button
+                type="button"
                 class="exam-btn"
                 onclick="startMockTest('BANK')"
             >
                 🏦 Bank
             </button>
 
-
-            <!-- WBP -->
-
             <button
+                type="button"
                 class="exam-btn"
                 onclick="startMockTest('WBP')"
             >
                 👮 WBP
             </button>
 
-
-            <!-- KOLKATA POLICE -->
-
             <button
+                type="button"
                 class="exam-btn"
-                onclick="
-                    startMockTest(
-                        'KOLKATA_POLICE'
-                    )
-                "
+                onclick="startMockTest('KOLKATA_POLICE')"
             >
                 🚔 Kolkata Police
             </button>
 
-
-            <!-- RAILWAY -->
-
             <button
+                type="button"
                 class="exam-btn"
-                onclick="
-                    startMockTest(
-                        'RAILWAY'
-                    )
-                "
+                onclick="startMockTest('RAILWAY')"
             >
                 🚆 Railway
             </button>
 
-
         </div>
 
 
-        <!-- =========================
-             MOCK TEST AREA
-        ========================== -->
-
-        <div
-            id="mockTestBox"
-        >
+        <div id="mockTestBox">
 
             <p>
                 Select an exam to start your mock test.
@@ -245,13 +184,10 @@
 
         </div>
 
-
     </section>
 
 
-    <!-- =========================
-         WEEKLY CURRENT AFFAIRS
-    ========================== -->
+    <!-- CURRENT AFFAIRS -->
 
     <section
         class="card current-affairs-card"
@@ -262,24 +198,18 @@
             📰 Weekly Current Affairs
         </h2>
 
-
         <p>
             প্রতি সপ্তাহের গুরুত্বপূর্ণ Current Affairs পড়ুন।
         </p>
 
-
         <button
+            type="button"
             onclick="loadCurrentAffairs()"
         >
             📖 Read This Week's Current Affairs
         </button>
 
-
-        <!-- CURRENT AFFAIRS CONTENT -->
-
-        <div
-            id="currentAffairsBox"
-        >
+        <div id="currentAffairsBox">
 
             <p>
                 Weekly Current Affairs এখানে দেখা যাবে।
@@ -287,20 +217,18 @@
 
         </div>
 
-
     </section>
-
 
 </main>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================== -->
+<!-- IMPORTANT: JavaScript -->
 
-<script src="script.js"></script>
-
+<script
+    src="./script.js?v=100"
+    defer
+></script>
 
 </body>
 
-    </html>
+            </html>
