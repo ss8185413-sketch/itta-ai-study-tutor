@@ -5520,5 +5520,332 @@
       ],
       "answer": "Proportional representation by means of a single transferable vote"
     }
+  ],
+  "part12": [
+    {
+      "id": 1,
+      "subject": "History",
+      "question": "ভারতের প্রথম গভর্নর-জেনারেল হিসেবে কে নিযুক্ত হন?",
+      "options": [
+        "ওয়ারেন হেস্টিংস",
+        "লর্ড কর্নওয়ালিস",
+        "লর্ড ওয়েলেসলি",
+        "লর্ড ক্যানিং"
+      ],
+      "answer": "ওয়ারেন হেস্টিংস",
+      "explanation": "১৭৭৩ সালের Regulating Act-এর পরে ওয়ারেন হেস্টিংস বাংলার প্রথম গভর্নর-জেনারেল হন।"
+    },
+    {
+      "id": 2,
+      "subject": "History",
+      "question": "স্থায়ী বন্দোবস্ত (Permanent Settlement) কে প্রবর্তন করেন?",
+      "options": [
+        "লর্ড কর্নওয়ালিস",
+        "লর্ড ডালহৌসি",
+        "লর্ড কার্জন",
+        "লর্ড রিপন"
+      ],
+      "answer": "লর্ড কর্নওয়ালিস",
+      "explanation": "১৭৯৩ সালে লর্ড কর্নওয়ালিস বাংলায় স্থায়ী বন্দোবস্ত চালু করেন।"
+    },
+    {
+      "id": 3,
+      "subject": "History",
+      "question": "সিপাহী বিদ্রোহের সময় ভারতের শেষ মুঘল সম্রাট কে ছিলেন?",
+      "options": [
+        "আকবর II",
+        "বাহাদুর শাহ II",
+        "শাহ আলম II",
+        "ফাররুখসিয়ার"
+      ],
+      "answer": "বাহাদুর শাহ II",
+      "explanation": "১৮৫৭ সালের বিদ্রোহে বাহাদুর শাহ জাফরকে প্রতীকী নেতা হিসেবে গ্রহণ করা হয়।"
+    },
+    {
+      "id": 4,
+      "subject": "History",
+      "question": "ভারতীয় জাতীয় কংগ্রেসের প্রথম অধিবেশন কোথায় অনুষ্ঠিত হয়?",
+      "options": [
+        "কলকাতা",
+        "বোম্বাই",
+        "মাদ্রাজ",
+        "আলাহাবাদ"
+      ],
+      "answer": "বোম্বাই",
+      "explanation": "১৮৮৫ সালে বোম্বাইয়ে কংগ্রেসের প্রথম অধিবেশন হয় এবং সভাপতিত্ব করেন W.C. Bonnerjee।"
+    },
+    {
+      "id": 5,
+      "subject": "History",
+      "question": "স্বদেশী আন্দোলন মূলত কোন ঘটনার প্রতিবাদে শুরু হয়?",
+      "options": [
+        "রাওলাট আইন",
+        "বঙ্গভঙ্গ",
+        "জালিয়ানওয়ালাবাগ হত্যাকাণ্ড",
+        "সাইমন কমিশন"
+      ],
+      "answer": "বঙ্গভঙ্গ",
+      "explanation": "১৯০৫ সালের বঙ্গভঙ্গের প্রতিবাদে স্বদেশী ও বয়কট আন্দোলন জোরদার হয়।"
+    },
+    {
+      "id": 6,
+      "subject": "Polity",
+      "question": "ভারতের সংবিধানের প্রস্তাবনায় 'সমাজতান্ত্রিক' ও 'ধর্মনিরপেক্ষ' শব্দ দুটি কোন সংশোধনীর মাধ্যমে যোগ হয়?",
+      "options": [
+        "৪২তম",
+        "৪৪তম",
+        "৫২তম",
+        "৭৩তম"
+      ],
+      "answer": "৪২তম",
+      "explanation": "১৯৭৬ সালের ৪২তম সংবিধান সংশোধনীর মাধ্যমে শব্দ দুটি যোগ করা হয়।"
+    },
+    {
+      "id": 7,
+      "subject": "Polity",
+      "question": "ভারতের রাষ্ট্রপতিকে কে নির্বাচিত করেন?",
+      "options": [
+        "শুধু লোকসভা",
+        "শুধু সংসদ",
+        "নির্বাচকমণ্ডলী",
+        "সুপ্রিম কোর্ট"
+      ],
+      "answer": "নির্বাচকমণ্ডলী",
+      "explanation": "নির্বাচকমণ্ডলীতে নির্বাচিত সাংসদ ও রাজ্য/কিছু কেন্দ্রশাসিত অঞ্চলের নির্বাচিত বিধায়করা থাকেন।"
+    },
+    {
+      "id": 8,
+      "subject": "Polity",
+      "question": "মৌলিক অধিকার সংবিধানের কোন ভাগে রয়েছে?",
+      "options": [
+        "ভাগ II",
+        "ভাগ III",
+        "ভাগ IV",
+        "ভাগ V"
+      ],
+      "answer": "ভাগ III",
+      "explanation": "সংবিধানের Part III-তে মৌলিক অধিকার বর্ণিত হয়েছে।"
+    },
+    {
+      "id": 9,
+      "subject": "Polity",
+      "question": "সংবিধানের ৩২ নম্বর অনুচ্ছেদকে ড. বি. আর. আম্বেদকর কী বলেছিলেন?",
+      "options": [
+        "সংবিধানের আত্মা ও হৃদয়",
+        "রাষ্ট্রের ভিত্তি",
+        "গণতন্ত্রের স্তম্ভ",
+        "আইনের মূল উৎস"
+      ],
+      "answer": "সংবিধানের আত্মা ও হৃদয়",
+      "explanation": "Article 32 মৌলিক অধিকার রক্ষার জন্য সুপ্রিম কোর্টে যাওয়ার অধিকার দেয়।"
+    },
+    {
+      "id": 10,
+      "subject": "Polity",
+      "question": "ভারতের সংসদের উচ্চকক্ষ কোনটি?",
+      "options": [
+        "লোকসভা",
+        "রাজ্যসভা",
+        "বিধানসভা",
+        "বিধান পরিষদ"
+      ],
+      "answer": "রাজ্যসভা",
+      "explanation": "রাজ্যসভা ভারতের সংসদের Upper House বা উচ্চকক্ষ।"
+    },
+    {
+      "id": 11,
+      "subject": "Polity",
+      "question": "রাজ্যসভার সর্বাধিক সদস্য সংখ্যা কত?",
+      "options": [
+        "238",
+        "245",
+        "250",
+        "252"
+      ],
+      "answer": "250",
+      "explanation": "সংবিধান অনুযায়ী রাজ্যসভার সর্বাধিক সদস্য সংখ্যা 250।"
+    },
+    {
+      "id": 12,
+      "subject": "Polity",
+      "question": "ভারতের নির্বাচন কমিশন কোন অনুচ্ছেদের অধীনে প্রতিষ্ঠিত?",
+      "options": [
+        "280",
+        "324",
+        "356",
+        "368"
+      ],
+      "answer": "324",
+      "explanation": "Article 324 নির্বাচন কমিশনের সাংবিধানিক ক্ষমতা নির্ধারণ করে।"
+    },
+    {
+      "id": 13,
+      "subject": "Mathematics",
+      "question": "একটি সংখ্যার 25% = 45 হলে সংখ্যাটি কত?",
+      "options": [
+        "160",
+        "180",
+        "200",
+        "225"
+      ],
+      "answer": "180",
+      "explanation": "সংখ্যা = 45 × 100 ÷ 25 = 180।"
+    },
+    {
+      "id": 14,
+      "subject": "Mathematics",
+      "question": "একটি পণ্যের ক্রয়মূল্য 800 টাকা এবং বিক্রয়মূল্য 920 টাকা হলে লাভের হার কত?",
+      "options": [
+        "12%",
+        "15%",
+        "18%",
+        "20%"
+      ],
+      "answer": "15%",
+      "explanation": "লাভ = 120; লাভের হার = 120/800 × 100 = 15%।"
+    },
+    {
+      "id": 15,
+      "subject": "Mathematics",
+      "question": "12, 18 এবং 30-এর LCM কত?",
+      "options": [
+        "90",
+        "120",
+        "180",
+        "360"
+      ],
+      "answer": "180",
+      "explanation": "12=2²×3, 18=2×3², 30=2×3×5; LCM=2²×3²×5=180।"
+    },
+    {
+      "id": 16,
+      "subject": "Mathematics",
+      "question": "একটি ত্রিভুজের দুই কোণ 55° ও 65° হলে তৃতীয় কোণ কত?",
+      "options": [
+        "50°",
+        "60°",
+        "70°",
+        "80°"
+      ],
+      "answer": "60°",
+      "explanation": "ত্রিভুজের তিন কোণের যোগফল 180°; তাই তৃতীয় কোণ 60°।"
+    },
+    {
+      "id": 17,
+      "subject": "Reasoning",
+      "question": "ধারাটি সম্পূর্ণ করুন: 3, 8, 15, 24, 35, ?",
+      "options": [
+        "46",
+        "48",
+        "50",
+        "52"
+      ],
+      "answer": "48",
+      "explanation": "পার্থক্য 5,7,9,11; পরের পার্থক্য 13, তাই 35+13=48।"
+    },
+    {
+      "id": 18,
+      "subject": "Reasoning",
+      "question": "যদি CAT = 24 হয় (A=1, B=2... অনুযায়ী), তবে DOG-এর মান কত?",
+      "options": [
+        "24",
+        "26",
+        "27",
+        "28"
+      ],
+      "answer": "26",
+      "explanation": "D=4, O=15, G=7; মোট 4+15+7=26।"
+    },
+    {
+      "id": 19,
+      "subject": "Reasoning",
+      "question": "একজন ব্যক্তি উত্তর দিকে 10 মিটার, তারপর পূর্ব দিকে 10 মিটার এবং শেষে দক্ষিণে 10 মিটার গেলেন। তিনি শুরুর স্থান থেকে কোন দিকে আছেন?",
+      "options": [
+        "উত্তর",
+        "দক্ষিণ",
+        "পূর্ব",
+        "পশ্চিম"
+      ],
+      "answer": "পূর্ব",
+      "explanation": "উত্তর ও দক্ষিণের দূরত্ব বাতিল হয়ে যায়; 10 মিটার পূর্বে অবস্থান করেন।"
+    },
+    {
+      "id": 20,
+      "subject": "Reasoning",
+      "question": "Book : Read :: Food : ?",
+      "options": [
+        "Cook",
+        "Eat",
+        "Buy",
+        "Serve"
+      ],
+      "answer": "Eat",
+      "explanation": "Book পড়া হয়, Food খাওয়া হয়—তাই সম্পর্কটি Eat।"
+    },
+    {
+      "id": 21,
+      "subject": "English",
+      "question": "Choose the correct synonym of 'Abundant'.",
+      "options": [
+        "Scarce",
+        "Plentiful",
+        "Tiny",
+        "Weak"
+      ],
+      "answer": "Plentiful",
+      "explanation": "'Abundant' means available in large quantities; 'Plentiful' is its synonym."
+    },
+    {
+      "id": 22,
+      "subject": "English",
+      "question": "Choose the correct antonym of 'Ancient'.",
+      "options": [
+        "Old",
+        "Modern",
+        "Historic",
+        "Former"
+      ],
+      "answer": "Modern",
+      "explanation": "'Ancient' means very old; its antonym is 'Modern'."
+    },
+    {
+      "id": 23,
+      "subject": "English",
+      "question": "Choose the correct sentence.",
+      "options": [
+        "He have completed his work.",
+        "He has completed his work.",
+        "He having completed his work.",
+        "He has complete his work."
+      ],
+      "answer": "He has completed his work.",
+      "explanation": "Present perfect tense-এর সঠিক গঠন হলো has/have + past participle।"
+    },
+    {
+      "id": 24,
+      "subject": "General Awareness",
+      "question": "ভারতের জাতীয় প্রতীকের মূল উৎস কোনটি?",
+      "options": [
+        "সাঁচি স্তূপ",
+        "সারনাথের অশোকস্তম্ভ",
+        "কুতুব মিনার",
+        "কোনার্ক মন্দির"
+      ],
+      "answer": "সারনাথের অশোকস্তম্ভ",
+      "explanation": "জাতীয় প্রতীক সারনাথের অশোকস্তম্ভের Lion Capital থেকে নেওয়া হয়েছে।"
+    },
+    {
+      "id": 25,
+      "subject": "General Awareness",
+      "question": "ভারতের জাতীয় জলজ প্রাণী কোনটি?",
+      "options": [
+        "নীল তিমি",
+        "গঙ্গার শুশুক",
+        "কচ্ছপ",
+        "কুমির"
+      ],
+      "answer": "গঙ্গার শুশুক",
+      "explanation": "গঙ্গার শুশুক (Ganges River Dolphin) ভারতের জাতীয় জলজ প্রাণী।"
+    }
   ]
 }
