@@ -1,6 +1,8 @@
-// ===============================
+"use strict";
+
+// =====================================================
 // ITTA STUDY IQ - MAIN SCRIPT
-// ===============================
+// =====================================================
 
 let currentQuestions = [];
 let currentQuestionIndex = 0;
@@ -9,102 +11,152 @@ let selectedExam = "";
 let selectedPart = "";
 
 
-// ===============================
+// =====================================================
 // PAGE READY
-// ===============================
+// =====================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const questionBox = document.getElementById("question");
+    console.log("✅ Itta Study IQ JavaScript loaded.");
+
+    const questionBox =
+        document.getElementById("question");
 
     if (questionBox) {
 
-        questionBox.addEventListener("keydown", function (event) {
+        questionBox.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Enter" && !event.shiftKey) {
+                if (
+                    event.key === "Enter" &&
+                    !event.shiftKey
+                ) {
 
-                event.preventDefault();
-                askTutor();
+                    event.preventDefault();
+
+                    askTutor();
+
+                }
 
             }
-
-        });
+        );
 
     }
 
 });
 
 
-// ===============================
-// AI STUDY TUTOR
-// ===============================
+// =====================================================
+// AI TUTOR
+// =====================================================
 
 async function askTutor() {
 
-    const questionBox = document.getElementById("question");
-    const answerBox = document.getElementById("answer");
+    const questionBox =
+        document.getElementById("question");
+
+    const answerBox =
+        document.getElementById("answer");
 
     if (!questionBox || !answerBox) {
         return;
     }
 
-    const question = questionBox.value.trim();
+    const question =
+        questionBox.value.trim();
 
     if (!question) {
-        answerBox.innerText = "Please type a question first.";
+
+        answerBox.innerText =
+            "Please type a question first.";
+
         return;
+
     }
 
-    answerBox.innerText = "Thinking... ✨";
+    answerBox.innerText =
+        "Thinking... ✨";
 
     try {
 
-        const response = await fetch("/ask", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                question: question
-            })
-        });
+        const response =
+            await fetch("/ask", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+                    question: question
+                })
+
+            });
+
 
         if (!response.ok) {
-            throw new Error("Server Error: " + response.status);
+
+            throw new Error(
+                "Server error: " +
+                response.status
+            );
+
         }
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         if (data.answer) {
-            answerBox.innerText = data.answer;
+
+            answerBox.innerText =
+                data.answer;
+
         }
+
         else if (data.text) {
-            answerBox.innerText = data.text;
+
+            answerBox.innerText =
+                data.text;
+
         }
+
         else {
-            answerBox.innerText = "Sorry, no answer received.";
+
+            answerBox.innerText =
+                "No answer received.";
+
         }
 
     }
+
     catch (error) {
 
-        console.error("AI Tutor Error:", error);
+        console.error(
+            "AI Tutor Error:",
+            error
+        );
 
         answerBox.innerText =
-            "AI Tutor is temporarily unavailable. Please try again.";
+            "AI Tutor is temporarily unavailable.";
 
     }
 
 }
 
 
-// ===============================
+// =====================================================
 // MICROPHONE
-// ===============================
+// =====================================================
 
 function startMic() {
 
-    const questionBox = document.getElementById("question");
+    const questionBox =
+        document.getElementById("question");
 
     if (!questionBox) {
         return;
@@ -121,64 +173,84 @@ function startMic() {
         );
 
         return;
+
     }
 
-    const recognition = new SpeechRecognition();
+    const recognition =
+        new SpeechRecognition();
 
-    recognition.lang = "en-IN";
-    recognition.interimResults = false;
-    recognition.continuous = false;
+    recognition.lang =
+        "en-IN";
 
-    recognition.onstart = function () {
-        questionBox.placeholder = "Listening...";
-    };
+    recognition.interimResults =
+        false;
 
-    recognition.onresult = function (event) {
+    recognition.continuous =
+        false;
 
-        questionBox.value =
-            event.results[0][0].transcript;
 
-        questionBox.placeholder =
-            "Type your question here...";
+    recognition.onstart =
+        function () {
 
-    };
+            questionBox.placeholder =
+                "Listening...";
 
-    recognition.onerror = function (event) {
+        };
 
-        console.error(
-            "Microphone Error:",
-            event.error
-        );
 
-        questionBox.placeholder =
-            "Type your question here...";
+    recognition.onresult =
+        function (event) {
 
-    };
+            questionBox.value =
+                event.results[0][0]
+                    .transcript;
 
-    recognition.onend = function () {
+        };
 
-        questionBox.placeholder =
-            "Type your question here...";
 
-    };
+    recognition.onerror =
+        function (event) {
+
+            console.error(
+                "Microphone Error:",
+                event.error
+            );
+
+        };
+
+
+    recognition.onend =
+        function () {
+
+            questionBox.placeholder =
+                "Type your question here...";
+
+        };
+
 
     try {
+
         recognition.start();
+
     }
+
     catch (error) {
+
         console.error(error);
+
     }
 
 }
 
 
-// ===============================
-// SIMPLE STUDY QUIZ
-// ===============================
+// =====================================================
+// STUDY QUIZ
+// =====================================================
 
 function startQuiz() {
 
-    const quizBox = document.getElementById("quizBox");
+    const quizBox =
+        document.getElementById("quizBox");
 
     if (!quizBox) {
         return;
@@ -188,10 +260,12 @@ function startQuiz() {
 
         <div class="quiz-content">
 
-            <h3>🧠 Quick Study Quiz</h3>
+            <h3>
+                🧠 Quick Study Quiz
+            </h3>
 
             <p>
-                Your quiz system is ready.
+                Quiz system is ready.
             </p>
 
             <button
@@ -210,79 +284,113 @@ function startQuiz() {
 
 function closeQuiz() {
 
-    const quizBox = document.getElementById("quizBox");
+    const quizBox =
+        document.getElementById("quizBox");
 
     if (quizBox) {
+
         quizBox.innerHTML = "";
+
     }
 
 }
 
 
-// ===============================
+// =====================================================
 // START MOCK TEST
-// ===============================
+// =====================================================
 
 async function startMockTest(exam) {
 
-    selectedExam = exam;
-    selectedPart = "";
+    selectedExam =
+        exam;
 
-    currentQuestions = [];
-    currentQuestionIndex = 0;
-    score = 0;
+    selectedPart =
+        "";
 
-    // SSC has Part system
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+
+    // SSC
+
     if (exam === "SSC") {
 
         showSSCParts();
+
         return;
 
     }
 
+
     const files = {
 
-        "UPSC": "upsc_questions.json",
+        UPSC:
+            "upsc_questions.json",
 
-        "BANK": "bank_questions.json",
+        BANK:
+            "bank_questions.json",
 
-        "WBP": "wbp_questions.json",
+        WBP:
+            "wbp_questions.json",
 
-        "KOLKATA_POLICE":
+        KOLKATA_POLICE:
             "kolkata_police_questions.json",
 
-        "RAILWAY":
+        RAILWAY:
             "railway_questions.json"
 
     };
 
-    const fileName = files[exam];
+
+    const fileName =
+        files[exam];
+
 
     if (!fileName) {
 
-        alert("Exam not found.");
+        alert(
+            "Exam not found."
+        );
 
         return;
+
     }
+
 
     try {
 
-        const response = await fetch(
-            fileName + "?v=" + Date.now(),
-            {
-                cache: "no-store"
-            }
-        );
+        const response =
+            await fetch(
+                "./" +
+                fileName +
+                "?v=" +
+                Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
+
 
         if (!response.ok) {
 
             throw new Error(
-                "File not found: " + fileName
+                fileName +
+                " not found"
             );
 
         }
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         if (!Array.isArray(data)) {
 
@@ -292,27 +400,35 @@ async function startMockTest(exam) {
             );
 
             return;
+
         }
+
 
         if (data.length === 0) {
 
             alert(
-                "No questions found in " +
-                fileName
+                "No questions found."
             );
 
             return;
+
         }
+
 
         currentQuestions =
             shuffleArray(data).slice(
                 0,
-                Math.min(10, data.length)
+                Math.min(
+                    10,
+                    data.length
+                )
             );
+
 
         showMockTest();
 
     }
+
     catch (error) {
 
         console.error(
@@ -321,10 +437,8 @@ async function startMockTest(exam) {
         );
 
         alert(
-            "Question file load হচ্ছে না.\n\n" +
-            "Check করো:\n" +
-            fileName +
-            "\n\nFileটি একই folder-এ আছে কিনা।"
+            "Question file পাওয়া যাচ্ছে না:\n\n" +
+            fileName
         );
 
     }
@@ -332,24 +446,46 @@ async function startMockTest(exam) {
 }
 
 
-// ===============================
+// =====================================================
 // SSC PARTS
-// ===============================
+// =====================================================
 
 function showSSCParts() {
 
     const container =
-        document.getElementById("mockTestBox");
+        document.getElementById(
+            "mockTestBox"
+        );
 
     if (!container) {
         return;
     }
 
-    let buttons = "";
 
-    for (let i = 1; i <= 20; i++) {
+    let html = `
 
-        buttons += `
+        <div class="ssc-parts">
+
+            <h3>
+                📚 SSC Mock Test
+            </h3>
+
+            <p>
+                Select Part
+            </p>
+
+            <div class="exam-grid">
+
+    `;
+
+
+    for (
+        let i = 1;
+        i <= 20;
+        i++
+    ) {
+
+        html += `
 
             <button
                 type="button"
@@ -363,19 +499,8 @@ function showSSCParts() {
 
     }
 
-    container.innerHTML = `
 
-        <div class="ssc-parts">
-
-            <h3>📚 SSC Mock Test</h3>
-
-            <p>
-                Select an SSC Part
-            </p>
-
-            <div class="exam-grid">
-
-                ${buttons}
+    html += `
 
             </div>
 
@@ -383,30 +508,46 @@ function showSSCParts() {
 
     `;
 
+
+    container.innerHTML =
+        html;
+
 }
 
 
-// ===============================
+// =====================================================
 // START SSC PART
-// ===============================
+// =====================================================
 
 async function startSSCPart(partName) {
 
-    selectedExam = "SSC";
-    selectedPart = partName;
+    selectedExam =
+        "SSC";
 
-    currentQuestions = [];
-    currentQuestionIndex = 0;
-    score = 0;
+    selectedPart =
+        partName;
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
 
     try {
 
-        const response = await fetch(
-            "ssc_questions.json?v=" + Date.now(),
-            {
-                cache: "no-store"
-            }
-        );
+        const response =
+            await fetch(
+                "./ssc_questions.json?v=" +
+                Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
+
 
         if (!response.ok) {
 
@@ -416,7 +557,10 @@ async function startSSCPart(partName) {
 
         }
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         if (
             !data ||
@@ -429,7 +573,9 @@ async function startSSCPart(partName) {
             );
 
             return;
+
         }
+
 
         if (
             !Object.prototype.hasOwnProperty.call(
@@ -450,9 +596,13 @@ async function startSSCPart(partName) {
             );
 
             return;
+
         }
 
-        const questions = data[partName];
+
+        const questions =
+            data[partName];
+
 
         if (!Array.isArray(questions)) {
 
@@ -462,7 +612,9 @@ async function startSSCPart(partName) {
             );
 
             return;
+
         }
+
 
         if (questions.length === 0) {
 
@@ -472,17 +624,26 @@ async function startSSCPart(partName) {
             );
 
             return;
+
         }
 
+
         currentQuestions =
-            shuffleArray(questions).slice(
+            shuffleArray(
+                questions
+            ).slice(
                 0,
-                Math.min(10, questions.length)
+                Math.min(
+                    10,
+                    questions.length
+                )
             );
+
 
         showMockTest();
 
     }
+
     catch (error) {
 
         console.error(
@@ -491,8 +652,7 @@ async function startSSCPart(partName) {
         );
 
         alert(
-            "SSC question file load হচ্ছে না.\n\n" +
-            "ssc_questions.json check করো."
+            "ssc_questions.json load হচ্ছে না."
         );
 
     }
@@ -500,13 +660,15 @@ async function startSSCPart(partName) {
 }
 
 
-// ===============================
+// =====================================================
 // SHUFFLE
-// ===============================
+// =====================================================
 
 function shuffleArray(array) {
 
-    const result = [...array];
+    const result =
+        [...array];
+
 
     for (
         let i = result.length - 1;
@@ -516,46 +678,58 @@ function shuffleArray(array) {
 
         const j =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
+
 
         [
             result[i],
             result[j]
-        ] = [
+        ] =
+        [
             result[j],
             result[i]
         ];
 
     }
 
+
     return result;
 
 }
 
 
-// ===============================
-// SHOW MOCK TEST
-// ===============================
+// =====================================================
+// SHOW QUESTION
+// =====================================================
 
 function showMockTest() {
 
     const container =
-        document.getElementById("mockTestBox");
+        document.getElementById(
+            "mockTestBox"
+        );
 
     if (!container) {
         return;
     }
 
+
     const question =
-        currentQuestions[currentQuestionIndex];
+        currentQuestions[
+            currentQuestionIndex
+        ];
+
 
     if (!question) {
 
         showResult();
+
         return;
 
     }
+
 
     const questionText =
         question.question ||
@@ -563,36 +737,34 @@ function showMockTest() {
         question.q ||
         "Question not found";
 
+
     const options =
         question.options ||
         question.answers ||
         [];
 
-    if (!Array.isArray(options) || options.length === 0) {
+
+    if (
+        !Array.isArray(options) ||
+        options.length === 0
+    ) {
 
         container.innerHTML = `
 
-            <div class="result-box">
+            <h3>
+                ⚠️ Question Error
+            </h3>
 
-                <h3>⚠️ Question Error</h3>
-
-                <p>
-                    এই প্রশ্নের options পাওয়া যায়নি।
-                </p>
-
-                <button
-                    type="button"
-                    onclick="restartMockTest()"
-                >
-                    🔄 Try Again
-                </button>
-
-            </div>
+            <p>
+                Options পাওয়া যায়নি।
+            </p>
 
         `;
 
         return;
+
     }
+
 
     let html = `
 
@@ -606,28 +778,36 @@ function showMockTest() {
             </h3>
 
             <p>
-                ${escapeHTML(questionText)}
+                ${escapeHTML(
+                    questionText
+                )}
             </p>
 
             <div class="options">
 
     `;
 
-    options.forEach(function (option, index) {
 
-        html += `
+    options.forEach(
+        function (option, index) {
 
-            <button
-                type="button"
-                class="option-btn"
-                onclick="selectAnswer(${index})"
-            >
-                ${escapeHTML(String(option))}
-            </button>
+            html += `
 
-        `;
+                <button
+                    type="button"
+                    class="option-btn"
+                    onclick="selectAnswer(${index})"
+                >
+                    ${escapeHTML(
+                        String(option)
+                    )}
+                </button>
 
-    });
+            `;
+
+        }
+    );
+
 
     html += `
 
@@ -639,28 +819,35 @@ function showMockTest() {
 
     `;
 
-    container.innerHTML = html;
+
+    container.innerHTML =
+        html;
 
 }
 
 
-// ===============================
-// SELECT ANSWER
-// ===============================
+// =====================================================
+// ANSWER
+// =====================================================
 
 function selectAnswer(selectedIndex) {
 
     const question =
-        currentQuestions[currentQuestionIndex];
+        currentQuestions[
+            currentQuestionIndex
+        ];
+
 
     if (!question) {
         return;
     }
 
+
     const options =
         question.options ||
         question.answers ||
         [];
+
 
     const correctAnswer =
         question.answer ??
@@ -668,87 +855,122 @@ function selectAnswer(selectedIndex) {
         question.correct ??
         question.correct_option;
 
-    const buttons =
-        document.querySelectorAll(".option-btn");
 
-    buttons.forEach(function (button) {
-        button.disabled = true;
-    });
+    document
+        .querySelectorAll(
+            ".option-btn"
+        )
+        .forEach(
+            function (button) {
 
-    let correctIndex = -1;
+                button.disabled =
+                    true;
 
-    // Answer is number
-    if (typeof correctAnswer === "number") {
+            }
+        );
 
-        // Support both 0-based and 1-based
-        if (
-            correctAnswer >= 0 &&
-            correctAnswer < options.length
-        ) {
 
-            correctIndex = correctAnswer;
+    let correctIndex =
+        -1;
 
-        }
-        else if (
-            correctAnswer >= 1 &&
-            correctAnswer <= options.length
-        ) {
 
-            correctIndex = correctAnswer - 1;
-
-        }
-
-    }
-
-    // Answer is text
-    else if (typeof correctAnswer === "string") {
-
-        const answerText =
-            correctAnswer.trim().toLowerCase();
+    if (
+        typeof correctAnswer ===
+        "number"
+    ) {
 
         correctIndex =
-            options.findIndex(function (option) {
+            correctAnswer;
 
-                return String(option)
-                    .trim()
-                    .toLowerCase() === answerText;
 
-            });
+        // Support 1,2,3,4 style answers
 
-        // A/B/C/D
-        if (correctIndex === -1) {
+        if (
+            correctAnswer >= 1 &&
+            correctAnswer <=
+            options.length
+        ) {
 
-            const letters = [
-                "a",
-                "b",
-                "c",
-                "d"
-            ];
-
-            const letterIndex =
-                letters.indexOf(answerText);
-
-            if (letterIndex !== -1) {
-                correctIndex = letterIndex;
-            }
+            correctIndex =
+                correctAnswer - 1;
 
         }
 
     }
 
-    const feedback =
-        document.getElementById("feedback");
 
-    if (selectedIndex === correctIndex) {
+    if (
+        typeof correctAnswer ===
+        "string"
+    ) {
+
+        const answer =
+            correctAnswer
+                .trim()
+                .toLowerCase();
+
+
+        correctIndex =
+            options.findIndex(
+                function (option) {
+
+                    return (
+                        String(option)
+                            .trim()
+                            .toLowerCase()
+                        ===
+                        answer
+                    );
+
+                }
+            );
+
+
+        if (
+            correctIndex === -1
+        ) {
+
+            const letters =
+                [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                ];
+
+
+            correctIndex =
+                letters.indexOf(
+                    answer
+                );
+
+        }
+
+    }
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    if (
+        selectedIndex ===
+        correctIndex
+    ) {
 
         score++;
 
         if (feedback) {
+
             feedback.innerHTML =
                 "<p>✅ Correct!</p>";
+
         }
 
     }
+
     else {
 
         if (feedback) {
@@ -760,53 +982,67 @@ function selectAnswer(selectedIndex) {
 
     }
 
-    setTimeout(function () {
 
-        currentQuestionIndex++;
+    setTimeout(
+        function () {
 
-        if (
-            currentQuestionIndex <
-            currentQuestions.length
-        ) {
+            currentQuestionIndex++;
 
-            showMockTest();
 
-        }
-        else {
+            if (
+                currentQuestionIndex <
+                currentQuestions.length
+            ) {
 
-            showResult();
+                showMockTest();
 
-        }
+            }
 
-    }, 800);
+            else {
+
+                showResult();
+
+            }
+
+        },
+        800
+    );
 
 }
 
 
-// ===============================
+// =====================================================
 // RESULT
-// ===============================
+// =====================================================
 
 function showResult() {
 
     const container =
-        document.getElementById("mockTestBox");
+        document.getElementById(
+            "mockTestBox"
+        );
+
 
     if (!container) {
         return;
     }
 
+
     const total =
         currentQuestions.length;
 
+
     const percentage =
-        total > 0
+        total
             ? Math.round(
-                (score / total) * 100
+                score / total * 100
             )
             : 0;
 
-    let testName = selectedExam;
+
+    let testName =
+        selectedExam;
+
 
     if (
         selectedExam === "SSC" &&
@@ -822,6 +1058,7 @@ function showResult() {
 
     }
 
+
     container.innerHTML = `
 
         <div class="result-box">
@@ -832,7 +1069,9 @@ function showResult() {
 
             <p>
                 Exam:
-                ${escapeHTML(testName)}
+                ${escapeHTML(
+                    testName
+                )}
             </p>
 
             <h3>
@@ -845,6 +1084,7 @@ function showResult() {
                 ${percentage}%
             </h3>
 
+
             <button
                 type="button"
                 onclick="restartMockTest()"
@@ -852,11 +1092,12 @@ function showResult() {
                 🔄 Try Again
             </button>
 
+
             <button
                 type="button"
-                onclick="showExamButtons()"
+                onclick="showSSCParts()"
             >
-                📚 Choose Exam
+                📚 Choose Part
             </button>
 
         </div>
@@ -866,33 +1107,9 @@ function showResult() {
 }
 
 
-// ===============================
-// SHOW EXAM BUTTONS
-// ===============================
-
-function showExamButtons() {
-
-    const container =
-        document.getElementById("mockTestBox");
-
-    if (!container) {
-        return;
-    }
-
-    container.innerHTML = `
-
-        <p>
-            Select an exam to start your mock test.
-        </p>
-
-    `;
-
-}
-
-
-// ===============================
+// =====================================================
 // RESTART
-// ===============================
+// =====================================================
 
 function restartMockTest() {
 
@@ -901,40 +1118,65 @@ function restartMockTest() {
         selectedPart
     ) {
 
-        startSSCPart(selectedPart);
+        startSSCPart(
+            selectedPart
+        );
+
         return;
 
     }
 
+
     if (selectedExam) {
 
-        startMockTest(selectedExam);
-        return;
+        startMockTest(
+            selectedExam
+        );
 
     }
 
 }
 
 
-// ===============================
-// ESCAPE HTML
-// ===============================
+// =====================================================
+// HTML ESCAPE
+// =====================================================
 
 function escapeHTML(value) {
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-// ===============================
-// WEEKLY CURRENT AFFAIRS
-// ===============================
+// =====================================================
+// CURRENT AFFAIRS
+// =====================================================
 
 function loadCurrentAffairs() {
 
@@ -943,9 +1185,11 @@ function loadCurrentAffairs() {
             "currentAffairsBox"
         );
 
+
     if (!box) {
         return;
     }
+
 
     box.innerHTML = `
 
@@ -961,32 +1205,36 @@ function loadCurrentAffairs() {
                 </strong>
             </p>
 
+
             <h3>
                 🇮🇳 National Affairs
             </h3>
 
             <p>
-                Important national events and
-                government updates of the week.
+                Important national affairs
+                and government updates.
             </p>
+
 
             <h3>
                 🌍 International Affairs
             </h3>
 
             <p>
-                Important international developments
-                for competitive-exam revision.
+                Important international
+                developments.
             </p>
+
 
             <h3>
                 💰 Economy & Banking
             </h3>
 
             <p>
-                Important economy and banking updates
-                for this week's revision.
+                Important economy and banking
+                updates.
             </p>
+
 
             <h3>
                 🔬 Science & Technology
@@ -994,34 +1242,35 @@ function loadCurrentAffairs() {
 
             <p>
                 Important science and technology
-                developments of the week.
+                developments.
             </p>
+
 
             <h3>
                 🏆 Sports
             </h3>
 
             <p>
-                Important national and international
-                sports updates.
+                Important sports updates.
             </p>
+
 
             <h3>
                 🏅 Awards & Appointments
             </h3>
 
             <p>
-                Important awards and appointments
-                for competitive exams.
+                Important awards and appointments.
             </p>
+
 
             <h3>
                 🏛️ Government Schemes
             </h3>
 
             <p>
-                Important government schemes,
-                campaigns and announcements.
+                Important government schemes
+                and announcements.
             </p>
 
         </div>
@@ -1031,10 +1280,16 @@ function loadCurrentAffairs() {
 }
 
 
-// ===============================
-// DEBUG
-// ===============================
+// =====================================================
+// GLOBAL FUNCTIONS
+// IMPORTANT FOR HTML onclick
+// =====================================================
 
-console.log(
-    "✅ Itta Study IQ script loaded successfully."
-);
+window.askTutor =
+    askTutor;
+
+window.startMic =
+    startMic;
+
+window.startQuiz =
+    star
