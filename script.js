@@ -13,6 +13,20 @@ let answerLocked = false;
 
 
 // =====================================================
+// EXAM PART SYSTEM
+// =====================================================
+
+const examPartNames = {
+    "SSC": "SSC",
+    "UPSC": "UPSC",
+    "BANK": "Bank",
+    "WBP": "WBP",
+    "KOLKATA_POLICE": "Kolkata Police",
+    "RAILWAY": "Railway"
+};
+
+
+// =====================================================
 // PAGE READY
 // =====================================================
 
@@ -20,22 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ ITTA Study IQ Script Loaded");
 
-    const questionBox = document.getElementById("question");
+    const questionBox =
+        document.getElementById("question");
 
     if (questionBox) {
 
-        questionBox.addEventListener("keydown", function (event) {
+        questionBox.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Enter" && !event.shiftKey) {
+                if (
+                    event.key === "Enter" &&
+                    !event.shiftKey
+                ) {
 
-                event.preventDefault();
+                    event.preventDefault();
 
-                askTutor();
+                    askTutor();
+                }
 
             }
-
-        });
-
+        );
     }
 
 });
@@ -47,14 +66,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function askTutor() {
 
-    const questionBox = document.getElementById("question");
-    const answerBox = document.getElementById("answer");
+    const questionBox =
+        document.getElementById("question");
+
+    const answerBox =
+        document.getElementById("answer");
 
     if (!questionBox || !answerBox) {
         return;
     }
 
-    const question = questionBox.value.trim();
+    const question =
+        questionBox.value.trim();
 
     if (!question) {
 
@@ -69,39 +92,43 @@ async function askTutor() {
 
     try {
 
-        const response = await fetch("/ask", {
+        const response =
+            await fetch("/ask", {
 
-            method: "POST",
+                method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-            body: JSON.stringify({
-                question: question
-            })
+                body: JSON.stringify({
+                    question: question
+                })
 
-        });
+            });
 
         if (!response.ok) {
 
             throw new Error(
-                "Server Error: " + response.status
+                "Server Error: " +
+                response.status
             );
-
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         if (data.answer) {
 
-            answerBox.innerText = data.answer;
+            answerBox.innerText =
+                data.answer;
 
         }
 
         else if (data.text) {
 
-            answerBox.innerText = data.text;
+            answerBox.innerText =
+                data.text;
 
         }
 
@@ -116,7 +143,10 @@ async function askTutor() {
 
     catch (error) {
 
-        console.error("AI Tutor Error:", error);
+        console.error(
+            "AI Tutor Error:",
+            error
+        );
 
         answerBox.innerText =
             "AI Tutor is temporarily unavailable. Please try again.";
@@ -276,7 +306,7 @@ function closeQuiz() {
 // START MOCK TEST
 // =====================================================
 
-async function startMockTest(exam) {
+function startMockTest(exam) {
 
     selectedExam = exam;
 
@@ -290,143 +320,20 @@ async function startMockTest(exam) {
 
     answerLocked = false;
 
-
-    // -------------------------------------------------
-    // SSC
-    // -------------------------------------------------
-
-    if (exam === "SSC") {
-
-        showSSCParts();
-
-        return;
-
-    }
-
-
-    // -------------------------------------------------
-    // OTHER EXAMS
-    // -------------------------------------------------
-
-    const files = {
-
-        "UPSC":
-            "upsc_questions.json",
-
-        "BANK":
-            "bank_questions.json",
-
-        "WBP":
-            "wbp_questions.json",
-
-        "KOLKATA_POLICE":
-            "kolkata_police_questions.json",
-
-        "RAILWAY":
-            "railway_questions.json"
-
-    };
-
-
-    const fileName = files[exam];
-
-
-    if (!fileName) {
-
-        alert("Exam not found.");
-
-        return;
-
-    }
-
-
-    try {
-
-        const response =
-            await fetch(
-                "./" +
-                fileName +
-                "?v=" +
-                Date.now(),
-                {
-                    cache: "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                fileName + " not found"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (!Array.isArray(data)) {
-
-            alert(
-                fileName +
-                " format is incorrect."
-            );
-
-            return;
-
-        }
-
-
-        if (data.length === 0) {
-
-            alert(
-                "No questions found in " +
-                fileName
-            );
-
-            return;
-
-        }
-
-
-        currentQuestions =
-            shuffleArray(data).slice(
-                0,
-                Math.min(10, data.length)
-            );
-
-
-        showMockTest();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Mock Test Error:",
-            error
-        );
-
-        alert(
-            "Question file load হচ্ছে না.\n\n" +
-            "File: " +
-            fileName +
-            "\n\n" +
-            "Fileটি HTML-এর একই folder-এ আছে কিনা check করো."
-        );
-
-    }
-
+    // এখন সব Exam-এ শুধু Part দেখাবে
+    showExamParts(exam);
 }
 
 
 // =====================================================
-// SSC PARTS 1 - 20
+// SHOW PART 1 - 20
 // =====================================================
 
-function showSSCParts() {
+function showExamParts(exam) {
+
+    selectedExam = exam;
+
+    selectedPart = "";
 
     const container =
         document.getElementById("mockTestBox");
@@ -435,6 +342,8 @@ function showSSCParts() {
         return;
     }
 
+    const examName =
+        examPartNames[exam] || exam;
 
     let buttonsHTML = "";
 
@@ -445,27 +354,26 @@ function showSSCParts() {
 
             <button
                 type="button"
-                class="exam-btn"
-                onclick="startSSCPart('part${i}')"
+                class="exam-btn part-btn"
+                onclick="selectExamPart('${exam}', 'part${i}')"
             >
                 📖 Part ${i}
             </button>
 
         `;
-
     }
 
 
     container.innerHTML = `
 
-        <div class="ssc-parts">
+        <div class="exam-parts">
 
             <h3>
-                📚 SSC Mock Test
+                📚 ${escapeHTML(examName)}
             </h3>
 
             <p>
-                Select an SSC Part
+                Select Part 1 - 20
             </p>
 
             <div class="exam-grid">
@@ -482,12 +390,15 @@ function showSSCParts() {
 
 
 // =====================================================
-// START SSC PART
+// SELECT PART
 // =====================================================
 
-async function startSSCPart(partName) {
+function selectExamPart(
+    exam,
+    partName
+) {
 
-    selectedExam = "SSC";
+    selectedExam = exam;
 
     selectedPart = partName;
 
@@ -500,121 +411,66 @@ async function startSSCPart(partName) {
     answerLocked = false;
 
 
-    try {
+    console.log(
+        "Selected Exam:",
+        selectedExam
+    );
 
-        const response =
-            await fetch(
-                "./ssc_questions.json?v=" +
-                Date.now(),
-                {
-                    cache: "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "ssc_questions.json not found"
-            );
-
-        }
+    console.log(
+        "Selected Part:",
+        selectedPart
+    );
 
 
-        const data =
-            await response.json();
+    const container =
+        document.getElementById("mockTestBox");
 
-
-        if (
-            !data ||
-            typeof data !== "object" ||
-            Array.isArray(data)
-        ) {
-
-            alert(
-                "ssc_questions.json format ঠিক নেই."
-            );
-
-            return;
-
-        }
-
-
-        if (
-            !Object.prototype.hasOwnProperty.call(
-                data,
-                partName
-            )
-        ) {
-
-            alert(
-                "SSC " +
-                partName +
-                " পাওয়া যায়নি."
-            );
-
-            console.log(
-                "Available Parts:",
-                Object.keys(data)
-            );
-
-            return;
-
-        }
-
-
-        const questions =
-            data[partName];
-
-
-        if (!Array.isArray(questions)) {
-
-            alert(
-                partName +
-                " question format ঠিক নেই."
-            );
-
-            return;
-
-        }
-
-
-        if (questions.length === 0) {
-
-            alert(
-                partName +
-                " এ কোনো প্রশ্ন নেই."
-            );
-
-            return;
-
-        }
-
-
-        currentQuestions =
-            shuffleArray(questions).slice(
-                0,
-                Math.min(10, questions.length)
-            );
-
-
-        showMockTest();
-
+    if (!container) {
+        return;
     }
 
-    catch (error) {
 
-        console.error(
-            "SSC Error:",
-            error
+    const examName =
+        examPartNames[exam] || exam;
+
+    const partNumber =
+        partName.replace(
+            "part",
+            ""
         );
 
-        alert(
-            "SSC question file load হচ্ছে না.\n\n" +
-            "ssc_questions.json check করো."
-        );
 
-    }
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <h3>
+                📚 ${escapeHTML(examName)}
+            </h3>
+
+            <h4>
+                Part ${partNumber}
+            </h4>
+
+            <p>
+                ✅ Part selected successfully.
+            </p>
+
+            <p>
+                Questions will be added here later.
+            </p>
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showExamParts('${exam}')"
+            >
+                🔙 Back to Parts
+            </button>
+
+        </div>
+
+    `;
 
 }
 
@@ -625,7 +481,8 @@ async function startSSCPart(partName) {
 
 function shuffleArray(array) {
 
-    const result = [...array];
+    const result =
+        [...array];
 
 
     for (
@@ -636,7 +493,8 @@ function shuffleArray(array) {
 
         const j =
             Math.floor(
-                Math.random() * (i + 1)
+                Math.random() *
+                (i + 1)
             );
 
 
@@ -789,7 +647,8 @@ function showMockTest() {
     `;
 
 
-    container.innerHTML = html;
+    container.innerHTML =
+        html;
 
 }
 
@@ -798,7 +657,9 @@ function showMockTest() {
 // SELECT ANSWER
 // =====================================================
 
-function selectAnswer(selectedIndex) {
+function selectAnswer(
+    selectedIndex
+) {
 
     if (answerLocked) {
         return;
@@ -832,29 +693,26 @@ function selectAnswer(selectedIndex) {
 
 
     document
-        .querySelectorAll(".option-btn")
-        .forEach(function (button) {
+        .querySelectorAll(
+            ".option-btn"
+        )
+        .forEach(
+            function (button) {
 
-            button.disabled = true;
+                button.disabled = true;
 
-        });
+            }
+        );
 
 
     let correctIndex = -1;
 
 
-    // -------------------------------------------------
     // NUMBER ANSWER
-    // -------------------------------------------------
 
     if (
         typeof correctAnswer === "number"
     ) {
-
-        /*
-         JSON-এ সাধারণত answer text থাকে।
-         তবে number থাকলেও support করবে।
-        */
 
         if (
             correctAnswer >= 0 &&
@@ -879,9 +737,7 @@ function selectAnswer(selectedIndex) {
     }
 
 
-    // -------------------------------------------------
     // TEXT ANSWER
-    // -------------------------------------------------
 
     else if (
         typeof correctAnswer === "string"
@@ -892,8 +748,6 @@ function selectAnswer(selectedIndex) {
                 .trim()
                 .toLowerCase();
 
-
-        // Exact option match
 
         correctIndex =
             options.findIndex(
@@ -911,8 +765,6 @@ function selectAnswer(selectedIndex) {
             );
 
 
-        // A / B / C / D
-
         if (correctIndex === -1) {
 
             const letters = [
@@ -924,10 +776,14 @@ function selectAnswer(selectedIndex) {
 
 
             const letterIndex =
-                letters.indexOf(answer);
+                letters.indexOf(
+                    answer
+                );
 
 
-            if (letterIndex !== -1) {
+            if (
+                letterIndex !== -1
+            ) {
 
                 correctIndex =
                     letterIndex;
@@ -1034,16 +890,26 @@ function showResult() {
 
 
     if (
-        selectedExam === "SSC" &&
         selectedPart
     ) {
 
-        testName =
-            "SSC - " +
+        const examName =
+            examPartNames[
+                selectedExam
+            ] || selectedExam;
+
+
+        const partNumber =
             selectedPart.replace(
                 "part",
-                "Part "
+                ""
             );
+
+
+        testName =
+            examName +
+            " - Part " +
+            partNumber;
 
     }
 
@@ -1132,12 +998,12 @@ function chooseExamAgain() {
 function restartMockTest() {
 
     if (
-        selectedExam === "SSC" &&
+        selectedExam &&
         selectedPart
     ) {
 
-        startSSCPart(
-            selectedPart
+        showExamParts(
+            selectedExam
         );
 
         return;
@@ -1147,11 +1013,9 @@ function restartMockTest() {
 
     if (selectedExam) {
 
-        startMockTest(
+        showExamParts(
             selectedExam
         );
-
-        return;
 
     }
 
@@ -1205,7 +1069,6 @@ function loadCurrentAffairs() {
             "currentAffairsBox"
         );
 
-
     if (!box) {
         return;
     }
@@ -1225,7 +1088,6 @@ function loadCurrentAffairs() {
                 </strong>
             </p>
 
-
             <h3>
                 🇮🇳 National Affairs
             </h3>
@@ -1234,3 +1096,14 @@ function loadCurrentAffairs() {
                 Important national affairs
                 and government updates of the week.
             </p>
+
+            <p>
+                📝 Weekly Current Affairs
+                questions will be added here.
+            </p>
+
+        </div>
+
+    `;
+
+                }
