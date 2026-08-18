@@ -2,9 +2,12 @@
 
 // =====================================================
 // ITTA STUDY IQ - COMPLETE MAIN SCRIPT
+// =====================================================
 // SSC / UPSC / BANK / WBP / KOLKATA POLICE / RAILWAY
 // PART 1-20 JSON QUESTION SYSTEM
-// STOPWATCH / TIME TAKEN SYSTEM
+// AUTOMATIC NEXT QUESTION
+// LIVE TIMER + FINAL TOTAL TIME
+// AI TUTOR + MICROPHONE + QUIZ
 // =====================================================
 
 
@@ -21,9 +24,13 @@ let selectedPart = "";
 
 let answerLocked = false;
 
-// Stopwatch
 let testStartTime = null;
 let testEndTime = null;
+let testTimerInterval = null;
+
+
+// Prevent multiple automatic-next calls
+let autoNextTimer = null;
 
 
 // =====================================================
@@ -31,6 +38,10 @@ let testEndTime = null;
 // =====================================================
 
 const QUESTIONS_PER_TEST = 10;
+
+// Answer দেওয়ার পর কত milliseconds পরে
+// automatic next question আসবে
+const AUTO_NEXT_DELAY = 1200;
 
 
 // =====================================================
@@ -187,17 +198,13 @@ async function askTutor() {
                     method: "POST",
 
                     headers: {
-
                         "Content-Type":
                             "application/json"
-
                     },
 
                     body: JSON.stringify({
-
                         question:
                             question
-
                     })
 
                 }
@@ -321,8 +328,7 @@ function startMic() {
         function (event) {
 
             questionBox.value =
-                event
-                    .results[0][0]
+                event.results[0][0]
                     .transcript;
 
         };
@@ -425,8 +431,7 @@ function closeQuiz() {
 
     if (quizBox) {
 
-        quizBox.innerHTML =
-            "";
+        quizBox.innerHTML = "";
 
     }
 
@@ -438,6 +443,11 @@ function closeQuiz() {
 // =====================================================
 
 function startMockTest(exam) {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
 
     selectedExam =
         exam;
@@ -459,7 +469,6 @@ function startMockTest(exam) {
         false;
 
 
-    // Reset stopwatch
     testStartTime =
         null;
 
@@ -477,6 +486,10 @@ function startMockTest(exam) {
 // =====================================================
 
 function showExamParts(exam) {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
 
     selectedExam =
         exam;
@@ -567,6 +580,10 @@ async function selectExamPart(
     exam,
     partName
 ) {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
 
     selectedExam =
         exam;
@@ -697,7 +714,7 @@ async function selectExamPart(
         }
 
 
-        // Shuffle
+        // Random questions
         currentQuestions =
             shuffleArray(
                 questions
@@ -728,7 +745,7 @@ async function selectExamPart(
 
 
         // =================================================
-        // START STOPWATCH
+        // START TIMER
         // =================================================
 
         testStartTime =
@@ -736,6 +753,9 @@ async function selectExamPart(
 
         testEndTime =
             null;
+
+
+        startLiveTimer();
 
 
         showMockTest();
@@ -1055,7 +1075,7 @@ function normalizeQuestions(
 
 
 // =====================================================
-// SHUFFLE ARRAY
+// SHUFFLE
 // =====================================================
 
 function shuffleArray(
@@ -1212,9 +1232,27 @@ function showMockTest() {
                 )}
                 - Part
                 ${escapeHTML(
-                partNumber
+                    partNumber
                 )}
             </h3>
+
+
+            <div
+                id="liveTestTimer"
+                class="live-test-timer"
+                style="
+                    text-align:center;
+                    font-size:18px;
+                    font-weight:700;
+                    margin:12px 0;
+                    padding:10px;
+                    border-radius:12px;
+                    background:#eef4ff;
+                "
+            >
+                ⏱️ Time: 0 sec
+            </div>
+
 
             <h4>
                 Question
@@ -1223,11 +1261,13 @@ function showMockTest() {
                 ${currentQuestions.length}
             </h4>
 
+
             <p>
                 ${escapeHTML(
                     questionText
                 )}
             </p>
+
 
             <div class="options">
 
@@ -1272,11 +1312,17 @@ function showMockTest() {
     container.innerHTML =
         html;
 
+
+    updateLiveTimer();
+
 }
 
 
 // =====================================================
 // SELECT ANSWER
+// =====================================================
+// NO NEXT BUTTON
+// AUTOMATIC NEXT QUESTION
 // =====================================================
 
 function selectAnswer(
@@ -1320,6 +1366,7 @@ function selectAnswer(
     }
 
 
+    // Lock immediately
     answerLocked =
         true;
 
@@ -1347,6 +1394,7 @@ function selectAnswer(
         );
 
 
+    // Disable all buttons
     buttons.forEach(
         function (button) {
 
@@ -1459,53 +1507,46 @@ function selectAnswer(
 
 
     // =================================================
-    // NEXT BUTTON
+    // AUTOMATIC NEXT QUESTION
     // =================================================
 
-    const feedback =
-        document.getElementById(
-            "feedback"
-        );
+    clearAutoNextTimer();
 
 
-    if (feedback) {
-
-        const nextButton =
-            document.createElement(
-                "button"
-            );
-
-
-        nextButton.type =
-            "button";
-
-
-        nextButton.className =
-            "exam-btn next-btn";
-
-
-        nextButton.innerText =
-            currentQuestionIndex <
-            currentQuestions.length - 1
-
-                ? "➡️ Next Question"
-
-                : "🏆 See Result";
-
-
-        nextButton.onclick =
+    autoNextTimer =
+        setTimeout(
             function () {
 
-                nextQuestion();
+                autoNextTimer =
+                    null;
 
-            };
+
+                // More questions
+                if (
+                    currentQuestionIndex <
+                    currentQuestions.length - 1
+                ) {
+
+                    currentQuestionIndex++;
+
+                    answerLocked =
+                        false;
+
+                    showMockTest();
+
+                }
 
 
-        feedback.appendChild(
-            nextButton
+                // Last question
+                else {
+
+                    showResult();
+
+                }
+
+            },
+            AUTO_NEXT_DELAY
         );
-
-    }
 
 }
 
@@ -1521,8 +1562,7 @@ function findCorrectIndex(
 
     if (
         correctAnswer === null ||
-        correctAnswer ===
-            undefined
+        correctAnswer === undefined
     ) {
 
         return -1;
@@ -1539,19 +1579,17 @@ function findCorrectIndex(
             "number"
     ) {
 
-        // 0-based
+        // 0-based answer
         if (
-            correctAnswer >= 0 &&
-            correctAnswer <
-                options.length
+            correctAnswer === 0
         ) {
 
-            return correctAnswer;
+            return 0;
 
         }
 
 
-        // 1-based
+        // 1-based answer
         if (
             correctAnswer >= 1 &&
             correctAnswer <=
@@ -1561,6 +1599,18 @@ function findCorrectIndex(
             return (
                 correctAnswer - 1
             );
+
+        }
+
+
+        // fallback 0-based
+        if (
+            correctAnswer >= 0 &&
+            correctAnswer <
+                options.length
+        ) {
+
+            return correctAnswer;
 
         }
 
@@ -1589,25 +1639,25 @@ function findCorrectIndex(
             )
         ) {
 
-            const letterIndex =
+            const index =
                 answer.charCodeAt(0) -
                 "a".charCodeAt(0);
 
 
             if (
-                letterIndex >= 0 &&
-                letterIndex <
+                index >= 0 &&
+                index <
                     options.length
             ) {
 
-                return letterIndex;
+                return index;
 
             }
 
         }
 
 
-        // Numeric string
+        // "1", "2", "3", "4"
         if (
             /^\d+$/.test(
                 answer
@@ -1619,17 +1669,6 @@ function findCorrectIndex(
                     answer,
                     10
                 );
-
-
-            if (
-                number >= 0 &&
-                number <
-                    options.length
-            ) {
-
-                return number;
-
-            }
 
 
             if (
@@ -1647,7 +1686,7 @@ function findCorrectIndex(
         }
 
 
-        // Exact text
+        // Exact option match
         const directIndex =
             options.findIndex(
                 function (option) {
@@ -1673,8 +1712,8 @@ function findCorrectIndex(
         }
 
 
-        // Partial text
-        const containsIndex =
+        // Partial match
+        const partialIndex =
             options.findIndex(
                 function (option) {
 
@@ -1688,7 +1727,6 @@ function findCorrectIndex(
                         optionText.includes(
                             answer
                         ) ||
-
                         answer.includes(
                             optionText
                         )
@@ -1699,10 +1737,10 @@ function findCorrectIndex(
 
 
         if (
-            containsIndex !== -1
+            partialIndex !== -1
         ) {
 
-            return containsIndex;
+            return partialIndex;
 
         }
 
@@ -1739,16 +1777,16 @@ function showFeedback(
 
     feedback.innerHTML = `
 
-        <div class="answer-feedback ${
-            isCorrect
-                ? "correct-feedback"
-                : "wrong-feedback"
-        }">
-
+        <div
+            class="answer-feedback ${
+                isCorrect
+                    ? "correct-feedback"
+                    : "wrong-feedback"
+            }"
+        >
             ${escapeHTML(
                 message
             )}
-
         </div>
 
     `;
@@ -1757,28 +1795,99 @@ function showFeedback(
 
 
 // =====================================================
-// NEXT QUESTION
+// LIVE TIMER START
 // =====================================================
 
-function nextQuestion() {
+function startLiveTimer() {
 
-    if (
-        currentQuestionIndex <
-        currentQuestions.length - 1
-    ) {
+    stopLiveTimer();
 
-        currentQuestionIndex++;
 
-        answerLocked =
-            false;
+    updateLiveTimer();
 
-        showMockTest();
+
+    testTimerInterval =
+        setInterval(
+            updateLiveTimer,
+            1000
+        );
+
+}
+
+
+// =====================================================
+// LIVE TIMER UPDATE
+// =====================================================
+
+function updateLiveTimer() {
+
+    if (!testStartTime) {
+
+        return;
 
     }
 
-    else {
 
-        showResult();
+    const elapsed =
+        Date.now() -
+        testStartTime;
+
+
+    const timer =
+        document.getElementById(
+            "liveTestTimer"
+        );
+
+
+    if (timer) {
+
+        timer.innerText =
+            "⏱️ Time: " +
+            formatTime(
+                elapsed
+            );
+
+    }
+
+}
+
+
+// =====================================================
+// LIVE TIMER STOP
+// =====================================================
+
+function stopLiveTimer() {
+
+    if (
+        testTimerInterval
+    ) {
+
+        clearInterval(
+            testTimerInterval
+        );
+
+        testTimerInterval =
+            null;
+
+    }
+
+}
+
+
+// =====================================================
+// CLEAR AUTO NEXT TIMER
+// =====================================================
+
+function clearAutoNextTimer() {
+
+    if (autoNextTimer) {
+
+        clearTimeout(
+            autoNextTimer
+        );
+
+        autoNextTimer =
+            null;
 
     }
 
@@ -1790,6 +1899,10 @@ function nextQuestion() {
 // =====================================================
 
 function showResult() {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
 
     const container =
         document.getElementById(
@@ -1803,10 +1916,6 @@ function showResult() {
 
     }
 
-
-    // =================================================
-    // STOP STOPWATCH
-    // =================================================
 
     testEndTime =
         Date.now();
@@ -1839,15 +1948,21 @@ function showResult() {
         total > 0
 
             ? Math.round(
-                (score / total) *
+                (
+                    score /
+                    total
+                ) *
                 100
             )
 
             : 0;
 
 
-    let message =
-        "";
+    // =================================================
+    // RESULT MESSAGE
+    // =================================================
+
+    let message;
 
 
     if (
@@ -1907,6 +2022,7 @@ function showResult() {
                 🏆 Test Complete
             </h2>
 
+
             <h3>
                 ${escapeHTML(
                     examName
@@ -1926,6 +2042,7 @@ function showResult() {
                     ${total}
                 </h1>
 
+
                 <h2>
                     ${percentage}%
                 </h2>
@@ -1943,7 +2060,7 @@ function showResult() {
             <div class="time-result">
 
                 <h3>
-                    ⏱️ Time Taken
+                    ⏱️ Total Time Taken
                 </h3>
 
                 <h2>
@@ -2008,22 +2125,29 @@ function formatTime(
 
     const hours =
         Math.floor(
-            totalSeconds / 3600
+            totalSeconds /
+            3600
         );
 
 
     const minutes =
         Math.floor(
-            (totalSeconds % 3600) /
+            (
+                totalSeconds %
+                3600
+            ) /
             60
         );
 
 
     const seconds =
-        totalSeconds % 60;
+        totalSeconds %
+        60;
 
 
-    if (hours > 0) {
+    if (
+        hours > 0
+    ) {
 
         return (
             hours +
@@ -2037,7 +2161,9 @@ function formatTime(
     }
 
 
-    if (minutes > 0) {
+    if (
+        minutes > 0
+    ) {
 
         return (
             minutes +
@@ -2058,10 +2184,14 @@ function formatTime(
 
 
 // =====================================================
-// RESTART SAME MOCK TEST
+// RESTART SAME TEST
 // =====================================================
 
 function restartMockTest() {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
 
     if (
         !selectedExam ||
@@ -2087,6 +2217,10 @@ function restartMockTest() {
 
 function chooseExamAgain() {
 
+    stopLiveTimer();
+    clearAutoNextTimer();
+
+
     currentQuestions =
         [];
 
@@ -2096,11 +2230,13 @@ function chooseExamAgain() {
     score =
         0;
 
+
     selectedExam =
         "";
 
     selectedPart =
         "";
+
 
     answerLocked =
         false;
@@ -2184,7 +2320,7 @@ function escapeHTML(
 
 
 // =====================================================
-// GLOBAL EXPORT
+// GLOBAL FUNCTIONS
 // IMPORTANT FOR HTML ONCLICK
 // =====================================================
 
@@ -2212,9 +2348,6 @@ window.selectExamPart =
 window.selectAnswer =
     selectAnswer;
 
-window.nextQuestion =
-    nextQuestion;
-
 window.showResult =
     showResult;
 
@@ -2224,15 +2357,37 @@ window.restartMockTest =
 window.chooseExamAgain =
     chooseExamAgain;
 
+window.startLiveTimer =
+    startLiveTimer;
+
+window.stopLiveTimer =
+    stopLiveTimer;
+
 
 // =====================================================
-// FINAL CHECK
+// FINAL SYSTEM CHECK
 // =====================================================
 
 console.log(
-    "🚀 ITTA Study IQ - All functions loaded successfully"
+    "🚀 ITTA Study IQ Loaded Successfully"
 );
 
 console.log(
-    "⏱️ Stopwatch system: READY"
+    "📚 Part 1-20: READY"
+);
+
+console.log(
+    "🧠 Questions: READY"
+);
+
+console.log(
+    "⏱️ Live Timer: READY"
+);
+
+console.log(
+    "➡️ Automatic Next Question: READY"
+);
+
+console.log(
+    "🏆 Result System: READY"
 );
