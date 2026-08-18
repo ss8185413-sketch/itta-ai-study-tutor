@@ -1,102 +1,4860 @@
-[
-  {
-    "question": "Which amendment added the words 'Socialist' and 'Secular' to the Preamble of the Indian Constitution?",
-    "options": [
-      "42nd Amendment",
-      "44th Amendment",
-      "73rd Amendment",
-      "86th Amendment"
-    ],
-    "answer": "42nd Amendment"
-  },
-  {
-    "question": "Which Article of the Indian Constitution guarantees equality before the law?",
-    "options": [
-      "Article 12",
-      "Article 14",
-      "Article 19",
-      "Article 21"
-    ],
-    "answer": "Article 14"
-  },
-  {
-    "question": "Who was the first Governor-General of independent India?",
-    "options": [
-      "Lord Mountbatten",
-      "Lord Canning",
-      "Warren Hastings",
-      "Lord Curzon"
-    ],
-    "answer": "Lord Mountbatten"
-  },
-  {
-    "question": "Which institution replaced the Planning Commission of India?",
-    "options": [
-      "Finance Commission",
-      "NITI Aayog",
-      "National Development Council",
-      "Reserve Bank of India"
-    ],
-    "answer": "NITI Aayog"
-  },
-  {
-    "question": "Which Indian state is crossed by the Tropic of Cancer?",
-    "options": [
-      "Kerala",
-      "Punjab",
-      "Madhya Pradesh",
-      "Tamil Nadu"
-    ],
-    "answer": "Madhya Pradesh"
-  },
-  {
-    "question": "Who presents the Union Budget in the Parliament of India?",
-    "options": [
-      "President",
-      "Prime Minister",
-      "Finance Minister",
-      "Lok Sabha Speaker"
-    ],
-    "answer": "Finance Minister"
-  },
-  {
-    "question": "What was the primary objective of the Green Revolution in India?",
-    "options": [
-      "Increase industrial production",
-      "Increase agricultural production",
-      "Increase mineral production",
-      "Increase exports"
-    ],
-    "answer": "Increase agricultural production"
-  },
-  {
-    "question": "Which institution is regarded as the guardian of the Constitution of India?",
-    "options": [
-      "Parliament",
-      "President",
-      "Supreme Court",
-      "Election Commission"
-    ],
-    "answer": "Supreme Court"
-  },
-  {
-    "question": "Which organization is responsible for compiling India's national income estimates?",
-    "options": [
-      "Reserve Bank of India",
-      "NITI Aayog",
-      "National Statistical Office",
-      "Finance Commission"
-    ],
-    "answer": "National Statistical Office"
-  },
-  {
-    "question": "When were the first general elections held in independent India?",
-    "options": [
-      "1947–48",
-      "1949–50",
-      "1951–52",
-      "1955–56"
-    ],
-    "answer": "1951–52"
-  }
-    ]
+{
+  "exam": "UPSC",
+  "language": "English",
+  "difficulty": "Hard",
+  "total_parts": 20,
+  "questions_per_part": 20,
+  "total_questions": 400,
+  "subjects": [
+    "History",
+    "Geography",
+    "Indian Polity",
+    "Economy",
+    "Environment & Ecology",
+    "Science & Technology",
+    "Current Affairs",
+    "CSAT"
+  ],
+  "includes_pyq": true,
+  "note": "Hard UPSC-oriented MCQs. PYQ-based items are labelled; wording is original or pattern-based rather than reproducing copyrighted PYQ text.",
+  "part1": [
+    {
+      "id": "upsc_p1_q01",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p1_q02",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p1_q03",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p1_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p1_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p1_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p1_q07",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p1_q08",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p1_q09",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p1_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p1_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p1_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p1_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p1_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p1_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p1_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p1_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p1_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p1_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p1_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part2": [
+    {
+      "id": "upsc_p2_q01",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p2_q02",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p2_q03",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p2_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p2_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p2_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p2_q07",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p2_q08",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p2_q09",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p2_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p2_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p2_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p2_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p2_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p2_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p2_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p2_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p2_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p2_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p2_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part3": [
+    {
+      "id": "upsc_p3_q01",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p3_q02",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p3_q03",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p3_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p3_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p3_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p3_q07",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p3_q08",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p3_q09",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p3_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p3_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p3_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p3_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p3_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p3_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p3_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p3_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p3_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p3_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p3_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part4": [
+    {
+      "id": "upsc_p4_q01",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p4_q02",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p4_q03",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p4_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p4_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p4_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p4_q07",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p4_q08",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p4_q09",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p4_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p4_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p4_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p4_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p4_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p4_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p4_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p4_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p4_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p4_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p4_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part5": [
+    {
+      "id": "upsc_p5_q01",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p5_q02",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p5_q03",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p5_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p5_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p5_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p5_q07",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p5_q08",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p5_q09",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p5_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p5_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p5_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p5_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p5_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p5_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p5_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p5_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p5_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p5_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p5_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part6": [
+    {
+      "id": "upsc_p6_q01",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p6_q02",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p6_q03",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p6_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p6_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p6_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p6_q07",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p6_q08",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p6_q09",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p6_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p6_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p6_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p6_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p6_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p6_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p6_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p6_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p6_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p6_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p6_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part7": [
+    {
+      "id": "upsc_p7_q01",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p7_q02",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p7_q03",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p7_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p7_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p7_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p7_q07",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p7_q08",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p7_q09",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p7_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p7_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p7_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p7_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p7_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p7_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p7_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p7_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p7_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p7_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p7_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part8": [
+    {
+      "id": "upsc_p8_q01",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p8_q02",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p8_q03",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p8_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p8_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p8_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p8_q07",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p8_q08",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p8_q09",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p8_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p8_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p8_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p8_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p8_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p8_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p8_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p8_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p8_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p8_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p8_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part9": [
+    {
+      "id": "upsc_p9_q01",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p9_q02",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p9_q03",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p9_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p9_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p9_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p9_q07",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p9_q08",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p9_q09",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p9_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p9_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p9_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p9_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p9_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p9_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p9_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p9_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p9_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p9_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p9_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part10": [
+    {
+      "id": "upsc_p10_q01",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p10_q02",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p10_q03",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p10_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p10_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p10_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p10_q07",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p10_q08",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p10_q09",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p10_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p10_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p10_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p10_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p10_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p10_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p10_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p10_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p10_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p10_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p10_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part11": [
+    {
+      "id": "upsc_p11_q01",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p11_q02",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p11_q03",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p11_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p11_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p11_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p11_q07",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p11_q08",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p11_q09",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p11_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p11_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p11_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p11_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p11_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p11_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p11_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p11_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p11_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p11_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p11_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part12": [
+    {
+      "id": "upsc_p12_q01",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p12_q02",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p12_q03",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p12_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p12_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p12_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p12_q07",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p12_q08",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p12_q09",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p12_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p12_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p12_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p12_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p12_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p12_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p12_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p12_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p12_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p12_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p12_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part13": [
+    {
+      "id": "upsc_p13_q01",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p13_q02",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p13_q03",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p13_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p13_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p13_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p13_q07",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p13_q08",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p13_q09",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p13_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p13_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p13_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p13_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p13_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p13_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p13_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p13_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p13_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p13_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p13_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part14": [
+    {
+      "id": "upsc_p14_q01",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p14_q02",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p14_q03",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p14_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p14_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p14_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p14_q07",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p14_q08",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p14_q09",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p14_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p14_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p14_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p14_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p14_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p14_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p14_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p14_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p14_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p14_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p14_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part15": [
+    {
+      "id": "upsc_p15_q01",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p15_q02",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p15_q03",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p15_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p15_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p15_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p15_q07",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p15_q08",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p15_q09",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p15_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p15_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p15_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p15_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p15_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p15_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p15_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p15_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p15_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p15_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p15_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part16": [
+    {
+      "id": "upsc_p16_q01",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p16_q02",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p16_q03",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p16_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p16_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p16_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p16_q07",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p16_q08",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p16_q09",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p16_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p16_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p16_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p16_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p16_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p16_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p16_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p16_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p16_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p16_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p16_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part17": [
+    {
+      "id": "upsc_p17_q01",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p17_q02",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p17_q03",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p17_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p17_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p17_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p17_q07",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p17_q08",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p17_q09",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p17_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p17_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p17_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p17_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p17_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p17_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p17_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p17_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p17_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p17_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p17_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part18": [
+    {
+      "id": "upsc_p18_q01",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p18_q02",
+      "question": "The Cabinet Mission came to India in:",
+      "options": [
+        "1942",
+        "1945",
+        "1946",
+        "1947"
+      ],
+      "answer": "1946",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p18_q03",
+      "question": "Which Act introduced dyarchy in the provinces?",
+      "options": [
+        "Indian Councils Act, 1909",
+        "Government of India Act, 1919",
+        "Government of India Act, 1935",
+        "Indian Independence Act, 1947"
+      ],
+      "answer": "Government of India Act, 1919",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p18_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p18_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p18_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p18_q07",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p18_q08",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p18_q09",
+      "question": "The Council of Ministers is collectively responsible to:",
+      "options": [
+        "President",
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Supreme Court"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p18_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p18_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p18_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p18_q13",
+      "question": "Which gas is a major anthropogenic greenhouse gas?",
+      "options": [
+        "Carbon dioxide",
+        "Helium",
+        "Neon",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p18_q14",
+      "question": "Project Tiger was launched in India in:",
+      "options": [
+        "1973",
+        "1980",
+        "1986",
+        "1992"
+      ],
+      "answer": "1973",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p18_q15",
+      "question": "The unit of absorbed dose of ionising radiation is:",
+      "options": [
+        "Tesla",
+        "Gray",
+        "Weber",
+        "Pascal"
+      ],
+      "answer": "Gray",
+      "type": "Science"
+    },
+    {
+      "id": "upsc_p18_q16",
+      "question": "Lagrange points are locations where:",
+      "options": [
+        "Only magnetic fields vanish",
+        "Gravitational forces and orbital motion can create stable relative positions",
+        "No gravity exists",
+        "Satellites stop moving"
+      ],
+      "answer": "Gravitational forces and orbital motion can create stable relative positions",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p18_q17",
+      "question": "India's National Education Policy was approved in:",
+      "options": [
+        "2018",
+        "2019",
+        "2020",
+        "2021"
+      ],
+      "answer": "2020",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p18_q18",
+      "question": "The African Union became a permanent member of the G20 in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p18_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, k equals:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p18_q20",
+      "question": "A can complete a work in 12 days and B in 18 days. Together they need:",
+      "options": [
+        "6 days",
+        "7 1/5 days",
+        "8 days",
+        "9 days"
+      ],
+      "answer": "7 1/5 days",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part19": [
+    {
+      "id": "upsc_p19_q01",
+      "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and:",
+      "options": [
+        "M. A. Jinnah",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p19_q02",
+      "question": "The Home Rule Movement in India was associated with Annie Besant and:",
+      "options": [
+        "Bal Gangadhar Tilak",
+        "Gopal Krishna Gokhale",
+        "Dadabhai Naoroji",
+        "Surendranath Banerjee"
+      ],
+      "answer": "Bal Gangadhar Tilak",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p19_q03",
+      "question": "The Permanent Settlement was introduced by Lord Cornwallis in:",
+      "options": [
+        "1793",
+        "1773",
+        "1813",
+        "1853"
+      ],
+      "answer": "1793",
+      "type": "PYQ-based History"
+    },
+    {
+      "id": "upsc_p19_q04",
+      "question": "The Indian monsoon is primarily influenced by:",
+      "options": [
+        "Only ocean currents",
+        "Differential heating of land and sea and atmospheric circulation",
+        "Only Himalayan snowfall",
+        "Only El Niño"
+      ],
+      "answer": "Differential heating of land and sea and atmospheric circulation",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p19_q05",
+      "question": "Which river forms an estuary rather than a delta at its mouth?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Narmada",
+        "Mahanadi"
+      ],
+      "answer": "Narmada",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p19_q06",
+      "question": "Black soil is particularly suitable for cotton because of its:",
+      "options": [
+        "High salinity",
+        "High moisture retention",
+        "Low clay content",
+        "Very low porosity"
+      ],
+      "answer": "High moisture retention",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p19_q07",
+      "question": "The 73rd Constitutional Amendment deals primarily with:",
+      "options": [
+        "Urban local bodies",
+        "Panchayati Raj institutions",
+        "Fundamental Duties",
+        "Cooperative societies"
+      ],
+      "answer": "Panchayati Raj institutions",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p19_q08",
+      "question": "The Comptroller and Auditor General of India is appointed by:",
+      "options": [
+        "Prime Minister",
+        "President",
+        "Parliament",
+        "Chief Justice of India"
+      ],
+      "answer": "President",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p19_q09",
+      "question": "The basic structure doctrine was propounded by the Supreme Court in:",
+      "options": [
+        "Golaknath case",
+        "Kesavananda Bharati case",
+        "Minerva Mills case",
+        "Maneka Gandhi case"
+      ],
+      "answer": "Kesavananda Bharati case",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p19_q10",
+      "question": "Fiscal deficit broadly represents:",
+      "options": [
+        "Revenue expenditure minus revenue receipts",
+        "Total expenditure minus total receipts excluding borrowings",
+        "Imports minus exports",
+        "Tax revenue minus non-tax revenue"
+      ],
+      "answer": "Total expenditure minus total receipts excluding borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p19_q11",
+      "question": "Repo rate is the rate at which:",
+      "options": [
+        "Banks lend to customers",
+        "RBI lends short-term funds to banks against eligible securities",
+        "Government lends to RBI",
+        "Banks lend to RBI"
+      ],
+      "answer": "RBI lends short-term funds to banks against eligible securities",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p19_q12",
+      "question": "An increase in CRR generally tends to:",
+      "options": [
+        "Increase banks' lendable resources",
+        "Reduce banks' lendable resources",
+        "Increase fiscal deficit",
+        "Reduce government borrowing automatically"
+      ],
+      "answer": "Reduce banks' lendable resources",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p19_q13",
+      "question": "The Ramsar Convention primarily concerns:",
+      "options": [
+        "Oceans",
+        "Wetlands",
+        "Deserts",
+        "Mountain ecosystems"
+      ],
+      "answer": "Wetlands",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p19_q14",
+      "question": "Which of the following is a biodiversity hotspot?",
+      "options": [
+        "Western Ghats",
+        "Indo-Gangetic Plain",
+        "Thar Desert only",
+        "Deccan Trap only"
+      ],
+      "answer": "Western Ghats",
+      "type": "Environment"
+    },
+    {
+      "id": "upsc_p19_q15",
+      "question": "CRISPR-Cas9 is primarily associated with:",
+      "options": [
+        "Gene editing",
+        "Satellite navigation",
+        "Nuclear fission",
+        "Quantum encryption"
+      ],
+      "answer": "Gene editing",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p19_q16",
+      "question": "A geostationary satellite must orbit in the:",
+      "options": [
+        "Polar plane",
+        "Equatorial plane",
+        "Any inclined plane",
+        "Ecliptic plane"
+      ],
+      "answer": "Equatorial plane",
+      "type": "PYQ-based Science"
+    },
+    {
+      "id": "upsc_p19_q17",
+      "question": "The G20 Leaders' Summit hosted by India was held in:",
+      "options": [
+        "Mumbai",
+        "New Delhi",
+        "Bengaluru",
+        "Hyderabad"
+      ],
+      "answer": "New Delhi",
+      "type": "Current Affairs / PYQ-style"
+    },
+    {
+      "id": "upsc_p19_q18",
+      "question": "Aditya-L1 is designed primarily to study:",
+      "options": [
+        "The Moon",
+        "The Sun",
+        "Jupiter",
+        "Earth's oceans"
+      ],
+      "answer": "The Sun",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p19_q19",
+      "question": "If x + 1/x = 5, then x² + 1/x² is:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p19_q20",
+      "question": "A train travels 180 km in 2 h 15 min. Its average speed is:",
+      "options": [
+        "70 km/h",
+        "75 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "80 km/h",
+      "type": "CSAT Mathematics"
+    }
+  ],
+  "part20": [
+    {
+      "id": "upsc_p20_q01",
+      "question": "The Ilbert Bill controversy occurred during the viceroyalty of:",
+      "options": [
+        "Lord Lytton",
+        "Lord Ripon",
+        "Lord Curzon",
+        "Lord Dufferin"
+      ],
+      "answer": "Lord Ripon",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p20_q02",
+      "question": "The Buddhist Council associated with Kanishka was held at:",
+      "options": [
+        "Rajgir",
+        "Vaishali",
+        "Pataliputra",
+        "Kundalavana"
+      ],
+      "answer": "Kundalavana",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p20_q03",
+      "question": "The Ryotwari system was primarily associated with:",
+      "options": [
+        "Thomas Munro",
+        "Warren Hastings",
+        "Cornwallis",
+        "Dalhousie"
+      ],
+      "answer": "Thomas Munro",
+      "type": "History"
+    },
+    {
+      "id": "upsc_p20_q04",
+      "question": "The Western Ghats are generally higher and more continuous than the:",
+      "options": [
+        "Aravallis",
+        "Eastern Ghats",
+        "Himalayas",
+        "Satpuras"
+      ],
+      "answer": "Eastern Ghats",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p20_q05",
+      "question": "El Niño refers to abnormal warming of surface waters in the:",
+      "options": [
+        "North Atlantic",
+        "Central and eastern tropical Pacific",
+        "Indian Ocean",
+        "South Atlantic"
+      ],
+      "answer": "Central and eastern tropical Pacific",
+      "type": "PYQ-based Geography"
+    },
+    {
+      "id": "upsc_p20_q06",
+      "question": "Which is the most extensive physiographic division of India?",
+      "options": [
+        "Northern Plains",
+        "Peninsular Plateau",
+        "Coastal Plains",
+        "Himalayas"
+      ],
+      "answer": "Peninsular Plateau",
+      "type": "Geography"
+    },
+    {
+      "id": "upsc_p20_q07",
+      "question": "Which Article empowers the Supreme Court to issue writs for enforcement of Fundamental Rights?",
+      "options": [
+        "Article 32",
+        "Article 136",
+        "Article 226",
+        "Article 143"
+      ],
+      "answer": "Article 32",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p20_q08",
+      "question": "The President of India is elected by:",
+      "options": [
+        "Only elected MPs",
+        "Elected MPs and elected MLAs of States and certain UTs",
+        "All MPs and MLAs",
+        "Only State Legislatures"
+      ],
+      "answer": "Elected MPs and elected MLAs of States and certain UTs",
+      "type": "Polity"
+    },
+    {
+      "id": "upsc_p20_q09",
+      "question": "A Money Bill can be introduced only in:",
+      "options": [
+        "Rajya Sabha",
+        "Lok Sabha",
+        "Either House",
+        "Joint sitting"
+      ],
+      "answer": "Lok Sabha",
+      "type": "PYQ-based Polity"
+    },
+    {
+      "id": "upsc_p20_q10",
+      "question": "Which of the following is a capital receipt for the government?",
+      "options": [
+        "GST collection",
+        "Dividend from PSU",
+        "Borrowings",
+        "Income tax"
+      ],
+      "answer": "Borrowings",
+      "type": "PYQ-based Economy"
+    },
+    {
+      "id": "upsc_p20_q11",
+      "question": "Inflation caused by excessive aggregate demand is known as:",
+      "options": [
+        "Cost-push inflation",
+        "Demand-pull inflation",
+        "Structural deflation",
+        "Imported deflation"
+      ],
+      "answer": "Demand-pull inflation",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p20_q12",
+      "question": "Balance of Payments records:",
+      "options": [
+        "Only merchandise trade",
+        "All economic transactions between residents of a country and the rest of the world",
+        "Only capital flows",
+        "Only government transactions"
+      ],
+      "answer": "All economic transactions between residents of a country and the rest of the world",
+      "type": "Economy"
+    },
+    {
+      "id": "upsc_p20_q13",
+      "question": "The Montreal Protocol is primarily associated with protection against:",
+      "options": [
+        "Climate change only",
+        "Ozone layer depletion",
+        "Marine pollution",
+        "Desertification"
+      ],
+      "answer": "Ozone layer depletion",
+      "type": "PYQ-based Environment"
+    },
+    {
+      "id": "upsc_p20_q14",
+      "question": "An ecological pyramid that is always upright is the pyramid of:",
+      "options": [
+        "Numbers",
+        "Biomass",
+        "Energy",
+        "All of these"
+      ],
+      "answer": "Energy",
+      "type": "Ecology"
+    },
+    {
+      "id": "upsc_p20_q15",
+      "question": "The Chandrayaan-3 mission demonstrated a soft landing near the:",
+      "options": [
+        "Equator of the Moon",
+        "South polar region of the Moon",
+        "Far side of Mars",
+        "North pole of Earth"
+      ],
+      "answer": "South polar region of the Moon",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p20_q16",
+      "question": "mRNA vaccines work by providing cells with instructions to produce:",
+      "options": [
+        "Antibiotics",
+        "A target antigen protein",
+        "Red blood cells",
+        "DNA polymerase"
+      ],
+      "answer": "A target antigen protein",
+      "type": "Science & Technology"
+    },
+    {
+      "id": "upsc_p20_q17",
+      "question": "The International Solar Alliance was jointly launched by India and:",
+      "options": [
+        "France",
+        "Japan",
+        "Australia",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "upsc_p20_q18",
+      "question": "UPI is operated by:",
+      "options": [
+        "SEBI",
+        "NPCI",
+        "RBI directly",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Economy"
+    },
+    {
+      "id": "upsc_p20_q19",
+      "question": "If 20% of A equals 30% of B, then A:B is:",
+      "options": [
+        "2:3",
+        "3:2",
+        "3:5",
+        "5:3"
+      ],
+      "answer": "3:2",
+      "type": "CSAT Mathematics"
+    },
+    {
+      "id": "upsc_p20_q20",
+      "question": "The probability of drawing two aces consecutively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/52",
+        "1/2652"
+      ],
+      "answer": "1/221",
+      "type": "CSAT Mathematics"
+    }
+  ]
+}
