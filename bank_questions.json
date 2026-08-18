@@ -1,102 +1,4859 @@
-[
-  {
-    "question": "What is the full form of RBI?",
-    "options": [
-      "Reserve Bank of India",
-      "Rural Bank of India",
-      "Regional Bank of India",
-      "Reserve Banking Institution"
-    ],
-    "answer": "Reserve Bank of India"
-  },
-  {
-    "question": "Which institution is known as the central bank of India?",
-    "options": [
-      "State Bank of India",
-      "Reserve Bank of India",
-      "Punjab National Bank",
-      "Bank of Baroda"
-    ],
-    "answer": "Reserve Bank of India"
-  },
-  {
-    "question": "What is the full form of NEFT?",
-    "options": [
-      "National Electronic Funds Transfer",
-      "National Easy Funds Transaction",
-      "New Electronic Fund Transfer",
-      "National Exchange Fund Transfer"
-    ],
-    "answer": "National Electronic Funds Transfer"
-  },
-  {
-    "question": "Which bank is the largest public sector bank in India?",
-    "options": [
-      "Punjab National Bank",
-      "Bank of Baroda",
-      "State Bank of India",
-      "Canara Bank"
-    ],
-    "answer": "State Bank of India"
-  },
-  {
-    "question": "What does ATM stand for?",
-    "options": [
-      "Automatic Transfer Machine",
-      "Automated Teller Machine",
-      "Advanced Teller Machine",
-      "Automated Transaction Method"
-    ],
-    "answer": "Automated Teller Machine"
-  },
-  {
-    "question": "What is the full form of KYC in banking?",
-    "options": [
-      "Keep Your Cash",
-      "Know Your Customer",
-      "Know Your Credit",
-      "Keep Your Customer"
-    ],
-    "answer": "Know Your Customer"
-  },
-  {
-    "question": "Which organization regulates the banking system in India?",
-    "options": [
-      "SEBI",
-      "RBI",
-      "IRDAI",
-      "NITI Aayog"
-    ],
-    "answer": "RBI"
-  },
-  {
-    "question": "What is the full form of UPI?",
-    "options": [
-      "Unified Payment Interface",
-      "Unified Payments Interface",
-      "Universal Payment India",
-      "United Payments Interface"
-    ],
-    "answer": "Unified Payments Interface"
-  },
-  {
-    "question": "Which financial institution regulates the securities market in India?",
-    "options": [
-      "RBI",
-      "SEBI",
-      "NABARD",
-      "SIDBI"
-    ],
-    "answer": "SEBI"
-  },
-  {
-    "question": "What is the full form of EMI?",
-    "options": [
-      "Equated Monthly Instalment",
-      "Easy Monthly Interest",
-      "Equal Money Investment",
-      "Equated Money Interest"
-    ],
-    "answer": "Equated Monthly Instalment"
-  }
-]
+{
+  "exam": "Bank",
+  "language": "English",
+  "difficulty": "Hard",
+  "total_parts": 20,
+  "questions_per_part": 20,
+  "total_questions": 400,
+  "subjects": [
+    "Math",
+    "English",
+    "GK",
+    "GS",
+    "Reasoning",
+    "Current Affairs",
+    "Advanced Math"
+  ],
+  "includes_pyq": true,
+  "note": "Questions tagged PYQ-based follow common banking-exam patterns; current-affairs items are based on 2026 reported developments.",
+  "part1": [
+    {
+      "id": "bank_p1_q01",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p1_q02",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p1_q03",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p1_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p1_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p1_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p1_q07",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p1_q08",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p1_q09",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p1_q10",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p1_q11",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p1_q12",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p1_q13",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p1_q14",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p1_q15",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p1_q16",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p1_q17",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p1_q18",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p1_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p1_q20",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    }
+  ],
+  "part2": [
+    {
+      "id": "bank_p2_q01",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p2_q02",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p2_q03",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p2_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p2_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p2_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p2_q07",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p2_q08",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p2_q09",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p2_q10",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p2_q11",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p2_q12",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p2_q13",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p2_q14",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p2_q15",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p2_q16",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p2_q17",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p2_q18",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p2_q19",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p2_q20",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    }
+  ],
+  "part3": [
+    {
+      "id": "bank_p3_q01",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p3_q02",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p3_q03",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p3_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p3_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p3_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p3_q07",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p3_q08",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p3_q09",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p3_q10",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p3_q11",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p3_q12",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p3_q13",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p3_q14",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p3_q15",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p3_q16",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p3_q17",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p3_q18",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p3_q19",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p3_q20",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    }
+  ],
+  "part4": [
+    {
+      "id": "bank_p4_q01",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p4_q02",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p4_q03",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p4_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p4_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p4_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p4_q07",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p4_q08",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p4_q09",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p4_q10",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p4_q11",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p4_q12",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p4_q13",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p4_q14",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p4_q15",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p4_q16",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p4_q17",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p4_q18",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p4_q19",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p4_q20",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    }
+  ],
+  "part5": [
+    {
+      "id": "bank_p5_q01",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p5_q02",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p5_q03",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p5_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p5_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p5_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p5_q07",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p5_q08",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p5_q09",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p5_q10",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p5_q11",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p5_q12",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p5_q13",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p5_q14",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p5_q15",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p5_q16",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p5_q17",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p5_q18",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p5_q19",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p5_q20",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    }
+  ],
+  "part6": [
+    {
+      "id": "bank_p6_q01",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p6_q02",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p6_q03",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p6_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p6_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p6_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p6_q07",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p6_q08",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p6_q09",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p6_q10",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p6_q11",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p6_q12",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p6_q13",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p6_q14",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p6_q15",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p6_q16",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p6_q17",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p6_q18",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p6_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p6_q20",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    }
+  ],
+  "part7": [
+    {
+      "id": "bank_p7_q01",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p7_q02",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p7_q03",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p7_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p7_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p7_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p7_q07",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p7_q08",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p7_q09",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p7_q10",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p7_q11",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p7_q12",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p7_q13",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p7_q14",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p7_q15",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p7_q16",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p7_q17",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p7_q18",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p7_q19",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p7_q20",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    }
+  ],
+  "part8": [
+    {
+      "id": "bank_p8_q01",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p8_q02",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p8_q03",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p8_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p8_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p8_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p8_q07",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p8_q08",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p8_q09",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p8_q10",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p8_q11",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p8_q12",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p8_q13",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p8_q14",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p8_q15",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p8_q16",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p8_q17",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p8_q18",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p8_q19",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p8_q20",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    }
+  ],
+  "part9": [
+    {
+      "id": "bank_p9_q01",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p9_q02",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p9_q03",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p9_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p9_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p9_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p9_q07",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p9_q08",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p9_q09",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p9_q10",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p9_q11",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p9_q12",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p9_q13",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p9_q14",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p9_q15",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p9_q16",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p9_q17",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p9_q18",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p9_q19",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p9_q20",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    }
+  ],
+  "part10": [
+    {
+      "id": "bank_p10_q01",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p10_q02",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p10_q03",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p10_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p10_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p10_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p10_q07",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p10_q08",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p10_q09",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p10_q10",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p10_q11",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p10_q12",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p10_q13",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p10_q14",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p10_q15",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p10_q16",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p10_q17",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p10_q18",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p10_q19",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p10_q20",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    }
+  ],
+  "part11": [
+    {
+      "id": "bank_p11_q01",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p11_q02",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p11_q03",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p11_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p11_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p11_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p11_q07",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p11_q08",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p11_q09",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p11_q10",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p11_q11",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p11_q12",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p11_q13",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p11_q14",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p11_q15",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p11_q16",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p11_q17",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p11_q18",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p11_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p11_q20",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    }
+  ],
+  "part12": [
+    {
+      "id": "bank_p12_q01",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p12_q02",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p12_q03",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p12_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p12_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p12_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p12_q07",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p12_q08",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p12_q09",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p12_q10",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p12_q11",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p12_q12",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p12_q13",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p12_q14",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p12_q15",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p12_q16",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p12_q17",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p12_q18",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p12_q19",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p12_q20",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    }
+  ],
+  "part13": [
+    {
+      "id": "bank_p13_q01",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p13_q02",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p13_q03",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p13_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p13_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p13_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p13_q07",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p13_q08",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p13_q09",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p13_q10",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p13_q11",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p13_q12",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p13_q13",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p13_q14",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p13_q15",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p13_q16",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p13_q17",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p13_q18",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p13_q19",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p13_q20",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    }
+  ],
+  "part14": [
+    {
+      "id": "bank_p14_q01",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p14_q02",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p14_q03",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p14_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p14_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p14_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p14_q07",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p14_q08",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p14_q09",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p14_q10",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p14_q11",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p14_q12",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p14_q13",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p14_q14",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p14_q15",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p14_q16",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p14_q17",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p14_q18",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p14_q19",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p14_q20",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    }
+  ],
+  "part15": [
+    {
+      "id": "bank_p15_q01",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p15_q02",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p15_q03",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p15_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p15_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p15_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p15_q07",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p15_q08",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p15_q09",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p15_q10",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p15_q11",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p15_q12",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p15_q13",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p15_q14",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p15_q15",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p15_q16",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p15_q17",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p15_q18",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p15_q19",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p15_q20",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    }
+  ],
+  "part16": [
+    {
+      "id": "bank_p16_q01",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p16_q02",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p16_q03",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p16_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p16_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p16_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p16_q07",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p16_q08",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p16_q09",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p16_q10",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p16_q11",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p16_q12",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p16_q13",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p16_q14",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p16_q15",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p16_q16",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p16_q17",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p16_q18",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p16_q19",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p16_q20",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    }
+  ],
+  "part17": [
+    {
+      "id": "bank_p17_q01",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p17_q02",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p17_q03",
+      "question": "A sum becomes ₹13,310 in 3 years at 10% p.a. compound interest. What was the principal?",
+      "options": [
+        "₹10,000",
+        "₹11,000",
+        "₹12,000",
+        "₹9,000"
+      ],
+      "answer": "₹10,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p17_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p17_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p17_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p17_q07",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p17_q08",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p17_q09",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p17_q10",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p17_q11",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p17_q12",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p17_q13",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p17_q14",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p17_q15",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p17_q16",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p17_q17",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p17_q18",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p17_q19",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p17_q20",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    }
+  ],
+  "part18": [
+    {
+      "id": "bank_p18_q01",
+      "question": "A trader marks an article 40% above cost and allows 15% discount. What is the profit percentage?",
+      "options": [
+        "19%",
+        "21%",
+        "25%",
+        "15%"
+      ],
+      "answer": "19%",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p18_q02",
+      "question": "A and B can complete a work in 18 and 24 days respectively. Working together, they complete it in:",
+      "options": [
+        "72/7 days",
+        "12 days",
+        "10 2/7 days",
+        "9 days"
+      ],
+      "answer": "72/7 days",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p18_q03",
+      "question": "A train 180 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "45 km/h",
+        "54 km/h",
+        "60 km/h",
+        "72 km/h"
+      ],
+      "answer": "54 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p18_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p18_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p18_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p18_q07",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p18_q08",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p18_q09",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p18_q10",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p18_q11",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p18_q12",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p18_q13",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p18_q14",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p18_q15",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p18_q16",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p18_q17",
+      "question": "As of June 2026, the RBI repo rate was maintained at:",
+      "options": [
+        "4.50%",
+        "5.25%",
+        "6.00%",
+        "6.50%"
+      ],
+      "answer": "5.25%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p18_q18",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p18_q19",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p18_q20",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    }
+  ],
+  "part19": [
+    {
+      "id": "bank_p19_q01",
+      "question": "The average of 8 numbers is 42. If one number 56 is replaced by 72, the new average is:",
+      "options": [
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "answer": "44",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p19_q02",
+      "question": "A vessel contains milk and water in the ratio 7:3. If 20 L of mixture is removed and replaced by water, the ratio becomes 7:5. The original quantity was:",
+      "options": [
+        "100 L",
+        "120 L",
+        "140 L",
+        "160 L"
+      ],
+      "answer": "140 L",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p19_q03",
+      "question": "A banker's discount on a bill due 6 months hence at 12% p.a. is ₹720. The face value is:",
+      "options": [
+        "₹10,000",
+        "₹12,000",
+        "₹15,000",
+        "₹18,000"
+      ],
+      "answer": "₹12,000",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p19_q04",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the proposals are acceptable.",
+        "Neither of the proposals is acceptable.",
+        "Neither proposals is acceptable.",
+        "Neither of proposals are acceptable."
+      ],
+      "answer": "Neither of the proposals is acceptable.",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p19_q05",
+      "question": "Choose the closest meaning of 'prudent':",
+      "options": [
+        "Reckless",
+        "Cautious",
+        "Arrogant",
+        "Temporary"
+      ],
+      "answer": "Cautious",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p19_q06",
+      "question": "Identify the error: 'The manager, along with his assistants, have approved the proposal.'",
+      "options": [
+        "The manager",
+        "along with his assistants",
+        "have approved",
+        "the proposal"
+      ],
+      "answer": "have approved",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p19_q07",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p19_q08",
+      "question": "Who founded the Reserve Bank of India as an institution through the RBI Act, 1934?",
+      "options": [
+        "British Parliament",
+        "Government of India",
+        "Imperial Legislative Council",
+        "East India Company"
+      ],
+      "answer": "Government of India",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p19_q09",
+      "question": "The headquarters of the Asian Development Bank is in:",
+      "options": [
+        "Tokyo",
+        "Manila",
+        "Singapore",
+        "Jakarta"
+      ],
+      "answer": "Manila",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p19_q10",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p19_q11",
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": "Pulmonary vein",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p19_q12",
+      "question": "The SI unit of electric resistance is:",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": "Ohm",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p19_q13",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p19_q14",
+      "question": "If BANK is coded as 2-1-14-11, how is LOAN coded using the same rule?",
+      "options": [
+        "12-15-1-14",
+        "11-15-1-13",
+        "12-14-1-15",
+        "13-15-2-14"
+      ],
+      "answer": "12-15-1-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p19_q15",
+      "question": "Find the next term: 3, 8, 18, 38, 78, ?",
+      "options": [
+        "156",
+        "158",
+        "160",
+        "162"
+      ],
+      "answer": "158",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p19_q16",
+      "question": "In June 2026, India’s estimated GDP growth for FY 2025-26 was reported at:",
+      "options": [
+        "6.4%",
+        "7.1%",
+        "7.7%",
+        "8.2%"
+      ],
+      "answer": "7.7%",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p19_q17",
+      "question": "Union Budget 2026-27 proposed a High Level Committee on:",
+      "options": [
+        "Banking for Viksit Bharat",
+        "Digital Taxation",
+        "Rural Exports",
+        "Public Health Finance"
+      ],
+      "answer": "Banking for Viksit Bharat",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p19_q18",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p19_q19",
+      "question": "If sin θ = 3/5 and θ is acute, then tan θ equals:",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "5/3"
+      ],
+      "answer": "3/4",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p19_q20",
+      "question": "If the roots of x²−7x+k=0 differ by 1, then k is:",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answer": "12",
+      "type": "Advanced Math"
+    }
+  ],
+  "part20": [
+    {
+      "id": "bank_p20_q01",
+      "question": "If x:y=5:7 and y:z=14:9, then x:z is:",
+      "options": [
+        "10:9",
+        "5:9",
+        "10:7",
+        "7:9"
+      ],
+      "answer": "10:9",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p20_q02",
+      "question": "An amount of ₹25,000 is invested at 8% simple interest. The interest earned in 2 years 9 months is:",
+      "options": [
+        "₹5,000",
+        "₹5,250",
+        "₹5,500",
+        "₹6,000"
+      ],
+      "answer": "₹5,500",
+      "type": "Banking aptitude"
+    },
+    {
+      "id": "bank_p20_q03",
+      "question": "A person spends 72% of income. If income rises by 25% and expenditure rises by 20%, savings rise by ₹1,800. Original income was:",
+      "options": [
+        "₹12,000",
+        "₹15,000",
+        "₹18,000",
+        "₹20,000"
+      ],
+      "answer": "₹15,000",
+      "type": "Advanced aptitude"
+    },
+    {
+      "id": "bank_p20_q04",
+      "question": "Choose the best replacement: 'He insisted to pay the bill himself.'",
+      "options": [
+        "insisted paying",
+        "insisted on paying",
+        "insisted to paying",
+        "insisted for paying"
+      ],
+      "answer": "insisted on paying",
+      "type": "Grammar"
+    },
+    {
+      "id": "bank_p20_q05",
+      "question": "Choose the antonym of 'mitigate':",
+      "options": [
+        "Alleviate",
+        "Aggravate",
+        "Moderate",
+        "Reduce"
+      ],
+      "answer": "Aggravate",
+      "type": "Vocabulary"
+    },
+    {
+      "id": "bank_p20_q06",
+      "question": "Fill in the blank: 'The committee arrived ___ a consensus after lengthy deliberations.'",
+      "options": [
+        "at",
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "at",
+      "type": "Banking English"
+    },
+    {
+      "id": "bank_p20_q07",
+      "question": "Which Schedule of the Constitution contains the anti-defection provisions?",
+      "options": [
+        "Eighth",
+        "Ninth",
+        "Tenth",
+        "Eleventh"
+      ],
+      "answer": "Tenth",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "bank_p20_q08",
+      "question": "The headquarters of the International Monetary Fund is located in:",
+      "options": [
+        "Geneva",
+        "Washington, D.C.",
+        "New York",
+        "Paris"
+      ],
+      "answer": "Washington, D.C.",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p20_q09",
+      "question": "Which institution is known as the lender of last resort in India?",
+      "options": [
+        "SEBI",
+        "RBI",
+        "NABARD",
+        "SIDBI"
+      ],
+      "answer": "RBI",
+      "type": "Banking GK"
+    },
+    {
+      "id": "bank_p20_q10",
+      "question": "Which layer of the atmosphere contains most weather phenomena?",
+      "options": [
+        "Stratosphere",
+        "Troposphere",
+        "Mesosphere",
+        "Thermosphere"
+      ],
+      "answer": "Troposphere",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p20_q11",
+      "question": "The primary site of cellular respiration is:",
+      "options": [
+        "Ribosome",
+        "Nucleus",
+        "Mitochondrion",
+        "Golgi body"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p20_q12",
+      "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": "Carbon dioxide",
+      "type": "General Science"
+    },
+    {
+      "id": "bank_p20_q13",
+      "question": "A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?",
+      "options": [
+        "Uncle",
+        "Father",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p20_q14",
+      "question": "If all roses are flowers and some flowers fade quickly, which conclusion definitely follows?",
+      "options": [
+        "All roses fade quickly.",
+        "Some roses fade quickly.",
+        "No rose fades quickly.",
+        "No definite conclusion about roses fading quickly."
+      ],
+      "answer": "No definite conclusion about roses fading quickly.",
+      "type": "Logical reasoning"
+    },
+    {
+      "id": "bank_p20_q15",
+      "question": "In a row, P is 17th from the left and Q is 23rd from the right. If P is 11 places to the left of Q, how many people are in the row?",
+      "options": [
+        "50",
+        "49",
+        "48",
+        "51"
+      ],
+      "answer": "50",
+      "type": "Reasoning"
+    },
+    {
+      "id": "bank_p20_q16",
+      "question": "In August 2026, RBI announced early closure of a discounted FX swap facility after FCNR(B) inflows exceeded:",
+      "options": [
+        "₹5 billion",
+        "$10 billion",
+        "$50 billion",
+        "$100 billion"
+      ],
+      "answer": "$50 billion",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p20_q17",
+      "question": "At the 2026 BRICS summit hosted by India, discussions included linking:",
+      "options": [
+        "Stock exchanges only",
+        "Fast payment systems and CBDCs",
+        "Gold reserves only",
+        "Tax databases only"
+      ],
+      "answer": "Fast payment systems and CBDCs",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "bank_p20_q18",
+      "question": "The determinant of [[2,3],[4,5]] is:",
+      "options": [
+        "−2",
+        "2",
+        "−4",
+        "4"
+      ],
+      "answer": "−2",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p20_q19",
+      "question": "If log₂(x−1)=3, x equals:",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "bank_p20_q20",
+      "question": "The probability of drawing two aces successively without replacement from a standard deck is:",
+      "options": [
+        "1/221",
+        "1/169",
+        "1/2652",
+        "1/52"
+      ],
+      "answer": "1/221",
+      "type": "Advanced Math"
+    }
+  ]
+}
