@@ -1,88 +1,233 @@
-/* ===============================
-   ITTA STUDY IQ - MAIN STYLE
-================================ */
+/* =========================================================
+   ITTA STUDY IQ - PREMIUM MAIN STYLE
+   Modern Blue / Gradient / Professional Exam App UI
+========================================================= */
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    "Segoe UI",
+    sans-serif;
+
   color: #172033;
+
+  background:
+    radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
+    radial-gradient(circle at bottom right, #e0e7ff 0%, transparent 35%),
+    linear-gradient(135deg, #f8fbff, #eef4ff);
+
+  overflow-x: hidden;
 }
 
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
 .app {
-  max-width: 650px;
+  width: 100%;
+  max-width: 680px;
+
   margin: 0 auto;
-  padding: 50px 20px;
+
+  padding: 35px 18px 60px;
 }
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
 
 h1 {
   text-align: center;
-  margin-bottom: 8px;
+
+  margin: 5px 0 8px;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  background:
+    linear-gradient(90deg, #2563eb, #4f46e5);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
   text-align: center;
+
   color: #64748b;
-  margin-bottom: 30px;
+
+  font-size: 15px;
+
+  margin-bottom: 28px;
 }
 
 
-/* ===============================
+/* =========================================================
    CARD
-================================ */
+========================================================= */
 
 .card {
-  background: white;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.96);
+
   padding: 24px;
-  margin-bottom: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+  margin-bottom: 24px;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(148, 163, 184, 0.18);
+
+  box-shadow:
+    0 12px 35px rgba(30, 64, 175, 0.08),
+    0 3px 10px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 45px rgba(30, 64, 175, 0.12),
+    0 5px 15px rgba(15, 23, 42, 0.05);
 }
 
 
-/* ===============================
+/* =========================================================
    AI TUTOR
-================================ */
+========================================================= */
 
 label {
   display: block;
-  font-weight: bold;
+
   margin-bottom: 10px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #1e293b;
 }
 
 textarea {
   width: 100%;
+
   min-height: 130px;
-  padding: 14px;
+
+  padding: 15px 16px;
+
   border: 1px solid #cbd5e1;
-  border-radius: 12px;
+
+  border-radius: 15px;
+
   resize: vertical;
+
+  outline: none;
+
+  background: #f8fafc;
+
+  color: #172033;
+
   font-size: 16px;
+
+  line-height: 1.5;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
+
+textarea:focus {
+  border-color: #3b82f6;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   BUTTON SYSTEM
+========================================================= */
 
 button {
   width: 100%;
+
   margin-top: 14px;
-  padding: 14px;
-  border: 0;
-  border-radius: 12px;
-  background: #4f46e5;
-  color: white;
+
+  padding: 14px 16px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: #ffffff;
+
   font-size: 16px;
-  font-weight: bold;
+
+  font-weight: 700;
+
   cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
 }
 
 button:hover {
-  opacity: 0.9;
+  filter: brightness(1.05);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, 0.28);
 }
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   BUTTON ROW
+========================================================= */
 
 .button-row {
   display: flex;
+
   gap: 10px;
 }
 
@@ -92,21 +237,49 @@ button:hover {
 
 #micBtn {
   width: 70px;
+
+  flex-shrink: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f766e,
+      #14b8a6
+    );
 }
+
+
+/* =========================================================
+   AI ANSWER
+========================================================= */
 
 .answer {
   margin-top: 18px;
-  padding: 16px;
-  background: #f1f5f9;
-  border-radius: 12px;
+
+  padding: 17px;
+
   min-height: 70px;
-  line-height: 1.5;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0f7ff,
+      #eef2ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 15px;
+
+  line-height: 1.65;
+
+  color: #334155;
 }
 
 
-/* ===============================
+/* =========================================================
    MOCK TEST
-================================ */
+========================================================= */
 
 .mock-card {
   margin-top: 25px;
@@ -114,65 +287,157 @@ button:hover {
 
 .mock-card h2 {
   margin-top: 0;
+
+  margin-bottom: 7px;
+
+  font-size: 23px;
+
+  color: #172554;
 }
 
 .mock-subtitle {
   color: #64748b;
+
+  line-height: 1.5;
 }
+
+
+/* =========================================================
+   EXAM GRID
+========================================================= */
 
 .exam-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 18px;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  margin-top: 20px;
 }
+
+
+/* =========================================================
+   EXAM BUTTONS
+========================================================= */
 
 .exam-btn {
+  position: relative;
+
   margin-top: 0;
-  background: #2563eb;
+
+  min-height: 72px;
+
+  padding: 14px 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.20);
+
+  overflow: hidden;
+}
+
+.exam-btn::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  top: -55px;
+  right: -35px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+}
+
+.exam-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.28);
 }
 
 
-/* ===============================
+/* =========================================================
    MOCK TEST BOX
-================================ */
+========================================================= */
 
 #mockTestBox {
   margin-top: 25px;
 }
 
 
-/* ===============================
-   SSC PARTS
-================================ */
+/* =========================================================
+   SSC / EXAM PARTS
+========================================================= */
 
 .ssc-parts {
   margin-top: 20px;
-  padding: 18px;
-  background: #f8fafc;
-  border-radius: 16px;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fbff,
+      #eef4ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 18px;
 }
 
 .ssc-parts h3 {
   margin-top: 0;
+
+  margin-bottom: 6px;
+
   text-align: center;
+
+  color: #1e3a8a;
+
+  font-size: 19px;
 }
 
 .ssc-parts p {
+  margin-bottom: 5px;
+
   text-align: center;
+
   color: #64748b;
+
+  font-size: 14px;
 }
 
 
-/* ===============================
-   SSC PART BUTTON GRID
-================================ */
+/* =========================================================
+   PART BUTTON GRID
+========================================================= */
 
 .ssc-part-buttons {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 12px;
 
@@ -180,140 +445,286 @@ button:hover {
 }
 
 
-/* SSC Part Button */
+/* =========================================================
+   PART BUTTON
+========================================================= */
 
 .ssc-part-buttons button {
   margin-top: 0;
 
-  background: #2563eb;
+  min-height: 52px;
 
-  min-height: 50px;
+  padding: 12px 8px;
 
   font-size: 15px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #6366f1
+    );
+
+  box-shadow:
+    0 6px 16px rgba(59, 130, 246, 0.18);
+}
+
+.ssc-part-buttons button:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
 }
 
 
-/* ===============================
+/* =========================================================
    MOCK QUESTION
-================================ */
+========================================================= */
 
 .mock-question {
-  background: #f8fafc;
-  padding: 18px;
-  border-radius: 15px;
-  margin-bottom: 15px;
+  background: #ffffff;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 7px 20px rgba(15, 23, 42, 0.06);
 }
 
 .mock-question h3 {
   margin-top: 0;
+
+  margin-bottom: 12px;
+
+  line-height: 1.5;
+
+  font-size: 18px;
+
+  color: #172033;
 }
 
 
-/* ===============================
+/* =========================================================
    OPTIONS
-================================ */
+========================================================= */
 
 .options {
   margin-top: 15px;
 }
 
 .option-btn {
-  background: white;
+  position: relative;
+
+  background: #ffffff;
+
   color: #172033;
-  border: 1px solid #cbd5e1;
+
+  border: 1px solid #dbe2ea;
+
   text-align: left;
+
+  box-shadow: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .option-btn:hover {
-  background: #eef2ff;
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border-color: #60a5fa;
+
+  color: #1d4ed8;
+
+  transform: translateX(3px);
+
+  box-shadow: none;
 }
 
 
-/* ===============================
+/* =========================================================
    FEEDBACK
-================================ */
+========================================================= */
 
 #feedback {
-  margin-top: 15px;
-  font-weight: bold;
+  margin-top: 16px;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+
   text-align: center;
 }
 
 
-/* ===============================
+/* =========================================================
    RESULT
-================================ */
+========================================================= */
 
 .mock-result {
   margin-top: 20px;
-  padding: 20px;
-  background: #eef2ff;
-  border-radius: 15px;
+
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 18px;
+
   text-align: center;
 }
 
 .result-box {
   margin-top: 20px;
-  padding: 22px;
-  background: #eef2ff;
-  border-radius: 15px;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 18px;
+
   text-align: center;
+
+  box-shadow:
+    0 8px 24px rgba(37, 99, 235, 0.08);
 }
 
 .result-box h2 {
   margin-top: 0;
+
+  color: #1e3a8a;
 }
 
 
-/* ===============================
+/* =========================================================
    QUIZ
-================================ */
+========================================================= */
 
 #quizBox {
   margin-top: 15px;
 }
 
 
-/* ===============================
+/* =========================================================
    CURRENT AFFAIRS
-================================ */
+========================================================= */
 
 .current-affairs-content {
-  line-height: 1.6;
+  line-height: 1.7;
+
+  color: #334155;
 }
 
 .current-affairs-content h3 {
   margin-top: 22px;
+
+  color: #1e3a8a;
 }
 
 
-/* ===============================
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+
+/* =========================================================
    MOBILE
-================================ */
+========================================================= */
 
 @media (max-width: 500px) {
 
   .app {
-    padding: 30px 15px;
+    padding: 28px 14px 50px;
   }
 
+  h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+
+    margin-bottom: 22px;
+  }
+
+  .card {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
 
   .exam-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
   }
 
+  .exam-btn {
+    min-height: 68px;
+
+    font-size: 14px;
+
+    padding: 10px 7px;
+  }
 
   .button-row {
     flex-direction: column;
   }
 
-
   #micBtn {
     width: 100%;
   }
-
-
-  /* SSC Part buttons */
 
   .ssc-part-buttons {
     grid-template-columns: 1fr 1fr;
@@ -321,24 +732,65 @@ button:hover {
     gap: 10px;
   }
 
-
   .ssc-part-buttons button {
     font-size: 14px;
 
-    padding: 12px 8px;
+    padding: 11px 7px;
+
+    min-height: 48px;
+  }
+
+  .mock-question {
+    padding: 16px;
+  }
+
+  .mock-question h3 {
+    font-size: 17px;
   }
 
 }
 
 
-/* ===============================
+/* =========================================================
    VERY SMALL SCREEN
-================================ */
+========================================================= */
 
 @media (max-width: 350px) {
+
+  .app {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .exam-grid {
+    grid-template-columns: 1fr;
+  }
 
   .ssc-part-buttons {
     grid-template-columns: 1fr;
   }
 
+  h1 {
+    font-size: 25px;
   }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICE OPTIMIZATION
+========================================================= */
+
+@media (hover: none) {
+
+  button:hover {
+    transform: none;
+
+    filter: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+     }
