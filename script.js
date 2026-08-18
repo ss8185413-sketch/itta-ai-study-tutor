@@ -2,6 +2,7 @@
 
 // =====================================================
 // ITTA STUDY IQ - COMPLETE MAIN SCRIPT
+// PART 1-20 JSON QUESTION SYSTEM
 // =====================================================
 
 let currentQuestions = [];
@@ -11,9 +12,25 @@ let selectedExam = "";
 let selectedPart = "";
 let answerLocked = false;
 
+const QUESTIONS_PER_TEST = 10;
+
 
 // =====================================================
-// EXAM PART SYSTEM
+// EXAM FILES
+// =====================================================
+
+const examFiles = {
+    "SSC": "ssc_questions.json",
+    "UPSC": "upsc_questions.json",
+    "BANK": "bank_questions.json",
+    "WBP": "wbp_questions.json",
+    "KOLKATA_POLICE": "kolkata_police_questions.json",
+    "RAILWAY": "railway_questions.json"
+};
+
+
+// =====================================================
+// EXAM NAMES
 // =====================================================
 
 const examPartNames = {
@@ -186,11 +203,8 @@ function startMic() {
         new SpeechRecognition();
 
     recognition.lang = "en-IN";
-
     recognition.interimResults = false;
-
     recognition.continuous = false;
-
 
     recognition.onstart = function () {
 
@@ -199,14 +213,12 @@ function startMic() {
 
     };
 
-
     recognition.onresult = function (event) {
 
         questionBox.value =
             event.results[0][0].transcript;
 
     };
-
 
     recognition.onerror = function (event) {
 
@@ -220,14 +232,12 @@ function startMic() {
 
     };
 
-
     recognition.onend = function () {
 
         questionBox.placeholder =
             "Type your question here...";
 
     };
-
 
     try {
 
@@ -294,9 +304,7 @@ function closeQuiz() {
         document.getElementById("quizBox");
 
     if (quizBox) {
-
         quizBox.innerHTML = "";
-
     }
 
 }
@@ -309,30 +317,24 @@ function closeQuiz() {
 function startMockTest(exam) {
 
     selectedExam = exam;
-
     selectedPart = "";
 
     currentQuestions = [];
-
     currentQuestionIndex = 0;
-
     score = 0;
-
     answerLocked = false;
 
-    // এখন সব Exam-এ শুধু Part দেখাবে
     showExamParts(exam);
 }
 
 
 // =====================================================
-// SHOW PART 1 - 20
+// SHOW PART 1-20
 // =====================================================
 
 function showExamParts(exam) {
 
     selectedExam = exam;
-
     selectedPart = "";
 
     const container =
@@ -347,7 +349,6 @@ function showExamParts(exam) {
 
     let buttonsHTML = "";
 
-
     for (let i = 1; i <= 20; i++) {
 
         buttonsHTML += `
@@ -361,8 +362,8 @@ function showExamParts(exam) {
             </button>
 
         `;
-    }
 
+    }
 
     container.innerHTML = `
 
@@ -390,37 +391,21 @@ function showExamParts(exam) {
 
 
 // =====================================================
-// SELECT PART
+// SELECT EXAM PART
 // =====================================================
 
-function selectExamPart(
+async function selectExamPart(
     exam,
     partName
 ) {
 
     selectedExam = exam;
-
     selectedPart = partName;
 
     currentQuestions = [];
-
     currentQuestionIndex = 0;
-
     score = 0;
-
     answerLocked = false;
-
-
-    console.log(
-        "Selected Exam:",
-        selectedExam
-    );
-
-    console.log(
-        "Selected Part:",
-        selectedPart
-    );
-
 
     const container =
         document.getElementById("mockTestBox");
@@ -429,16 +414,11 @@ function selectExamPart(
         return;
     }
 
-
     const examName =
         examPartNames[exam] || exam;
 
     const partNumber =
-        partName.replace(
-            "part",
-            ""
-        );
-
+        partName.replace("part", "");
 
     container.innerHTML = `
 
@@ -453,24 +433,362 @@ function selectExamPart(
             </h4>
 
             <p>
-                ✅ Part selected successfully.
+                ⏳ Loading questions...
             </p>
-
-            <p>
-                Questions will be added here later.
-            </p>
-
-            <button
-                type="button"
-                class="exam-btn"
-                onclick="showExamParts('${exam}')"
-            >
-                🔙 Back to Parts
-            </button>
 
         </div>
 
     `;
+
+    try {
+
+        const questions =
+            await loadExamPart(
+                exam,
+                partName
+            );
+
+        if (
+            !Array.isArray(questions) ||
+            questions.length === 0
+        ) {
+
+            container.innerHTML = `
+
+                <div class="result-box">
+
+                    <h3>
+                        ⚠️ No Questions Found
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(examName)}
+                        - Part ${partNumber}
+                        এ এখনো questions যোগ করা হয়নি।
+                    </p>
+
+                    <button
+                        type="button"
+                        class="exam-btn"
+                        onclick="showExamParts('${exam}')"
+                    >
+                        🔙 Back to Parts
+                    </button>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        // Shuffle questions
+        const shuffledQuestions =
+            shuffleArray(questions);
+
+
+        // Take maximum 10 questions
+        currentQuestions =
+            shuffledQuestions.slice(
+                0,
+                Math.min(
+                    QUESTIONS_PER_TEST,
+                    shuffledQuestions.length
+                )
+            );
+
+
+        currentQuestionIndex = 0;
+        score = 0;
+        answerLocked = false;
+
+
+        console.log(
+            "Loaded:",
+            currentQuestions.length,
+            "questions"
+        );
+
+
+        showMockTest();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Question Loading Error:",
+            error
+        );
+
+        container.innerHTML = `
+
+            <div class="result-box">
+
+                <h3>
+                    ❌ Question Loading Error
+                </h3>
+
+                <p>
+                    ${escapeHTML(examName)}
+                    - Part ${partNumber}
+                    এর JSON file load করা যায়নি।
+                </p>
+
+                <p>
+                    File name:
+                    <strong>
+                        ${escapeHTML(
+                            examFiles[exam] || "Unknown"
+                        )}
+                    </strong>
+                </p>
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${exam}')"
+                >
+                    🔙 Back to Parts
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+// =====================================================
+// LOAD EXAM PART FROM JSON
+// =====================================================
+
+async function loadExamPart(
+    exam,
+    partName
+) {
+
+    const file =
+        examFiles[exam];
+
+    if (!file) {
+
+        throw new Error(
+            "No JSON file configured for " +
+            exam
+        );
+
+    }
+
+
+    const response =
+        await fetch(
+            file + "?v=" + Date.now()
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Could not load " +
+            file +
+            " (" +
+            response.status +
+            ")"
+        );
+
+    }
+
+
+    const data =
+        await response.json();
+
+
+    console.log(
+        "JSON loaded:",
+        file
+    );
+
+
+    // ---------------------------------------------
+    // Normal structure:
+    // {
+    //   "part1": [ ... ],
+    //   "part2": [ ... ]
+    // }
+    // ---------------------------------------------
+
+    if (
+        Array.isArray(
+            data[partName]
+        )
+    ) {
+
+        return normalizeQuestions(
+            data[partName]
+        );
+
+    }
+
+
+    // ---------------------------------------------
+    // Structure:
+    // {
+    //   "parts": {
+    //      "part1": [...]
+    //   }
+    // }
+    // ---------------------------------------------
+
+    if (
+        data.parts &&
+        Array.isArray(
+            data.parts[partName]
+        )
+    ) {
+
+        return normalizeQuestions(
+            data.parts[partName]
+        );
+
+    }
+
+
+    // ---------------------------------------------
+    // Structure:
+    // {
+    //   "part1": {
+    //      "questions": [...]
+    //   }
+    // }
+    // ---------------------------------------------
+
+    if (
+        data[partName] &&
+        Array.isArray(
+            data[partName].questions
+        )
+    ) {
+
+        return normalizeQuestions(
+            data[partName].questions
+        );
+
+    }
+
+
+    // ---------------------------------------------
+    // Structure:
+    // {
+    //   "parts": [
+    //      {
+    //        "part": "part1",
+    //        "questions": [...]
+    //      }
+    //   ]
+    // }
+    // ---------------------------------------------
+
+    if (Array.isArray(data.parts)) {
+
+        const foundPart =
+            data.parts.find(
+                function (item) {
+
+                    return (
+                        item.part === partName ||
+                        item.name === partName
+                    );
+
+                }
+            );
+
+        if (
+            foundPart &&
+            Array.isArray(
+                foundPart.questions
+            )
+        ) {
+
+            return normalizeQuestions(
+                foundPart.questions
+            );
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+// =====================================================
+// NORMALIZE QUESTIONS
+// =====================================================
+
+function normalizeQuestions(
+    questions
+) {
+
+    if (!Array.isArray(questions)) {
+        return [];
+    }
+
+
+    return questions
+        .filter(
+            function (question) {
+
+                return (
+                    question &&
+                    typeof question === "object"
+                );
+
+            }
+        )
+        .map(
+            function (question) {
+
+                return {
+                    ...question,
+
+                    question:
+                        question.question ||
+                        question.questionText ||
+                        question.q ||
+                        "",
+
+                    options:
+                        Array.isArray(
+                            question.options
+                        )
+                            ? question.options
+                            : (
+                                Array.isArray(
+                                    question.answers
+                                )
+                                    ? question.answers
+                                    : []
+                            )
+                };
+
+            }
+        )
+        .filter(
+            function (question) {
+
+                return (
+                    question.question &&
+                    question.options.length > 0
+                );
+
+            }
+        );
 
 }
 
@@ -484,7 +802,6 @@ function shuffleArray(array) {
     const result =
         [...array];
 
-
     for (
         let i = result.length - 1;
         i > 0;
@@ -497,7 +814,6 @@ function shuffleArray(array) {
                 (i + 1)
             );
 
-
         [
             result[i],
             result[j]
@@ -508,7 +824,6 @@ function shuffleArray(array) {
         ];
 
     }
-
 
     return result;
 
@@ -530,15 +845,12 @@ function showMockTest() {
         return;
     }
 
-
     answerLocked = false;
-
 
     const question =
         currentQuestions[
             currentQuestionIndex
         ];
-
 
     if (!question) {
 
@@ -581,6 +893,7 @@ function showMockTest() {
 
                 <button
                     type="button"
+                    class="exam-btn"
                     onclick="restartMockTest()"
                 >
                     🔄 Try Again
@@ -595,16 +908,33 @@ function showMockTest() {
     }
 
 
+    const examName =
+        examPartNames[selectedExam] ||
+        selectedExam;
+
+
+    const partNumber =
+        selectedPart.replace(
+            "part",
+            ""
+        );
+
+
     let html = `
 
         <div class="mock-question">
 
             <h3>
+                📚 ${escapeHTML(examName)}
+                - Part ${escapeHTML(partNumber)}
+            </h3>
+
+            <h4>
                 Question
                 ${currentQuestionIndex + 1}
                 /
                 ${currentQuestions.length}
-            </h3>
+            </h4>
 
             <p>
                 ${escapeHTML(questionText)}
@@ -689,7 +1019,8 @@ function selectAnswer(
         question.answer ??
         question.correctAnswer ??
         question.correct ??
-        question.correct_option;
+        question.correct_option ??
+        question.correctOption;
 
 
     document
@@ -708,7 +1039,9 @@ function selectAnswer(
     let correctIndex = -1;
 
 
+    // =================================================
     // NUMBER ANSWER
+    // =================================================
 
     if (
         typeof correctAnswer === "number"
@@ -737,7 +1070,9 @@ function selectAnswer(
     }
 
 
-    // TEXT ANSWER
+    // =================================================
+    // STRING ANSWER
+    // =================================================
 
     else if (
         typeof correctAnswer === "string"
@@ -749,6 +1084,7 @@ function selectAnswer(
                 .toLowerCase();
 
 
+        // Direct option match
         correctIndex =
             options.findIndex(
                 function (option) {
@@ -759,351 +1095,4 @@ function selectAnswer(
                             .toLowerCase()
                         ===
                         answer
-                    );
-
-                }
-            );
-
-
-        if (correctIndex === -1) {
-
-            const letters = [
-                "a",
-                "b",
-                "c",
-                "d"
-            ];
-
-
-            const letterIndex =
-                letters.indexOf(
-                    answer
-                );
-
-
-            if (
-                letterIndex !== -1
-            ) {
-
-                correctIndex =
-                    letterIndex;
-
-            }
-
-        }
-
-    }
-
-
-    const feedback =
-        document.getElementById(
-            "feedback"
-        );
-
-
-    if (
-        selectedIndex === correctIndex
-    ) {
-
-        score++;
-
-
-        if (feedback) {
-
-            feedback.innerHTML =
-                "<p>✅ Correct!</p>";
-
-        }
-
-    }
-
-    else {
-
-        if (feedback) {
-
-            feedback.innerHTML =
-                "<p>❌ Incorrect!</p>";
-
-        }
-
-    }
-
-
-    setTimeout(
-        function () {
-
-            currentQuestionIndex++;
-
-
-            if (
-                currentQuestionIndex <
-                currentQuestions.length
-            ) {
-
-                showMockTest();
-
-            }
-
-            else {
-
-                showResult();
-
-            }
-
-        },
-        800
-    );
-
-}
-
-
-// =====================================================
-// SHOW RESULT
-// =====================================================
-
-function showResult() {
-
-    const container =
-        document.getElementById(
-            "mockTestBox"
-        );
-
-    if (!container) {
-        return;
-    }
-
-
-    const total =
-        currentQuestions.length;
-
-
-    const percentage =
-        total > 0
-            ? Math.round(
-                (score / total) * 100
-            )
-            : 0;
-
-
-    let testName =
-        selectedExam;
-
-
-    if (
-        selectedPart
-    ) {
-
-        const examName =
-            examPartNames[
-                selectedExam
-            ] || selectedExam;
-
-
-        const partNumber =
-            selectedPart.replace(
-                "part",
-                ""
-            );
-
-
-        testName =
-            examName +
-            " - Part " +
-            partNumber;
-
-    }
-
-
-    container.innerHTML = `
-
-        <div class="result-box">
-
-            <h2>
-                🎉 Test Complete!
-            </h2>
-
-            <p>
-                Exam:
-                ${escapeHTML(testName)}
-            </p>
-
-            <h3>
-                Score:
-                ${score} / ${total}
-            </h3>
-
-            <h3>
-                Percentage:
-                ${percentage}%
-            </h3>
-
-            <button
-                type="button"
-                onclick="restartMockTest()"
-            >
-                🔄 Try Again
-            </button>
-
-            <button
-                type="button"
-                onclick="chooseExamAgain()"
-            >
-                📚 Choose Exam
-            </button>
-
-        </div>
-
-    `;
-
-}
-
-
-// =====================================================
-// CHOOSE EXAM AGAIN
-// =====================================================
-
-function chooseExamAgain() {
-
-    const container =
-        document.getElementById(
-            "mockTestBox"
-        );
-
-    if (!container) {
-        return;
-    }
-
-
-    container.innerHTML = `
-
-        <p>
-            👆 Select an exam above to start again.
-        </p>
-
-    `;
-
-
-    container.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-}
-
-
-// =====================================================
-// RESTART MOCK TEST
-// =====================================================
-
-function restartMockTest() {
-
-    if (
-        selectedExam &&
-        selectedPart
-    ) {
-
-        showExamParts(
-            selectedExam
-        );
-
-        return;
-
-    }
-
-
-    if (selectedExam) {
-
-        showExamParts(
-            selectedExam
-        );
-
-    }
-
-}
-
-
-// =====================================================
-// ESCAPE HTML
-// =====================================================
-
-function escapeHTML(value) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-// =====================================================
-// WEEKLY CURRENT AFFAIRS
-// =====================================================
-
-function loadCurrentAffairs() {
-
-    const box =
-        document.getElementById(
-            "currentAffairsBox"
-        );
-
-    if (!box) {
-        return;
-    }
-
-
-    box.innerHTML = `
-
-        <div class="current-affairs-content">
-
-            <h3>
-                📅 Weekly Current Affairs
-            </h3>
-
-            <p>
-                <strong>
-                    9 – 15 August 2026
-                </strong>
-            </p>
-
-            <h3>
-                🇮🇳 National Affairs
-            </h3>
-
-            <p>
-                Important national affairs
-                and government updates of the week.
-            </p>
-
-            <p>
-                📝 Weekly Current Affairs
-                questions will be added here.
-            </p>
-
-        </div>
-
-    `;
-
-                }
+                    
