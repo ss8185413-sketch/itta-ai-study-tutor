@@ -2,6 +2,7 @@
 
 // =====================================================
 // ITTA STUDY IQ - COMPLETE MAIN SCRIPT
+// SSC / UPSC / BANK / WBP / KOLKATA POLICE / RAILWAY
 // PART 1-20 JSON QUESTION SYSTEM
 // =====================================================
 
@@ -20,12 +21,12 @@ const QUESTIONS_PER_TEST = 10;
 // =====================================================
 
 const examFiles = {
-    "SSC": "ssc_questions.json",
-    "UPSC": "upsc_questions.json",
-    "BANK": "bank_questions.json",
-    "WBP": "wbp_questions.json",
-    "KOLKATA_POLICE": "kolkata_police_questions.json",
-    "RAILWAY": "railway_questions.json"
+    SSC: "ssc_questions.json",
+    UPSC: "upsc_questions.json",
+    BANK: "bank_questions.json",
+    WBP: "wbp_questions.json",
+    KOLKATA_POLICE: "kolkata_police_questions.json",
+    RAILWAY: "railway_questions.json"
 };
 
 
@@ -34,12 +35,12 @@ const examFiles = {
 // =====================================================
 
 const examPartNames = {
-    "SSC": "SSC",
-    "UPSC": "UPSC",
-    "BANK": "Bank",
-    "WBP": "WBP",
-    "KOLKATA_POLICE": "Kolkata Police",
-    "RAILWAY": "Railway"
+    SSC: "SSC",
+    UPSC: "UPSC",
+    BANK: "Bank",
+    WBP: "WBP",
+    KOLKATA_POLICE: "Kolkata Police",
+    RAILWAY: "Railway"
 };
 
 
@@ -56,22 +57,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (questionBox) {
 
-        questionBox.addEventListener(
-            "keydown",
-            function (event) {
+        questionBox.addEventListener("keydown", function (event) {
 
-                if (
-                    event.key === "Enter" &&
-                    !event.shiftKey
-                ) {
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
 
-                    event.preventDefault();
+                event.preventDefault();
 
+                if (typeof askTutor === "function") {
                     askTutor();
                 }
 
             }
-        );
+
+        });
+
     }
 
 });
@@ -127,9 +129,9 @@ async function askTutor() {
         if (!response.ok) {
 
             throw new Error(
-                "Server Error: " +
-                response.status
+                "Server Error: " + response.status
             );
+
         }
 
         const data =
@@ -140,25 +142,19 @@ async function askTutor() {
             answerBox.innerText =
                 data.answer;
 
-        }
-
-        else if (data.text) {
+        } else if (data.text) {
 
             answerBox.innerText =
                 data.text;
 
-        }
-
-        else {
+        } else {
 
             answerBox.innerText =
                 "Sorry, no answer received.";
 
         }
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
             "AI Tutor Error:",
@@ -243,9 +239,7 @@ function startMic() {
 
         recognition.start();
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
             "Microphone Start Error:",
@@ -276,13 +270,7 @@ function startQuiz() {
 
             <h3>🧠 Quick Study Quiz</h3>
 
-            <p>
-                Your quiz system is ready.
-            </p>
-
-            <p>
-                📚 You can add quiz questions here later.
-            </p>
+            <p>Your quiz system is ready.</p>
 
             <button
                 type="button"
@@ -325,6 +313,7 @@ function startMockTest(exam) {
     answerLocked = false;
 
     showExamParts(exam);
+
 }
 
 
@@ -341,6 +330,11 @@ function showExamParts(exam) {
         document.getElementById("mockTestBox");
 
     if (!container) {
+
+        console.error(
+            "mockTestBox not found"
+        );
+
         return;
     }
 
@@ -378,9 +372,7 @@ function showExamParts(exam) {
             </p>
 
             <div class="exam-grid">
-
                 ${buttonsHTML}
-
             </div>
 
         </div>
@@ -394,10 +386,7 @@ function showExamParts(exam) {
 // SELECT EXAM PART
 // =====================================================
 
-async function selectExamPart(
-    exam,
-    partName
-) {
+async function selectExamPart(exam, partName) {
 
     selectedExam = exam;
     selectedPart = partName;
@@ -429,7 +418,7 @@ async function selectExamPart(
             </h3>
 
             <h4>
-                Part ${partNumber}
+                Part ${escapeHTML(partNumber)}
             </h4>
 
             <p>
@@ -463,7 +452,7 @@ async function selectExamPart(
 
                     <p>
                         ${escapeHTML(examName)}
-                        - Part ${partNumber}
+                        - Part ${escapeHTML(partNumber)}
                         এ এখনো questions যোগ করা হয়নি।
                     </p>
 
@@ -482,27 +471,18 @@ async function selectExamPart(
             return;
         }
 
-
-        // Shuffle questions
-        const shuffledQuestions =
-            shuffleArray(questions);
-
-
-        // Take maximum 10 questions
         currentQuestions =
-            shuffledQuestions.slice(
+            shuffleArray(questions).slice(
                 0,
                 Math.min(
                     QUESTIONS_PER_TEST,
-                    shuffledQuestions.length
+                    questions.length
                 )
             );
-
 
         currentQuestionIndex = 0;
         score = 0;
         answerLocked = false;
-
 
         console.log(
             "Loaded:",
@@ -510,12 +490,9 @@ async function selectExamPart(
             "questions"
         );
 
-
         showMockTest();
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
             "Question Loading Error:",
@@ -532,12 +509,12 @@ async function selectExamPart(
 
                 <p>
                     ${escapeHTML(examName)}
-                    - Part ${partNumber}
+                    - Part ${escapeHTML(partNumber)}
                     এর JSON file load করা যায়নি।
                 </p>
 
                 <p>
-                    File name:
+                    File:
                     <strong>
                         ${escapeHTML(
                             examFiles[exam] || "Unknown"
@@ -566,10 +543,7 @@ async function selectExamPart(
 // LOAD EXAM PART FROM JSON
 // =====================================================
 
-async function loadExamPart(
-    exam,
-    partName
-) {
+async function loadExamPart(exam, partName) {
 
     const file =
         examFiles[exam];
@@ -577,18 +551,15 @@ async function loadExamPart(
     if (!file) {
 
         throw new Error(
-            "No JSON file configured for " +
-            exam
+            "No JSON file configured for " + exam
         );
 
     }
-
 
     const response =
         await fetch(
             file + "?v=" + Date.now()
         );
-
 
     if (!response.ok) {
 
@@ -602,10 +573,8 @@ async function loadExamPart(
 
     }
 
-
     const data =
         await response.json();
-
 
     console.log(
         "JSON loaded:",
@@ -613,18 +582,16 @@ async function loadExamPart(
     );
 
 
-    // ---------------------------------------------
-    // Normal structure:
+    // -------------------------------------------------
+    // FORMAT 1
     // {
-    //   "part1": [ ... ],
-    //   "part2": [ ... ]
+    //   "part1": [...]
     // }
-    // ---------------------------------------------
+    // -------------------------------------------------
 
     if (
-        Array.isArray(
-            data[partName]
-        )
+        data &&
+        Array.isArray(data[partName])
     ) {
 
         return normalizeQuestions(
@@ -634,20 +601,20 @@ async function loadExamPart(
     }
 
 
-    // ---------------------------------------------
-    // Structure:
+    // -------------------------------------------------
+    // FORMAT 2
     // {
     //   "parts": {
     //      "part1": [...]
     //   }
     // }
-    // ---------------------------------------------
+    // -------------------------------------------------
 
     if (
+        data &&
         data.parts &&
-        Array.isArray(
-            data.parts[partName]
-        )
+        !Array.isArray(data.parts) &&
+        Array.isArray(data.parts[partName])
     ) {
 
         return normalizeQuestions(
@@ -657,20 +624,19 @@ async function loadExamPart(
     }
 
 
-    // ---------------------------------------------
-    // Structure:
+    // -------------------------------------------------
+    // FORMAT 3
     // {
     //   "part1": {
     //      "questions": [...]
     //   }
     // }
-    // ---------------------------------------------
+    // -------------------------------------------------
 
     if (
+        data &&
         data[partName] &&
-        Array.isArray(
-            data[partName].questions
-        )
+        Array.isArray(data[partName].questions)
     ) {
 
         return normalizeQuestions(
@@ -680,8 +646,8 @@ async function loadExamPart(
     }
 
 
-    // ---------------------------------------------
-    // Structure:
+    // -------------------------------------------------
+    // FORMAT 4
     // {
     //   "parts": [
     //      {
@@ -690,27 +656,29 @@ async function loadExamPart(
     //      }
     //   ]
     // }
-    // ---------------------------------------------
+    // -------------------------------------------------
 
-    if (Array.isArray(data.parts)) {
+    if (
+        data &&
+        Array.isArray(data.parts)
+    ) {
 
         const foundPart =
-            data.parts.find(
-                function (item) {
+            data.parts.find(function (item) {
 
-                    return (
+                return (
+                    item &&
+                    (
                         item.part === partName ||
                         item.name === partName
-                    );
+                    )
+                );
 
-                }
-            );
+            });
 
         if (
             foundPart &&
-            Array.isArray(
-                foundPart.questions
-            )
+            Array.isArray(foundPart.questions)
         ) {
 
             return normalizeQuestions(
@@ -731,64 +699,59 @@ async function loadExamPart(
 // NORMALIZE QUESTIONS
 // =====================================================
 
-function normalizeQuestions(
-    questions
-) {
+function normalizeQuestions(questions) {
 
     if (!Array.isArray(questions)) {
         return [];
     }
 
-
     return questions
-        .filter(
-            function (question) {
+        .filter(function (question) {
 
-                return (
-                    question &&
-                    typeof question === "object"
-                );
+            return (
+                question &&
+                typeof question === "object"
+            );
 
-            }
-        )
-        .map(
-            function (question) {
+        })
+        .map(function (question) {
 
-                return {
-                    ...question,
+            const normalized = {
+                ...question
+            };
 
-                    question:
-                        question.question ||
-                        question.questionText ||
-                        question.q ||
-                        "",
+            normalized.question =
+                question.question ||
+                question.questionText ||
+                question.q ||
+                question.text ||
+                "";
 
-                    options:
-                        Array.isArray(
-                            question.options
-                        )
-                            ? question.options
+            normalized.options =
+                Array.isArray(question.options)
+                    ? question.options
+                    : (
+                        Array.isArray(question.answers)
+                            ? question.answers
                             : (
-                                Array.isArray(
-                                    question.answers
-                                )
-                                    ? question.answers
+                                Array.isArray(question.choices)
+                                    ? question.choices
                                     : []
                             )
-                };
+                    );
 
-            }
-        )
-        .filter(
-            function (question) {
+            return normalized;
 
-                return (
-                    question.question &&
-                    question.options.length > 0
-                );
+        })
+        .filter(function (question) {
 
-            }
-        );
+            return (
+                question.question &&
+                Array.isArray(question.options) &&
+                question.options.length > 0
+            );
+
+        });
 
 }
 
@@ -799,8 +762,7 @@ function normalizeQuestions(
 
 function shuffleArray(array) {
 
-    const result =
-        [...array];
+    const result = [...array];
 
     for (
         let i = result.length - 1;
@@ -810,15 +772,13 @@ function shuffleArray(array) {
 
         const j =
             Math.floor(
-                Math.random() *
-                (i + 1)
+                Math.random() * (i + 1)
             );
 
         [
             result[i],
             result[j]
-        ] =
-        [
+        ] = [
             result[j],
             result[i]
         ];
@@ -845,8 +805,6 @@ function showMockTest() {
         return;
     }
 
-    answerLocked = false;
-
     const question =
         currentQuestions[
             currentQuestionIndex
@@ -857,9 +815,9 @@ function showMockTest() {
         showResult();
 
         return;
-
     }
 
+    answerLocked = false;
 
     const questionText =
         question.question ||
@@ -867,12 +825,10 @@ function showMockTest() {
         question.q ||
         "Question not found";
 
-
     const options =
         question.options ||
         question.answers ||
         [];
-
 
     if (
         !Array.isArray(options) ||
@@ -904,21 +860,17 @@ function showMockTest() {
         `;
 
         return;
-
     }
-
 
     const examName =
         examPartNames[selectedExam] ||
         selectedExam;
-
 
     const partNumber =
         selectedPart.replace(
             "part",
             ""
         );
-
 
     let html = `
 
@@ -944,27 +896,21 @@ function showMockTest() {
 
     `;
 
+    options.forEach(function (option, index) {
 
-    options.forEach(
-        function (option, index) {
+        html += `
 
-            html += `
+            <button
+                type="button"
+                class="option-btn"
+                onclick="selectAnswer(${index})"
+            >
+                ${escapeHTML(String(option))}
+            </button>
 
-                <button
-                    type="button"
-                    class="option-btn"
-                    onclick="selectAnswer(${index})"
-                >
-                    ${escapeHTML(
-                        String(option)
-                    )}
-                </button>
+        `;
 
-            `;
-
-        }
-    );
-
+    });
 
     html += `
 
@@ -976,7 +922,6 @@ function showMockTest() {
 
     `;
 
-
     container.innerHTML =
         html;
 
@@ -987,94 +932,224 @@ function showMockTest() {
 // SELECT ANSWER
 // =====================================================
 
-function selectAnswer(
-    selectedIndex
-) {
+function selectAnswer(selectedIndex) {
 
     if (answerLocked) {
         return;
     }
-
-    answerLocked = true;
-
 
     const question =
         currentQuestions[
             currentQuestionIndex
         ];
 
-
     if (!question) {
         return;
     }
-
 
     const options =
         question.options ||
         question.answers ||
         [];
 
+    if (
+        selectedIndex < 0 ||
+        selectedIndex >= options.length
+    ) {
+        return;
+    }
+
+    answerLocked = true;
 
     const correctAnswer =
         question.answer ??
         question.correctAnswer ??
         question.correct ??
         question.correct_option ??
-        question.correctOption;
+        question.correctOption ??
+        question.answerIndex ??
+        question.correctIndex;
 
+    let correctIndex = findCorrectIndex(
+        correctAnswer,
+        options
+    );
 
-    document
-        .querySelectorAll(
+    const buttons =
+        document.querySelectorAll(
             ".option-btn"
-        )
-        .forEach(
-            function (button) {
-
-                button.disabled = true;
-
-            }
         );
 
+    buttons.forEach(function (button) {
 
-    let correctIndex = -1;
+        button.disabled = true;
+
+    });
 
 
-    // =================================================
-    // NUMBER ANSWER
-    // =================================================
+    // -------------------------------------------------
+    // CHECK ANSWER
+    // -------------------------------------------------
+
+    const selectedButton =
+        buttons[selectedIndex];
+
+    const correctButton =
+        buttons[correctIndex];
+
 
     if (
-        typeof correctAnswer === "number"
+        correctIndex !== -1 &&
+        selectedIndex === correctIndex
     ) {
 
-        if (
-            correctAnswer >= 0 &&
-            correctAnswer < options.length
-        ) {
+        score++;
 
-            correctIndex =
-                correctAnswer;
-
+        if (selectedButton) {
+            selectedButton.classList.add(
+                "correct"
+            );
         }
 
-        else if (
-            correctAnswer >= 1 &&
-            correctAnswer <= options.length
-        ) {
+        showFeedback(
+            "feedback",
+            "✅ Correct!",
+            true
+        );
 
-            correctIndex =
-                correctAnswer - 1;
+    } else {
+
+        if (selectedButton) {
+            selectedButton.classList.add(
+                "wrong"
+            );
+        }
+
+        if (correctButton) {
+            correctButton.classList.add(
+                "correct"
+            );
+        }
+
+        if (correctIndex !== -1) {
+
+            showFeedback(
+                "feedback",
+                "❌ Wrong! Correct answer: " +
+                String(options[correctIndex]),
+                false
+            );
+
+        } else {
+
+            showFeedback(
+                "feedback",
+                "⚠️ Correct answer could not be identified.",
+                false
+            );
 
         }
 
     }
 
 
-    // =================================================
-    // STRING ANSWER
-    // =================================================
+    // -------------------------------------------------
+    // NEXT BUTTON
+    // -------------------------------------------------
 
-    else if (
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+    if (feedback) {
+
+        const nextButton =
+            document.createElement("button");
+
+        nextButton.type =
+            "button";
+
+        nextButton.className =
+            "exam-btn next-btn";
+
+        nextButton.innerText =
+            currentQuestionIndex <
+            currentQuestions.length - 1
+                ? "➡️ Next Question"
+                : "🏆 See Result";
+
+        nextButton.onclick =
+            function () {
+
+                nextQuestion();
+
+            };
+
+        feedback.appendChild(
+            nextButton
+        );
+
+    }
+
+}
+
+
+// =====================================================
+// FIND CORRECT ANSWER INDEX
+// =====================================================
+
+function findCorrectIndex(
+    correctAnswer,
+    options
+) {
+
+    if (
+        correctAnswer === null ||
+        correctAnswer === undefined
+    ) {
+
+        return -1;
+
+    }
+
+
+    // -------------------------------------------------
+    // NUMBER
+    // -------------------------------------------------
+
+    if (
+        typeof correctAnswer === "number"
+    ) {
+
+        // Prefer 0-based if valid
+        if (
+            correctAnswer >= 0 &&
+            correctAnswer < options.length
+        ) {
+
+            return correctAnswer;
+
+        }
+
+        // Otherwise treat as 1-based
+        if (
+            correctAnswer >= 1 &&
+            correctAnswer <= options.length
+        ) {
+
+            return correctAnswer - 1;
+
+        }
+
+    }
+
+
+    // -------------------------------------------------
+    // STRING
+    // -------------------------------------------------
+
+    if (
         typeof correctAnswer === "string"
     ) {
 
@@ -1084,15 +1159,401 @@ function selectAnswer(
                 .toLowerCase();
 
 
-        // Direct option match
-        correctIndex =
-            options.findIndex(
-                function (option) {
+        // A / B / C / D
+        if (
+            /^[a-z]$/.test(answer)
+        ) {
 
-                    return (
-                        String(option)
-                            .trim()
-                            .toLowerCase()
-                        ===
-                        answer
-                    
+            const letterIndex =
+                answer.charCodeAt(0) -
+                "a".charCodeAt(0);
+
+            if (
+                letterIndex >= 0 &&
+                letterIndex < options.length
+            ) {
+
+                return letterIndex;
+
+            }
+
+        }
+
+
+        // Numeric string
+        if (
+            /^\d+$/.test(answer)
+        ) {
+
+            const number =
+                parseInt(answer, 10);
+
+            if (
+                number >= 0 &&
+                number < options.length
+            ) {
+
+                return number;
+
+            }
+
+            if (
+                number >= 1 &&
+                number <= options.length
+            ) {
+
+                return number - 1;
+
+            }
+
+        }
+
+
+        // Direct text match
+        const directIndex =
+            options.findIndex(function (option) {
+
+                return (
+                    String(option)
+                        .trim()
+                        .toLowerCase()
+                    ===
+                    answer
+                );
+
+            });
+
+        if (directIndex !== -1) {
+
+            return directIndex;
+
+        }
+
+
+        // Text contains match
+        const containsIndex =
+            options.findIndex(function (option) {
+
+                const optionText =
+                    String(option)
+                        .trim()
+                        .toLowerCase();
+
+                return (
+                    optionText.includes(answer) ||
+                    answer.includes(optionText)
+                );
+
+            });
+
+        if (containsIndex !== -1) {
+
+            return containsIndex;
+
+        }
+
+    }
+
+
+    return -1;
+
+}
+
+
+// =====================================================
+// FEEDBACK
+// =====================================================
+
+function showFeedback(
+    elementId,
+    message,
+    isCorrect
+) {
+
+    const feedback =
+        document.getElementById(
+            elementId
+        );
+
+    if (!feedback) {
+        return;
+    }
+
+    feedback.innerHTML = `
+
+        <div class="answer-feedback ${
+            isCorrect
+                ? "correct-feedback"
+                : "wrong-feedback"
+        }">
+
+            ${escapeHTML(message)}
+
+        </div>
+
+    `;
+
+}
+
+
+// =====================================================
+// NEXT QUESTION
+// =====================================================
+
+function nextQuestion() {
+
+    if (
+        currentQuestionIndex <
+        currentQuestions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        answerLocked = false;
+
+        showMockTest();
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+// =====================================================
+// SHOW RESULT
+// =====================================================
+
+function showResult() {
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    const total =
+        currentQuestions.length;
+
+    const percentage =
+        total > 0
+            ? Math.round(
+                (score / total) * 100
+            )
+            : 0;
+
+    let message = "";
+
+    if (percentage >= 80) {
+
+        message =
+            "🌟 Excellent! Great job!";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "👏 Very good! Keep studying.";
+
+    } else if (percentage >= 40) {
+
+        message =
+            "👍 Good effort! Practice more.";
+
+    } else {
+
+        message =
+            "📚 Keep practicing. You can improve!";
+
+    }
+
+
+    const examName =
+        examPartNames[selectedExam] ||
+        selectedExam;
+
+    const partNumber =
+        selectedPart.replace(
+            "part",
+            ""
+        );
+
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <h2>
+                🏆 Test Complete
+            </h2>
+
+            <h3>
+                ${escapeHTML(examName)}
+                - Part ${escapeHTML(partNumber)}
+            </h3>
+
+            <div class="score-display">
+
+                <h1>
+                    ${score} / ${total}
+                </h1>
+
+                <h2>
+                    ${percentage}%
+                </h2>
+
+            </div>
+
+            <p>
+                ${escapeHTML(message)}
+            </p>
+
+            <div class="result-buttons">
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="restartMockTest()"
+                >
+                    🔄 Try Again
+                </button>
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${selectedExam}')"
+                >
+                    📚 Choose Part
+                </button>
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="chooseExamAgain()"
+                >
+                    🔙 Choose Exam
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+// =====================================================
+// RESTART SAME MOCK TEST
+// =====================================================
+
+function restartMockTest() {
+
+    if (
+        !selectedExam ||
+        !selectedPart
+    ) {
+
+        return;
+
+    }
+
+    selectExamPart(
+        selectedExam,
+        selectedPart
+    );
+
+}
+
+
+// =====================================================
+// CHOOSE EXAM AGAIN
+// =====================================================
+
+function chooseExamAgain() {
+
+    currentQuestions = [];
+    currentQuestionIndex = 0;
+    score = 0;
+    selectedExam = "";
+    selectedPart = "";
+    answerLocked = false;
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <h3>
+                📚 Select Exam
+            </h3>
+
+            <p>
+                Please choose an exam from the options above.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+// =====================================================
+// ESCAPE HTML
+// =====================================================
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+// =====================================================
+// GLOBAL EXPORT
+// Ensures inline HTML onclick buttons work
+// =====================================================
+
+window.askTutor = askTutor;
+window.startMic = startMic;
+
+window.startQuiz = startQuiz;
+window.closeQuiz = closeQuiz;
+
+window.startMockTest = startMockTest;
+window.showExamParts = showExamParts;
+window.selectExamPart = selectExamPart;
+
+window.selectAnswer = selectAnswer;
+window.nextQuestion = nextQuestion;
+
+window.showResult = showResult;
+window.restartMockTest = restartMockTest;
+window.chooseExamAgain = chooseExamAgain;
+
+
+// =====================================================
+// FINAL CHECK
+// =====================================================
+
+console.log(
+    "🚀 ITTA Study IQ - All functions loaded successfully"
+);
