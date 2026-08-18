@@ -1,468 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0756d9">
-
+    <meta name="description" content="Itta Study IQ - Competitive Exam Mock Test and AI Study Tutor">
     <title>Itta Study IQ</title>
 
-    <link
-        rel="manifest"
-        href="manifest.json"
-    >
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<style>
+.free-section,
+.paid-section {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 18px;
+}
+
+.free-section {
+    background: #f0f7ff;
+    border: 1px solid #d8e8ff;
+}
+
+.paid-section,
+.paid-parts-section {
+    background: linear-gradient(135deg, #fff8e7, #fff);
+    border: 1px solid #f1d58a;
+}
+
+.section-label {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.free-label {
+    color: #0756d9;
+}
+
+.paid-label {
+    color: #9a6500;
+}
+
+.section-description {
+    margin-top: 4px;
+}
+
+.paid-part-btn {
+    border: 1px solid #e0b64e;
+}
+
+.premium-main-btn,
+.premium-unlock-btn {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.paid-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.paid-lock,
+.premium-lock-large {
+    font-size: 34px;
+}
+
+.premium-info,
+.premium-payment-note {
+    margin: 14px 0;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.8);
+}
+
+.back-free-btn {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.premium-payment-box {
+    text-align: center;
+}
+
+.premium-payment-box .result-buttons {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+}
+</style>
+
 </head>
 
 <body>
 
 <main class="app">
 
-    <!-- HEADER -->
-
+    <!-- =========================
+         HEADER
+    ========================== -->
     <header class="app-header">
-
-        <div class="brand-logo">
-            <div class="brand-icon">🎓</div>
-
+        <div class="brand">
+            <div class="brand-logo">IQ</div>
             <div>
-                <h1>
-                    Itta Study <span>IQ</span>
-                </h1>
-
-                <p>
-                    Learn • Practice • Succeed
-                </p>
+                <h1>Itta Study IQ</h1>
+                <p>Your Smart Competitive Exam Study Partner</p>
             </div>
         </div>
-
     </header>
 
-
-    <!-- AI TUTOR -->
-
+    <!-- =========================
+         AI STUDY TUTOR
+    ========================== -->
     <section class="card tutor-card">
 
         <div class="section-title">
-            <span class="title-icon">✨</span>
-
+            <span class="section-icon">✨</span>
             <div>
                 <h2>AI Study Tutor</h2>
-                <p>Ask anything and learn smarter</p>
+                <p>Ask your study question</p>
             </div>
         </div>
 
-        <label for="question">
-            Ask a study question
-        </label>
-
         <textarea
             id="question"
+            rows="5"
             placeholder="Type your question here..."
         ></textarea>
 
-        <div class="button-row">
-
+        <div class="action-row">
             <button
                 type="button"
-                onclick="askTutor()"
                 class="primary-btn"
+                onclick="askTutor()"
             >
-                Ask Itta AI ✨
+                ✨ Ask Itta AI
             </button>
 
             <button
                 type="button"
-                id="micBtn"
+                class="secondary-btn"
                 onclick="startMic()"
-                class="mic-btn"
             >
-                🎙️
+                🎙️ Mic
             </button>
-
         </div>
 
-        <div
-            id="answer"
-            class="answer"
-        >
-            Your answer will appear here.
+        <div id="answer" class="answer-box">
+            Your AI answer will appear here.
         </div>
 
     </section>
 
-
-    <!-- STUDY QUIZ -->
-
-    <section
-        class="card"
-        id="quizSection"
-    >
+    <!-- =========================
+         QUICK QUIZ
+    ========================== -->
+    <section class="card">
 
         <div class="section-title">
-
-            <span class="title-icon">🧠</span>
-
+            <span class="section-icon">🧠</span>
             <div>
-                <h2>Study Quiz</h2>
-
-                <p>
-                    Test your knowledge with a quick quiz.
-                </p>
+                <h2>Quick Study Quiz</h2>
+                <p>Practice your knowledge</p>
             </div>
-
         </div>
 
         <button
             type="button"
-            onclick="startQuiz()"
             class="primary-btn full-btn"
+            onclick="startQuiz()"
         >
-            ▶️ Start Quiz
+            🧠 Start Quiz
         </button>
 
         <div id="quizBox"></div>
 
     </section>
 
-
-    <!-- =========================================
+    <!-- =========================
          COMPETITIVE EXAM MOCK TEST
-    ========================================== -->
+    ========================== -->
+    <section class="card mock-card">
 
-    <section class="mock-section">
-
-        <!-- MOCK TEST HERO -->
-
-        <div class="mock-hero">
-
-            <div class="hero-trophy">
-                🏆
+        <div class="mock-banner">
+            <div class="banner-icon">🏆</div>
+            <div>
+                <h2>Competitive Exam Mock Test</h2>
+                <p>Choose your exam and start practicing</p>
             </div>
-
-            <div class="hero-content">
-
-                <h2>
-                    Competitive Exam
-                    <strong>Mock Test</strong>
-                </h2>
-
-                <p>
-                    Test Your Preparation • Achieve Your Goal
-                </p>
-
-            </div>
-
-            <div class="hero-target">
-                🎯
-            </div>
-
         </div>
-
-
-        <!-- EXAM GRID -->
 
         <div class="exam-grid">
 
-
-            <!-- UPSC -->
-
             <button
                 type="button"
-                class="exam-btn exam-upsc"
+                class="exam-btn"
                 onclick="startMockTest('UPSC')"
             >
-
-                <div class="exam-logo upsc-logo">
-                    <div class="india-emblem">♛</div>
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>UPSC</h3>
-
-                    <p>
-                        Civil Services Exam
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">🏛️</span>
+                <span>UPSC</span>
             </button>
-
-
-            <!-- SSC -->
 
             <button
                 type="button"
-                class="exam-btn exam-ssc"
+                class="exam-btn"
                 onclick="startMockTest('SSC')"
             >
-
-                <div class="exam-logo ssc-logo">
-                    <div>SSC</div>
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>SSC</h3>
-
-                    <p>
-                        CGL • CHSL • MTS
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">📘</span>
+                <span>SSC</span>
             </button>
-
-
-            <!-- BANK -->
 
             <button
                 type="button"
-                class="exam-btn exam-bank"
+                class="exam-btn"
                 onclick="startMockTest('BANK')"
             >
-
-                <div class="exam-logo bank-logo">
-
-                    <div class="bank-building">
-
-                        <span>🏦</span>
-
-                    </div>
-
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>Bank</h3>
-
-                    <p>
-                        IBPS • SBI • RBI
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">🏦</span>
+                <span>Bank</span>
             </button>
-
-
-            <!-- WBP -->
 
             <button
                 type="button"
-                class="exam-btn exam-wbp"
+                class="exam-btn"
                 onclick="startMockTest('WBP')"
             >
-
-                <div class="exam-logo wbp-logo">
-
-                    <div class="shield">
-                        ★
-                    </div>
-
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>WBP</h3>
-
-                    <p>
-                        West Bengal Police
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">🛡️</span>
+                <span>WBP</span>
             </button>
-
-
-            <!-- KOLKATA POLICE -->
 
             <button
                 type="button"
-                class="exam-btn exam-kolkata"
+                class="exam-btn"
                 onclick="startMockTest('KOLKATA_POLICE')"
             >
-
-                <div class="exam-logo kolkata-logo">
-
-                    <div class="police-badge">
-                        ★
-                    </div>
-
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>
-                        Kolkata Police
-                    </h3>
-
-                    <p>
-                        City Police Exam
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">👮</span>
+                <span>Kolkata Police</span>
             </button>
-
-
-            <!-- RAILWAY -->
 
             <button
                 type="button"
-                class="exam-btn exam-railway"
+                class="exam-btn"
                 onclick="startMockTest('RAILWAY')"
             >
-
-                <div class="exam-logo railway-logo">
-
-                    <div class="train-icon">
-                        🚆
-                    </div>
-
-                </div>
-
-                <div class="exam-info">
-
-                    <h3>Railway</h3>
-
-                    <p>
-                        RRB • NTPC • Group D
-                    </p>
-
-                </div>
-
-                <div class="exam-arrow">
-                    ›
-                </div>
-
+                <span class="exam-icon">🚆</span>
+                <span>Railway</span>
             </button>
 
         </div>
 
-
-        <!-- PART / TEST AREA -->
-
-        <div
-            id="mockTestBox"
-            class="mock-test-box"
-        >
-
-            <p>
-                Select an exam to see Part 1–20.
-            </p>
-
-        </div>
-
-
-        <!-- MOTIVATION -->
-
-        <div class="motivation-box">
-
-            <div class="motivation-icon">
-                🚀
+        <div id="mockTestBox" class="mock-test-box">
+            <div class="result-box">
+                <h3>📚 Select an Exam</h3>
+                <p>Choose an exam above to see Part 1–20.</p>
             </div>
-
-            <div>
-                <strong>
-                    Small Steps Every Day,
-                    Big Success One Day.
-                </strong>
-            </div>
-
-            <div class="motivation-icon">
-                📚
-            </div>
-
         </div>
 
     </section>
 
-
-    <!-- CURRENT AFFAIRS -->
-
-    <section
-        class="card current-affairs-card"
-        id="currentAffairs"
-    >
-
-        <div class="section-title">
-
-            <span class="title-icon">📰</span>
-
-            <div>
-
-                <h2>
-                    Weekly Current Affairs
-                </h2>
-
-                <p>
-                    প্রতি সপ্তাহের গুরুত্বপূর্ণ
-                    Current Affairs পড়ুন।
-                </p>
-
-            </div>
-
-        </div>
-
-        <button
-            type="button"
-            onclick="loadCurrentAffairs()"
-            class="primary-btn full-btn"
-        >
-            📖 Read This Week's Current Affairs
-        </button>
-
-        <div id="currentAffairsBox">
-
-            <p>
-                Weekly Current Affairs এখানে দেখা যাবে।
-            </p>
-
-        </div>
-
-    </section>
+    <footer class="app-footer">
+        <p>© 2026 Itta Study IQ</p>
+    </footer>
 
 </main>
 
-
-<!-- IMPORTANT: EXISTING JAVASCRIPT -->
-
-<script
-    src="./script.js?v=102"
-    defer
-></script>
+<script src="script.js"></script>
 
 </body>
-
-    </html>
+</html>
