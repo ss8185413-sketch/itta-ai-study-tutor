@@ -1,102 +1,2703 @@
-[
-  {
-    "question": "When was the West Bengal Police established?",
-    "options": [
-      "1947",
-      "1950",
-      "1956",
-      "1960"
+{
+  "exam": "WBP",
+  "language": "বাংলা",
+  "total_parts": 20,
+  "questions_per_part": 11,
+  "total_questions": 220,
+  "subjects": [
+    "গণিত",
+    "বিজ্ঞান",
+    "ভূগোল",
+    "ইতিহাস",
+    "পলিটি",
+    "অর্থনীতি",
+    "ইংরেজি",
+    "বাংলা",
+    "সাহিত্য",
+    "রিজনিং",
+    "সাধারণ জ্ঞান"
+  ],
+  "note": "প্রতিটি Part-এ ১১টি প্রশ্ন—প্রতিটি বিষয়ে ১টি করে। PYQ-theme মানে পূর্ববর্তী WBP প্রশ্নের ধরন/টপিক অনুসরণ করে তৈরি; হুবহু কপি নয়।",
+  "parts": {
+    "part1": [
+      {
+        "question": "একটি সংখ্যার 25% = 45 হলে সংখ্যাটি কত?",
+        "options": [
+          "120",
+          "150",
+          "180",
+          "200"
+        ],
+        "answer": "180",
+        "source": "PYQ-theme",
+        "subject": "গণিত"
+      },
+      {
+        "question": "মানবদেহে রক্ত পরিশোধনের প্রধান অঙ্গ কোনটি?",
+        "options": [
+          "হৃদপিণ্ড",
+          "কিডনি",
+          "ফুসফুস",
+          "যকৃত"
+        ],
+        "answer": "কিডনি",
+        "source": "PYQ-theme",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের দীর্ঘতম নদী কোনটি?",
+        "options": [
+          "গঙ্গা",
+          "গোদাবরী",
+          "নর্মদা",
+          "কৃষ্ণা"
+        ],
+        "answer": "গঙ্গা",
+        "source": "PYQ-theme",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ভারতে মুঘল সাম্রাজ্যের প্রতিষ্ঠাতা কে?",
+        "options": [
+          "আকবর",
+          "বাবর",
+          "হুমায়ুন",
+          "শাহজাহান"
+        ],
+        "answer": "বাবর",
+        "source": "PYQ-theme",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের সংবিধান কবে গৃহীত হয়?",
+        "options": [
+          "15 আগস্ট 1947",
+          "26 নভেম্বর 1949",
+          "26 জানুয়ারি 1950",
+          "2 অক্টোবর 1950"
+        ],
+        "answer": "26 নভেম্বর 1949",
+        "source": "PYQ-theme",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ভারতের কেন্দ্রীয় ব্যাংক কোনটি?",
+        "options": [
+          "SBI",
+          "RBI",
+          "SEBI",
+          "NABARD"
+        ],
+        "answer": "RBI",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correctly spelt word.",
+        "options": [
+          "Renovetion",
+          "Rinovation",
+          "Reinnovasion",
+          "Renovation"
+        ],
+        "answer": "Renovation",
+        "source": "PYQ-theme",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘অরণ্য’ শব্দের সমার্থক শব্দ কোনটি?",
+        "options": [
+          "বন",
+          "নদী",
+          "পর্বত",
+          "সমুদ্র"
+        ],
+        "answer": "বন",
+        "source": "PYQ-theme",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘গীতাঞ্জলি’ কার রচনা?",
+        "options": [
+          "রবীন্দ্রনাথ ঠাকুর",
+          "কাজী নজরুল ইসলাম",
+          "বঙ্কিমচন্দ্র",
+          "শরৎচন্দ্র"
+        ],
+        "answer": "রবীন্দ্রনাথ ঠাকুর",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "ধারা: 2, 4, 8, 16, ? — পরের সংখ্যা কত?",
+        "options": [
+          "24",
+          "28",
+          "32",
+          "36"
+        ],
+        "answer": "32",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের জাতীয় পশু কোনটি?",
+        "options": [
+          "সিংহ",
+          "বাঘ",
+          "হাতি",
+          "ময়ূর"
+        ],
+        "answer": "বাঘ",
+        "source": "PYQ-theme",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "1950"
-  },
-  {
-    "question": "What is the emergency helpline number for police services in India?",
-    "options": [
-      "100",
-      "101",
-      "102",
-      "108"
+    "part2": [
+      {
+        "question": "3:5 অনুপাতে দুটি সংখ্যার যোগফল 64 হলে ছোট সংখ্যা কত?",
+        "options": [
+          "20",
+          "24",
+          "28",
+          "40"
+        ],
+        "answer": "24",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "উদ্ভিদের খাদ্য তৈরির প্রক্রিয়াকে কী বলে?",
+        "options": [
+          "শ্বসন",
+          "সালোকসংশ্লেষ",
+          "বাষ্পমোচন",
+          "অভিস্রবণ"
+        ],
+        "answer": "সালোকসংশ্লেষ",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "পশ্চিমবঙ্গের রাজধানী কী?",
+        "options": [
+          "দুর্গাপুর",
+          "কলকাতা",
+          "শিলিগুড়ি",
+          "হাওড়া"
+        ],
+        "answer": "কলকাতা",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "পলাশীর যুদ্ধ কবে হয়?",
+        "options": [
+          "1757",
+          "1764",
+          "1857",
+          "1748"
+        ],
+        "answer": "1757",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের সংবিধানের রক্ষক হিসেবে কাকে ধরা হয়?",
+        "options": [
+          "সংসদ",
+          "সুপ্রিম কোর্ট",
+          "রাষ্ট্রপতি",
+          "প্রধানমন্ত্রী"
+        ],
+        "answer": "সুপ্রিম কোর্ট",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "GDP-এর পূর্ণরূপ কী?",
+        "options": [
+          "Gross Domestic Product",
+          "General Development Plan",
+          "Gross Development Price",
+          "Government Domestic Product"
+        ],
+        "answer": "Gross Domestic Product",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Rogue’-এর বিপরীতার্থক শব্দ কোনটি?",
+        "options": [
+          "Scoundrel",
+          "Scrupulous",
+          "Crooked",
+          "Rascal"
+        ],
+        "answer": "Scrupulous",
+        "source": "PYQ-theme",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘আলো’-এর বিপরীতার্থক শব্দ কোনটি?",
+        "options": [
+          "দীপ",
+          "অন্ধকার",
+          "রবি",
+          "জ্যোতি"
+        ],
+        "answer": "অন্ধকার",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘বিদ্রোহী’ কবিতার রচয়িতা কে?",
+        "options": [
+          "জীবনানন্দ দাশ",
+          "কাজী নজরুল ইসলাম",
+          "সুকান্ত ভট্টাচার্য",
+          "রবীন্দ্রনাথ"
+        ],
+        "answer": "কাজী নজরুল ইসলাম",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "ধারা: 3, 6, 11, 18, 27, ? — পরের সংখ্যা কত?",
+        "options": [
+          "36",
+          "38",
+          "40",
+          "42"
+        ],
+        "answer": "38",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের জাতীয় পাখি কোনটি?",
+        "options": [
+          "ময়ূর",
+          "কাক",
+          "ঈগল",
+          "হাঁস"
+        ],
+        "answer": "ময়ূর",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "100"
-  },
-  {
-    "question": "Which river is known as the 'Sorrow of Bengal'?",
-    "options": [
-      "Hooghly",
-      "Damodar",
-      "Teesta",
-      "Mahananda"
+    "part3": [
+      {
+        "question": "একটি পণ্যের ক্রয়মূল্য 800 টাকা এবং লাভ 15% হলে বিক্রয়মূল্য কত?",
+        "options": [
+          "880",
+          "900",
+          "920",
+          "940"
+        ],
+        "answer": "920",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "জলের রাসায়নিক সংকেত কী?",
+        "options": [
+          "CO₂",
+          "H₂O",
+          "O₂",
+          "H₂"
+        ],
+        "answer": "H₂O",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের সর্বোচ্চ পর্বতশৃঙ্গ কোনটি?",
+        "options": [
+          "নন্দাদেবী",
+          "কাঞ্চনজঙ্ঘা",
+          "এভারেস্ট",
+          "অন্নপূর্ণা"
+        ],
+        "answer": "কাঞ্চনজঙ্ঘা",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ভারতীয় জাতীয় কংগ্রেস প্রতিষ্ঠিত হয় কোন সালে?",
+        "options": [
+          "1885",
+          "1905",
+          "1919",
+          "1947"
+        ],
+        "answer": "1885",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "মৌলিক অধিকার সংবিধানের কোন অংশে?",
+        "options": [
+          "Part I",
+          "Part II",
+          "Part III",
+          "Part IV"
+        ],
+        "answer": "Part III",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "মুদ্রাস্ফীতি বলতে কী বোঝায়?",
+        "options": [
+          "দামের সাধারণ বৃদ্ধি",
+          "বেকারত্বের পতন",
+          "উৎপাদন বৃদ্ধি",
+          "রপ্তানি বৃদ্ধি"
+        ],
+        "answer": "দামের সাধারণ বৃদ্ধি",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Rapid’ শব্দের সমার্থক শব্দ কোনটি?",
+        "options": [
+          "Slow",
+          "Swift",
+          "Weak",
+          "Late"
+        ],
+        "answer": "Swift",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘বিদ্যালয়’ শব্দের সন্ধি-বিচ্ছেদ কোনটি?",
+        "options": [
+          "বিদ্যা+আলয়",
+          "বিদ্য+আলয়",
+          "বিদ্যা+লয়",
+          "বিদ+আলয়"
+        ],
+        "answer": "বিদ্যা+আলয়",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘আনন্দমঠ’ উপন্যাসের লেখক কে?",
+        "options": [
+          "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+          "শরৎচন্দ্র",
+          "বিভূতিভূষণ",
+          "মানিক বন্দ্যোপাধ্যায়"
+        ],
+        "answer": "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "যদি CAT = DBU হয়, তবে DOG = ?",
+        "options": [
+          "EPH",
+          "EOG",
+          "DPH",
+          "FPI"
+        ],
+        "answer": "EPH",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের জাতীয় ফুল কোনটি?",
+        "options": [
+          "গোলাপ",
+          "পদ্ম",
+          "জবা",
+          "শাপলা"
+        ],
+        "answer": "পদ্ম",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Damodar"
-  },
-  {
-    "question": "What is the capital of West Bengal?",
-    "options": [
-      "Siliguri",
-      "Howrah",
-      "Kolkata",
-      "Durgapur"
+    "part4": [
+      {
+        "question": "একটি ট্রেন 72 কিমি/ঘণ্টা বেগে 25 সেকেন্ডে একটি খুঁটি অতিক্রম করে। ট্রেনটির দৈর্ঘ্য কত?",
+        "options": [
+          "400 মিটার",
+          "450 মিটার",
+          "500 মিটার",
+          "550 মিটার"
+        ],
+        "answer": "500 মিটার",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "বলের SI একক কী?",
+        "options": [
+          "জুল",
+          "নিউটন",
+          "ওয়াট",
+          "পাস্কাল"
+        ],
+        "answer": "নিউটন",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "সুন্দরবন কোন ধরনের অরণ্যের জন্য বিখ্যাত?",
+        "options": [
+          "চিরহরিৎ",
+          "ম্যানগ্রোভ",
+          "কাঁটাঝোপ",
+          "পর্বতীয়"
+        ],
+        "answer": "ম্যানগ্রোভ",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "স্বদেশী আন্দোলন প্রধানত কোন ঘটনার প্রতিবাদে শুরু হয়?",
+        "options": [
+          "রাওলাট আইন",
+          "বঙ্গভঙ্গ",
+          "লবণ আইন",
+          "ভারত ছাড়ো আন্দোলন"
+        ],
+        "answer": "বঙ্গভঙ্গ",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের রাষ্ট্রপতি নির্বাচিত হন কার দ্বারা?",
+        "options": [
+          "শুধু লোকসভা",
+          "নির্বাচকমণ্ডলী",
+          "শুধু রাজ্যসভা",
+          "সুপ্রিম কোর্ট"
+        ],
+        "answer": "নির্বাচকমণ্ডলী",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ভারতে পণ্য ও পরিষেবা করের সংক্ষিপ্ত রূপ কী?",
+        "options": [
+          "GNP",
+          "GST",
+          "GDP",
+          "GVA"
+        ],
+        "answer": "GST",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Ancient’ শব্দের বিপরীতার্থক শব্দ কোনটি?",
+        "options": [
+          "Old",
+          "Modern",
+          "Historic",
+          "Past"
+        ],
+        "answer": "Modern",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘রাজপুত্র’ কোন সমাস?",
+        "options": [
+          "দ্বন্দ্ব",
+          "তৎপুরুষ",
+          "বহুব্রীহি",
+          "অব্যয়ীভাব"
+        ],
+        "answer": "তৎপুরুষ",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘পথের পাঁচালী’ কার লেখা?",
+        "options": [
+          "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
+          "তারাশঙ্কর",
+          "মানিক",
+          "শরৎচন্দ্র"
+        ],
+        "answer": "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "একজন উত্তর দিকে 10 মিটার, তারপর পূর্বে 10 মিটার গেল। শুরুর স্থান থেকে সে কোন দিকে?",
+        "options": [
+          "উত্তর-পূর্ব",
+          "উত্তর-পশ্চিম",
+          "দক্ষিণ-পূর্ব",
+          "দক্ষিণ-পশ্চিম"
+        ],
+        "answer": "উত্তর-পূর্ব",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "পশ্চিমবঙ্গের রাজ্য প্রাণী কোনটি?",
+        "options": [
+          "রয়্যাল বেঙ্গল টাইগার",
+          "মেছো বিড়াল",
+          "হাতি",
+          "গণ্ডার"
+        ],
+        "answer": "মেছো বিড়াল",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Kolkata"
-  },
-  {
-    "question": "Which national park in West Bengal is famous for the Royal Bengal Tiger?",
-    "options": [
-      "Sundarbans National Park",
-      "Jaldapara National Park",
-      "Gorumara National Park",
-      "Neora Valley National Park"
+    "part5": [
+      {
+        "question": "12, 18 ও 24-এর ল.সা.গু কত?",
+        "options": [
+          "36",
+          "48",
+          "72",
+          "96"
+        ],
+        "answer": "72",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "ভিটামিন C-এর অভাবে কোন রোগ হয়?",
+        "options": [
+          "রিকেটস",
+          "স্কার্ভি",
+          "রাতকানা",
+          "বেরিবেরি"
+        ],
+        "answer": "স্কার্ভি",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের পশ্চিম উপকূলে কোন সাগর অবস্থিত?",
+        "options": [
+          "বঙ্গোপসাগর",
+          "আরব সাগর",
+          "লাল সাগর",
+          "ক্যারিবিয়ান সাগর"
+        ],
+        "answer": "আরব সাগর",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "দিল্লি সালতানাতের প্রথম রাজবংশ কোনটি?",
+        "options": [
+          "খলজি",
+          "তুঘলক",
+          "দাস/মামলুক",
+          "লোদি"
+        ],
+        "answer": "দাস/মামলুক",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "লোকসভার সর্বোচ্চ সদস্যসংখ্যা সংবিধান অনুযায়ী কত?",
+        "options": [
+          "545",
+          "550",
+          "552",
+          "560"
+        ],
+        "answer": "552",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "RBI-এর সদর দপ্তর কোথায়?",
+        "options": [
+          "দিল্লি",
+          "মুম্বই",
+          "কলকাতা",
+          "চেন্নাই"
+        ],
+        "answer": "মুম্বই",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Fill in the blank: He ___ to school every day.",
+        "options": [
+          "go",
+          "goes",
+          "going",
+          "gone"
+        ],
+        "answer": "goes",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘নীলকমল’ কোন সমাস?",
+        "options": [
+          "কর্মধারয়",
+          "দ্বন্দ্ব",
+          "দ্বিগু",
+          "বহুব্রীহি"
+        ],
+        "answer": "কর্মধারয়",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘দেবদাস’ উপন্যাসের রচয়িতা কে?",
+        "options": [
+          "শরৎচন্দ্র চট্টোপাধ্যায়",
+          "বঙ্কিমচন্দ্র",
+          "রবীন্দ্রনাথ",
+          "মানিক"
+        ],
+        "answer": "শরৎচন্দ্র চট্টোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "A হল B-এর ভাই। B হল C-এর বোন। A ও C-এর সম্পর্ক কী?",
+        "options": [
+          "ভাই",
+          "বোন",
+          "ভাই/বোন",
+          "পিতা"
+        ],
+        "answer": "ভাই/বোন",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "জাতীয় সঙ্গীতের রচয়িতা কে?",
+        "options": [
+          "রবীন্দ্রনাথ ঠাকুর",
+          "নজরুল ইসলাম",
+          "বঙ্কিমচন্দ্র",
+          "দ্বিজেন্দ্রলাল"
+        ],
+        "answer": "রবীন্দ্রনাথ ঠাকুর",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Sundarbans National Park"
-  },
-  {
-    "question": "Which mountain range is located in the northern part of West Bengal?",
-    "options": [
-      "Aravalli Range",
-      "Western Ghats",
-      "Himalayas",
-      "Vindhya Range"
+    "part6": [
+      {
+        "question": "একটি কাজ A 12 দিনে এবং B 18 দিনে করতে পারে। একসঙ্গে করলে কত দিনে হবে?",
+        "options": [
+          "6.2 দিন",
+          "7.2 দিন",
+          "8 দিন",
+          "9 দিন"
+        ],
+        "answer": "7.2 দিন",
+        "source": "PYQ-theme",
+        "subject": "গণিত"
+      },
+      {
+        "question": "শব্দ কোন মাধ্যমে চলতে পারে না?",
+        "options": [
+          "বায়ু",
+          "জল",
+          "কঠিন পদার্থ",
+          "শূন্যস্থান"
+        ],
+        "answer": "শূন্যস্থান",
+        "source": "PYQ-theme",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "দার্জিলিং কোন ফসলের জন্য বিখ্যাত?",
+        "options": [
+          "চা",
+          "পাট",
+          "তুলা",
+          "গম"
+        ],
+        "answer": "চা",
+        "source": "PYQ-theme",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "জালিয়ানওয়ালাবাগ হত্যাকাণ্ড কোন সালে?",
+        "options": [
+          "1917",
+          "1919",
+          "1920",
+          "1930"
+        ],
+        "answer": "1919",
+        "source": "PYQ-theme",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "রাজ্যসভা একটি কী ধরনের কক্ষ?",
+        "options": [
+          "অস্থায়ী",
+          "স্থায়ী",
+          "ছয় বছরের জন্য স্থায়ী",
+          "ভঙ্গযোগ্য"
+        ],
+        "answer": "স্থায়ী",
+        "source": "PYQ-theme",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "SEBI মূলত কোন ক্ষেত্র নিয়ন্ত্রণ করে?",
+        "options": [
+          "শেয়ারবাজার",
+          "কৃষি",
+          "রেল",
+          "শিক্ষা"
+        ],
+        "answer": "শেয়ারবাজার",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct passive form: ‘They built the bridge.’",
+        "options": [
+          "The bridge built them.",
+          "The bridge was built by them.",
+          "The bridge is built by them.",
+          "They were built by the bridge."
+        ],
+        "answer": "The bridge was built by them.",
+        "source": "PYQ-theme",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘আমি ভাত খাই’ বাক্যে কর্তা কোনটি?",
+        "options": [
+          "আমি",
+          "ভাত",
+          "খাই",
+          "কোনোটিই নয়"
+        ],
+        "answer": "আমি",
+        "source": "PYQ-theme",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘ছাড়পত্র’ কাব্যগ্রন্থের কবি কে?",
+        "options": [
+          "সুকান্ত ভট্টাচার্য",
+          "নজরুল",
+          "জীবনানন্দ",
+          "শঙ্খ ঘোষ"
+        ],
+        "answer": "সুকান্ত ভট্টাচার্য",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "একটি ঘড়িতে 3টা বাজলে ঘণ্টার কাঁটা ও মিনিটের কাঁটার কোণ কত?",
+        "options": [
+          "60°",
+          "90°",
+          "120°",
+          "180°"
+        ],
+        "answer": "90°",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "‘বন্দে মাতরম্’ কার রচনা?",
+        "options": [
+          "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+          "রবীন্দ্রনাথ",
+          "নজরুল",
+          "শরৎচন্দ্র"
+        ],
+        "answer": "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+        "source": "PYQ-theme",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Himalayas"
-  },
-  {
-    "question": "Which festival is widely celebrated in West Bengal?",
-    "options": [
-      "Durga Puja",
-      "Onam",
-      "Bihu",
-      "Pongal"
+    "part7": [
+      {
+        "question": "সরল সুদে 5000 টাকার 8% বার্ষিক হারে 2 বছরের সুদ কত?",
+        "options": [
+          "600",
+          "700",
+          "800",
+          "900"
+        ],
+        "answer": "800",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "মানবদেহে ইনসুলিন কোন অঙ্গ থেকে নিঃসৃত হয়?",
+        "options": [
+          "থাইরয়েড",
+          "অগ্ন্যাশয়",
+          "কিডনি",
+          "প্লীহা"
+        ],
+        "answer": "অগ্ন্যাশয়",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের বৃহত্তম মরুভূমি কোনটি?",
+        "options": [
+          "থর",
+          "সাহারা",
+          "গোবি",
+          "কালাহারি"
+        ],
+        "answer": "থর",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ভারত ছাড়ো আন্দোলন শুরু হয় কোন সালে?",
+        "options": [
+          "1939",
+          "1940",
+          "1942",
+          "1946"
+        ],
+        "answer": "1942",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের সংবিধানে মৌলিক কর্তব্য কোন সংশোধনীর মাধ্যমে যুক্ত হয়?",
+        "options": [
+          "42তম",
+          "44তম",
+          "52তম",
+          "73তম"
+        ],
+        "answer": "42তম",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "রাজস্ব ঘাটতি বলতে কী বোঝায়?",
+        "options": [
+          "রাজস্ব ব্যয় > রাজস্ব প্রাপ্তি",
+          "রপ্তানি > আমদানি",
+          "সঞ্চয় > বিনিয়োগ",
+          "কর > ব্যয়"
+        ],
+        "answer": "রাজস্ব ব্যয় > রাজস্ব প্রাপ্তি",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘A man of letters’ means—",
+        "options": [
+          "A postman",
+          "A scholar",
+          "A soldier",
+          "A farmer"
+        ],
+        "answer": "A scholar",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘সে দ্রুত দৌড়ায়’ বাক্যে ক্রিয়াবিশেষণ কোনটি?",
+        "options": [
+          "সে",
+          "দ্রুত",
+          "দৌড়ায়",
+          "কোনোটিই নয়"
+        ],
+        "answer": "দ্রুত",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘রূপসী বাংলা’ কার কাব্যগ্রন্থ?",
+        "options": [
+          "জীবনানন্দ দাশ",
+          "নজরুল",
+          "রবীন্দ্রনাথ",
+          "জসীমউদ্দীন"
+        ],
+        "answer": "জীবনানন্দ দাশ",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "BOOK শব্দের অক্ষরগুলি বর্ণানুক্রমে সাজালে প্রথম অক্ষর কোনটি?",
+        "options": [
+          "B",
+          "K",
+          "O",
+          "O"
+        ],
+        "answer": "B",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের প্রথম রাষ্ট্রপতি কে ছিলেন?",
+        "options": [
+          "ড. রাজেন্দ্র প্রসাদ",
+          "জওহরলাল নেহরু",
+          "সর্দার প্যাটেল",
+          "ড. রাধাকৃষ্ণন"
+        ],
+        "answer": "ড. রাজেন্দ্র প্রসাদ",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Durga Puja"
-  },
-  {
-    "question": "Which city is known as the 'Queen of the Hills' in West Bengal?",
-    "options": [
-      "Darjeeling",
-      "Kolkata",
-      "Malda",
-      "Asansol"
+    "part8": [
+      {
+        "question": "একটি আয়তক্ষেত্রের দৈর্ঘ্য 15 সেমি ও প্রস্থ 8 সেমি। ক্ষেত্রফল কত?",
+        "options": [
+          "100",
+          "110",
+          "120",
+          "130"
+        ],
+        "answer": "120",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "বায়ুমণ্ডলে সর্বাধিক কোন গ্যাস আছে?",
+        "options": [
+          "অক্সিজেন",
+          "নাইট্রোজেন",
+          "কার্বন ডাই-অক্সাইড",
+          "আর্গন"
+        ],
+        "answer": "নাইট্রোজেন",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "গঙ্গা-ব্রহ্মপুত্র বদ্বীপের একটি বড় অংশ কোন রাজ্যে?",
+        "options": [
+          "পশ্চিমবঙ্গ",
+          "গুজরাট",
+          "পাঞ্জাব",
+          "কেরল"
+        ],
+        "answer": "পশ্চিমবঙ্গ",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "স্থায়ী বন্দোবস্ত প্রবর্তন করেন কে?",
+        "options": [
+          "লর্ড কর্নওয়ালিস",
+          "লর্ড ডালহৌসি",
+          "লর্ড কার্জন",
+          "লর্ড রিপন"
+        ],
+        "answer": "লর্ড কর্নওয়ালিস",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "পঞ্চায়েত ব্যবস্থা সাংবিধানিক মর্যাদা পায় কোন সংশোধনীতে?",
+        "options": [
+          "61তম",
+          "73তম",
+          "74তম",
+          "86তম"
+        ],
+        "answer": "73তম",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "প্রতি ব্যক্তির আয় কীভাবে নির্ণয় করা হয়?",
+        "options": [
+          "জাতীয় আয় ÷ জনসংখ্যা",
+          "জনসংখ্যা ÷ জাতীয় আয়",
+          "GDP × জনসংখ্যা",
+          "কর ÷ জনসংখ্যা"
+        ],
+        "answer": "জাতীয় আয় ÷ জনসংখ্যা",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct article: He is ___ honest man.",
+        "options": [
+          "a",
+          "an",
+          "the",
+          "no article"
+        ],
+        "answer": "an",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘অকাল কুষ্মাণ্ড’ বলতে কী বোঝায়?",
+        "options": [
+          "অতি বুদ্ধিমান",
+          "অপদার্থ ব্যক্তি",
+          "সাহসী ব্যক্তি",
+          "ধনী ব্যক্তি"
+        ],
+        "answer": "অপদার্থ ব্যক্তি",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘নকশী কাঁথার মাঠ’ কার রচনা?",
+        "options": [
+          "জসীমউদ্দীন",
+          "কাজী নজরুল",
+          "সুকান্ত",
+          "জীবনানন্দ"
+        ],
+        "answer": "জসীমউদ্দীন",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "Odd one out: 16, 25, 36, 49, 63",
+        "options": [
+          "16",
+          "36",
+          "49",
+          "63"
+        ],
+        "answer": "63",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের প্রথম প্রধানমন্ত্রী কে?",
+        "options": [
+          "জওহরলাল নেহরু",
+          "রাজেন্দ্র প্রসাদ",
+          "লালবাহাদুর শাস্ত্রী",
+          "সর্দার প্যাটেল"
+        ],
+        "answer": "জওহরলাল নেহরু",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Darjeeling"
-  },
-  {
-    "question": "Which sea lies to the south of West Bengal?",
-    "options": [
-      "Arabian Sea",
-      "Bay of Bengal",
-      "Red Sea",
-      "Caspian Sea"
+    "part9": [
+      {
+        "question": "√144 + √81 = ?",
+        "options": [
+          "19",
+          "21",
+          "23",
+          "25"
+        ],
+        "answer": "21",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "তামার রাসায়নিক প্রতীক কী?",
+        "options": [
+          "Ta",
+          "Cu",
+          "Co",
+          "Ca"
+        ],
+        "answer": "Cu",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের দক্ষিণতম স্থলভাগ কোন রাজ্যে?",
+        "options": [
+          "তামিলনাড়ু",
+          "কেরল",
+          "কর্ণাটক",
+          "অন্ধ্রপ্রদেশ"
+        ],
+        "answer": "তামিলনাড়ু",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "আজাদ হিন্দ ফৌজের নেতৃত্বের সঙ্গে কার নাম সবচেয়ে বেশি যুক্ত?",
+        "options": [
+          "সুভাষচন্দ্র বসু",
+          "বাল গঙ্গাধর তিলক",
+          "গোপালকৃষ্ণ গোখলে",
+          "দাদাভাই নওরোজি"
+        ],
+        "answer": "সুভাষচন্দ্র বসু",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "নগর স্থানীয় স্বশাসন কোন সংশোধনীর সঙ্গে যুক্ত?",
+        "options": [
+          "72তম",
+          "73তম",
+          "74তম",
+          "75তম"
+        ],
+        "answer": "74তম",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ভারতের বাজেট সাধারণত কে সংসদে পেশ করেন?",
+        "options": [
+          "রাষ্ট্রপতি",
+          "অর্থমন্ত্রী",
+          "RBI গভর্নর",
+          "প্রধান বিচারপতি"
+        ],
+        "answer": "অর্থমন্ত্রী",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct preposition: He is good ___ mathematics.",
+        "options": [
+          "in",
+          "at",
+          "on",
+          "for"
+        ],
+        "answer": "at",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘হাত গুটিয়ে বসা’ বাগধারার অর্থ কী?",
+        "options": [
+          "কাজে সক্রিয় থাকা",
+          "নিষ্ক্রিয় থাকা",
+          "দৌড়ানো",
+          "হাত ধোয়া"
+        ],
+        "answer": "নিষ্ক্রিয় থাকা",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘কপালকুণ্ডলা’ কার লেখা?",
+        "options": [
+          "বঙ্কিমচন্দ্র",
+          "শরৎচন্দ্র",
+          "রবীন্দ্রনাথ",
+          "বিভূতিভূষণ"
+        ],
+        "answer": "বঙ্কিমচন্দ্র",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "যদি সব গোলাপ ফুল এবং কিছু ফুল লাল হয়, তবে কোনটি নিশ্চিত?",
+        "options": [
+          "সব গোলাপ লাল",
+          "কিছু গোলাপ লাল",
+          "সব গোলাপ ফুল",
+          "কোনো ফুল লাল নয়"
+        ],
+        "answer": "সব গোলাপ ফুল",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "জাতীয় বিজ্ঞান দিবস কবে পালিত হয়?",
+        "options": [
+          "28 ফেব্রুয়ারি",
+          "5 জুন",
+          "15 আগস্ট",
+          "14 নভেম্বর"
+        ],
+        "answer": "28 ফেব্রুয়ারি",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Bay of Bengal"
-  },
-  {
-    "question": "Who is responsible for maintaining law and order at the district level in West Bengal Police?",
-    "options": [
-      "District Magistrate",
-      "Superintendent of Police",
-      "Chief Secretary",
-      "Mayor"
+    "part10": [
+      {
+        "question": "2x + 7 = 25 হলে x-এর মান কত?",
+        "options": [
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "answer": "9",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "সূর্যের শক্তির প্রধান উৎস কী?",
+        "options": [
+          "দহন",
+          "নিউক্লীয় সংযোজন",
+          "নিউক্লীয় বিভাজন",
+          "রাসায়নিক বিক্রিয়া"
+        ],
+        "answer": "নিউক্লীয় সংযোজন",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "কালবৈশাখী সাধারণত কোন ঋতুতে দেখা যায়?",
+        "options": [
+          "শীত",
+          "গ্রীষ্ম/প্রাক-বর্ষা",
+          "বর্ষার শেষ",
+          "শরৎ"
+        ],
+        "answer": "গ্রীষ্ম/প্রাক-বর্ষা",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "সাঁচি স্তূপ কোন ধর্মের সঙ্গে সম্পর্কিত?",
+        "options": [
+          "জৈন",
+          "বৌদ্ধ",
+          "শিখ",
+          "পারসি"
+        ],
+        "answer": "বৌদ্ধ",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "জাতীয় জরুরি অবস্থা কোন অনুচ্ছেদে?",
+        "options": [
+          "352",
+          "356",
+          "360",
+          "365"
+        ],
+        "answer": "352",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ব্যাংকে জমা টাকার উপর পাওয়া অর্থকে কী বলা হয়?",
+        "options": [
+          "ভাড়া",
+          "সুদ",
+          "লভ্যাংশ",
+          "মজুরি"
+        ],
+        "answer": "সুদ",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Look after’ means—",
+        "options": [
+          "Search",
+          "Take care of",
+          "Ignore",
+          "Look behind"
+        ],
+        "answer": "Take care of",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘গগন’ শব্দের অর্থ কী?",
+        "options": [
+          "আকাশ",
+          "মাটি",
+          "জল",
+          "বন"
+        ],
+        "answer": "আকাশ",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘সোনার তরী’ কার কাব্যগ্রন্থ?",
+        "options": [
+          "রবীন্দ্রনাথ ঠাকুর",
+          "নজরুল",
+          "জীবনানন্দ",
+          "সুকান্ত"
+        ],
+        "answer": "রবীন্দ্রনাথ ঠাকুর",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "ধারা: A, C, F, J, O, ? — পরের অক্ষর?",
+        "options": [
+          "T",
+          "U",
+          "V",
+          "W"
+        ],
+        "answer": "U",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "বিশ্ব পরিবেশ দিবস কবে?",
+        "options": [
+          "5 জুন",
+          "22 এপ্রিল",
+          "16 সেপ্টেম্বর",
+          "1 মে"
+        ],
+        "answer": "5 জুন",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ],
-    "answer": "Superintendent of Police"
-  }
+    "part11": [
+      {
+        "question": "একটি সংখ্যার 40% ও 30%-এর পার্থক্য 28। সংখ্যাটি কত?",
+        "options": [
+          "240",
+          "260",
+          "280",
+          "300"
+        ],
+        "answer": "280",
+        "source": "PYQ-theme",
+        "subject": "গণিত"
+      },
+      {
+        "question": "মানবদেহের বৃহত্তম অঙ্গ কোনটি?",
+        "options": [
+          "যকৃত",
+          "ত্বক",
+          "ফুসফুস",
+          "মস্তিষ্ক"
+        ],
+        "answer": "ত্বক",
+        "source": "PYQ-theme",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "দাক্ষিণাত্য মালভূমির প্রধান শিলা কোন ধরনের?",
+        "options": [
+          "আগ্নেয়",
+          "পাললিক",
+          "রূপান্তরিত",
+          "চুনাপাথর"
+        ],
+        "answer": "আগ্নেয়",
+        "source": "PYQ-theme",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "মৌর্য সাম্রাজ্যের প্রতিষ্ঠাতা কে?",
+        "options": [
+          "চন্দ্রগুপ্ত মৌর্য",
+          "অশোক",
+          "বিন্দুসার",
+          "কনিষ্ক"
+        ],
+        "answer": "চন্দ্রগুপ্ত মৌর্য",
+        "source": "PYQ-theme",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "রাষ্ট্রপতি শাসন কোন অনুচ্ছেদে?",
+        "options": [
+          "352",
+          "356",
+          "360",
+          "368"
+        ],
+        "answer": "356",
+        "source": "PYQ-theme",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "বেকারত্বের অর্থ কী?",
+        "options": [
+          "কাজের ইচ্ছা ও সক্ষমতা থাকা সত্ত্বেও কাজ না পাওয়া",
+          "কাজ করতে না চাওয়া",
+          "অবসর নেওয়া",
+          "শিক্ষা গ্রহণ"
+        ],
+        "answer": "কাজের ইচ্ছা ও সক্ষমতা থাকা সত্ত্বেও কাজ না পাওয়া",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Plural of ‘criterion’ is—",
+        "options": [
+          "criterions",
+          "criteria",
+          "criteriones",
+          "criterion"
+        ],
+        "answer": "criteria",
+        "source": "PYQ-theme",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘নির্ভীক’ শব্দে উপসর্গ কোনটি?",
+        "options": [
+          "নির্",
+          "ভী",
+          "ইক",
+          "কোনোটিই নয়"
+        ],
+        "answer": "নির্",
+        "source": "PYQ-theme",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘অরণ্যের দিনরাত্রি’ কার উপন্যাস?",
+        "options": [
+          "সুনীল গঙ্গোপাধ্যায়",
+          "শরৎচন্দ্র",
+          "বঙ্কিমচন্দ্র",
+          "তারাশঙ্কর"
+        ],
+        "answer": "সুনীল গঙ্গোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "একটি কোডে PEN = 35 হলে CAT = ?",
+        "options": [
+          "24",
+          "26",
+          "28",
+          "30"
+        ],
+        "answer": "24",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের সর্বোচ্চ অসামরিক সম্মান কোনটি?",
+        "options": [
+          "পদ্মশ্রী",
+          "ভারত রত্ন",
+          "পদ্মভূষণ",
+          "পদ্মবিভূষণ"
+        ],
+        "answer": "ভারত রত্ন",
+        "source": "PYQ-theme",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part12": [
+      {
+        "question": "একটি বৃত্তের ব্যাসার্ধ 7 সেমি হলে π=22/7 ধরে পরিধি কত?",
+        "options": [
+          "22",
+          "44",
+          "49",
+          "154"
+        ],
+        "answer": "44",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "অম্লের pH সাধারণত কতের কম?",
+        "options": [
+          "5",
+          "7",
+          "9",
+          "14"
+        ],
+        "answer": "7",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের মান সময় কোন দ্রাঘিমারেখার উপর ভিত্তি করে?",
+        "options": [
+          "68°7′ পূর্ব",
+          "82°30′ পূর্ব",
+          "90° পূর্ব",
+          "75° পূর্ব"
+        ],
+        "answer": "82°30′ পূর্ব",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "অশোকের অধিকাংশ শিলালিপির ভাষা কী ছিল?",
+        "options": [
+          "প্রাকৃত",
+          "সংস্কৃত",
+          "তামিল",
+          "ফারসি"
+        ],
+        "answer": "প্রাকৃত",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "আর্থিক জরুরি অবস্থা কোন অনুচ্ছেদে?",
+        "options": [
+          "352",
+          "356",
+          "360",
+          "370"
+        ],
+        "answer": "360",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ভারতের পরিকল্পনা কমিশনের পরিবর্তে কোন প্রতিষ্ঠান গঠিত হয়?",
+        "options": [
+          "NITI Aayog",
+          "SEBI",
+          "Finance Commission",
+          "NABARD"
+        ],
+        "answer": "NITI Aayog",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct sentence.",
+        "options": [
+          "He do not know me.",
+          "He does not know me.",
+          "He does not knows me.",
+          "He not know me."
+        ],
+        "answer": "He does not know me.",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘পাঠক’ শব্দে প্রত্যয় কোনটি?",
+        "options": [
+          "পাঠ",
+          "ক",
+          "ক-প্রত্যয়",
+          "কোনোটিই নয়"
+        ],
+        "answer": "ক-প্রত্যয়",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘পদ্মা নদীর মাঝি’ কার লেখা?",
+        "options": [
+          "মানিক বন্দ্যোপাধ্যায়",
+          "বিভূতিভূষণ",
+          "তারাশঙ্কর",
+          "শরৎচন্দ্র"
+        ],
+        "answer": "মানিক বন্দ্যোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "মা মেয়ের চেয়ে 24 বছর বড়। 6 বছর পরে মা মেয়ের দ্বিগুণ বয়সী হবে। মেয়ের বর্তমান বয়স?",
+        "options": [
+          "12",
+          "16",
+          "18",
+          "20"
+        ],
+        "answer": "18",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "অলিম্পিকের প্রতীকী পাঁচটি রিং কী নির্দেশ করে?",
+        "options": [
+          "পাঁচ মহাদেশ",
+          "পাঁচ খেলা",
+          "পাঁচ বছর",
+          "পাঁচ দেশ"
+        ],
+        "answer": "পাঁচ মহাদেশ",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part13": [
+      {
+        "question": "15, 20 ও 30-এর গ.সা.গু কত?",
+        "options": [
+          "5",
+          "10",
+          "15",
+          "20"
+        ],
+        "answer": "5",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "বিদ্যুৎ প্রবাহের SI একক কী?",
+        "options": [
+          "ভোল্ট",
+          "অ্যাম্পিয়ার",
+          "ওহম",
+          "ওয়াট"
+        ],
+        "answer": "অ্যাম্পিয়ার",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "হিমালয়ের সর্বদক্ষিণের পর্বতশ্রেণি কোনটি?",
+        "options": [
+          "হিমাদ্রি",
+          "হিমাচল",
+          "শিবালিক",
+          "কারাকোরাম"
+        ],
+        "answer": "শিবালিক",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ব্রাহ্ম সমাজ প্রতিষ্ঠা করেন কে?",
+        "options": [
+          "রাজা রামমোহন রায়",
+          "বিদ্যাসাগর",
+          "দয়ানন্দ সরস্বতী",
+          "বিবেকানন্দ"
+        ],
+        "answer": "রাজা রামমোহন রায়",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের সংবিধানের প্রস্তাবনায় 'সমাজতান্ত্রিক' শব্দটি কোন সংশোধনীতে যোগ হয়?",
+        "options": [
+          "24তম",
+          "42তম",
+          "44তম",
+          "73তম"
+        ],
+        "answer": "42তম",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "চাহিদা বাড়লে অন্যান্য বিষয় অপরিবর্তিত থাকলে সাধারণত দামের কী হয়?",
+        "options": [
+          "কমে",
+          "বাড়ে",
+          "অপরিবর্তিত থাকে",
+          "শূন্য হয়"
+        ],
+        "answer": "বাড়ে",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Benevolent’ means—",
+        "options": [
+          "Kind",
+          "Cruel",
+          "Lazy",
+          "Angry"
+        ],
+        "answer": "Kind",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘দুধের স্বাদ ঘোলে মেটানো’ অর্থ কী?",
+        "options": [
+          "আসলের বদলে সামান্য দিয়ে সন্তুষ্ট হওয়া",
+          "দুধ পান করা",
+          "ঘোল তৈরি করা",
+          "অতিরিক্ত খরচ করা"
+        ],
+        "answer": "আসলের বদলে সামান্য দিয়ে সন্তুষ্ট হওয়া",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘হাঁসুলী বাঁকের উপকথা’ কার রচনা?",
+        "options": [
+          "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+          "মানিক",
+          "সুনীল",
+          "বঙ্কিমচন্দ্র"
+        ],
+        "answer": "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "এক সারিতে রাহুল বাম দিক থেকে 9ম এবং ডান দিক থেকে 12তম। মোট কতজন?",
+        "options": [
+          "19",
+          "20",
+          "21",
+          "22"
+        ],
+        "answer": "20",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "UN-এর সদর দপ্তর কোথায়?",
+        "options": [
+          "জেনেভা",
+          "নিউ ইয়র্ক",
+          "প্যারিস",
+          "লন্ডন"
+        ],
+        "answer": "নিউ ইয়র্ক",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part14": [
+      {
+        "question": "একজন ব্যক্তি 6 কিমি/ঘণ্টা বেগে 2.5 ঘণ্টা হাঁটলে কত দূরত্ব অতিক্রম করবেন?",
+        "options": [
+          "12 কিমি",
+          "15 কিমি",
+          "18 কিমি",
+          "20 কিমি"
+        ],
+        "answer": "15 কিমি",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "লোহার মরিচা পড়ার জন্য প্রধানত কী প্রয়োজন?",
+        "options": [
+          "শুধু আলো",
+          "অক্সিজেন ও জল",
+          "শুধু নাইট্রোজেন",
+          "কার্বন ডাই-অক্সাইড"
+        ],
+        "answer": "অক্সিজেন ও জল",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের বৃহত্তম মিঠা জলের হ্রদ কোনটি?",
+        "options": [
+          "চিলিকা",
+          "উলার",
+          "লোকটাক",
+          "পুলিকট"
+        ],
+        "answer": "উলার",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "বিধবা বিবাহ আন্দোলনের সঙ্গে কার নাম বিশেষভাবে যুক্ত?",
+        "options": [
+          "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+          "বঙ্কিমচন্দ্র",
+          "রবীন্দ্রনাথ",
+          "সুরেন্দ্রনাথ"
+        ],
+        "answer": "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের প্রথম নাগরিক কে?",
+        "options": [
+          "প্রধানমন্ত্রী",
+          "রাষ্ট্রপতি",
+          "প্রধান বিচারপতি",
+          "লোকসভার স্পিকার"
+        ],
+        "answer": "রাষ্ট্রপতি",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "কৃষিক্ষেত্রে উৎপাদনের প্রধান উপাদান কোনটি?",
+        "options": [
+          "জমি",
+          "শুধু টাকা",
+          "শুধু যন্ত্র",
+          "শুধু কর"
+        ],
+        "answer": "জমি",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "One word for ‘a person who cannot read or write’—",
+        "options": [
+          "Literate",
+          "Illiterate",
+          "Scholar",
+          "Author"
+        ],
+        "answer": "Illiterate",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘মহর্ষি’ শব্দের সন্ধি-বিচ্ছেদ কী?",
+        "options": [
+          "মহা+ঋষি",
+          "মহ+ঋষি",
+          "মহৎ+ঋষি",
+          "মহা+রিষি"
+        ],
+        "answer": "মহা+ঋষি",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘শ্রীকান্ত’ উপন্যাসের লেখক কে?",
+        "options": [
+          "শরৎচন্দ্র",
+          "বঙ্কিমচন্দ্র",
+          "রবীন্দ্রনাথ",
+          "মানিক"
+        ],
+        "answer": "শরৎচন্দ্র",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "ধারা: 1, 4, 9, 16, ? — পরের সংখ্যা?",
+        "options": [
+          "20",
+          "24",
+          "25",
+          "27"
+        ],
+        "answer": "25",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "WHO-এর সদর দপ্তর কোথায়?",
+        "options": [
+          "জেনেভা",
+          "রোম",
+          "নিউ ইয়র্ক",
+          "ভিয়েনা"
+        ],
+        "answer": "জেনেভা",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part15": [
+      {
+        "question": "একটি সংখ্যার 3/5 অংশ 48 হলে সংখ্যাটি কত?",
+        "options": [
+          "60",
+          "72",
+          "80",
+          "90"
+        ],
+        "answer": "80",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "DNA-এর পূর্ণরূপ কী?",
+        "options": [
+          "Deoxyribonucleic Acid",
+          "Dynamic Nuclear Acid",
+          "Double Nitrogen Acid",
+          "Deoxygenated Nucleic Atom"
+        ],
+        "answer": "Deoxyribonucleic Acid",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "চিলিকা হ্রদ কোন রাজ্যে?",
+        "options": [
+          "ওড়িশা",
+          "পশ্চিমবঙ্গ",
+          "অন্ধ্রপ্রদেশ",
+          "তামিলনাড়ু"
+        ],
+        "answer": "ওড়িশা",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "সাইমন কমিশন ভারতে আসে কোন সালে?",
+        "options": [
+          "1925",
+          "1927",
+          "1928",
+          "1930"
+        ],
+        "answer": "1928",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "সুপ্রিম কোর্টের প্রধান বিচারপতিকে কে নিয়োগ করেন?",
+        "options": [
+          "প্রধানমন্ত্রী",
+          "রাষ্ট্রপতি",
+          "সংসদ",
+          "রাজ্যসভা"
+        ],
+        "answer": "রাষ্ট্রপতি",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "ভারতের বৈদেশিক মুদ্রার রিজার্ভ প্রধানত কে পরিচালনা করে?",
+        "options": [
+          "RBI",
+          "SEBI",
+          "LIC",
+          "NITI Aayog"
+        ],
+        "answer": "RBI",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct indirect speech: He said, ‘I am tired.’",
+        "options": [
+          "He said that I am tired.",
+          "He said that he was tired.",
+          "He says he was tired.",
+          "He said he is tired."
+        ],
+        "answer": "He said that he was tired.",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘যে পরের উপকার করে’— এক কথায় কী?",
+        "options": [
+          "পরোপকারী",
+          "স্বার্থপর",
+          "অপরাধী",
+          "দুর্বৃত্ত"
+        ],
+        "answer": "পরোপকারী",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘সঞ্চয়িতা’ কার কাব্যসংকলন?",
+        "options": [
+          "রবীন্দ্রনাথ ঠাকুর",
+          "নজরুল",
+          "জীবনানন্দ",
+          "সুকান্ত"
+        ],
+        "answer": "রবীন্দ্রনাথ ঠাকুর",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "‘কলম : লেখা’ যেমন, ‘ছুরি : ?’",
+        "options": [
+          "কাটা",
+          "ধোয়া",
+          "দৌড়ানো",
+          "মাপা"
+        ],
+        "answer": "কাটা",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের মুদ্রার প্রতীক কী?",
+        "options": [
+          "₹",
+          "$",
+          "£",
+          "€"
+        ],
+        "answer": "₹",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part16": [
+      {
+        "question": "10% ছাড় দেওয়ার পর একটি পণ্যের দাম 540 টাকা। চিহ্নিত মূল্য কত?",
+        "options": [
+          "580",
+          "600",
+          "620",
+          "640"
+        ],
+        "answer": "600",
+        "source": "PYQ-theme",
+        "subject": "গণিত"
+      },
+      {
+        "question": "আলোর বেগ শূন্যস্থানে প্রায় কত?",
+        "options": [
+          "3×10⁶ m/s",
+          "3×10⁸ m/s",
+          "3×10¹⁰ m/s",
+          "3×10⁴ m/s"
+        ],
+        "answer": "3×10⁸ m/s",
+        "source": "PYQ-theme",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতে প্রধানত কোন ধরনের মৌসুমি বায়ু বৃষ্টিপাত আনে?",
+        "options": [
+          "উত্তর-পূর্ব মৌসুমি",
+          "দক্ষিণ-পশ্চিম মৌসুমি",
+          "পশ্চিমী ঝঞ্ঝা",
+          "স্থানীয় বায়ু"
+        ],
+        "answer": "দক্ষিণ-পশ্চিম মৌসুমি",
+        "source": "PYQ-theme",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ডান্ডি অভিযান কোন আন্দোলনের সঙ্গে যুক্ত?",
+        "options": [
+          "অসহযোগ",
+          "লবণ সত্যাগ্রহ",
+          "ভারত ছাড়ো",
+          "স্বদেশী"
+        ],
+        "answer": "লবণ সত্যাগ্রহ",
+        "source": "PYQ-theme",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "ভারতের নির্বাচন কমিশন কোন ধরনের সংস্থা?",
+        "options": [
+          "সাংবিধানিক",
+          "বেসরকারি",
+          "বিচারিক",
+          "আন্তর্জাতিক"
+        ],
+        "answer": "সাংবিধানিক",
+        "source": "PYQ-theme",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "নোট জারি করার প্রধান কর্তৃপক্ষ কোনটি?",
+        "options": [
+          "RBI",
+          "SBI",
+          "SEBI",
+          "NABARD"
+        ],
+        "answer": "RBI",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Too much’ is used with—",
+        "options": [
+          "Countable nouns",
+          "Uncountable nouns",
+          "Only plural nouns",
+          "Only proper nouns"
+        ],
+        "answer": "Uncountable nouns",
+        "source": "PYQ-theme",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘চোখে ধুলো দেওয়া’ অর্থ কী?",
+        "options": [
+          "চোখ পরিষ্কার করা",
+          "প্রতারণা করা",
+          "কাঁদা",
+          "ঘুমানো"
+        ],
+        "answer": "প্রতারণা করা",
+        "source": "PYQ-theme",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘অগ্নিবীণা’ কার কাব্যগ্রন্থ?",
+        "options": [
+          "কাজী নজরুল ইসলাম",
+          "রবীন্দ্রনাথ",
+          "সুকান্ত",
+          "জসীমউদ্দীন"
+        ],
+        "answer": "কাজী নজরুল ইসলাম",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "যদি SOUTH-কে NORTH এবং NORTH-কে SOUTH বলা হয়, তবে সূর্য কোন দিক থেকে ওঠে?",
+        "options": [
+          "NORTH",
+          "SOUTH",
+          "EAST",
+          "WEST"
+        ],
+        "answer": "WEST",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের জাতীয় বৃক্ষ কোনটি?",
+        "options": [
+          "বটগাছ",
+          "নিম",
+          "অশ্বত্থ",
+          "আম"
+        ],
+        "answer": "বটগাছ",
+        "source": "PYQ-theme",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part17": [
+      {
+        "question": "5 জন শ্রমিক 12 দিনে একটি কাজ করলে একই হারে 10 জন শ্রমিক কত দিনে করবে?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "8"
+        ],
+        "answer": "6",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "কোন রক্তকণিকা রোগ প্রতিরোধে সাহায্য করে?",
+        "options": [
+          "লোহিত রক্তকণিকা",
+          "শ্বেত রক্তকণিকা",
+          "প্লেটলেট",
+          "প্লাজমা"
+        ],
+        "answer": "শ্বেত রক্তকণিকা",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "পশ্চিমবঙ্গের পশ্চিমাংশে কোন মালভূমির প্রভাব রয়েছে?",
+        "options": [
+          "ছোটনাগপুর",
+          "মালওয়া",
+          "দাক্ষিণাত্য",
+          "মেঘালয়"
+        ],
+        "answer": "ছোটনাগপুর",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "হর্ষবর্ধনের রাজধানী কোথায় ছিল?",
+        "options": [
+          "কনৌজ",
+          "পাটলিপুত্র",
+          "দিল্লি",
+          "উজ্জয়িনী"
+        ],
+        "answer": "কনৌজ",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "অর্থ বিল প্রথমে কোন কক্ষে পেশ হয়?",
+        "options": [
+          "রাজ্যসভা",
+          "লোকসভা",
+          "যে কোনো কক্ষে",
+          "সুপ্রিম কোর্ট"
+        ],
+        "answer": "লোকসভা",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "আয়করের প্রকৃতি কী?",
+        "options": [
+          "প্রত্যক্ষ কর",
+          "পরোক্ষ কর",
+          "শুল্ক নয়",
+          "ফি"
+        ],
+        "answer": "প্রত্যক্ষ কর",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correct comparative form of ‘good’.",
+        "options": [
+          "Gooder",
+          "More good",
+          "Better",
+          "Best"
+        ],
+        "answer": "Better",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘সুন্দর’ শব্দের বিশেষ্য রূপ কোনটি?",
+        "options": [
+          "সৌন্দর্য",
+          "সুন্দরী",
+          "সুন্দরতা",
+          "সুন্দরন"
+        ],
+        "answer": "সৌন্দর্য",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘কবি’ উপন্যাসের রচয়িতা কে?",
+        "options": [
+          "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+          "মানিক বন্দ্যোপাধ্যায়",
+          "শরৎচন্দ্র",
+          "বঙ্কিমচন্দ্র"
+        ],
+        "answer": "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "একটি ক্যালেন্ডারে 1 জানুয়ারি সোমবার হলে 8 জানুয়ারি কী বার?",
+        "options": [
+          "রবিবার",
+          "সোমবার",
+          "মঙ্গলবার",
+          "বুধবার"
+        ],
+        "answer": "সোমবার",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের জাতীয় জলজ প্রাণী কোনটি?",
+        "options": [
+          "গঙ্গার শুশুক",
+          "কুমির",
+          "তিমি",
+          "কচ্ছপ"
+        ],
+        "answer": "গঙ্গার শুশুক",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part18": [
+      {
+        "question": "একটি ত্রিভুজের দুটি কোণ 50° ও 60° হলে তৃতীয় কোণ কত?",
+        "options": [
+          "60°",
+          "70°",
+          "80°",
+          "90°"
+        ],
+        "answer": "70°",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "নিউটনের প্রথম সূত্রকে আর কী বলা হয়?",
+        "options": [
+          "মহাকর্ষ সূত্র",
+          "জড়তার সূত্র",
+          "শক্তির সূত্র",
+          "ভাসমানতার সূত্র"
+        ],
+        "answer": "জড়তার সূত্র",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "কৃষ্ণমাটি কোন ফসলের জন্য উপযোগী?",
+        "options": [
+          "তুলা",
+          "চা",
+          "পাট",
+          "ধান"
+        ],
+        "answer": "তুলা",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "বিজয়নগর সাম্রাজ্যের বিখ্যাত শাসক কে?",
+        "options": [
+          "কৃষ্ণদেব রায়",
+          "ইব্রাহিম লোদি",
+          "শেরশাহ",
+          "বাবর"
+        ],
+        "answer": "কৃষ্ণদেব রায়",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "লোকসভার সভাপতিকে কী বলা হয়?",
+        "options": [
+          "চেয়ারম্যান",
+          "স্পিকার",
+          "গভর্নর",
+          "সেক্রেটারি"
+        ],
+        "answer": "স্পিকার",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "GST কোন ধরনের কর?",
+        "options": [
+          "পরোক্ষ কর",
+          "প্রত্যক্ষ কর",
+          "সম্পদ কর",
+          "আয়কর"
+        ],
+        "answer": "পরোক্ষ কর",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "‘Break the ice’ means—",
+        "options": [
+          "Break something",
+          "Start a friendly conversation",
+          "Become angry",
+          "Stop working"
+        ],
+        "answer": "Start a friendly conversation",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘রাত্রি’ শব্দের তদ্ভব রূপ কোনটি?",
+        "options": [
+          "রাত",
+          "রাই",
+          "রাত্র",
+          "রাত্তির"
+        ],
+        "answer": "রাত",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘আরন্যক’ উপন্যাসের লেখক কে?",
+        "options": [
+          "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
+          "শরৎচন্দ্র",
+          "সুনীল",
+          "মানিক"
+        ],
+        "answer": "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "A, B-এর চেয়ে লম্বা; B, C-এর চেয়ে লম্বা। সবচেয়ে খাটো কে?",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "নির্ণয় করা যায় না"
+        ],
+        "answer": "C",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "পশ্চিমবঙ্গের রাজ্য ফুল কোনটি?",
+        "options": [
+          "শিউলি",
+          "পলাশ",
+          "শাপলা",
+          "জবা"
+        ],
+        "answer": "শিউলি",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part19": [
+      {
+        "question": "2:3:5 অনুপাতে 100 ভাগ করলে বৃহত্তম অংশ কত?",
+        "options": [
+          "20",
+          "30",
+          "40",
+          "50"
+        ],
+        "answer": "50",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "ওজোন স্তর প্রধানত কোন মণ্ডলে অবস্থিত?",
+        "options": [
+          "ট্রপোস্ফিয়ার",
+          "স্ট্র্যাটোস্ফিয়ার",
+          "মেসোস্ফিয়ার",
+          "থার্মোস্ফিয়ার"
+        ],
+        "answer": "স্ট্র্যাটোস্ফিয়ার",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভূমিকম্পের কম্পন মাপার যন্ত্র কী?",
+        "options": [
+          "ব্যারোমিটার",
+          "সিসমোগ্রাফ",
+          "হাইগ্রোমিটার",
+          "অ্যানিমোমিটার"
+        ],
+        "answer": "সিসমোগ্রাফ",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "বঙ্গভঙ্গ কার্যকর হয় কোন সালে?",
+        "options": [
+          "1903",
+          "1905",
+          "1907",
+          "1911"
+        ],
+        "answer": "1905",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "রাজ্যের সাংবিধানিক প্রধান কে?",
+        "options": [
+          "মুখ্যমন্ত্রী",
+          "রাজ্যপাল",
+          "মুখ্যসচিব",
+          "স্পিকার"
+        ],
+        "answer": "রাজ্যপাল",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "মানব উন্নয়ন সূচক কোন সংস্থা প্রকাশ করে?",
+        "options": [
+          "UNDP",
+          "WTO",
+          "RBI",
+          "IMF"
+        ],
+        "answer": "UNDP",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Choose the correctly punctuated sentence.",
+        "options": [
+          "What a beautiful day!",
+          "What a beautiful day.",
+          "What a beautiful day?",
+          "What a beautiful day,"
+        ],
+        "answer": "What a beautiful day!",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘বালকরা মাঠে খেলছে’ বাক্যটি কোন কালের?",
+        "options": [
+          "বর্তমান ঘটমান",
+          "অতীত",
+          "ভবিষ্যৎ",
+          "পুরাঘটিত"
+        ],
+        "answer": "বর্তমান ঘটমান",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘পল্লীসমাজ’ কার রচনা?",
+        "options": [
+          "শরৎচন্দ্র চট্টোপাধ্যায়",
+          "রবীন্দ্রনাথ",
+          "বঙ্কিমচন্দ্র",
+          "তারাশঙ্কর"
+        ],
+        "answer": "শরৎচন্দ্র চট্টোপাধ্যায়",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "ধারা: 100, 90, 81, 73, ? — পরের সংখ্যা?",
+        "options": [
+          "64",
+          "65",
+          "66",
+          "67"
+        ],
+        "answer": "66",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "ভারতের সংবিধানের খসড়া কমিটির সভাপতি কে ছিলেন?",
+        "options": [
+          "ড. বি. আর. আম্বেদকর",
+          "রাজেন্দ্র প্রসাদ",
+          "নেহরু",
+          "প্যাটেল"
+        ],
+        "answer": "ড. বি. আর. আম্বেদকর",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
+    ],
+    "part20": [
+      {
+        "question": "একটি সংখ্যাকে 20% বাড়িয়ে 360 পাওয়া যায়। মূল সংখ্যা কত?",
+        "options": [
+          "280",
+          "300",
+          "320",
+          "340"
+        ],
+        "answer": "300",
+        "source": "Practice",
+        "subject": "গণিত"
+      },
+      {
+        "question": "বৈদ্যুতিক রোধের একক কী?",
+        "options": [
+          "ওহম",
+          "অ্যাম্পিয়ার",
+          "ভোল্ট",
+          "কুলম্ব"
+        ],
+        "answer": "ওহম",
+        "source": "Practice",
+        "subject": "বিজ্ঞান"
+      },
+      {
+        "question": "ভারতের বৃহত্তম মরুভূমি প্রধানত কোন রাজ্যে?",
+        "options": [
+          "রাজস্থান",
+          "গুজরাট",
+          "মহারাষ্ট্র",
+          "হরিয়ানা"
+        ],
+        "answer": "রাজস্থান",
+        "source": "Practice",
+        "subject": "ভূগোল"
+      },
+      {
+        "question": "ভারত স্বাধীন হয় কোন তারিখে?",
+        "options": [
+          "26 জানুয়ারি 1950",
+          "15 আগস্ট 1947",
+          "9 আগস্ট 1942",
+          "26 নভেম্বর 1949"
+        ],
+        "answer": "15 আগস্ট 1947",
+        "source": "Practice",
+        "subject": "ইতিহাস"
+      },
+      {
+        "question": "সংবিধান সংশোধনের প্রধান অনুচ্ছেদ কোনটি?",
+        "options": [
+          "32",
+          "226",
+          "368",
+          "370"
+        ],
+        "answer": "368",
+        "source": "Practice",
+        "subject": "পলিটি"
+      },
+      {
+        "question": "দারিদ্র্যসীমা মূলত কী পরিমাপের সঙ্গে সম্পর্কিত?",
+        "options": [
+          "ন্যূনতম জীবনযাপনের প্রয়োজন",
+          "শুধু রপ্তানি",
+          "শুধু জনসংখ্যা",
+          "শুধু শিল্প"
+        ],
+        "answer": "ন্যূনতম জীবনযাপনের প্রয়োজন",
+        "source": "Practice",
+        "subject": "অর্থনীতি"
+      },
+      {
+        "question": "Identify the noun: ‘Honesty is the best policy.’",
+        "options": [
+          "best",
+          "is",
+          "Honesty",
+          "the"
+        ],
+        "answer": "Honesty",
+        "source": "Practice",
+        "subject": "ইংরেজি"
+      },
+      {
+        "question": "‘অতিথি’ শব্দের বিপরীতার্থক শব্দ কোনটি?",
+        "options": [
+          "স্বাগতিক",
+          "বন্ধু",
+          "পরিচিত",
+          "আত্মীয়"
+        ],
+        "answer": "স্বাগতিক",
+        "source": "Practice",
+        "subject": "বাংলা"
+      },
+      {
+        "question": "‘দুই বিঘা জমি’ কবিতার রচয়িতা কে?",
+        "options": [
+          "রবীন্দ্রনাথ ঠাকুর",
+          "নজরুল",
+          "সুকান্ত",
+          "জীবনানন্দ"
+        ],
+        "answer": "রবীন্দ্রনাথ ঠাকুর",
+        "source": "Practice",
+        "subject": "সাহিত্য"
+      },
+      {
+        "question": "একটি শব্দের অক্ষরগুলি উল্টালে ‘MANGO’ কী হবে?",
+        "options": [
+          "OGNAM",
+          "ONAGM",
+          "OGMAN",
+          "MANGО"
+        ],
+        "answer": "OGNAM",
+        "source": "Practice",
+        "subject": "রিজনিং"
+      },
+      {
+        "question": "জাতীয় ভোটার দিবস কবে পালিত হয়?",
+        "options": [
+          "25 জানুয়ারি",
+          "26 জানুয়ারি",
+          "15 আগস্ট",
+          "2 অক্টোবর"
+        ],
+        "answer": "25 জানুয়ারি",
+        "source": "Practice",
+        "subject": "সাধারণ জ্ঞান"
+      }
     ]
+  }
+}
