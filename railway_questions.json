@@ -1,102 +1,4859 @@
-[
-  {
-    "question": "If tan θ = 3/4, where θ is an acute angle, what is the value of sin θ?",
-    "options": [
-      "3/5",
-      "4/5",
-      "5/3",
-      "4/3"
-    ],
-    "answer": "3/5"
-  },
-  {
-    "question": "A train 180 metres long is running at 54 km/h. How much time will it take to cross a pole?",
-    "options": [
-      "10 seconds",
-      "12 seconds",
-      "15 seconds",
-      "18 seconds"
-    ],
-    "answer": "12 seconds"
-  },
-  {
-    "question": "If cos θ = 12/13, where θ is an acute angle, what is the value of tan θ?",
-    "options": [
-      "5/12",
-      "12/5",
-      "5/13",
-      "13/5"
-    ],
-    "answer": "5/12"
-  },
-  {
-    "question": "A sum becomes ₹7,200 in 2 years at 20% per annum simple interest. What was the principal amount?",
-    "options": [
-      "₹5,000",
-      "₹5,500",
-      "₹6,000",
-      "₹6,500"
-    ],
-    "answer": "₹5,000"
-  },
-  {
-    "question": "Which fundamental force is responsible for keeping planets in their orbits around the Sun?",
-    "options": [
-      "Electromagnetic force",
-      "Gravitational force",
-      "Strong nuclear force",
-      "Weak nuclear force"
-    ],
-    "answer": "Gravitational force"
-  },
-  {
-    "question": "Which part of the Indian Constitution deals with Fundamental Duties?",
-    "options": [
-      "Part III",
-      "Part IV",
-      "Part IVA",
-      "Part V"
-    ],
-    "answer": "Part IVA"
-  },
-  {
-    "question": "A man walks 10 metres north, then turns right and walks 10 metres. He then turns right again and walks 10 metres. In which direction is he from his starting point?",
-    "options": [
-      "North",
-      "South",
-      "East",
-      "West"
-    ],
-    "answer": "East"
-  },
-  {
-    "question": "If the average of five consecutive integers is 24, what is the largest integer?",
-    "options": [
-      "24",
-      "25",
-      "26",
-      "27"
-    ],
-    "answer": "26"
-  },
-  {
-    "question": "Which gas is primarily responsible for the greenhouse effect among the following?",
-    "options": [
-      "Oxygen",
-      "Nitrogen",
-      "Carbon dioxide",
-      "Hydrogen"
-    ],
-    "answer": "Carbon dioxide"
-  },
-  {
-    "question": "A clock shows 3:00. What is the angle between the hour hand and the minute hand?",
-    "options": [
-      "60°",
-      "90°",
-      "120°",
-      "180°"
-    ],
-    "answer": "90°"
-  }
-]
+{
+  "exam": "Railway",
+  "language": "English",
+  "difficulty": "Hard",
+  "total_parts": 20,
+  "questions_per_part": 20,
+  "total_questions": 400,
+  "subjects": [
+    "Math",
+    "Reasoning",
+    "General Science",
+    "GK",
+    "English",
+    "Current Affairs",
+    "Advanced Math"
+  ],
+  "includes_pyq": true,
+  "note": "Hard Railway-style MCQs with strong emphasis on Mathematics and General Science.",
+  "part1": [
+    {
+      "id": "railway_p1_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p1_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p1_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p1_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p1_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p1_q06",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p1_q07",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p1_q08",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p1_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p1_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p1_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p1_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p1_q13",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p1_q14",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p1_q15",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p1_q16",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p1_q17",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p1_q18",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p1_q19",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p1_q20",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    }
+  ],
+  "part2": [
+    {
+      "id": "railway_p2_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p2_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p2_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p2_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p2_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p2_q06",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p2_q07",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p2_q08",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p2_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p2_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p2_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p2_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p2_q13",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p2_q14",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p2_q15",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p2_q16",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p2_q17",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p2_q18",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p2_q19",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p2_q20",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    }
+  ],
+  "part3": [
+    {
+      "id": "railway_p3_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p3_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p3_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p3_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p3_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p3_q06",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p3_q07",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p3_q08",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p3_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p3_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p3_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p3_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p3_q13",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p3_q14",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p3_q15",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p3_q16",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p3_q17",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p3_q18",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p3_q19",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p3_q20",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    }
+  ],
+  "part4": [
+    {
+      "id": "railway_p4_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p4_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p4_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p4_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p4_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p4_q06",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p4_q07",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p4_q08",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p4_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p4_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p4_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p4_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p4_q13",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p4_q14",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p4_q15",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p4_q16",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p4_q17",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p4_q18",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p4_q19",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p4_q20",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    }
+  ],
+  "part5": [
+    {
+      "id": "railway_p5_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p5_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p5_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q06",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p5_q07",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p5_q08",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p5_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p5_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p5_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q13",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p5_q14",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p5_q15",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p5_q16",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p5_q17",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p5_q18",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p5_q19",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p5_q20",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    }
+  ],
+  "part6": [
+    {
+      "id": "railway_p6_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p6_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p6_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p6_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p6_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p6_q06",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p6_q07",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p6_q08",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p6_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p6_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p6_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p6_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p6_q13",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p6_q14",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p6_q15",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p6_q16",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p6_q17",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p6_q18",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p6_q19",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p6_q20",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    }
+  ],
+  "part7": [
+    {
+      "id": "railway_p7_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p7_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p7_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p7_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p7_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p7_q06",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p7_q07",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p7_q08",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p7_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p7_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p7_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p7_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p7_q13",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p7_q14",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p7_q15",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p7_q16",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p7_q17",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p7_q18",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p7_q19",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p7_q20",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    }
+  ],
+  "part8": [
+    {
+      "id": "railway_p8_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p8_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p8_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p8_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p8_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p8_q06",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p8_q07",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p8_q08",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p8_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p8_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p8_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p8_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p8_q13",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p8_q14",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p8_q15",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p8_q16",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p8_q17",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p8_q18",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p8_q19",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p8_q20",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    }
+  ],
+  "part9": [
+    {
+      "id": "railway_p9_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p9_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p9_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p9_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p9_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p9_q06",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p9_q07",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p9_q08",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p9_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p9_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p9_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p9_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p9_q13",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p9_q14",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p9_q15",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p9_q16",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p9_q17",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p9_q18",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p9_q19",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p9_q20",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    }
+  ],
+  "part10": [
+    {
+      "id": "railway_p10_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p10_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p10_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p10_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p10_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p10_q06",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p10_q07",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p10_q08",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p10_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p10_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p10_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p10_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p10_q13",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p10_q14",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p10_q15",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p10_q16",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p10_q17",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p10_q18",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p10_q19",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p10_q20",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    }
+  ],
+  "part11": [
+    {
+      "id": "railway_p11_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p11_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p11_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q06",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p11_q07",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p11_q08",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p11_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p11_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p11_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q13",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p11_q14",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p11_q15",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p11_q16",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p11_q17",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p11_q18",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p11_q19",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p11_q20",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    }
+  ],
+  "part12": [
+    {
+      "id": "railway_p12_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p12_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p12_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p12_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p12_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p12_q06",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p12_q07",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p12_q08",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p12_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p12_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p12_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p12_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p12_q13",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p12_q14",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p12_q15",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p12_q16",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p12_q17",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p12_q18",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p12_q19",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p12_q20",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    }
+  ],
+  "part13": [
+    {
+      "id": "railway_p13_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p13_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p13_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p13_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p13_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p13_q06",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p13_q07",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p13_q08",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p13_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p13_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p13_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p13_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p13_q13",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p13_q14",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p13_q15",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p13_q16",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p13_q17",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p13_q18",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p13_q19",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p13_q20",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    }
+  ],
+  "part14": [
+    {
+      "id": "railway_p14_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p14_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p14_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p14_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p14_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p14_q06",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p14_q07",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p14_q08",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p14_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p14_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p14_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p14_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p14_q13",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p14_q14",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p14_q15",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p14_q16",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p14_q17",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p14_q18",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p14_q19",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p14_q20",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    }
+  ],
+  "part15": [
+    {
+      "id": "railway_p15_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p15_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p15_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p15_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p15_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p15_q06",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p15_q07",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p15_q08",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p15_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p15_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p15_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p15_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p15_q13",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p15_q14",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p15_q15",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p15_q16",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p15_q17",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p15_q18",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p15_q19",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p15_q20",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    }
+  ],
+  "part16": [
+    {
+      "id": "railway_p16_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p16_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p16_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p16_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p16_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p16_q06",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p16_q07",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p16_q08",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p16_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p16_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p16_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p16_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p16_q13",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p16_q14",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p16_q15",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p16_q16",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p16_q17",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p16_q18",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p16_q19",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p16_q20",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    }
+  ],
+  "part17": [
+    {
+      "id": "railway_p17_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p17_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p17_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p17_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p17_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p17_q06",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p17_q07",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p17_q08",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p17_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p17_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p17_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p17_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p17_q13",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p17_q14",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p17_q15",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p17_q16",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p17_q17",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p17_q18",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p17_q19",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p17_q20",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    }
+  ],
+  "part18": [
+    {
+      "id": "railway_p18_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p18_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p18_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p18_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p18_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p18_q06",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p18_q07",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p18_q08",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p18_q09",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p18_q10",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p18_q11",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p18_q12",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p18_q13",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p18_q14",
+      "question": "The headquarters of the Railway Board is in:",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "answer": "New Delhi",
+      "type": "Railway GK"
+    },
+    {
+      "id": "railway_p18_q15",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p18_q16",
+      "question": "Choose the grammatically correct sentence:",
+      "options": [
+        "Neither of the boys have arrived.",
+        "Neither of the boys has arrived.",
+        "Neither boys has arrived.",
+        "Neither of boys have arrived."
+      ],
+      "answer": "Neither of the boys has arrived.",
+      "type": "English"
+    },
+    {
+      "id": "railway_p18_q17",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p18_q18",
+      "question": "Which organisation operates India's UPI payment system?",
+      "options": [
+        "RBI",
+        "NPCI",
+        "SEBI",
+        "IRDAI"
+      ],
+      "answer": "NPCI",
+      "type": "Current Affairs / Banking"
+    },
+    {
+      "id": "railway_p18_q19",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p18_q20",
+      "question": "If sin θ = 5/13 for an acute angle θ, then cos θ is:",
+      "options": [
+        "12/13",
+        "5/12",
+        "13/12",
+        "8/13"
+      ],
+      "answer": "12/13",
+      "type": "Advanced Math"
+    }
+  ],
+  "part19": [
+    {
+      "id": "railway_p19_q01",
+      "question": "A train 240 m long crosses a pole in 12 seconds. Its speed is:",
+      "options": [
+        "60 km/h",
+        "72 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": "72 km/h",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p19_q02",
+      "question": "A sum amounts to ₹14,520 in 2 years at 10% compound interest. The principal is:",
+      "options": [
+        "₹11,000",
+        "₹12,000",
+        "₹13,000",
+        "₹10,000"
+      ],
+      "answer": "₹12,000",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p19_q03",
+      "question": "A can finish a work in 15 days and B in 20 days. They work together for 5 days. The fraction of work remaining is:",
+      "options": [
+        "1/3",
+        "1/2",
+        "5/12",
+        "7/12"
+      ],
+      "answer": "1/2",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p19_q04",
+      "question": "If a number is increased by 25% and then decreased by 20%, the net change is:",
+      "options": [
+        "5% increase",
+        "5% decrease",
+        "No change",
+        "10% decrease"
+      ],
+      "answer": "No change",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p19_q05",
+      "question": "A shopkeeper marks an article 50% above cost and gives two successive discounts of 20% and 10%. His profit is:",
+      "options": [
+        "8%",
+        "10%",
+        "12%",
+        "15%"
+      ],
+      "answer": "8%",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p19_q06",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p19_q07",
+      "question": "Find the next number: 5, 11, 23, 47, 95, ?",
+      "options": [
+        "189",
+        "190",
+        "191",
+        "192"
+      ],
+      "answer": "191",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p19_q08",
+      "question": "If RAIL is coded as 18-1-9-12, then TRAIN is coded as:",
+      "options": [
+        "20-18-1-9-14",
+        "20-19-1-9-14",
+        "19-18-1-9-13",
+        "20-18-2-9-14"
+      ],
+      "answer": "20-18-1-9-14",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p19_q09",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p19_q10",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p19_q11",
+      "question": "Which blood group is considered the universal recipient for red-cell transfusion?",
+      "options": [
+        "O−",
+        "O+",
+        "AB+",
+        "AB−"
+      ],
+      "answer": "AB+",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p19_q12",
+      "question": "Which gas is released during photosynthesis?",
+      "options": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p19_q13",
+      "question": "The first passenger railway service in India ran between:",
+      "options": [
+        "Delhi and Agra",
+        "Mumbai and Thane",
+        "Kolkata and Howrah",
+        "Chennai and Arakkonam"
+      ],
+      "answer": "Mumbai and Thane",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p19_q14",
+      "question": "Which constitutional amendment reduced the voting age from 21 to 18?",
+      "options": [
+        "42nd",
+        "44th",
+        "61st",
+        "73rd"
+      ],
+      "answer": "61st",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p19_q15",
+      "question": "Choose the antonym of 'scarce':",
+      "options": [
+        "Rare",
+        "Abundant",
+        "Limited",
+        "Insufficient"
+      ],
+      "answer": "Abundant",
+      "type": "English"
+    },
+    {
+      "id": "railway_p19_q16",
+      "question": "Choose the synonym of 'meticulous':",
+      "options": [
+        "Careless",
+        "Precise",
+        "Hasty",
+        "Ordinary"
+      ],
+      "answer": "Precise",
+      "type": "English"
+    },
+    {
+      "id": "railway_p19_q17",
+      "question": "The G20 presidency of India was held in:",
+      "options": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": "2023",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p19_q18",
+      "question": "The International Solar Alliance was launched by India and:",
+      "options": [
+        "France",
+        "Germany",
+        "Japan",
+        "Brazil"
+      ],
+      "answer": "France",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p19_q19",
+      "question": "The roots of x²−10x+21=0 are:",
+      "options": [
+        "3 and 7",
+        "2 and 8",
+        "1 and 9",
+        "4 and 6"
+      ],
+      "answer": "3 and 7",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p19_q20",
+      "question": "If log₃ x = 4, then x equals:",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "answer": "81",
+      "type": "Advanced Math"
+    }
+  ],
+  "part20": [
+    {
+      "id": "railway_p20_q01",
+      "question": "The ratio of two numbers is 7:11 and their difference is 52. The larger number is:",
+      "options": [
+        "121",
+        "132",
+        "143",
+        "156"
+      ],
+      "answer": "143",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p20_q02",
+      "question": "A boat travels 36 km downstream in 3 hours and the same distance upstream in 4.5 hours. The speed of the stream is:",
+      "options": [
+        "2 km/h",
+        "3 km/h",
+        "4 km/h",
+        "5 km/h"
+      ],
+      "answer": "2 km/h",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p20_q03",
+      "question": "The average of 11 numbers is 48. If one number 62 is removed, the average of the remaining numbers is:",
+      "options": [
+        "46.6",
+        "47.6",
+        "48.6",
+        "49.6"
+      ],
+      "answer": "46.6",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p20_q04",
+      "question": "A sum of ₹18,000 is divided among A, B and C in the ratio 2:3:4. C receives:",
+      "options": [
+        "₹6,000",
+        "₹7,000",
+        "₹8,000",
+        "₹9,000"
+      ],
+      "answer": "₹8,000",
+      "type": "Railway aptitude"
+    },
+    {
+      "id": "railway_p20_q05",
+      "question": "If x + 1/x = 5, then x² + 1/x² equals:",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": "23",
+      "type": "Advanced"
+    },
+    {
+      "id": "railway_p20_q06",
+      "question": "A is the brother of B; B is the mother of C. How is A related to C?",
+      "options": [
+        "Father",
+        "Uncle",
+        "Brother",
+        "Grandfather"
+      ],
+      "answer": "Uncle",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p20_q07",
+      "question": "In a row, P is 15th from the left and Q is 18th from the right. If there are 42 persons, how many persons are between P and Q?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p20_q08",
+      "question": "Find the odd one out:",
+      "options": [
+        "64",
+        "81",
+        "121",
+        "169"
+      ],
+      "answer": "121",
+      "type": "Reasoning"
+    },
+    {
+      "id": "railway_p20_q09",
+      "question": "The acceleration due to gravity near Earth's surface is approximately:",
+      "options": [
+        "8.9 m/s²",
+        "9.8 m/s²",
+        "10.8 m/s²",
+        "12.8 m/s²"
+      ],
+      "answer": "9.8 m/s²",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p20_q10",
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": "Mitochondrion",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p20_q11",
+      "question": "Which part of a plant is primarily responsible for transpiration?",
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "answer": "Leaf",
+      "type": "General Science"
+    },
+    {
+      "id": "railway_p20_q12",
+      "question": "The SI unit of power is:",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Watt",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p20_q13",
+      "question": "The longest river in India by length within India is:",
+      "options": [
+        "Yamuna",
+        "Ganga",
+        "Godavari",
+        "Narmada"
+      ],
+      "answer": "Ganga",
+      "type": "GK"
+    },
+    {
+      "id": "railway_p20_q14",
+      "question": "Who is known as the Father of the Indian Constitution?",
+      "options": [
+        "Mahatma Gandhi",
+        "B. R. Ambedkar",
+        "Rajendra Prasad",
+        "Jawaharlal Nehru"
+      ],
+      "answer": "B. R. Ambedkar",
+      "type": "PYQ-based"
+    },
+    {
+      "id": "railway_p20_q15",
+      "question": "Identify the error: 'Each of the players have submitted their form.'",
+      "options": [
+        "Each of the players",
+        "have submitted",
+        "their form",
+        "No error"
+      ],
+      "answer": "have submitted",
+      "type": "English"
+    },
+    {
+      "id": "railway_p20_q16",
+      "question": "Fill in the blank: 'The train had left ___ we reached the station.'",
+      "options": [
+        "because",
+        "before",
+        "unless",
+        "although"
+      ],
+      "answer": "before",
+      "type": "English"
+    },
+    {
+      "id": "railway_p20_q17",
+      "question": "Which mission successfully demonstrated India's solar observation capability?",
+      "options": [
+        "Chandrayaan-3",
+        "Aditya-L1",
+        "Mangalyaan",
+        "Gaganyaan"
+      ],
+      "answer": "Aditya-L1",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p20_q18",
+      "question": "India's national space agency is:",
+      "options": [
+        "DRDO",
+        "ISRO",
+        "BARC",
+        "CSIR"
+      ],
+      "answer": "ISRO",
+      "type": "Current Affairs"
+    },
+    {
+      "id": "railway_p20_q19",
+      "question": "The area of a sector of radius 14 cm and angle 90° is (π=22/7):",
+      "options": [
+        "154 cm²",
+        "308 cm²",
+        "77 cm²",
+        "196 cm²"
+      ],
+      "answer": "154 cm²",
+      "type": "Advanced Math"
+    },
+    {
+      "id": "railway_p20_q20",
+      "question": "If the probability of an event is 0.35, the probability of its complement is:",
+      "options": [
+        "0.35",
+        "0.55",
+        "0.65",
+        "0.75"
+      ],
+      "answer": "0.65",
+      "type": "Advanced Math"
+    }
+  ]
+}
