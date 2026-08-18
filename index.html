@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
+
+    <meta name="theme-color" content="#0756d9">
 
     <title>Itta Study IQ</title>
 
@@ -21,29 +22,45 @@
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 <body>
 
 <main class="app">
 
-    <h1>
-        ✨ Itta Study IQ
-    </h1>
+    <!-- HEADER -->
 
-    <p class="subtitle">
-        Your simple AI study helper
-    </p>
+    <header class="app-header">
+
+        <div class="brand-logo">
+            <div class="brand-icon">🎓</div>
+
+            <div>
+                <h1>
+                    Itta Study <span>IQ</span>
+                </h1>
+
+                <p>
+                    Learn • Practice • Succeed
+                </p>
+            </div>
+        </div>
+
+    </header>
 
 
     <!-- AI TUTOR -->
 
-    <section class="card">
+    <section class="card tutor-card">
 
-        <h2>
-            ✨ AI Study Tutor
-        </h2>
+        <div class="section-title">
+            <span class="title-icon">✨</span>
+
+            <div>
+                <h2>AI Study Tutor</h2>
+                <p>Ask anything and learn smarter</p>
+            </div>
+        </div>
 
         <label for="question">
             Ask a study question
@@ -59,6 +76,7 @@
             <button
                 type="button"
                 onclick="askTutor()"
+                class="primary-btn"
             >
                 Ask Itta AI ✨
             </button>
@@ -67,6 +85,7 @@
                 type="button"
                 id="micBtn"
                 onclick="startMic()"
+                class="mic-btn"
             >
                 🎙️
             </button>
@@ -90,17 +109,24 @@
         id="quizSection"
     >
 
-        <h2>
-            🧠 Study Quiz
-        </h2>
+        <div class="section-title">
 
-        <p>
-            Test your knowledge with a quick quiz.
-        </p>
+            <span class="title-icon">🧠</span>
+
+            <div>
+                <h2>Study Quiz</h2>
+
+                <p>
+                    Test your knowledge with a quick quiz.
+                </p>
+            </div>
+
+        </div>
 
         <button
             type="button"
             onclick="startQuiz()"
+            class="primary-btn full-btn"
         >
             ▶️ Start Quiz
         </button>
@@ -110,79 +136,273 @@
     </section>
 
 
-    <!-- MOCK TEST -->
+    <!-- =========================================
+         COMPETITIVE EXAM MOCK TEST
+    ========================================== -->
 
-    <section class="card mock-card">
+    <section class="mock-section">
 
-        <h2>
-            📝 Competitive Exam Mock Test
-        </h2>
+        <!-- MOCK TEST HERO -->
 
-        <p class="mock-subtitle">
-            Choose an exam and select a Part.
-        </p>
+        <div class="mock-hero">
 
+            <div class="hero-trophy">
+                🏆
+            </div>
+
+            <div class="hero-content">
+
+                <h2>
+                    Competitive Exam
+                    <strong>Mock Test</strong>
+                </h2>
+
+                <p>
+                    Test Your Preparation • Achieve Your Goal
+                </p>
+
+            </div>
+
+            <div class="hero-target">
+                🎯
+            </div>
+
+        </div>
+
+
+        <!-- EXAM GRID -->
 
         <div class="exam-grid">
 
+
+            <!-- UPSC -->
+
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-upsc"
                 onclick="startMockTest('UPSC')"
             >
-                🇮🇳 UPSC
+
+                <div class="exam-logo upsc-logo">
+                    <div class="india-emblem">♛</div>
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>UPSC</h3>
+
+                    <p>
+                        Civil Services Exam
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
+
+
+            <!-- SSC -->
 
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-ssc"
                 onclick="startMockTest('SSC')"
             >
-                📚 SSC
+
+                <div class="exam-logo ssc-logo">
+                    <div>SSC</div>
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>SSC</h3>
+
+                    <p>
+                        CGL • CHSL • MTS
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
+
+
+            <!-- BANK -->
 
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-bank"
                 onclick="startMockTest('BANK')"
             >
-                🏦 Bank
+
+                <div class="exam-logo bank-logo">
+
+                    <div class="bank-building">
+
+                        <span>🏦</span>
+
+                    </div>
+
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>Bank</h3>
+
+                    <p>
+                        IBPS • SBI • RBI
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
+
+
+            <!-- WBP -->
 
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-wbp"
                 onclick="startMockTest('WBP')"
             >
-                👮 WBP
+
+                <div class="exam-logo wbp-logo">
+
+                    <div class="shield">
+                        ★
+                    </div>
+
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>WBP</h3>
+
+                    <p>
+                        West Bengal Police
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
+
+
+            <!-- KOLKATA POLICE -->
 
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-kolkata"
                 onclick="startMockTest('KOLKATA_POLICE')"
             >
-                🚔 Kolkata Police
+
+                <div class="exam-logo kolkata-logo">
+
+                    <div class="police-badge">
+                        ★
+                    </div>
+
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>
+                        Kolkata Police
+                    </h3>
+
+                    <p>
+                        City Police Exam
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
+
+
+            <!-- RAILWAY -->
 
             <button
                 type="button"
-                class="exam-btn"
+                class="exam-btn exam-railway"
                 onclick="startMockTest('RAILWAY')"
             >
-                🚆 Railway
+
+                <div class="exam-logo railway-logo">
+
+                    <div class="train-icon">
+                        🚆
+                    </div>
+
+                </div>
+
+                <div class="exam-info">
+
+                    <h3>Railway</h3>
+
+                    <p>
+                        RRB • NTPC • Group D
+                    </p>
+
+                </div>
+
+                <div class="exam-arrow">
+                    ›
+                </div>
+
             </button>
 
         </div>
 
 
-        <!-- PARTS / MOCK TEST AREA -->
+        <!-- PART / TEST AREA -->
 
-        <div id="mockTestBox">
+        <div
+            id="mockTestBox"
+            class="mock-test-box"
+        >
 
             <p>
                 Select an exam to see Part 1–20.
             </p>
+
+        </div>
+
+
+        <!-- MOTIVATION -->
+
+        <div class="motivation-box">
+
+            <div class="motivation-icon">
+                🚀
+            </div>
+
+            <div>
+                <strong>
+                    Small Steps Every Day,
+                    Big Success One Day.
+                </strong>
+            </div>
+
+            <div class="motivation-icon">
+                📚
+            </div>
 
         </div>
 
@@ -196,17 +416,29 @@
         id="currentAffairs"
     >
 
-        <h2>
-            📰 Weekly Current Affairs
-        </h2>
+        <div class="section-title">
 
-        <p>
-            প্রতি সপ্তাহের গুরুত্বপূর্ণ Current Affairs পড়ুন।
-        </p>
+            <span class="title-icon">📰</span>
+
+            <div>
+
+                <h2>
+                    Weekly Current Affairs
+                </h2>
+
+                <p>
+                    প্রতি সপ্তাহের গুরুত্বপূর্ণ
+                    Current Affairs পড়ুন।
+                </p>
+
+            </div>
+
+        </div>
 
         <button
             type="button"
             onclick="loadCurrentAffairs()"
+            class="primary-btn full-btn"
         >
             📖 Read This Week's Current Affairs
         </button>
@@ -224,10 +456,10 @@
 </main>
 
 
-<!-- IMPORTANT: JavaScript -->
+<!-- IMPORTANT: EXISTING JAVASCRIPT -->
 
 <script
-    src="./script.js?v=101"
+    src="./script.js?v=102"
     defer
 ></script>
 
