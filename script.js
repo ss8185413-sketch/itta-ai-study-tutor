@@ -1,16 +1,27 @@
 "use strict";
 
 /* =====================================================
-   ITTA STUDY IQ — UPDATED SCRIPT
-   Exams:
-   SSC, UPSC, Bank, WBP, Kolkata Police, Railway,
-   WBCS, WBPSC Clerkship
+   ITTA STUDY IQ
+   PART 1 / 3
 
-   Free Parts: 1–20
-   Premium Parts: 21–100
+   Includes:
+   - AI Tutor
+   - Microphone
+   - Quick Quiz
+   - Exam configuration
+   - SSC CGL / CHSL / MTS etc.
+   - Free Parts 1–20
+   - Premium Parts 21–100
+   - Golden Premium UI
+   - ₹49 Premium price
 ===================================================== */
 
 window.ITTAStudyIQ = window.ITTAStudyIQ || {};
+
+
+/* =====================================================
+   GLOBAL VARIABLES
+===================================================== */
 
 let currentQuestions = [];
 let currentQuestionIndex = 0;
@@ -21,11 +32,17 @@ let selectedPart = "";
 let selectedExamCategory = "";
 
 let answerLocked = false;
+
 let testStartTime = null;
 let testEndTime = null;
 
 let testTimerInterval = null;
 let autoNextTimer = null;
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
 
 const QUESTIONS_PER_TEST = 10;
 const AUTO_NEXT_DELAY = 1200;
@@ -40,22 +57,18 @@ const PREMIUM_PRICE = 49;
 
 
 /* =====================================================
-   EXAM JSON FILES
+   EXAM FILES
 ===================================================== */
 
 const examFiles = {
 
-    SSC:
-        "ssc_questions.json",
+    SSC: "ssc_questions.json",
 
-    UPSC:
-        "upsc_questions.json",
+    UPSC: "upsc_questions.json",
 
-    BANK:
-        "bank_questions.json",
+    BANK: "bank_questions.json",
 
-    WBP:
-        "wbp_questions_1_to_100_bengali.json",
+    WBP: "wbp_questions_1_to_100_bengali.json",
 
     KOLKATA_POLICE:
         "kolkata_police_questions.json",
@@ -73,22 +86,18 @@ const examFiles = {
 
 
 /* =====================================================
-   EXAM DISPLAY NAMES
+   EXAM NAMES
 ===================================================== */
 
 const examPartNames = {
 
-    SSC:
-        "SSC",
+    SSC: "SSC",
 
-    UPSC:
-        "UPSC",
+    UPSC: "UPSC",
 
-    BANK:
-        "Bank",
+    BANK: "Bank",
 
-    WBP:
-        "WBP",
+    WBP: "WBP",
 
     KOLKATA_POLICE:
         "Kolkata Police",
@@ -106,64 +115,108 @@ const examPartNames = {
 
 
 /* =====================================================
-   EXAM CATEGORIES
+   SSC / EXAM SUB-CATEGORIES
 ===================================================== */
 
 const examCategories = {
 
     SSC: [
+
         "SSC CGL",
+
         "SSC CHSL",
+
         "SSC MTS",
+
         "SSC GD",
+
         "SSC CPO",
+
         "SSC Stenographer"
+
     ],
+
 
     UPSC: [
+
         "UPSC Civil Services (CSE)",
+
         "UPSC CDS",
+
         "UPSC NDA",
+
         "UPSC CAPF"
+
     ],
+
 
     BANK: [
+
         "SBI PO",
+
         "SBI Clerk",
+
         "IBPS PO",
+
         "IBPS Clerk",
+
         "IBPS RRB",
+
         "RBI Grade B"
+
     ],
+
 
     WBP: [
+
         "WBP Constable",
+
         "WBP SI",
+
         "WBP Lady Constable"
+
     ],
+
 
     KOLKATA_POLICE: [
+
         "Kolkata Police Constable",
+
         "Kolkata Police SI"
+
     ],
 
+
     RAILWAY: [
+
         "RRB NTPC",
+
         "RRB Group D",
+
         "RRB ALP",
+
         "RRB JE",
+
         "RRB Technician"
+
     ],
 
     WBCS: [
+
         "WBCS Executive",
+
         "WBCS Preliminary",
+
         "WBCS Main"
+
     ],
 
     WBPSC_CLERKSHIP: [
+
         "WBPSC Clerkship Part I",
+
         "WBPSC Clerkship Part II"
+
     ]
 
 };
@@ -178,11 +231,15 @@ document.addEventListener(
     function () {
 
         console.log(
-            "✅ Itta Study IQ updated script loaded"
+            "✅ ITTA Study IQ Script Loaded"
         );
 
+
         const questionBox =
-            document.getElementById("question");
+            document.getElementById(
+                "question"
+            );
+
 
         if (questionBox) {
 
@@ -196,6 +253,7 @@ document.addEventListener(
                     ) {
 
                         event.preventDefault();
+
 
                         if (
                             typeof askTutor ===
@@ -224,20 +282,30 @@ document.addEventListener(
 async function askTutor() {
 
     const questionBox =
-        document.getElementById("question");
+        document.getElementById(
+            "question"
+        );
+
 
     const answerBox =
-        document.getElementById("answer");
+        document.getElementById(
+            "answer"
+        );
+
 
     if (
         !questionBox ||
         !answerBox
     ) {
+
         return;
+
     }
+
 
     const question =
         questionBox.value.trim();
+
 
     if (!question) {
 
@@ -248,8 +316,10 @@ async function askTutor() {
 
     }
 
+
     answerBox.innerText =
         "Thinking... ✨";
+
 
     try {
 
@@ -257,11 +327,14 @@ async function askTutor() {
             await fetch(
                 "/ask",
                 {
+
                     method: "POST",
 
                     headers: {
+
                         "Content-Type":
                             "application/json"
+
                     },
 
                     body:
@@ -269,8 +342,10 @@ async function askTutor() {
                             question:
                                 question
                         })
+
                 }
             );
+
 
         if (!response.ok) {
 
@@ -281,8 +356,10 @@ async function askTutor() {
 
         }
 
+
         const data =
             await response.json();
+
 
         if (data.answer) {
 
@@ -314,6 +391,7 @@ async function askTutor() {
             error
         );
 
+
         answerBox.innerText =
             "AI Tutor is temporarily unavailable. Please try again.";
 
@@ -329,15 +407,22 @@ async function askTutor() {
 function startMic() {
 
     const questionBox =
-        document.getElementById("question");
+        document.getElementById(
+            "question"
+        );
+
 
     if (!questionBox) {
+
         return;
+
     }
+
 
     const SpeechRecognition =
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
+
 
     if (!SpeechRecognition) {
 
@@ -349,12 +434,20 @@ function startMic() {
 
     }
 
+
     const recognition =
         new SpeechRecognition();
 
-    recognition.lang = "en-IN";
-    recognition.interimResults = false;
-    recognition.continuous = false;
+
+    recognition.lang =
+        "en-IN";
+
+    recognition.interimResults =
+        false;
+
+    recognition.continuous =
+        false;
+
 
     recognition.onstart =
         function () {
@@ -364,13 +457,17 @@ function startMic() {
 
         };
 
+
     recognition.onresult =
         function (event) {
 
             questionBox.value =
-                event.results[0][0].transcript;
+                event
+                    .results[0][0]
+                    .transcript;
 
         };
+
 
     recognition.onerror =
         function (event) {
@@ -380,7 +477,12 @@ function startMic() {
                 event.error
             );
 
+
+            questionBox.placeholder =
+                "Type your question here...";
+
         };
+
 
     recognition.onend =
         function () {
@@ -389,6 +491,7 @@ function startMic() {
                 "Type your question here...";
 
         };
+
 
     try {
 
@@ -415,11 +518,17 @@ function startMic() {
 function startQuiz() {
 
     const quizBox =
-        document.getElementById("quizBox");
+        document.getElementById(
+            "quizBox"
+        );
+
 
     if (!quizBox) {
+
         return;
+
     }
+
 
     quizBox.innerHTML = `
 
@@ -451,32 +560,67 @@ function startQuiz() {
 function closeQuiz() {
 
     const quizBox =
-        document.getElementById("quizBox");
+        document.getElementById(
+            "quizBox"
+        );
+
 
     if (quizBox) {
-        quizBox.innerHTML = "";
-    }/* =====================================================
-   MOCK TEST — START
+
+        quizBox.innerHTML =
+            "";
+
+    }
+
+}
+
+
+/* =====================================================
+   START MOCK TEST
 ===================================================== */
 
 function startMockTest(exam) {
 
     stopLiveTimer();
+
     clearAutoNextTimer();
 
-    selectedExam = exam;
-    selectedPart = "";
-    selectedExamCategory = "";
 
-    currentQuestions = [];
-    currentQuestionIndex = 0;
-    score = 0;
+    selectedExam =
+        exam;
 
-    answerLocked = false;
-    testStartTime = null;
-    testEndTime = null;
+    selectedPart =
+        "";
 
-    showExamParts(exam);
+    selectedExamCategory =
+        "";
+
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+
+    answerLocked =
+        false;
+
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+
+    showExamParts(
+        exam
+    );
+
 }
 
 
@@ -487,68 +631,117 @@ function startMockTest(exam) {
 function showExamParts(exam) {
 
     stopLiveTimer();
+
     clearAutoNextTimer();
 
-    selectedExam = exam;
-    selectedPart = "";
+
+    selectedExam =
+        exam;
+
+    selectedPart =
+        "";
+
 
     const container =
         document.getElementById(
             "mockTestBox"
         );
 
+
     if (!container) {
+
         console.error(
             "mockTestBox not found"
         );
+
         return;
+
     }
 
+
     const examName =
-        examPartNames[exam] || exam;
+        examPartNames[exam] ||
+        exam;
+
 
     const categories =
-        examCategories[exam] || [];
+        examCategories[exam] ||
+        [];
 
 
-    /* -----------------------------
-       CATEGORY BUTTONS
-    ----------------------------- */
+    let freeButtonsHTML =
+        "";
 
-    let categoryHTML = "";
 
-    if (categories.length > 0) {
+    for (
+        let i =
+            FREE_PART_START;
+
+        i <=
+            FREE_PART_END;
+
+        i++
+    ) {
+
+        freeButtonsHTML += `
+
+            <button
+                type="button"
+                class="exam-btn part-btn"
+                onclick="selectExamPart('${exam}', 'part${i}')"
+            >
+
+                🆓 Part ${i}
+
+            </button>
+
+        `;
+
+    }
+
+
+    let categoryHTML =
+        "";
+
+
+    if (
+        categories.length >
+        0
+    ) {
 
         categoryHTML = `
 
-            <div class="exam-category-section">
+            <div
+                class="exam-category-section"
+            >
 
-                <div class="exam-category-title">
+                <div
+                    class="exam-category-title"
+                >
 
                     📚
-                    ${escapeHTML(examName)}
+                    ${escapeHTML(
+                        examName
+                    )}
                     Exams
 
                 </div>
+
 
                 <div class="exam-grid">
 
                     ${categories
                         .map(
-                            function (category) {
+                            function (
+                                category
+                            ) {
 
                                 return `
 
                                     <button
                                         type="button"
                                         class="exam-btn category-btn"
-                                        onclick="selectExamCategory(
-                                            '${exam}',
-                                            '${category.replace(
-                                                /'/g,
-                                                "\\'"
-                                            )}'
-                                        )"
+                                        onclick="selectExamCategory('${exam}', '${category.replace(/'/g, "\\'")}')"
                                     >
 
                                         ${escapeHTML(
@@ -572,44 +765,6 @@ function showExamParts(exam) {
     }
 
 
-    /* -----------------------------
-       FREE PARTS 1–20
-    ----------------------------- */
-
-    let freeButtonsHTML = "";
-
-    for (
-        let i = FREE_PART_START;
-        i <= FREE_PART_END;
-        i++
-    ) {
-
-        freeButtonsHTML += `
-
-            <button
-                type="button"
-                class="exam-btn part-btn"
-                onclick="
-                    selectExamPart(
-                        '${exam}',
-                        'part${i}'
-                    )
-                "
-            >
-
-                🆓 Part ${i}
-
-            </button>
-
-        `;
-
-    }
-
-
-    /* -----------------------------
-       MAIN SCREEN
-    ----------------------------- */
-
     container.innerHTML = `
 
         <div class="exam-parts">
@@ -617,9 +772,12 @@ function showExamParts(exam) {
             <h3>
 
                 📚
-                ${escapeHTML(examName)}
+                ${escapeHTML(
+                    examName
+                )}
 
             </h3>
+
 
             <p>
 
@@ -632,9 +790,9 @@ function showExamParts(exam) {
             ${categoryHTML}
 
 
-            <!-- FREE SECTION -->
-
-            <div class="free-section">
+            <div
+                class="free-section"
+            >
 
                 <h4>
 
@@ -643,13 +801,17 @@ function showExamParts(exam) {
 
                 </h4>
 
+
                 <p>
 
                     Part 1 - 20
 
                 </p>
 
-                <div class="exam-grid">
+
+                <div
+                    class="exam-grid"
+                >
 
                     ${freeButtonsHTML}
 
@@ -658,51 +820,42 @@ function showExamParts(exam) {
             </div>
 
 
-            <!-- PREMIUM SECTION -->
+            <div
+                class="paid-section"
+            >
 
-            <div class="premium-section">
-
-                <h4>
+                <h4
+                    class="paid-label"
+                >
 
                     ⭐
                     Premium Mock Tests
+                    — ₹49
 
                 </h4>
+
 
                 <p>
 
                     Part 21 - 100
+                    • Golden Premium Access
 
                 </p>
+
 
                 <button
                     type="button"
                     class="exam-btn premium-main-btn"
-                    onclick="
-                        showPaidParts(
-                            '${exam}'
-                        )
-                    "
+                    onclick="showPaidParts('${exam}')"
                 >
 
-                    ⭐ Premium Parts 21–100
+                    ⭐
+                    Open Premium Parts
+                    — ₹49
 
                 </button>
 
             </div>
-
-
-            <button
-                type="button"
-                class="exam-btn"
-                onclick="
-                    chooseExamAgain()
-                "
-            >
-
-                🔙 Back to Exams
-
-            </button>
 
         </div>
 
@@ -712,7 +865,7 @@ function showExamParts(exam) {
 
 
 /* =====================================================
-   EXAM CATEGORY
+   SELECT EXAM CATEGORY
 ===================================================== */
 
 function selectExamCategory(
@@ -720,12 +873,91 @@ function selectExamCategory(
     category
 ) {
 
-    selectedExam = exam;
+    selectedExam =
+        exam;
 
     selectedExamCategory =
         category;
 
-    showExamParts(exam);
+
+    showExamParts(
+        exam
+    );
+
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const categoryNote =
+        document.createElement(
+            "div"
+        );
+
+
+    categoryNote.className =
+        "premium-category-section";
+
+
+    categoryNote.innerHTML = `
+
+        <div
+            class="premium-category-title"
+        >
+
+            🎯 Selected:
+            ${escapeHTML(
+                category
+            )}
+
+        </div>
+
+
+        <p
+            style="margin:0;"
+        >
+
+            Choose Free Part 1–20
+            or ⭐ Premium Part 21–100
+            below.
+
+        </p>
+
+    `;
+
+
+    const examParts =
+        container.querySelector(
+            ".exam-parts"
+        );
+
+
+    const freeSection =
+        container.querySelector(
+            ".free-section"
+        );
+
+
+    if (
+        examParts &&
+        freeSection
+    ) {
+
+        examParts.insertBefore(
+            categoryNote,
+            freeSection
+        );
+
+    }
 
 }
 
@@ -737,35 +969,46 @@ function selectExamCategory(
 function showPaidParts(exam) {
 
     stopLiveTimer();
+
     clearAutoNextTimer();
 
-    selectedExam = exam;
-    selectedPart = "";
+
+    selectedExam =
+        exam;
+
+    selectedPart =
+        "";
+
 
     const container =
         document.getElementById(
             "mockTestBox"
         );
 
+
     if (!container) {
+
         return;
+
     }
+
 
     const examName =
         examPartNames[exam] ||
         exam;
 
 
-    let buttonsHTML = "";
+    let buttonsHTML =
+        "";
 
-
-    /* -----------------------------
-       PART 21–100 BUTTONS
-    ----------------------------- */
 
     for (
-        let i = PAID_PART_START;
-        i <= PAID_PART_END;
+        let i =
+            PAID_PART_START;
+
+        i <=
+            PAID_PART_END;
+
         i++
     ) {
 
@@ -773,18 +1016,8 @@ function showPaidParts(exam) {
 
             <button
                 type="button"
-                class="
-                    exam-btn
-                    part-btn
-                    paid-part-btn
-                    premium-main-btn
-                "
-                onclick="
-                    openPaidPart(
-                        '${exam}',
-                        'part${i}'
-                    )
-                "
+                class="exam-btn part-btn paid-part-btn premium-main-btn"
+                onclick="openPaidPart('${exam}', 'part${i}')"
             >
 
                 ⭐ Part ${i}
@@ -799,16 +1032,15 @@ function showPaidParts(exam) {
     container.innerHTML = `
 
         <div
-            class="
-                exam-parts
-                paid-parts-section
-            "
+            class="exam-parts paid-parts-section"
         >
 
             <h3>
 
                 ⭐
-                ${escapeHTML(examName)}
+                ${escapeHTML(
+                    examName
+                )}
                 Premium — ₹49
 
             </h3>
@@ -821,13 +1053,16 @@ function showPaidParts(exam) {
             </p>
 
 
-            <div class="premium-info">
+            <div
+                class="premium-info"
+            >
 
                 <strong>
 
                     ⭐ GOLD PREMIUM — ₹49
 
                 </strong>
+
 
                 <p>
 
@@ -843,25 +1078,21 @@ function showPaidParts(exam) {
 
                 <button
                     type="button"
-                    class="
-                        exam-btn
-                        premium-main-btn
-                    "
-                    onclick="
-                        showPaymentMessage(
-                            '${exam}'
-                        )
-                    "
+                    class="exam-btn premium-main-btn"
+                    onclick="showPaymentMessage('${exam}')"
                 >
 
-                    ⭐ Unlock Premium — ₹49
+                    ⭐ Unlock Premium
+                    — ₹49
 
                 </button>
 
             </div>
 
 
-            <div class="exam-grid">
+            <div
+                class="exam-grid"
+            >
 
                 ${buttonsHTML}
 
@@ -871,11 +1102,7 @@ function showPaidParts(exam) {
             <button
                 type="button"
                 class="exam-btn"
-                onclick="
-                    showExamParts(
-                        '${exam}'
-                    )
-                "
+                onclick="showExamParts('${exam}')"
             >
 
                 🔙 Back to Free Parts
@@ -903,10 +1130,7 @@ function openPaidPart(
         partName
     );
 
-}
-
-
-/* =====================================================
+   }/* =====================================================
    PAYMENT SCREEN
 ===================================================== */
 
@@ -920,9 +1144,13 @@ function showPaymentMessage(
             "mockTestBox"
         );
 
+
     if (!container) {
+
         return;
+
     }
+
 
     const examName =
         examPartNames[exam] ||
@@ -964,7 +1192,9 @@ function showPaymentMessage(
                 "
             >
 
-                ${escapeHTML(examName)}
+                ${escapeHTML(
+                    examName
+                )}
                 Premium
 
             </h2>
@@ -976,9 +1206,358 @@ function showPaymentMessage(
                 "
             >
 
-                ${escapeHTML(partText)}
+                ${escapeHTML(
+                    partText
+                )}
 
             </h3>
+
+
+            <div
+                class="premium-payment-box"
+                style="
+                    margin-top:18px;
+                    padding:18px;
+                    border-radius:16px;
+                    background:
+                    linear-gradient(
+                        135deg,
+                        #fff8df,
+                        #ffffff
+                    );
+                    border:
+                    1px solid #e0b64e;
+                "
+            >
+
+                <h2
+                    style="
+                        color:#9a6500;
+                        margin-top:0;
+                    "
+                >
+
+                    ⭐ GOLD PREMIUM
+
+                </h2>
+
+
+                <div
+                    style="
+                        font-size:32px;
+                        font-weight:900;
+                        color:#7b5100;
+                        margin:10px 0;
+                    "
+                >
+
+                    ₹49
+
+                </div>
+
+
+                <p>
+
+                    One payment unlocks
+                    Premium Parts 21–100.
+
+                </p>
+
+
+                <p>
+
+                    Free Parts 1–20
+                    will remain available.
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="exam-btn premium-main-btn"
+                    onclick="startPremiumPayment('${exam}')"
+               >
+
+                    ⭐ Premium Parts
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${exam}')"
+                >
+
+                    🆓 Free Parts 1–20
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   PREMIUM PAYMENT START
+===================================================== */
+
+function startPremiumPayment(
+    exam
+) {
+
+    /*
+       IMPORTANT:
+
+       এখানে এখনো real payment gateway
+       connect করা হয়নি।
+
+       তাই এই function শুধুমাত্র
+       payment flow-এর UI প্রস্তুত করছে।
+
+       Real ₹49 verification server-side
+       Part 3-এর unlock system-এর সঙ্গে
+       connect হবে।
+    */
+
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const examName =
+        examPartNames[exam] ||
+        exam;
+
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <div
+                style="
+                    font-size:48px;
+                    text-align:center;
+                "
+            >
+
+                💳
+
+            </div>
+
+
+            <h2
+                style="
+                    text-align:center;
+                    color:#9a6500;
+                "
+            >
+
+                Premium Payment
+
+            </h2>
+
+
+            <h3
+                style="
+                    text-align:center;
+                "
+            >
+
+                ${escapeHTML(
+                    examName
+                )}
+
+            </h3>
+
+
+            <div
+                style="
+                    margin:18px 0;
+                    padding:18px;
+                    border-radius:16px;
+                    background:#fff8df;
+                    border:1px solid #e0b64e;
+                    text-align:center;
+                "
+            >
+
+                <div
+                    style="
+                        font-size:14px;
+                    "
+                >
+
+                    Premium Access
+
+                </div>
+
+
+                <div
+                    style="
+                        font-size:36px;
+                        font-weight:900;
+                        color:#8a5a00;
+                        margin:8px 0;
+                    "
+                >
+
+                    ₹49
+
+                </div>
+
+
+                <p>
+
+                    Unlock Parts 21–100
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="premium-payment-note"
+            >
+
+                <strong>
+
+                    💳 Payment Gateway
+
+                </strong>
+
+
+                <p>
+
+                    Payment gateway connection
+                    will be added here.
+
+                </p>
+
+
+                <p
+                    style="
+                        font-size:13px;
+                    "
+                >
+
+                    Payment must be verified
+                    before Premium access
+                    is granted.
+
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="exam-btn premium-main-btn"
+                onclick="showPaymentPending('${exam}')"
+            >
+
+                💳 Continue Payment — ₹49
+
+            </button>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showPaidParts('${exam}')"
+                style="margin-top:10px;"
+            >
+
+                🔙 Back
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   PAYMENT PENDING / GATEWAY PLACEHOLDER
+===================================================== */
+
+function showPaymentPending(
+    exam
+) {
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const examName =
+        examPartNames[exam] ||
+        exam;
+
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <div
+                style="
+                    font-size:48px;
+                    text-align:center;
+                "
+            >
+
+                🔐
+
+            </div>
+
+
+            <h2
+                style="
+                    text-align:center;
+                    color:#9a6500;
+                "
+            >
+
+                Payment Verification
+
+            </h2>
+
+
+            <p
+                style="
+                    text-align:center;
+                "
+            >
+
+                ${escapeHTML(
+                    examName
+                )}
+                Premium
+
+            </p>
 
 
             <div
@@ -993,15 +1572,16 @@ function showPaymentMessage(
 
                 <strong>
 
-                    ⭐ Premium Access — ₹49
+                    ₹49 Premium
 
                 </strong>
 
+
                 <p>
 
-                    Parts 21–100 are
-                    protected Premium
-                    Mock Tests.
+                    Parts 21–100 will unlock
+                    only after successful
+                    payment verification.
 
                 </p>
 
@@ -1012,9 +1592,8 @@ function showPaymentMessage(
                 class="premium-payment-note"
             >
 
-                🔐
-                Secure payment
-                verification required.
+                ⏳ Waiting for secure
+                payment confirmation...
 
             </div>
 
@@ -1022,432 +1601,16 @@ function showPaymentMessage(
             <button
                 type="button"
                 class="exam-btn"
-                onclick="
-                    showPaidParts(
-                        '${exam}'
-                    )
-                "
+                onclick="showPaidParts('${exam}')"
             >
 
                 🔙 Back to Premium
 
             </button>
 
-
-            <button
-                type="button"
-                class="exam-btn"
-                onclick="
-                    showExamParts(
-                        '${exam}'
-                    )
-                "
-            >
-
-                🔙 Back to Parts
-
-            </button>
-
         </div>
 
     `;
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value) {
-
-    return String(value ?? "")
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =====================================================
-   SHUFFLE ARRAY
-===================================================== */
-
-function shuffleArray(array) {
-
-    const result =
-        [...array];
-
-    for (
-        let i =
-            result.length - 1;
-        i > 0;
-        i--
-    ) {
-
-        const j =
-            Math.floor(
-                Math.random() *
-                (i + 1)
-            );
-
-        [
-            result[i],
-            result[j]
-        ] = [
-            result[j],
-            result[i]
-        ];
-
-    }
-
-    return result;
-
-} /* =====================================================
-   LOAD EXAM PART JSON
-===================================================== */
-
-async function loadExamPart(
-    exam,
-    partName
-) {
-
-    const file =
-        examFiles[exam];
-
-    if (!file) {
-
-        throw new Error(
-            "No JSON file configured for " +
-            exam
-        );
-
-    }
-
-
-    /*
-       IMPORTANT:
-       cache: no-store prevents the browser
-       from repeatedly using an old WBP JSON.
-    */
-
-    const response =
-        await fetch(
-            file +
-            "?v=" +
-            Date.now(),
-            {
-                method: "GET",
-                cache: "no-store"
-            }
-        );
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            "Could not load " +
-            file +
-            " (" +
-            response.status +
-            ")"
-        );
-
-    }
-
-
-    const data =
-        await response.json();
-
-
-    /*
-       Supported JSON structure:
-
-       {
-         "exam": "WBP",
-         "parts": [
-           {
-             "part": "part1",
-             "questions": []
-           }
-         ]
-       }
-
-       Also supports:
-       "name": "part1"
-    */
-
-    if (
-        data &&
-        Array.isArray(
-            data.parts
-        )
-    ) {
-
-        const foundPart =
-            data.parts.find(
-                function (item) {
-
-                    if (!item) {
-                        return false;
-                    }
-
-
-                    const itemPart =
-                        String(
-                            item.part ??
-                            ""
-                        )
-                            .trim()
-                            .toLowerCase();
-
-
-                    const itemName =
-                        String(
-                            item.name ??
-                            ""
-                        )
-                            .trim()
-                            .toLowerCase();
-
-
-                    const requestedPart =
-                        String(
-                            partName
-                        )
-                            .trim()
-                            .toLowerCase();
-
-
-                    return (
-                        itemPart ===
-                        requestedPart ||
-
-                        itemName ===
-                        requestedPart ||
-
-                        itemPart ===
-                        requestedPart
-                            .replace(
-                                "part",
-                                ""
-                            ) ||
-
-                        itemName ===
-                        requestedPart
-                            .replace(
-                                "part",
-                                ""
-                            )
-                    );
-
-                }
-            );
-
-
-        if (
-            foundPart &&
-            Array.isArray(
-                foundPart.questions
-            )
-        ) {
-
-            return normalizeQuestions(
-                foundPart.questions
-            );
-
-        }
-
-    }
-
-
-    /*
-       Alternative structure:
-
-       {
-         "part1": {
-           "questions": []
-         }
-       }
-    */
-
-    const directPart =
-        data &&
-        data[partName];
-
-
-    if (
-        directPart &&
-        Array.isArray(
-            directPart.questions
-        )
-    ) {
-
-        return normalizeQuestions(
-            directPart.questions
-        );
-
-    }
-
-
-    /*
-       Alternative structure:
-
-       {
-         "part1": []
-       }
-    */
-
-    if (
-        data &&
-        Array.isArray(
-            data[partName]
-        )
-    ) {
-
-        return normalizeQuestions(
-            data[partName]
-        );
-
-    }
-
-
-    return [];
-
-}
-
-
-/* =====================================================
-   NORMALIZE QUESTIONS
-===================================================== */
-
-function normalizeQuestions(
-    questions
-) {
-
-    if (
-        !Array.isArray(
-            questions
-        )
-    ) {
-
-        return [];
-
-    }
-
-
-    return questions
-
-        .filter(
-            function (question) {
-
-                return (
-                    question &&
-                    typeof question ===
-                    "object"
-                );
-
-            }
-        )
-
-        .map(
-            function (question) {
-
-                const normalized = {
-                    ...question
-                };
-
-
-                /* -----------------------------
-                   QUESTION TEXT
-                ----------------------------- */
-
-                normalized.question =
-                    question.question ||
-                    question.questionText ||
-                    question.q ||
-                    question.text ||
-                    "";
-
-
-                /* -----------------------------
-                   OPTIONS
-                ----------------------------- */
-
-                normalized.options =
-                    Array.isArray(
-                        question.options
-                    )
-                        ? question.options
-
-                        : (
-                            Array.isArray(
-                                question.answers
-                            )
-                                ? question.answers
-
-                                : (
-                                    Array.isArray(
-                                        question.choices
-                                    )
-                                        ? question.choices
-
-                                        : []
-                                )
-                        );
-
-
-                /* -----------------------------
-                   CORRECT ANSWER
-                ----------------------------- */
-
-                normalized.answer =
-                    question.answer ??
-                    question.correctAnswer ??
-                    question.correct ??
-                    question.correct_option ??
-                    question.correctOption ??
-                    question.answerIndex ??
-                    question.correctIndex ??
-                    question.correct_answer;
-
-
-                return normalized;
-
-            }
-        )
-
-        .filter(
-            function (question) {
-
-                return (
-                    question.question &&
-                    Array.isArray(
-                        question.options
-                    ) &&
-                    question.options.length >
-                    0
-                );
-
-            }
-        );
 
 }
 
@@ -1462,6 +1625,7 @@ async function selectExamPart(
 ) {
 
     stopLiveTimer();
+
     clearAutoNextTimer();
 
 
@@ -1481,8 +1645,10 @@ async function selectExamPart(
     score =
         0;
 
+
     answerLocked =
         false;
+
 
     testStartTime =
         null;
@@ -1498,7 +1664,9 @@ async function selectExamPart(
 
 
     if (!container) {
+
         return;
+
     }
 
 
@@ -1508,11 +1676,10 @@ async function selectExamPart(
 
 
     const partNumber =
-        String(partName)
-            .replace(
-                /part/i,
-                ""
-            );
+        partName.replace(
+            "part",
+            ""
+        );
 
 
     container.innerHTML = `
@@ -1528,6 +1695,7 @@ async function selectExamPart(
 
             </h3>
 
+
             <h4>
 
                 Part
@@ -1536,6 +1704,7 @@ async function selectExamPart(
                 )}
 
             </h4>
+
 
             <p>
 
@@ -1557,7 +1726,7 @@ async function selectExamPart(
             );
 
 
-        if (
+    if (
             !Array.isArray(
                 questions
             ) ||
@@ -1566,7 +1735,9 @@ async function selectExamPart(
 
             container.innerHTML = `
 
-                <div class="result-box">
+                <div
+                    class="result-box"
+                >
 
                     <h3>
 
@@ -1574,6 +1745,7 @@ async function selectExamPart(
                         No Questions Found
 
                     </h3>
+
 
                     <p>
 
@@ -1585,25 +1757,8 @@ async function selectExamPart(
                         ${escapeHTML(
                             partNumber
                         )}
-
                         এ এখনো questions
                         যোগ করা হয়নি।
-
-                    </p>
-
-
-                    <p>
-
-                        File:
-
-                        <strong>
-
-                            ${escapeHTML(
-                                examFiles[exam] ||
-                                "Unknown"
-                            )}
-
-                        </strong>
 
                     </p>
 
@@ -1611,11 +1766,7 @@ async function selectExamPart(
                     <button
                         type="button"
                         class="exam-btn"
-                        onclick="
-                            showExamParts(
-                                '${exam}'
-                            )
-                        "
+                        onclick="showExamParts('${exam}')"
                     >
 
                         🔙 Back to Parts
@@ -1626,15 +1777,11 @@ async function selectExamPart(
 
             `;
 
+
             return;
 
         }
 
-
-        /*
-           Randomly select maximum
-           10 questions.
-        */
 
         currentQuestions =
             shuffleArray(
@@ -1657,6 +1804,7 @@ async function selectExamPart(
         answerLocked =
             false;
 
+
         testStartTime =
             Date.now();
 
@@ -1665,6 +1813,7 @@ async function selectExamPart(
 
 
         startLiveTimer();
+
 
         showMockTest();
 
@@ -1680,7 +1829,9 @@ async function selectExamPart(
 
         container.innerHTML = `
 
-            <div class="result-box">
+            <div
+                class="result-box"
+            >
 
                 <h3>
 
@@ -1725,11 +1876,7 @@ async function selectExamPart(
                 <button
                     type="button"
                     class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            '${exam}'
-                        )
-                    "
+                    onclick="showExamParts('${exam}')"
                 >
 
                     🔙 Back to Parts
@@ -1741,6 +1888,1452 @@ async function selectExamPart(
         `;
 
     }
+
+}
+
+
+/* =====================================================
+   LOAD EXAM PART JSON
+===================================================== */
+
+async function loadExamPart(
+    exam,
+    partName
+) {
+
+    const file =
+        examFiles[exam];
+
+
+    if (!file) {
+
+        throw new Error(
+            "No JSON file configured for " +
+            exam
+        );
+
+    }
+
+
+    const response =
+        await fetch(
+            file +
+            "?v=" +
+            Date.now(),
+            {
+                cache: "no-store",
+                headers: {
+                    "Cache-Control": "no-cache"
+                }
+            }
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Could not load " +
+            file +
+            " (" +
+            response.status +
+            ")"
+        );
+
+    }
+
+
+    const data =
+        await response.json();
+
+
+    console.log(
+        "JSON loaded:",
+        file
+    );
+
+
+    const number =
+        String(partName)
+            .replace(
+                /^part/i,
+                ""
+            );
+
+
+    const keys = [
+
+        partName,
+
+        String(
+            partName
+        ).toLowerCase(),
+
+        "Part" +
+            number,
+
+        "PART" +
+            number,
+
+        number
+
+    ];
+
+
+    /* =================================================
+       FORMAT 1
+    ================================================= */
+
+    for (
+        const key of keys
+    ) {
+
+        if (
+            data &&
+            Array.isArray(
+                data[key]
+            )
+        ) {
+
+            return normalizeQuestions(
+                data[key]
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       FORMAT 2
+    ================================================= */
+
+    if (
+        data &&
+        data.parts &&
+        !Array.isArray(
+            data.parts
+        )
+    ) {
+
+        for (
+            const key of keys
+        ) {
+
+            if (
+                Array.isArray(
+                    data.parts[key]
+                )
+            ) {
+
+                return normalizeQuestions(
+                    data.parts[key]
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /* =================================================
+       FORMAT 3
+    ================================================= */
+
+    for (
+        const key of keys
+    ) {
+
+        if (
+            data &&
+            data[key] &&
+            Array.isArray(
+                data[key].questions
+            )
+        ) {
+
+            return normalizeQuestions(
+                data[key].questions
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       FORMAT 4
+    ================================================= */
+
+    if (
+        data &&
+        Array.isArray(
+            data.parts
+        )
+    ) {
+
+        const foundPart =
+            data.parts.find(
+                function (item) {
+
+                    if (!item) {
+
+                        return false;
+
+                    }
+
+
+                    return (
+
+                        item.part ===
+                            partName ||
+
+                        item.name ===
+                            partName ||
+
+                        String(
+                            item.part
+                        )
+                            .toLowerCase() ===
+                        String(
+                            partName
+                        )
+                            .toLowerCase() ||
+
+                        String(
+                            item.name
+                        )
+                            .toLowerCase() ===
+                        String(
+                            partName
+                        )
+                            .toLowerCase()
+
+                    );
+
+                }
+            );
+
+
+        if (
+            foundPart &&
+            Array.isArray(
+                foundPart.questions
+            )
+        ) {
+
+            return normalizeQuestions(
+                foundPart.questions
+            );
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+/* =====================================================
+   NORMALIZE QUESTIONS
+===================================================== */
+
+function normalizeQuestions(
+    questions
+) {
+
+    if (
+        !Array.isArray(
+            questions
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    return questions
+
+        .filter(
+            function (question) {
+
+                return (
+
+                    question &&
+                    typeof question ===
+                        "object"
+
+                );
+
+            }
+        )
+
+        .map(
+            function (question) {
+
+                const normalized = {
+                    ...question
+                };
+
+
+                normalized.question =
+                    question.question ||
+                    question.questionText ||
+                    question.q ||
+                    question.text ||
+                    "";
+
+
+                normalized.options =
+                    Array.isArray(
+                        question.options
+                    )
+                        ? question.options
+
+                        : (
+
+                            Array.isArray(
+                                question.answers
+                            )
+                                ? question.answers
+
+                                : (
+
+                                    Array.isArray(
+                                        question.choices
+                                    )
+                                        ? question.choices
+
+                                        : []
+
+                                )
+
+                        );
+
+
+                normalized.answer =
+                    question.answer ??
+                    question.correctAnswer ??
+                    question.correct ??
+                    question.correct_option ??
+                    question.correctOption ??
+                    question.answerIndex ??
+                    question.correctIndex ??
+                    question.correct_answer;
+
+
+                return normalized;
+
+            }
+        )
+
+        .filter(
+            function (question) {
+
+                return (
+
+                    question.question &&
+
+                    Array.isArray(
+                        question.options
+                    ) &&
+
+                    question.options.length >
+                        0
+
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
+   SHUFFLE ARRAY
+===================================================== */
+
+function shuffleArray(
+   array
+) {
+
+    const result =
+        [...array];
+
+
+    for (
+        let i =
+            result.length - 1;
+
+        i > 0;
+
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        [
+            result[i],
+            result[j]
+        ] = [
+
+            result[j],
+            result[i]
+
+        ];
+
+    }
+
+
+    return result;
+
+}                    ${escapeHTML(
+                        examName
+                    )}
+
+                </h3>
+
+
+                <p>
+
+                    Golden Premium Mock Tests
+
+                </p>
+
+
+                <div
+                    class="premium-info"
+                >
+
+                    <strong>
+
+                        ⭐ GOLD PREMIUM — ₹49
+
+                    </strong>
+
+
+                    <p>
+
+                        Free Parts 1–20
+                        are available.
+
+                        Premium Parts 21–100
+                        contain advanced
+                        practice questions.
+
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="exam-btn premium-main-btn"
+                        onclick="showPaymentMessage('${exam}')"
+                    >
+
+                        ⭐ Unlock Premium
+                        — ₹49
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="exam-grid"
+                >
+
+                    ${buttonsHTML}
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${exam}')"
+                >
+
+                    🔙 Back to Free Parts
+
+                </button>
+
+            </div>
+
+        `;
+
+}
+
+
+/* =====================================================
+   PREMIUM PART OPEN
+===================================================== */
+
+function openPaidPart(
+    exam,
+    partName
+) {
+
+    showPaymentMessage(
+        exam,
+        partName
+    );
+
+}
+
+
+/* =====================================================
+   PAYMENT SCREEN
+===================================================== */
+
+function showPaymentMessage(
+    exam,
+    partName = ""
+) {
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const examName =
+        examPartNames[exam] ||
+        exam;
+
+
+    const partText =
+        partName
+            ? "Part " +
+              String(partName)
+                  .replace(
+                      "part",
+                      ""
+                  )
+            : "Premium Parts 21–100";
+
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <div
+                style="
+                    font-size:48px;
+                    text-align:center;
+                    margin-bottom:10px;
+                "
+            >
+
+                ⭐
+
+            </div>
+
+
+            <h2
+                style="
+                    color:#9a6500;
+                    text-align:center;
+                "
+            >
+
+                ${escapeHTML(
+                    examName
+                )}
+                Premium
+
+            </h2>
+
+
+            <h3
+                style="
+                    text-align:center;
+                "
+            >
+
+                ${escapeHTML(
+                    partText
+                )}
+
+            </h3>
+
+
+            <div
+                class="premium-payment-box"
+                style="
+                    margin-top:18px;
+                    padding:18px;
+                    border-radius:16px;
+                    background:
+                    linear-gradient(
+                        135deg,
+                        #fff8df,
+                        #ffffff
+                    );
+                    border:
+                    1px solid #e0b64e;
+                "
+            >
+
+                <h2
+                    style="
+                        color:#9a6500;
+                        margin-top:0;
+                    "
+                >
+
+                    ⭐ GOLD PREMIUM
+
+                </h2>
+
+
+                <div
+                    style="
+                        font-size:32px;
+                        font-weight:900;
+                        color:#7b5100;
+                        margin:10px 0;
+                    "
+                >
+
+                    ₹49
+
+                </div>
+
+
+                <p>
+
+                    One payment unlocks
+                    Premium Parts 21–100.
+
+                </p>
+
+
+                <p>
+
+                    Free Parts 1–20
+                    will remain available.
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="exam-btn premium-main-btn"
+                    onclick="startPremiumPayment('${exam}')"
+                >
+
+                    💳 Pay ₹49 & Unlock
+
+                </button>
+
+
+                <p
+                    style="
+                        font-size:13px;
+                        margin-top:12px;
+                    "
+                >
+
+                    🔒 Secure Premium Access
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="result-buttons"
+            >
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showPaidParts('${exam}')"
+                >
+
+                    ⭐ Premium Parts
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${exam}')"
+                >
+
+                    🆓 Free Parts 1–20
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+           }                <h2
+                    style="
+                        text-align:center;
+                        color:#9a6500;
+                    "
+                >
+
+                    Premium Payment
+
+                </h2>
+
+
+                <h3
+                    style="
+                        text-align:center;
+                    "
+                >
+
+                    ${escapeHTML(
+                        examName
+                    )}
+
+                </h3>
+
+
+                <div
+                    style="
+                        margin:18px 0;
+                        padding:18px;
+                        border-radius:16px;
+                        background:#fff8df;
+                        border:1px solid #e0b64e;
+                        text-align:center;
+                    "
+                >
+
+                    <div
+                        style="
+                            font-size:14px;
+                        "
+                    >
+
+                        Premium Access
+
+                    </div>
+
+
+                    <div
+                        style="
+                            font-size:36px;
+                            font-weight:900;
+                            color:#8a5a00;
+                            margin:8px 0;
+                        "
+                    >
+
+                        ₹49
+
+                    </div>
+
+
+                    <p>
+
+                        Unlock Parts 21–100
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="premium-payment-note"
+                >
+
+                    <strong>
+
+                        💳 Payment Gateway
+
+                    </strong>
+
+
+                    <p>
+
+                        Payment gateway connection
+                        will be added here.
+
+                    </p>
+
+
+                    <p
+                        style="
+                            font-size:13px;
+                        "
+                    >
+
+                        Payment must be verified
+                        before Premium access
+                        is granted.
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="exam-btn premium-main-btn"
+                    onclick="showPaymentPending('${exam}')"
+                >
+
+                    💳 Continue Payment — ₹49
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showPaidParts('${exam}')"
+                    style="margin-top:10px;"
+                >
+
+                    🔙 Back
+
+                </button>
+
+            </div>
+
+        `;
+
+}
+
+
+/* =====================================================
+   PAYMENT PENDING
+===================================================== */
+
+function showPaymentPending(
+    exam
+) {
+
+    const container =
+        document.getElementById(
+            "mockTestBox"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const examName =
+        examPartNames[exam] ||
+        exam;
+
+
+    container.innerHTML = `
+
+        <div class="result-box">
+
+            <div
+                style="
+                    font-size:48px;
+                    text-align:center;
+                "
+            >
+
+                🔐
+
+            </div>
+
+
+            <h2
+                style="
+                    text-align:center;
+                    color:#9a6500;
+                "
+            >
+
+                Payment Verification
+
+            </h2>
+
+
+            <p
+                style="
+                    text-align:center;
+                "
+            >
+
+                ${escapeHTML(
+                    examName
+                )}
+                Premium
+
+            </p>
+
+
+            <div
+                style="
+                    padding:16px;
+                    margin:16px 0;
+                    border-radius:14px;
+                    background:#fff8df;
+                    border:1px solid #e0b64e;
+                "
+            >
+
+                <strong>
+
+                    ₹49 Premium
+
+                </strong>
+
+
+                <p>
+
+                    Parts 21–100 will unlock
+                    only after successful
+                    payment verification.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="premium-payment-note"
+            >
+
+                ⏳ Waiting for secure
+                payment confirmation...
+
+            </div>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showPaidParts('${exam}')"
+            >
+
+                🔙 Back to Premium
+
+            </button>
+
+        </div>
+
+    `;
+
+                       }                    <h3>
+
+                        ⚠️
+                        No Questions Found
+
+                    </h3>
+
+
+                    <p>
+
+                        ${escapeHTML(
+                            examName
+                        )}
+                        -
+                        Part
+                        ${escapeHTML(
+                            partNumber
+                        )}
+                        এ এখনো questions
+                        যোগ করা হয়নি।
+
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="exam-btn"
+                        onclick="showExamParts('${exam}')"
+                    >
+
+                        🔙 Back to Parts
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            return;
+
+        }
+
+
+        currentQuestions =
+            shuffleArray(
+                questions
+            ).slice(
+                0,
+                Math.min(
+                    QUESTIONS_PER_TEST,
+                    questions.length
+                )
+            );
+
+
+        currentQuestionIndex =
+            0;
+
+        score =
+            0;
+
+        answerLocked =
+            false;
+
+
+        testStartTime =
+            Date.now();
+
+        testEndTime =
+            null;
+
+
+        startLiveTimer();
+
+
+        showMockTest();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Question Loading Error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div
+                class="result-box"
+            >
+
+                <h3>
+
+                    ❌
+                    Question Loading Error
+
+                </h3>
+
+
+                <p>
+
+                    ${escapeHTML(
+                        examName
+                    )}
+                    -
+                    Part
+                    ${escapeHTML(
+                        partNumber
+                    )}
+                    এর JSON file
+                    load করা যায়নি।
+
+                </p>
+
+
+                <p>
+
+                    File:
+
+                    <strong>
+
+                        ${escapeHTML(
+                            examFiles[exam] ||
+                            "Unknown"
+                        )}
+
+                    </strong>
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts('${exam}')"
+                >
+
+                    🔙 Back to Parts
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD EXAM PART JSON
+===================================================== */
+
+async function loadExamPart(
+    exam,
+    partName
+) {
+
+    const file =
+        examFiles[exam];
+
+
+    if (!file) {
+
+        throw new Error(
+            "No JSON file configured for " +
+            exam
+        );
+
+    }
+
+
+    const response =
+        await fetch(
+            file +
+            "?v=" +
+            Date.now(),
+            {
+                cache: "no-store",
+                headers: {
+                    "Cache-Control": "no-cache"
+                }
+            }
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Could not load " +
+            file +
+            " (" +
+            response.status +
+            ")"
+        );
+
+    }
+
+
+    const data =
+        await response.json();
+
+
+    console.log(
+        "JSON loaded:",
+        file
+    );
+
+
+    const number =
+        String(partName)
+            .replace(
+                /^part/i,
+                ""
+            );
+
+
+    const keys = [
+
+        partName,
+
+        String(
+            partName
+        ).toLowerCase(),
+
+        "Part" +
+            number,
+
+        "PART" +
+            number,
+
+        number
+
+    ];
+
+
+    /* =================================================
+       FORMAT 1
+    ================================================= */
+
+    for (
+        const key of keys
+    ) {
+
+        if (
+            data &&
+            Array.isArray(
+                data[key]
+            )
+        ) {
+
+            return normalizeQuestions(
+                data[key]
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       FORMAT 2
+    ================================================= */
+
+    if (
+        data &&
+        data.parts &&
+        !Array.isArray(
+            data.parts
+        )
+    ) {
+
+        for (
+            const key of keys
+        ) {
+
+            if (
+                Array.isArray(
+                    data.parts[key]
+                )
+            ) {
+
+                return normalizeQuestions(
+                    data.parts[key]
+                );
+
+            }
+
+        }
+
+}                        String(
+                            item.part
+                        )
+                            .toLowerCase() ===
+                        String(
+                            partName
+                        )
+                            .toLowerCase() ||
+
+                        String(
+                            item.name
+                        )
+                            .toLowerCase() ===
+                        String(
+                            partName
+                        )
+                            .toLowerCase()
+
+                    );
+
+                }
+            );
+
+
+        if (
+            foundPart &&
+            Array.isArray(
+                foundPart.questions
+            )
+        ) {
+
+            return normalizeQuestions(
+                foundPart.questions
+            );
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+/* =====================================================
+   NORMALIZE QUESTIONS
+===================================================== */
+
+function normalizeQuestions(
+    questions
+) {
+
+    if (
+        !Array.isArray(
+            questions
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    return questions
+
+        .filter(
+            function (question) {
+
+                return (
+
+                    question &&
+                    typeof question ===
+                        "object"
+
+                );
+
+            }
+        )
+
+        .map(
+            function (question) {
+
+                const normalized = {
+                    ...question
+                };
+
+
+                normalized.question =
+                    question.question ||
+                    question.questionText ||
+                    question.q ||
+                    question.text ||
+                    "";
+
+
+                normalized.options =
+                    Array.isArray(
+                        question.options
+                    )
+                        ? question.options
+
+                        : (
+
+                            Array.isArray(
+                                question.answers
+                            )
+                                ? question.answers
+
+                                : (
+
+                                    Array.isArray(
+                                        question.choices
+                                    )
+                                        ? question.choices
+
+                                        : []
+
+                                )
+
+                        );
+
+
+                normalized.answer =
+                    question.answer ??
+                    question.correctAnswer ??
+                    question.correct ??
+                    question.correct_option ??
+                    question.correctOption ??
+                    question.answerIndex ??
+                    question.correctIndex ??
+                    question.correct_answer;
+
+
+                return normalized;
+
+            }
+        )
+
+        .filter(
+            function (question) {
+
+                return (
+
+                    question.question &&
+
+                    Array.isArray(
+                        question.options
+                    ) &&
+
+                    question.options.length >
+                        0
+
+                );
+
+            }
+        );
+
+}/* =====================================================
+   SHUFFLE ARRAY
+===================================================== */
+
+function shuffleArray(
+    array
+) {
+
+    const result =
+        [...array];
+
+
+    for (
+        let i =
+            result.length - 1;
+
+        i > 0;
+
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        [
+            result[i],
+            result[j]
+        ] = [
+
+            result[j],
+            result[i]
+
+        ];
+
+    }
+
+
+    return result;
 
 }
 
@@ -1758,14 +3351,18 @@ function showMockTest() {
 
 
     if (!container) {
+
         return;
+
     }
 
 
     if (
         !currentQuestions.length
     ) {
+
         return;
+
     }
 
 
@@ -1809,7 +3406,8 @@ function showMockTest() {
             : [];
 
 
-    let optionsHTML = "";
+    let optionsHTML =
+        "";
 
 
     options.forEach(
@@ -1823,30 +3421,18 @@ function showMockTest() {
                 <button
                     type="button"
                     class="quiz-option"
-                    onclick="
-                        checkAnswer(
-                            ${index}
-                        )
-                    "
+                    onclick="checkAnswer(${index})"
                 >
 
-                    <span
-                        class="option-letter"
-                    >
-
+                    <span>
                         ${String.fromCharCode(
                             65 + index
-                        )}
-
+                        )}.
                     </span>
 
-                    <span>
-
-                        ${escapeHTML(
-                            option
-                        )}
-
-                    </span>
+                    ${escapeHTML(
+                        String(option)
+                    )}
 
                 </button>
 
@@ -1858,34 +3444,44 @@ function showMockTest() {
 
     container.innerHTML = `
 
-        <div class="mock-test-container">
+        <div
+            class="mock-test-container"
+        >
 
-            <div class="test-header">
+            <div
+                class="mock-test-top"
+            >
 
                 <div>
 
-                    📚
-                    ${escapeHTML(
-                        examPartNames[
+                    <strong>
+
+                        ${escapeHTML(
+                            examPartNames[
+                                selectedExam
+                            ] ||
                             selectedExam
-                        ] ||
-                        selectedExam
-                    )}
+                        )}
 
-                </div>
+                    </strong>                    ${
+                        selectedExamCategory
+                            ? `
+                                <div
+                                    style="
+                                        font-size:13px;
+                                        margin-top:4px;
+                                        color:#0756d9;
+                                    "
+                                >
 
+                                    ${escapeHTML(
+                                        selectedExamCategory
+                                    )}
 
-                <div>
-
-                    Part
-                    ${escapeHTML(
-                        String(
-                            selectedPart
-                        ).replace(
-                            /part/i,
-                            ""
-                        )
-                    )}
+                                </div>
+                            `
+                            : ""
+                    }
 
                 </div>
 
@@ -1899,44 +3495,34 @@ function showMockTest() {
 
                 </div>
 
+            </div>
 
-                <div
-                    id="liveTimer"
-                >
 
-                    ⏱️ 00:00
+            <div
+                id="testTimer"
+                class="test-timer"
+            >
 
-                </div>
+                ⏱️ 00:00
 
             </div>
 
 
-            ${
-                selectedExamCategory
-                    ? `
+            <div
+                class="question-card"
+            >
 
-                        <div
-                            class="
-                                selected-category
-                            "
-                        >
+                <div
+                    class="question-number"
+                >
 
-                            ${escapeHTML(
-                                selectedExamCategory
-                            )}
+                    Question
+                    ${current}
 
-                        </div>
+                </div>
 
-                    `
-                    : ""
-            }
-
-
-            <div class="question-box">
 
                 <h3>
-
-                    Q${current}.
 
                     ${escapeHTML(
                         questionText
@@ -1955,12 +3541,25 @@ function showMockTest() {
 
             </div>
 
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="confirmExitTest()"
+            >
+
+                🚪 Exit Test
+
+            </button>
+
         </div>
 
     `;
 
 }
-   } /* =====================================================
+
+
+/* =====================================================
    CHECK ANSWER
 ===================================================== */
 
@@ -1968,8 +3567,12 @@ function checkAnswer(
     selectedIndex
 ) {
 
-    if (answerLocked) {
+    if (
+        answerLocked
+    ) {
+
         return;
+
     }
 
 
@@ -1980,7 +3583,9 @@ function checkAnswer(
 
 
     if (!question) {
+
         return;
+
     }
 
 
@@ -1994,7 +3599,7 @@ function checkAnswer(
         );
 
 
-    const correctIndex =
+    let correctIndex =
         getCorrectAnswerIndex(
             question
         );
@@ -2080,10 +3685,7 @@ function checkAnswer(
             AUTO_NEXT_DELAY
         );
 
-}
-
-
-/* =====================================================
+}/* =====================================================
    GET CORRECT ANSWER INDEX
 ===================================================== */
 
@@ -2095,10 +3697,6 @@ function getCorrectAnswerIndex(
         question.answer;
 
 
-    /* -----------------------------
-       NUMBER ANSWER
-    ----------------------------- */
-
     if (
         typeof answer ===
         "number"
@@ -2109,10 +3707,6 @@ function getCorrectAnswerIndex(
     }
 
 
-    /* -----------------------------
-       STRING ANSWER
-    ----------------------------- */
-
     if (
         typeof answer ===
         "string"
@@ -2121,8 +3715,6 @@ function getCorrectAnswerIndex(
         const value =
             answer.trim();
 
-
-        /* 0 / 1 / 2 / 3 */
 
         if (
             /^[0-9]+$/.test(
@@ -2138,8 +3730,6 @@ function getCorrectAnswerIndex(
         }
 
 
-        /* A / B / C / D */
-
         const upper =
             value.toUpperCase();
 
@@ -2151,15 +3741,12 @@ function getCorrectAnswerIndex(
         ) {
 
             return (
-                upper.charCodeAt(
-                    0
-                ) - 65
+                upper.charCodeAt(0) -
+                65
             );
 
         }
 
-
-        /* Answer text */
 
         const options =
             question.options ||
@@ -2195,10 +3782,6 @@ function getCorrectAnswerIndex(
 
     }
 
-
-    /* -----------------------------
-       OTHER COMMON FORMATS
-    ----------------------------- */
 
     if (
         typeof question.correctIndex ===
@@ -2227,61 +3810,27 @@ function getCorrectAnswerIndex(
 
         const value =
             question.correctAnswer
-                .trim();
+                .trim()
+                .toUpperCase();
 
 
         if (
             /^[A-D]$/.test(
-                value.toUpperCase()
+                value
             )
         ) {
 
             return (
-                value.toUpperCase()
-                    .charCodeAt(
-                        0
-                    ) - 65
+                value.charCodeAt(0) -
+                65
             );
-
-        }
-
-
-        const options =
-            question.options ||
-            [];
-
-
-        const found =
-            options.findIndex(
-                function (
-                    option
-                ) {
-
-                    return (
-                        String(
-                            option
-                        )
-                            .trim()
-                            .toLowerCase() ===
-                        value.toLowerCase()
-                    );
-
-                }
-            );
-
-
-        if (
-            found >= 0
-        ) {
-
-            return found;
 
         }
 
     }
 
 
-    return -1;
+    return 0;
 
 }
 
@@ -2293,6 +3842,7 @@ function getCorrectAnswerIndex(
 function showResult() {
 
     stopLiveTimer();
+
     clearAutoNextTimer();
 
 
@@ -2303,7 +3853,9 @@ function showResult() {
 
 
     if (!container) {
+
         return;
+
     }
 
 
@@ -2313,52 +3865,12 @@ function showResult() {
 
     const percentage =
         total > 0
-            ? Math.round(
-                (
-                    score /
-                    total
-                ) * 100
-            )
-            : 0;
-
-
-    let resultMessage =
-        "";
-
-
-    if (
-        percentage >= 80
-    ) {
-
-        resultMessage =
-            "🎉 Excellent Performance!";
-
-    }
-
-    else if (
-        percentage >= 60
-    ) {
-
-        resultMessage =
-            "👏 Very Good!";
-
-    }
-
-    else if (
-        percentage >= 40
-    ) {
-
-        resultMessage =
-            "👍 Keep Practicing!";
-
-    }
-
-    else {
-
-        resultMessage =
-            "📚 More Practice Needed.";
-
-    }
+            ? (
+                score /
+                total *
+                100
+            ).toFixed(1)
+            : "0.0";
 
 
     const examName =
@@ -2369,22 +3881,105 @@ function showResult() {
 
 
     const partNumber =
-        String(
-            selectedPart
-        )
-            .replace(
-                /part/i,
+        selectedPart
+            ? selectedPart.replace(
+                /^part/i,
                 ""
+            )
+            : "";
+
+
+    let timeTaken =
+        "";
+
+
+    if (
+        testStartTime &&
+        testEndTime
+    ) {
+
+        const seconds =
+            Math.max(
+                0,
+                Math.floor(
+                    (
+                        testEndTime -
+                        testStartTime
+                    ) / 1000
+                )
             );
+
+
+        const minutes =
+            Math.floor(
+                seconds / 60
+            );
+
+
+        const remaining =
+            seconds % 60;
+
+
+        timeTaken =
+            String(minutes)
+                .padStart(
+                    2,
+                    "0"
+                ) +
+            ":" +
+            String(remaining)
+                .padStart(
+                    2,
+                    "0"
+                );
+
+    }
+
+
+    let message =
+        "Keep practicing!";
+
+
+    if (
+        Number(percentage) >=
+        80
+    ) {
+
+        message =
+            "Excellent performance! 🎉";
+
+    }
+
+    else if (
+        Number(percentage) >=
+        60
+    ) {
+
+        message =
+            "Very good! Keep improving. 👍";
+
+    }
+
+    else if (
+        Number(percentage) >=
+        40
+    ) {
+
+        message =
+            "Good effort. Practice more. 📚";
+
+    }
 
 
     container.innerHTML = `
 
-        <div class="result-box">
+        <div
+            class="result-box"
+        >
 
             <div
                 style="
-                    font-size:56px;
+                    font-size:52px;
                     text-align:center;
                 "
             >
@@ -2400,7 +3995,7 @@ function showResult() {
                 "
             >
 
-                Test Completed!
+                Test Completed
 
             </h2>
 
@@ -2415,31 +4010,37 @@ function showResult() {
                     examName
                 )}
 
-                —
-
-                Part
-                ${escapeHTML(
-                    partNumber
-                )}
-
             </h3>
 
 
-            <div
-                class="result-summary"
+            <p
+                style="
+                    text-align:center;
+                "
+            >
+
+                ${
+                    partNumber
+                        ? "Part " +
+                          escapeHTML(
+                              partNumber
+                          )
+                        : ""
+                }
+
+            </p>            <div
+                class="result-stats"
             >
 
                 <div>
 
                     <strong>
-                        Score
+                        ${score}
                     </strong>
 
-                    <br>
-
-                    ${score}
-                    /
-                    ${total}
+                    <span>
+                        Correct
+                    </span>
 
                 </div>
 
@@ -2447,47 +4048,89 @@ function showResult() {
                 <div>
 
                     <strong>
-                        Percentage
+                        ${Math.max(
+                            0,
+                            total -
+                            score
+                        )}
                     </strong>
 
-                    <br>
+                    <span>
+                        Wrong
+                    </span>
 
-                    ${percentage}%
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${total}
+                    </strong>
+
+                    <span>
+                        Total
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${percentage}%
+                    </strong>
+
+                    <span>
+                        Score
+                    </span>
 
                 </div>
 
             </div>
 
 
+            ${
+                timeTaken
+                    ? `
+                        <p
+                            style="
+                                text-align:center;
+                                margin-top:15px;
+                            "
+                        >
+
+                            ⏱️ Time:
+                            <strong>
+                                ${timeTaken}
+                            </strong>
+
+                        </p>
+                      `
+                    : ""
+            }
+
+
             <h3
                 style="
                     text-align:center;
+                    margin-top:18px;
                 "
             >
 
-                ${resultMessage}
+                ${message}
 
             </h3>
 
 
             <div
-                style="
-                    display:flex;
-                    flex-direction:column;
-                    gap:10px;
-                    margin-top:20px;
-                "
+                class="result-buttons"
             >
 
                 <button
                     type="button"
                     class="exam-btn"
-                    onclick="
-                        selectExamPart(
-                            '${selectedExam}',
-                            '${selectedPart}'
-                        )
-                    "
+                    onclick="selectExamPart('${selectedExam}', '${selectedPart}')"
                 >
 
                     🔄 Try Again
@@ -2498,31 +4141,15 @@ function showResult() {
                 <button
                     type="button"
                     class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            '${selectedExam}'
-                        )
-                    "
+                    onclick="showExamParts('${selectedExam}')"
                 >
 
-                    📚 Choose Another Part
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        chooseExamAgain()
-                    "
-                >
-
-                    🏠 Choose Another Exam
+                    📚 Choose Part
 
                 </button>
 
             </div>
+
 
         </div>
 
@@ -2542,97 +4169,77 @@ function startLiveTimer() {
 
     const timerElement =
         document.getElementById(
-            "liveTimer"
+            "testTimer"
         );
 
 
     if (!timerElement) {
+
         return;
+
     }
 
 
-    testStartTime =
-        Date.now();
+    if (!testStartTime) {
+
+        testStartTime =
+            Date.now();
+
+    }
 
 
-    updateLiveTimer();
+    function updateTimer() {
+
+        const elapsed =
+            Math.max(
+                0,
+                Math.floor(
+                    (
+                        Date.now() -
+                        testStartTime
+                    ) / 1000
+                )
+            );
+
+
+        const minutes =
+            Math.floor(
+                elapsed / 60
+            );
+
+
+        const seconds =
+            elapsed % 60;
+
+
+        timerElement.innerText =
+            "⏱️ " +
+            String(minutes)
+                .padStart(
+                    2,
+                    "0"
+                ) +
+            ":" +
+            String(seconds)
+                .padStart(
+                    2,
+                    "0"
+                );
+
+    }
+
+
+    updateTimer();
 
 
     testTimerInterval =
         setInterval(
-            function () {
-
-                updateLiveTimer();
-
-            },
+            updateTimer,
             1000
         );
 
-}
-
-
-/* =====================================================
-   UPDATE TIMER
-===================================================== */
-
-function updateLiveTimer() {
-
-    const timerElement =
-        document.getElementById(
-            "liveTimer"
-        );
-
-
-    if (
-        !timerElement ||
-        !testStartTime
-    ) {
-
-        return;
-
-    }
-
-
-    const elapsed =
-        Math.floor(
-            (
-                Date.now() -
-                testStartTime
-            ) / 1000
-        );
-
-
-    const minutes =
-        Math.floor(
-            elapsed / 60
-        );
-
-
-    const seconds =
-        elapsed % 60;
-
-
-    timerElement.innerText =
-        "⏱️ " +
-        String(
-            minutes
-        ).padStart(
-            2,
-            "0"
-        ) +
-        ":" +
-        String(
-            seconds
-        ).padStart(
-            2,
-            "0"
-        );
-
-}
-
-
-/* =====================================================
-   STOP TIMER
+                       }/* =====================================================
+   STOP LIVE TIMER
 ===================================================== */
 
 function stopLiveTimer() {
@@ -2654,7 +4261,7 @@ function stopLiveTimer() {
 
 
 /* =====================================================
-   CLEAR AUTO NEXT
+   CLEAR AUTO NEXT TIMER
 ===================================================== */
 
 function clearAutoNextTimer() {
@@ -2676,593 +4283,107 @@ function clearAutoNextTimer() {
 
 
 /* =====================================================
-   CHOOSE EXAM AGAIN
+   CONFIRM EXIT TEST
 ===================================================== */
 
-function chooseExamAgain() {
+function confirmExitTest() {
 
-    stopLiveTimer();
-    clearAutoNextTimer();
-
-
-    currentQuestions = [];
-    currentQuestionIndex = 0;
-    score = 0;
-
-    selectedExam = "";
-    selectedPart = "";
-    selectedExamCategory = "";
-
-    answerLocked = false;
-
-
-    const container =
-        document.getElementById(
-            "mockTestBox"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    /*
-       If the original HTML has
-       exam-selection buttons,
-       return to that section.
-    */
-
-    const examSelection =
-        document.getElementById(
-            "examSelection"
+    const shouldExit =
+        window.confirm(
+            "Are you sure you want to exit the test?"
         );
 
 
     if (
-        examSelection
+        shouldExit
     ) {
 
-        examSelection.scrollIntoView({
-            behavior: "smooth"
-        });
+        stopLiveTimer();
 
-        return;
+        clearAutoNextTimer();
+
+
+        currentQuestions =
+            [];
+
+        currentQuestionIndex =
+            0;
+
+        score =
+            0;
+
+        answerLocked =
+            false;
+
+
+        showExamParts(
+            selectedExam
+        );
 
     }
 
-
-    container.innerHTML = `
-
-        <div class="exam-parts">
-
-            <h3>
-
-                🎯 Choose Exam
-
-            </h3>
-
-
-            <div class="exam-grid">
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'SSC'
-                        )
-                    "
-                >
-
-                    📘 SSC
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'UPSC'
-                        )
-                    "
-                >
-
-                    📕 UPSC
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'BANK'
-                        )
-                "
-                >
-
-                    🏦 Bank
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'WBP'
-                        )
-                    "
-                >
-
-                    👮 WBP
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'KOLKATA_POLICE'
-                        )
-                    "
-                >
-
-                    👮 Kolkata Police
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'RAILWAY'
-                        )
-                    "
-                >
-
-                    🚆 Railway
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'WBCS'
-                        )
-                    "
-                >
-
-                    🏛️ WBCS
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="exam-btn"
-                    onclick="
-                        showExamParts(
-                            'WBPSC_CLERKSHIP'
-                        )
-                    "
-                >
-
-                    📚 WBPSC Clerkship
-
-                </button>
-
-
-            </div>
-
-        </div>
-
-    `;
-
 }
 
 
 /* =====================================================
-   GLOBAL EXPORTS
-   Makes buttons work even when
-   called from HTML onclick.
+   ESCAPE HTML
 ===================================================== */
 
-window.startQuiz =
-    startQuiz;
-
-window.closeQuiz =
-    closeQuiz;
-
-window.startMic =
-    startMic;
-
-window.askTutor =
-    askTutor;
-
-window.startMockTest =
-    startMockTest;
-
-window.showExamParts =
-    showExamParts;
-
-window.selectExamPart =
-    selectExamPart;
-
-window.selectExamCategory =
-    selectExamCategory;
-
-window.showPaidParts =
-    showPaidParts;
-
-window.openPaidPart =
-    openPaidPart;
-
-window.showPaymentMessage =
-    showPaymentMessage;
-
-window.checkAnswer =
-    checkAnswer;
-
-window.showResult =
-    showResult;
-
-window.chooseExamAgain =
-    chooseExamAgain;
-
-window.startLiveTimer =
-    startLiveTimer;
-
-window.stopLiveTimer =
-    stopLiveTimer;/* =====================================================
-   EXTRA SAFETY / CLEANUP
-===================================================== */
-
-function resetMockTestState() {
-
-    stopLiveTimer();
-    clearAutoNextTimer();
-
-    currentQuestions = [];
-    currentQuestionIndex = 0;
-    score = 0;
-
-    selectedExam = "";
-    selectedPart = "";
-    selectedExamCategory = "";
-
-    answerLocked = false;
-
-    testStartTime = null;
-    testEndTime = null;
-
-}
-
-
-/* =====================================================
-   CHECK JSON FILE CONFIGURATION
-===================================================== */
-
-function checkExamFiles() {
-
-    const results = {};
-
-    Object.keys(examFiles).forEach(
-        function (exam) {
-
-            results[exam] =
-                examFiles[exam];
-
-        }
-    );
-
-    console.table(results);
-
-    return results;
-
-}
-
-
-/* =====================================================
-   SHOW EXAM LIST
-   Backup function if HTML exam buttons
-   are not available.
-===================================================== */
-
-function showAllExams() {
-
-    const container =
-        document.getElementById(
-            "mockTestBox"
-        );
-
-    if (!container) {
-        return;
-    }
-
-
-    resetMockTestState();
-
-
-    const examButtons =
-        [
-
-            {
-                id: "SSC",
-                name: "📘 SSC"
-            },
-
-            {
-                id: "UPSC",
-                name: "📕 UPSC"
-            },
-
-            {
-                id: "BANK",
-                name: "🏦 Bank"
-            },
-
-            {
-                id: "WBP",
-                name: "👮 WBP"
-            },
-
-            {
-                id: "KOLKATA_POLICE",
-                name: "👮 Kolkata Police"
-            },
-
-            {
-                id: "RAILWAY",
-                name: "🚆 Railway"
-            },
-
-            {
-                id: "WBCS",
-                name: "🏛️ WBCS"
-            },
-
-            {
-                id: "WBPSC_CLERKSHIP",
-                name: "📚 WBPSC Clerkship"
-            }
-
-        ];
-
-
-    container.innerHTML = `
-
-        <div class="exam-parts">
-
-            <h3>
-
-                🎯 Select Competitive Exam
-
-            </h3>
-
-
-            <p>
-
-                Choose an exam to continue.
-
-            </p>
-
-
-            <div class="exam-grid">
-
-                ${
-                    examButtons
-                        .map(
-                            function (item) {
-
-                                return `
-
-                                    <button
-                                        type="button"
-                                        class="exam-btn"
-                                        onclick="
-                                            showExamParts(
-                                                '${item.id}'
-                                            )
-                                        "
-                                    >
-
-                                        ${item.name}
-
-                                    </button>
-
-                                `;
-
-                            }
-                        )
-                        .join("")
-                }
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   PREMIUM PART RANGE VALIDATION
-===================================================== */
-
-function isPremiumPart(
-    partName
+function escapeHTML(
+    value
 ) {
 
-    const number =
-        parseInt(
-            String(partName)
-                .replace(
-                    /[^0-9]/g,
-                    ""
-                ),
-            10
-        );
+    return String(
+        value ??
+        ""
+    )
 
-
-    return (
-        number >= PAID_PART_START &&
-        number <= PAID_PART_END
-    );
-
-}
-
-
-/* =====================================================
-   FREE PART RANGE VALIDATION
-===================================================== */
-
-function isFreePart(
-    partName
-) {
-
-    const number =
-        parseInt(
-            String(partName)
-                .replace(
-                    /[^0-9]/g,
-                    ""
-                ),
-            10
-        );
-
-
-    return (
-        number >= FREE_PART_START &&
-        number <= FREE_PART_END
-    );
-
-}
-
-
-/* =====================================================
-   GET PART NUMBER
-===================================================== */
-
-function getPartNumber(
-    partName
-) {
-
-    const number =
-        parseInt(
-            String(partName)
-                .replace(
-                    /[^0-9]/g,
-                    ""
-                ),
-            10
-        );
-
-
-    if (
-        Number.isNaN(
-            number
+        .replace(
+            /&/g,
+            "&amp;"
         )
-    ) {
 
-        return 0;
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-    }
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-    return number;
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
-}
-
-
-/* =====================================================
-   PREMIUM ACCESS CHECK
+}/* =====================================================
+   PREMIUM HELPERS
 ===================================================== */
 
-function hasPremiumAccess(
+function unlockPremium(
     exam
 ) {
 
-    /*
-       Payment system can later store
-       verified access here.
-
-       IMPORTANT:
-       Do not unlock Premium merely
-       because a localStorage value exists.
-    */
-
-    const access =
-        localStorage.getItem(
-            "itta_premium_" +
-            exam
-        );
-
-
-    return (
-        access ===
-        "verified"
+    showPaymentMessage(
+        exam
     );
 
 }
 
 
-/* =====================================================
-   SAFE PREMIUM OPEN
-===================================================== */
-
-async function openPremiumQuestionPart(
+function startPremiumPart(
     exam,
     partName
 ) {
 
-    if (
-        !isPremiumPart(
-            partName
-        )
-    ) {
-
-        selectExamPart(
-            exam,
-            partName
-        );
-
-        return;
-
-    }
-
-
-    if (
-        !hasPremiumAccess(
-            exam
-        )
-    ) {
-
-        showPaymentMessage(
-            exam,
-            partName
-        );
-
-        return;
-
-    }
-
-
-    await selectExamPart(
+    showPaymentMessage(
         exam,
         partName
     );
@@ -3271,176 +4392,14 @@ async function openPremiumQuestionPart(
 
 
 /* =====================================================
-   VERIFY PREMIUM ACCESS
-   This function is intentionally separate
-   from payment UI.
+   GLOBAL BUTTON EXPORTS
 ===================================================== */
 
-function setVerifiedPremiumAccess(
-    exam
-) {
+window.askTutor =
+    askTutor;
 
-    if (
-        !exam ||
-        !examFiles[exam]
-    ) {
-
-        return false;
-
-    }
-
-
-    localStorage.setItem(
-        "itta_premium_" +
-        exam,
-        "verified"
-    );
-
-
-    return true;
-
-}
-
-
-/* =====================================================
-   REMOVE LOCAL PREMIUM ACCESS
-===================================================== */
-
-function removePremiumAccess(
-    exam
-) {
-
-    localStorage.removeItem(
-        "itta_premium_" +
-        exam
-    );
-
-}
-
-
-/* =====================================================
-   CLEAR ALL LOCAL TEST DATA
-===================================================== */
-
-function clearMockTestData() {
-
-    Object.keys(
-        examFiles
-    ).forEach(
-        function (exam) {
-
-            localStorage.removeItem(
-                "itta_premium_" +
-                exam
-            );
-
-        }
-    );
-
-
-    resetMockTestState();
-
-}
-
-
-/* =====================================================
-   WBP FILE CHECK
-===================================================== */
-
-function checkWBPFile() {
-
-    const wbpFile =
-        examFiles.WBP;
-
-
-    console.log(
-        "WBP JSON file:",
-        wbpFile
-    );
-
-
-    return wbpFile;
-
-}
-
-
-/* =====================================================
-   APP VERSION
-===================================================== */
-
-const ITTA_SCRIPT_VERSION =
-    "2026.08.20-WBP-WBCS-WBPSC";
-
-
-console.log(
-    "Itta Study IQ Script Version:",
-    ITTA_SCRIPT_VERSION
-);
-
-
-/* =====================================================
-   FINAL GLOBAL EXPORTS
-===================================================== */
-
-window.resetMockTestState =
-    resetMockTestState;
-
-window.checkExamFiles =
-    checkExamFiles;
-
-window.showAllExams =
-    showAllExams;
-
-window.isPremiumPart =
-    isPremiumPart;
-
-window.isFreePart =
-    isFreePart;
-
-window.getPartNumber =
-    getPartNumber;
-
-window.hasPremiumAccess =
-    hasPremiumAccess;
-
-window.openPremiumQuestionPart =
-    openPremiumQuestionPart;
-
-window.setVerifiedPremiumAccess =
-    setVerifiedPremiumAccess;
-
-window.removePremiumAccess =
-    removePremiumAccess;
-
-window.clearMockTestData =
-    clearMockTestData;
-
-window.checkWBPFile =
-    checkWBPFile;
-
-
-/* =====================================================
-   PREVENT OLD WBP JSON CACHE
-===================================================== */
-
-window.addEventListener(
-    "pageshow",
-    function () {
-
-        console.log(
-            "WBP source:",
-            examFiles.WBP
-        );
-
-    }
-);/* =====================================================
-   FINAL INITIALIZATION
-===================================================== */
-
-/*
-   Make sure the important functions are available
-   to HTML onclick buttons.
-*/
+window.startMic =
+    startMic;
 
 window.startQuiz =
     startQuiz;
@@ -3448,23 +4407,17 @@ window.startQuiz =
 window.closeQuiz =
     closeQuiz;
 
-window.startMic =
-    startMic;
-
-window.askTutor =
-    askTutor;
-
 window.startMockTest =
     startMockTest;
 
 window.showExamParts =
     showExamParts;
 
-window.selectExamPart =
-    selectExamPart;
-
 window.selectExamCategory =
     selectExamCategory;
+
+window.selectExamPart =
+    selectExamPart;
 
 window.showPaidParts =
     showPaidParts;
@@ -3475,8 +4428,17 @@ window.openPaidPart =
 window.showPaymentMessage =
     showPaymentMessage;
 
+window.startPremiumPayment =
+    startPremiumPayment;
+
+window.showPaymentPending =
+    showPaymentPending;
+
 window.checkAnswer =
     checkAnswer;
+
+window.finishTest =
+    finishTest;
 
 window.showResult =
     showResult;
@@ -3484,115 +4446,90 @@ window.showResult =
 window.chooseExamAgain =
     chooseExamAgain;
 
-window.checkExamFiles =
-    checkExamFiles;
+window.confirmExitTest =
+    confirmExitTest;
 
-window.checkWBPFile =
-    checkWBPFile;
+window.unlockPremium =
+    unlockPremium;
 
-window.showAllExams =
-    showAllExams;
+window.startPremiumPart =
+    startPremiumPart;
 
 
 /* =====================================================
-   STARTUP CHECK
+   ITTA STUDY IQ STATUS
 ===================================================== */
 
-(function () {
+window.ITTAStudyIQ =
+    window.ITTAStudyIQ ||
+    {};
 
-    console.log(
-        "===================================="
-    );
-
-    console.log(
-        "✨ ITTA STUDY IQ"
-    );
-
-    console.log(
-        "Mock Test System Loaded"
-    );
-
-    console.log(
-        "Free Parts: 1–20"
-    );
-
-    console.log(
-        "Premium Parts: 21–100"
-    );
-
-    console.log(
-        "===================================="
-    );
+window.ITTAStudyIQ.ready =
+    true;
 
 
-    console.log(
-        "Available Exams:"
-    );
+window.ITTAStudyIQ.checkButtons =
+    function () {
 
-    Object.keys(
-        examFiles
-    ).forEach(
-        function (exam) {
+        return {
+
+            startMockTest:
+                typeof window.startMockTest ===
+                "function",
+
+            showExamParts:
+                typeof window.showExamParts ===
+                "function",
+
+            selectExamPart:
+                typeof window.selectExamPart ===
+                "function",
+
+            checkAnswer:
+                typeof window.checkAnswer ===
+                "function",
+
+            showResult:
+                typeof window.showResult ===
+                "function"
+
+        };
+
+    };
+
+
+console.log(
+    "✅ ITTA Study IQ Mock Test system ready"
+);
+
+
+/* =====================================================
+   FINAL DOM SAFETY CHECK
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        try {
+
+            window.ITTAStudyIQ.ready =
+                true;
 
             console.log(
-                exam +
-                " → " +
-                examFiles[exam]
+                "✅ All exam buttons connected"
             );
 
         }
-    );
 
+        catch (error) {
 
-    /*
-       WBP must use ONLY the new file.
-    */
+            console.error(
+                "❌ Button connection error:",
+                error
+            );
 
-    console.log(
-        "WBP source:",
-        examFiles.WBP
-    );
+        }
 
-
-    /*
-       New exams
-    */
-
-    console.log(
-        "WBCS source:",
-        examFiles.WBCS
-    );
-
-    console.log(
-        "WBPSC Clerkship source:",
-        examFiles.WBPSC_CLERKSHIP
-    );
-
-
-})();
-
-
-/* =====================================================
-   OPTIONAL DEBUG COMMANDS
-===================================================== */
-
-/*
-   Browser console-এ নিচের commands ব্যবহার
-   করে পরীক্ষা করা যাবে:
-
-   checkExamFiles()
-
-   checkWBPFile()
-
-   showAllExams()
-
-*/
-
-
-/* =====================================================
-   END OF SCRIPT
-===================================================== */
-
-console.log(
-    "✅ Itta Study IQ script.js ready."
+    }
 );
