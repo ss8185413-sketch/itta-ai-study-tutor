@@ -110,7 +110,8 @@ For Earth layers, water cycle, rock cycle, landforms, drainage systems and envir
 
 - Use clear natural-looking educational illustrations.
 - Use different colours for land, water, atmosphere and other important components.
-- Show processes with directional arrows.
+
+Show processes with directional arrows.
 
 SVG TECHNICAL RULES:
 
@@ -162,7 +163,6 @@ ${question}
 
   for (const model of models) {
     for (let attempt = 1; attempt <= 2; attempt++) {
-
       try {
         const response = await fetch(
           "https://generativelanguage.googleapis.com/v1beta/models/" +
@@ -222,7 +222,6 @@ ${question}
         }
 
         break;
-
       } catch (error) {
         lastError = error.message;
 
