@@ -382,83 +382,78 @@ button:active {
 ========================================================= */
 
 #mockTestBox {
-  margin-top: 25px;
-}
+  margin-top: 25px;  padding: 20px;
 
+  border-radius: 20px;
 
-/* =========================================================
-   SSC / EXAM PARTS
-========================================================= */
-
-.ssc-parts {
-  margin-top: 20px;
-
-  padding: 20px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f8fbff,
-      #eef4ff
-    );
+  background: #ffffff;
 
   border: 1px solid #dbeafe;
 
-  border-radius: 18px;
-}
-
-.ssc-parts h3 {
-  margin-top: 0;
-
-  margin-bottom: 6px;
-
-  text-align: center;
-
-  color: #1e3a8a;
-
-  font-size: 19px;
-}
-
-.ssc-parts p {
-  margin-bottom: 5px;
-
-  text-align: center;
-
-  color: #64748b;
-
-  font-size: 14px;
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.06);
 }
 
 
 /* =========================================================
-   PART BUTTON GRID
+   SELECT / DROPDOWN
 ========================================================= */
 
-.ssc-part-buttons {
+select {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 13px 14px;
+
+  border-radius: 13px;
+
+  border: 1px solid #cbd5e1;
+
+  background: #f8fafc;
+
+  color: #172033;
+
+  font-size: 15px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   PART GRID
+========================================================= */
+
+.part-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:
+    repeat(4, 1fr);
 
-  gap: 12px;
+  gap: 9px;
 
   margin-top: 18px;
 }
 
-
-/* =========================================================
-   PART BUTTON
-========================================================= */
-
-.ssc-part-buttons button {
+.part-btn {
   margin-top: 0;
 
-  min-height: 52px;
+  padding: 11px 7px;
 
-  padding: 12px 8px;
+  min-height: 45px;
 
-  font-size: 15px;
+  border-radius: 11px;
 
-  border-radius: 14px;
+  font-size: 13px;
 
   background:
     linear-gradient(
@@ -468,50 +463,64 @@ button:active {
     );
 
   box-shadow:
-    0 6px 16px rgba(59, 130, 246, 0.18);
+    0 5px 12px rgba(37, 99, 235, 0.15);
 }
 
-.ssc-part-buttons button:hover {
-  transform: translateY(-2px);
-
+.part-btn.locked {
   background:
     linear-gradient(
       135deg,
-      #2563eb,
-      #4f46e5
+      #94a3b8,
+      #64748b
     );
+
+  cursor: not-allowed;
+
+  opacity: 0.75;
 }
 
 
 /* =========================================================
-   MOCK QUESTION
+   QUESTION AREA
 ========================================================= */
 
-.mock-question {
-  background: #ffffff;
+#questionArea {
+  margin-top: 20px;
 
   padding: 20px;
 
   border-radius: 18px;
 
-  margin-bottom: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      #f8fbff,
+      #eef4ff
+    );
 
-  border: 1px solid #e2e8f0;
-
-  box-shadow:
-    0 7px 20px rgba(15, 23, 42, 0.06);
+  border: 1px solid #dbeafe;
 }
 
-.mock-question h3 {
-  margin-top: 0;
+.question-number {
+  margin-bottom: 10px;
 
-  margin-bottom: 12px;
+  color: #2563eb;
 
-  line-height: 1.5;
+  font-size: 14px;
 
+  font-weight: 800;
+}
+
+.question-text {
   font-size: 18px;
 
+  font-weight: 700;
+
+  line-height: 1.55;
+
   color: #172033;
+
+  margin-bottom: 18px;
 }
 
 
@@ -520,60 +529,70 @@ button:active {
 ========================================================= */
 
 .options {
-  margin-top: 15px;
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
 }
 
-.option-btn {
-  position: relative;
+.option {
+  width: 100%;
 
-  background: #ffffff;
+  margin: 0;
 
-  color: #172033;
-
-  border: 1px solid #dbe2ea;
+  padding: 13px 14px;
 
   text-align: left;
 
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  color: #1e293b;
+
+  border: 1px solid #cbd5e1;
+
   box-shadow: none;
 
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  font-weight: 600;
 }
 
-.option-btn:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #eff6ff,
-      #eef2ff
-    );
+.option:hover {
+  background: #eff6ff;
 
   border-color: #60a5fa;
 
-  color: #1d4ed8;
-
-  transform: translateX(3px);
+  transform: none;
 
   box-shadow: none;
+}
+
+.option.selected {
+  background: #dbeafe;
+
+  border-color: #2563eb;
+
+  color: #1d4ed8;
 }
 
 
 /* =========================================================
-   FEEDBACK
+   NEXT / SUBMIT
 ========================================================= */
 
-#feedback {
-  margin-top: 16px;
+#nextBtn,
+#submitBtn {
+  margin-top: 18px;
+}
 
-  padding: 12px;
-
-  border-radius: 12px;
-
-  font-weight: 700;
-
-  text-align: center;
+#submitBtn {
+  background:
+    linear-gradient(
+      135deg,
+      #059669,
+      #0d9488
+    );
 }
 
 
@@ -581,60 +600,39 @@ button:active {
    RESULT
 ========================================================= */
 
-.mock-result {
-  margin-top: 20px;
-
-  padding: 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eff6ff,
-      #eef2ff
-    );
-
-  border: 1px solid #dbeafe;
-
-  border-radius: 18px;
-
-  text-align: center;
-}
-
 .result-box {
   margin-top: 20px;
 
-  padding: 24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eff6ff,
-      #eef2ff
-    );
-
-  border: 1px solid #dbeafe;
+  padding: 20px;
 
   border-radius: 18px;
 
   text-align: center;
 
-  box-shadow:
-    0 8px 24px rgba(37, 99, 235, 0.08);
+  background:
+    linear-gradient(
+      135deg,
+      #ecfdf5,
+      #f0fdfa
+    );
+
+  border: 1px solid #a7f3d0;
 }
 
-.result-box h2 {
-  margin-top: 0;
+.result-box h3 {
+  margin: 0 0 8px;
 
-  color: #1e3a8a;
+  font-size: 24px;
+
+  color: #065f46;
 }
 
+.result-score {
+  font-size: 32px;
 
-/* =========================================================
-   QUIZ
-========================================================= */
+  font-weight: 800;
 
-#quizBox {
-  margin-top: 15px;
+  color: #047857;
 }
 
 
@@ -642,60 +640,181 @@ button:active {
    CURRENT AFFAIRS
 ========================================================= */
 
-.current-affairs-content {
-  line-height: 1.7;
-
-  color: #334155;
+.current-affairs {
+  margin-top: 25px;
 }
 
-.current-affairs-content h3 {
+.current-affairs h2 {
+  color: #172554;
+
+  margin-bottom: 10px;
+}
+
+.current-affairs-item {
+  padding: 15px;
+
+  margin-top: 10px;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   PREMIUM
+========================================================= */
+
+.premium-box {
   margin-top: 22px;
 
-  color: #1e3a8a;
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border: 1px solid #c7d2fe;
+
+  text-align: center;
+}
+
+.premium-box h3 {
+  margin-top: 0;
+
+  color: #3730a3;
+}
+
+.premium-price {
+  font-size: 30px;
+
+  font-weight: 800;
+
+  color: #2563eb;
+
+  margin: 8px 0;
 }
 
 
 /* =========================================================
-   SCROLLBAR
+   STATUS / MESSAGE
 ========================================================= */
 
-::-webkit-scrollbar {
-  width: 7px;
-}
+.status {
+  margin-top: 12px;
 
-::-webkit-scrollbar-track {
-  background: #eef2ff;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #93c5fd;
+  padding: 10px 12px;
 
   border-radius: 10px;
+
+  font-size: 14px;
+
+  color: #475569;
+
+  background: #f8fafc;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+.error {
+  color: #b91c1c;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+}
+
+.success {
+  color: #047857;
+
+  background: #ecfdf5;
+
+  border: 1px solid #a7f3d0;
 }
 
 
 /* =========================================================
-   MOBILE
+   HIDDEN
 ========================================================= */
 
-@media (max-width: 500px) {
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+  text-align: center;
+
+  padding: 20px;
+
+  color: #64748b;
+
+  font-weight: 600;
+}
+
+.loading::after {
+  content: "...";
+
+  animation:
+    loadingDots 1.2s infinite;
+}
+
+@keyframes loadingDots {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  text-align: center;
+
+  margin-top: 35px;
+
+  padding: 15px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 520px) {
 
   .app {
-    padding: 28px 14px 50px;
+    padding:
+      25px 12px 45px;
   }
 
   h1 {
     font-size: 28px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-
-    margin-bottom: 22px;
   }
 
   .card {
@@ -705,17 +824,34 @@ button:active {
   }
 
   .exam-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      repeat(2, 1fr);
 
     gap: 10px;
   }
 
-  .exam-btn {
-    min-height: 68px;
+  .part-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
 
-    font-size: 14px;
+    gap: 8px;
+  }
 
-    padding: 10px 7px;
+  .question-text {
+    font-size: 17px;
+  }
+}
+
+
+@media (max-width: 360px) {
+
+  .exam-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .part-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .button-row {
@@ -725,72 +861,33 @@ button:active {
   #micBtn {
     width: 100%;
   }
-
-  .ssc-part-buttons {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-  }
-
-  .ssc-part-buttons button {
-    font-size: 14px;
-
-    padding: 11px 7px;
-
-    min-height: 48px;
-  }
-
-  .mock-question {
-    padding: 16px;
-  }
-
-  .mock-question h3 {
-    font-size: 17px;
-  }
-
 }
 
 
 /* =========================================================
-   VERY SMALL SCREEN
+   ACCESSIBILITY
 ========================================================= */
 
-@media (max-width: 350px) {
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.30);
 
-  .app {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .exam-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ssc-part-buttons {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
+  outline-offset: 2px;
 }
 
 
 /* =========================================================
-   TOUCH DEVICE OPTIMIZATION
+   DISABLED
 ========================================================= */
 
-@media (hover: none) {
+button:disabled,
+select:disabled {
+  opacity: 0.55;
 
-  button:hover {
-    transform: none;
+  cursor: not-allowed;
 
-    filter: none;
-  }
+  transform: none !important;
 
-  .card:hover {
-    transform: none;
-  }
-
-     }
+  box-shadow: none;
+}
