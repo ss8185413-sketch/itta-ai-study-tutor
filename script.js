@@ -1,565 +1,2095 @@
 /* =========================================================
    ITTA LEARN
-   MAIN JAVASCRIPT
+   FINAL SCRIPT — PART 1
+   8 EXAMS + AI + MIC + QUIZ
 ========================================================= */
 
-const exams = {
-  SSC: "ssc_questions.json",
-  UPSC: "upsc_questions.json",
-  Bank: "bank_questions.json",
-  WBP: "wbp_questions.json",
-  "Kolkata Police": "kolkata_police_questions.json",
-  Railway: "railway_questions.json",
-  WBCS: "wbcs_questions.json",
-  "WBPSC Clerkship": "wbpsc_clerkship_questions.json"
-};
-
-let questionData = {};
-let currentExam = "";
-let currentPart = "";
-let currentQuestions = [];
-let currentQuestionIndex = 0;
-let selectedAnswer = null;
-let score = 0;
+"use strict";
 
 
 /* =========================================================
-   SAFE ELEMENT HELPER
+   GLOBAL VARIABLES
+========================================================= */
+
+let currentQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+
+let selectedExam = "";
+let selectedPart = "";
+let selectedExamCategory = "";
+
+let answerLocked = false;
+
+let testStartTime = null;
+let testEndTime = null;
+
+let testTimerInterval = null;
+let autoNextTimer = null;
+
+let recognition = null;
+let isListening = false;
+
+
+/* =========================================================
+   TEST SETTINGS
+========================================================= */
+
+const QUESTIONS_PER_TEST = 10;
+
+const AUTO_NEXT_DELAY = 900;
+
+const FREE_PART_START = 1;
+const FREE_PART_END = 20;
+
+const PAID_PART_START = 21;
+const PAID_PART_END = 100;
+
+const PREMIUM_PRICE = 49;
+
+
+/* =========================================================
+   ALL 8 EXAMS
+   EACH EXAM USES ITS OWN JSON FILE
+========================================================= */
+
+const examFiles = {
+
+    SSC:
+        "ssc_questions.json",
+
+    UPSC:
+        "upsc_questions.json",
+
+    BANK:
+        "bank_questions.json",
+
+    WBP:
+        "wbp_questions.json",
+
+    KOLKATA_POLICE:
+        "kolkata_police_questions.json",
+
+    RAILWAY:
+        "railway_questions.json",
+
+    WBCS:
+        "wbcs_questions.json",
+
+    WBPSC_CLERKSHIP:
+        "wbpsc_clerkship_questions.json"
+
+};
+
+
+/* =========================================================
+   EXAM DISPLAY NAMES
+========================================================= */
+
+const examPartNames = {
+
+    SSC:
+        "SSC",
+
+    UPSC:
+        "UPSC",
+
+    BANK:
+        "Bank",
+
+    WBP:
+        "WBP",
+
+    KOLKATA_POLICE:
+        "Kolkata Police",
+
+    RAILWAY:
+        "Railway",
+
+    WBCS:
+        "WBCS",
+
+    WBPSC_CLERKSHIP:
+        "WBPSC Clerkship"
+
+};
+
+
+/* =========================================================
+   EXAM CATEGORIES
+========================================================= */
+
+const examCategories = {
+
+    SSC: [
+        "SSC General Studies",
+        "SSC PYQ"
+    ],
+
+    UPSC: [
+        "UPSC General Studies",
+        "UPSC PYQ"
+    ],
+
+    BANK: [
+        "Banking Awareness",
+        "Bank PYQ"
+    ],
+
+    WBP: [
+        "WBP General Studies",
+        "WBP PYQ"
+    ],
+
+    KOLKATA_POLICE: [
+        "Kolkata Police General Studies",
+        "Kolkata Police PYQ"
+    ],
+
+    RAILWAY: [
+        "Railway General Studies",
+        "Railway PYQ"
+    ],
+
+    WBCS: [
+        "WBCS General Studies",
+        "WBCS PYQ"
+    ],
+
+    WBPSC_CLERKSHIP: [
+        "Clerkship General Studies",
+        "Clerkship PYQ"
+    ]
+
+};
+
+
+/* =========================================================
+   BASIC HELPER
 ========================================================= */
 
 function $(id) {
-  return document.getElementById(id);
+
+    return document.getElementById(id);
+
 }
 
 
 /* =========================================================
-   LOAD QUESTION FILE
+   HTML ESCAPE
 ========================================================= */
 
-async function loadExamQuestions(examName) {
-
-  const file = exams[examName];
-
-  if (!file) {
-    throw new Error("Question file not found for " + examName);
-  }
-
-  const response = await fetch(file, {
-    cache: "no-cache"
-  });
-
-  if (!response.ok) {
-    throw new Error(
-      "Could not load " + file
-    );
-  }
-
-  const data = await response.json();
-
-  questionData[examName] = data;
-
-  return data;
-}
-
-
-/* =========================================================
-   NORMALIZE PART DATA
-   Supports:
-   - parts
-   - parts_data
-   - part1
-   - Part 1
-   - Part_1
-   - part-1
-========================================================= */
-
-function getParts(data) {
-
-  if (!data) {
-    return {};
-  }
-
-  if (Array.isArray(data)) {
-    const result = {};
-
-    data.forEach((item, index) => {
-      result["Part " + (index + 1)] = item;
-    });
-
-    return result;
-  }
-
-
-  if (Array.isArray(data.parts)) {
-
-    const result = {};
-
-    data.parts.forEach((item, index) => {
-
-      const partName =
-        item.part ||
-        item.name ||
-        item.title ||
-        "Part " + (index + 1);
-
-      result[normalizePartName(partName)] = item;
-    });
-
-    return result;
-  }
-
-
-  if (Array.isArray(data.parts_data)) {
-
-    const result = {};
-
-    data.parts_data.forEach((item, index) => {
-
-      const partName =
-        item.part ||
-        item.name ||
-        item.title ||
-        "Part " + (index + 1);
-
-      result[normalizePartName(partName)] = item;
-    });
-
-    return result;
-  }
-
-
-  const result = {};
-
-  Object.keys(data).forEach(key => {
-
-    if (
-      /^part[\s_-]*\d+$/i.test(key)
-    ) {
-      result[normalizePartName(key)] = data[key];
-    }
-
-  });
-
-  return result;
-}
-
-
-/* =========================================================
-   NORMALIZE PART NAME
-========================================================= */
-
-function normalizePartName(name) {
-
-  const text = String(name)
-    .trim()
-    .replace(/_/g, " ")
-    .replace(/-/g, " ");
-
-  const match =
-    text.match(/part\s*(\d+)/i);
-
-  if (match) {
-    return "Part " + match[1];
-  }
-
-  return text;
-}
-
-
-/* =========================================================
-   GET QUESTIONS FROM PART
-========================================================= */
-
-function getQuestionsFromPart(part) {
-
-  if (!part) {
-    return [];
-  }
-
-  if (Array.isArray(part)) {
-    return part;
-  }
-
-  if (Array.isArray(part.questions)) {
-    return part.questions;
-  }
-
-  if (Array.isArray(part.data)) {
-    return part.data;
-  }
-
-  if (Array.isArray(part.mcqs)) {
-    return part.mcqs;
-  }
-
-  return [];
-}
-
-
-/* =========================================================
-   NORMALIZE QUESTION
-========================================================= */
-
-function normalizeQuestion(q) {
-
-  if (!q || typeof q !== "object") {
-    return null;
-  }
-
-  const question =
-    q.question ||
-    q.question_text ||
-    q.q ||
-    q.text ||
-    "";
-
-  const options =
-    q.options ||
-    q.choices ||
-    q.answers ||
-    [];
-
-  let answer =
-    q.answer ??
-    q.correct_answer ??
-    q.correctAnswer ??
-    q.correct ??
-    "";
-
-  return {
-    question: String(question),
-    options: Array.isArray(options)
-      ? options
-      : [],
-    answer: answer,
-    explanation:
-      q.explanation ||
-      q.solution ||
-      ""
-  };
-}
-
-
-/* =========================================================
-   SHUFFLE
-========================================================= */
-
-function shuffle(array) {
-
-  const arr = [...array];
-
-  for (
-    let i = arr.length - 1;
-    i > 0;
-    i--
-  ) {
-
-    const j =
-      Math.floor(Math.random() * (i + 1));
-
-    [
-      arr[i],
-      arr[j]
-    ] = [
-      arr[j],
-      arr[i]
-    ];
-  }
-
-  return arr;
-}
-
-
-/* =========================================================
-   LOAD PART
-========================================================= */
-
-async function loadPart(
-  examName,
-  partName
-) {
-
-  currentExam = examName;
-  currentPart = partName;
-
-  try {
-
-    showMessage(
-      "Loading questions..."
-    );
-
-    let data =
-      questionData[examName];
-
-    if (!data) {
-      data =
-        await loadExamQuestions(examName);
-    }
-
-    const parts =
-      getParts(data);
-
-    const normalized =
-      normalizePartName(partName);
-
-    const part =
-      parts[normalized];
-
-    if (!part) {
-
-      showMessage(
-        `${examName} ${normalized} questions are not available.`
-      );
-
-      currentQuestions = [];
-
-      return;
-    }
-
-    const questions =
-      getQuestionsFromPart(part)
-        .map(normalizeQuestion)
-        .filter(q =>
-          q &&
-          q.question &&
-          q.options.length > 0
+function escapeHTML(value) {
+
+    return String(value ?? "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
         );
 
-    if (!questions.length) {
-
-      showMessage(
-        "No questions found in this Part."
-      );
-
-      currentQuestions = [];
-
-      return;
-    }
-
-    currentQuestions =
-      shuffle(questions);
-
-    currentQuestionIndex = 0;
-    score = 0;
-    selectedAnswer = null;
-
-    showQuestion();
-
-  } catch (error) {
-
-    console.error(error);
-
-    showMessage(
-      "Unable to load questions. Please try again."
-    );
-  }
 }
 
 
 /* =========================================================
-   SHOW QUESTION
+   SHUFFLE QUESTIONS
 ========================================================= */
 
-function showQuestion() {
+function shuffleArray(array) {
 
-  const area =
-    $("questionArea");
+    const result =
+        Array.isArray(array)
+            ? [...array]
+            : [];
 
-  if (!area) {
-    return;
-  }
+    for (
+        let i = result.length - 1;
+        i > 0;
+        i--
+    ) {
 
-  if (
-    !currentQuestions.length ||
-    currentQuestionIndex >=
-      currentQuestions.length
-  ) {
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
 
-    showResult();
+        [
+            result[i],
+            result[j]
+        ] =
+        [
+            result[j],
+            result[i]
+        ];
 
-    return;
-  }
-
-  const q =
-    currentQuestions[
-      currentQuestionIndex
-    ];
-
-  selectedAnswer = null;
-
-  area.innerHTML = "";
-
-  const number =
-    document.createElement("div");
-
-  number.className =
-    "question-number";
-
-  number.textContent =
-    `Question ${currentQuestionIndex + 1} of ${currentQuestions.length}`;
-
-  area.appendChild(number);
-
-
-  const question =
-    document.createElement("div");
-
-  question.className =
-    "question-text";
-
-  question.textContent =
-    q.question;
-
-  area.appendChild(question);
-
-
-  const options =
-    document.createElement("div");
-
-  options.className =
-    "options";
-
-  q.options.forEach(
-    (option, index) => {
-
-      const button =
-        document.createElement("button");
-
-      button.type = "button";
-
-      button.className =
-        "option";
-
-      button.textContent =
-        option;
-
-      button.addEventListener(
-        "click",
-        () => selectAnswer(
-          index,
-          option
-        )
-      );
-
-      options.appendChild(button);
     }
-  );
 
-  area.appendChild(options);
+    return result;
 
-
-  const nextBtn =
-    document.createElement("button");
-
-  nextBtn.type = "button";
-
-  nextBtn.id =
-    "nextQuestionBtn";
-
-  nextBtn.textContent =
-    currentQuestionIndex ===
-    currentQuestions.length - 1
-      ? "Submit Test"
-      : "Next Question";
-
-  nextBtn.addEventListener(
-    "click",
-    nextQuestion
-  );
-
-  area.appendChild(nextBtn);
 }
 
 
 /* =========================================================
-   SELECT ANSWER
+   GET EXAM NAME
 ========================================================= */
 
-function selectAnswer(
-  index,
-  value
-) {
-
-  selectedAnswer = {
-    index: index,
-    value: value
-  };
-
-  const buttons =
-    document.querySelectorAll(
-      ".option"
-    );
-
-  buttons.forEach(
-    (button, i) => {
-
-      button.classList.toggle(
-        "selected",
-        i === index
-      );
-    }
-  );
-}
-
-
-/* =========================================================
-   CHECK ANSWER
-========================================================= */
-
-function isCorrectAnswer(
-  question,
-  selected
-) {
-
-  if (!question) {
-    return false;
-  }
-
-  const correct =
-    question.answer;
-
-  if (
-    typeof correct === "number"
-  ) {
-    return selected.index === correct;
-  }
-
-  const correctText =
-    String(correct)
-      .trim()
-      .toLowerCase();
-
-  const selectedText =
-    String(selected.value)
-      .trim()
-      .toLowerCase();
-
-  if (
-    correctText ===
-    selectedText
-  ) {
-    return true;
-  }
-
-  const letterMatch =
-    correctText.match(
-      /^[a-d]$/i
-    );
-
-  if (letterMatch) {
-
-    const correctIndex =
-      "abcd".indexOf(
-        letterMatch[0].toLowerCase()
-      );
+function getExamName(exam) {
 
     return (
-      selected.index ===
-      correctIndex
+        examPartNames[exam] ||
+        exam ||
+        ""
     );
-  }
 
-  return false;
+}
+
+
+/* =========================================================
+   GET PART NUMBER
+========================================================= */
+
+function getPartNumber(part) {
+
+    return String(
+        part || ""
+    ).replace(
+        /^part/i,
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   STOP TIMER
+========================================================= */
+
+function stopLiveTimer() {
+
+    if (
+        testTimerInterval
+    ) {
+
+        clearInterval(
+            testTimerInterval
+        );
+
+        testTimerInterval =
+            null;
+
+    }
+
+}
+
+
+/* =========================================================
+   CLEAR AUTO NEXT
+========================================================= */
+
+function clearAutoNextTimer() {
+
+    if (
+        autoNextTimer
+    ) {
+
+        clearTimeout(
+            autoNextTimer
+        );
+
+        autoNextTimer =
+            null;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESET TEST STATE
+========================================================= */
+
+function resetTestState(
+    clearExam = true
+) {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    selectedPart =
+        "";
+
+    selectedExamCategory =
+        "";
+
+    answerLocked =
+        false;
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+    if (
+        clearExam
+    ) {
+
+        selectedExam =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   SIMPLE MESSAGE
+========================================================= */
+
+function showMessage(
+    message,
+    type = "info"
+) {
+
+    const box =
+        $("mockTestBox");
+
+    if (!box) {
+
+        alert(message);
+
+        return;
+
+    }
+
+    const icon =
+        type === "success"
+            ? "✅"
+            : type === "error"
+                ? "❌"
+                : type === "warning"
+                    ? "⚠️"
+                    : "ℹ️";
+
+    box.innerHTML = `
+
+        <div class="result-box">
+
+            <h3>
+                ${icon}
+                ${escapeHTML(message)}
+            </h3>
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="backToExamList()"
+            >
+                🔙 Back to Exams
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   PAGE READY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        console.log(
+            "✅ ITTA LEARN loaded successfully"
+        );
+
+        console.log(
+            "✅ 8 Exam system ready"
+        );
+
+        console.log(
+            "✅ AI Tutor ready"
+        );
+
+        console.log(
+            "✅ Microphone system ready"
+        );
+
+    }
+);/* =========================================================
+   ITTA LEARN - PART 2
+   EXAM LIST + PART SELECTION
+========================================================= */
+
+
+/* =========================================================
+   SHOW ALL 8 EXAMS
+========================================================= */
+
+function backToExamList() {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
+    resetTestState(true);
+
+    const box =
+        $("mockTestBox");
+
+    if (!box) {
+
+        console.error(
+            "❌ mockTestBox not found"
+        );
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="exam-selection">
+
+            <h3>
+                🎯 Select Your Exam
+            </h3>
+
+            <div class="exam-grid">
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('SSC')"
+                >
+                    📘 SSC
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('UPSC')"
+                >
+                    🏛️ UPSC
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('BANK')"
+                >
+                    🏦 Bank
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('WBP')"
+                >
+                    👮 WBP
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('KOLKATA_POLICE')"
+                >
+                    🚔 Kolkata Police
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('RAILWAY')"
+                >
+                    🚆 Railway
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('WBCS')"
+                >
+                    🏛️ WBCS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="startMockTest('WBPSC_CLERKSHIP')"
+                >
+                    📚 WBPSC Clerkship
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   START SELECTED EXAM
+========================================================= */
+
+function startMockTest(
+    exam
+) {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
+    if (
+        !examFiles[exam]
+    ) {
+
+        showMessage(
+            "This exam is not configured.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    selectedExam =
+        exam;
+
+    selectedPart =
+        "";
+
+    selectedExamCategory =
+        "";
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    answerLocked =
+        false;
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+
+    showExamParts(
+        exam
+    );
+
+}
+
+
+/* =========================================================
+   OLD BUTTON COMPATIBILITY
+========================================================= */
+
+function openMockTest(
+    exam
+) {
+
+    startMockTest(
+        exam
+    );
+
+}
+
+
+/* =========================================================
+   SHOW PARTS
+========================================================= */
+
+function showExamParts(
+    exam
+) {
+
+    stopLiveTimer();
+    clearAutoNextTimer();
+
+
+    if (
+        !examFiles[exam]
+    ) {
+
+        showMessage(
+            "Exam configuration not found.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    selectedExam =
+        exam;
+
+
+    selectedPart =
+        "";
+
+
+    const box =
+        $("mockTestBox");
+
+
+    if (!box) {
+
+        console.error(
+            "❌ mockTestBox not found"
+        );
+
+        return;
+
+    }
+
+
+    const examName =
+        getExamName(
+            exam
+        );
+
+
+    const categories =
+        examCategories[exam] || [];
+
+
+    /* =========================
+       CATEGORY BUTTONS
+    ========================= */
+
+    let categoryHTML =
+        "";
+
+
+    if (
+        categories.length
+    ) {
+
+        categoryHTML = `
+
+            <div
+                class="exam-category-section"
+            >
+
+                <h4>
+                    📚 Categories
+                </h4>
+
+                <div
+                    class="exam-grid"
+                >
+
+                    ${categories.map(
+                        function(category) {
+
+                            return `
+
+                                <button
+                                    type="button"
+                                    class="exam-btn"
+                                    onclick="selectExamCategory(
+                                        '${escapeHTML(exam)}',
+                                        '${escapeHTML(category)}'
+                                    )"
+                                >
+
+                                    ${escapeHTML(category)}
+
+                                </button>
+
+                            `;
+
+                        }
+                    ).join("")}
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =========================
+       FREE PARTS 1–20
+    ========================= */
+
+    let freeParts =
+        "";
+
+
+    for (
+        let i = FREE_PART_START;
+        i <= FREE_PART_END;
+        i++
+    ) {
+
+        freeParts += `
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="selectExamPart(
+                    '${escapeHTML(exam)}',
+                    'part${i}'
+                )"
+            >
+
+                🆓 Part ${i}
+
+            </button>
+
+        `;
+
+    }
+
+
+    /* =========================
+       DISPLAY
+    ========================= */
+
+    box.innerHTML = `
+
+        <div
+            class="exam-parts"
+        >
+
+            <h3>
+                📚 ${escapeHTML(examName)}
+            </h3>
+
+
+            ${
+                selectedExamCategory
+                    ? `
+
+                        <p>
+
+                            🎯 Selected:
+
+                            <strong>
+                                ${escapeHTML(
+                                    selectedExamCategory
+                                )}
+                            </strong>
+
+                        </p>
+
+                    `
+                    : ""
+            }
+
+
+            ${categoryHTML}
+
+
+            <hr>
+
+
+            <h4>
+                🆓 Free Parts 1–20
+            </h4>
+
+
+            <div
+                class="exam-grid"
+            >
+
+                ${freeParts}
+
+            </div>
+
+
+            <hr>
+
+
+            <h4>
+                ⭐ Premium Parts 21–100
+            </h4>
+
+
+            <p>
+                Premium Access:
+                ₹${PREMIUM_PRICE}
+            </p>
+
+
+            <button
+                type="button"
+                class="exam-btn premium-main-btn"
+                onclick="showPaidParts(
+                    '${escapeHTML(exam)}'
+                )"
+            >
+
+                ⭐ Open Premium Parts
+
+            </button>
+
+
+            <br>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="backToExamList()"
+            >
+
+                🔙 Back to Exams
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   CATEGORY SELECTION
+========================================================= */
+
+function selectExamCategory(
+    exam,
+    category
+) {
+
+    selectedExam =
+        exam;
+
+    selectedExamCategory =
+        category;
+
+
+    showExamParts(
+        exam
+    );
+
+}
+
+
+/* =========================================================
+   PART ALIASES
+========================================================= */
+
+function selectPart(
+    exam,
+    part
+) {
+
+    selectExamPart(
+        exam,
+        part
+    );
+
+}
+
+
+function loadPart(
+    exam,
+    part
+) {
+
+    selectExamPart(
+        exam,
+        part
+    );
+
+}/* =========================================================
+   ITTA LEARN - PART 3
+   JSON LOADER + QUESTION NORMALIZER
+========================================================= */
+
+
+/* =========================================================
+   LOAD EXAM JSON
+========================================================= */
+
+async function fetchExamJSON(exam) {
+
+    const file =
+        examFiles[exam];
+
+
+    if (!file) {
+
+        throw new Error(
+            "JSON file configured নেই: " + exam
+        );
+
+    }
+
+
+    const response =
+        await fetch(
+            file + "?v=" + Date.now(),
+            {
+                cache: "no-store"
+            }
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            file +
+            " load হয়নি. HTTP " +
+            response.status
+        );
+
+    }
+
+
+    return await response.json();
+
+}
+
+
+/* =========================================================
+   EXTRACT QUESTION ARRAY
+========================================================= */
+
+function extractQuestionArray(
+    data
+) {
+
+    if (
+        Array.isArray(data)
+    ) {
+
+        return data;
+
+    }
+
+
+    if (
+        !data ||
+        typeof data !== "object"
+    ) {
+
+        return [];
+
+    }
+
+
+    const possibleKeys = [
+
+        "questions",
+
+        "data",
+
+        "items",
+
+        "questionBank",
+
+        "question_bank"
+
+    ];
+
+
+    for (
+        const key of possibleKeys
+    ) {
+
+        if (
+            Array.isArray(
+                data[key]
+            )
+        ) {
+
+            return data[key];
+
+        }
+
+    }
+
+
+    /* =========================
+       PART-WISE JSON
+    ========================= */
+
+    const merged = [];
+
+
+    for (
+        const key of Object.keys(data)
+    ) {
+
+        if (
+            /^part\s*\d+$/i.test(
+                key
+            )
+            &&
+            Array.isArray(
+                data[key]
+            )
+        ) {
+
+            merged.push(
+                ...data[key]
+            );
+
+        }
+
+    }
+
+
+    return merged;
+
+}
+
+
+/* =========================================================
+   GET SPECIFIC PART
+========================================================= */
+
+function getPartData(
+    data,
+    partName
+) {
+
+    if (
+        !data ||
+        typeof data !== "object"
+    ) {
+
+        return null;
+
+    }
+
+
+    const number =
+        getPartNumber(
+            partName
+        );
+
+
+    const keys = [
+
+        partName,
+
+        "Part " + number,
+
+        "part" + number,
+
+        "part_" + number,
+
+        number
+
+    ];
+
+
+    for (
+        const key of keys
+    ) {
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                data,
+                key
+            )
+        ) {
+
+            return data[key];
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   NORMALIZE ONE QUESTION
+========================================================= */
+
+function normalizeQuestion(
+    raw
+) {
+
+    if (
+        !raw ||
+        typeof raw !== "object"
+    ) {
+
+        return null;
+
+    }
+
+
+    const question =
+
+        raw.question ??
+
+        raw.q ??
+
+        raw.questionText ??
+
+        raw.text ??
+
+        "";
+
+
+    let options =
+
+        raw.options ??
+
+        raw.choices ??
+
+        raw.answers ??
+
+        [];
+
+
+    /* =========================
+       OBJECT OPTIONS
+    ========================= */
+
+    if (
+        !Array.isArray(options) &&
+        options &&
+        typeof options === "object"
+    ) {
+
+        options =
+            Object.values(
+                options
+            );
+
+    }
+
+
+    options =
+        Array.isArray(options)
+
+            ? options.map(
+                function(option) {
+
+                    return String(
+                        option ?? ""
+                    );
+
+                }
+            )
+
+            : [];
+
+
+    /* =========================
+       ANSWER
+    ========================= */
+
+    let answer =
+
+        raw.answer ??
+
+        raw.correctAnswer ??
+
+        raw.correct ??
+
+        raw.correct_option ??
+
+        raw.correctOption;
+
+
+    /* =========================
+       ANSWER AS NUMBER
+    ========================= */
+
+    if (
+        typeof answer === "number"
+    ) {
+
+        if (
+            options[answer]
+        ) {
+
+            answer =
+                options[answer];
+
+        }
+
+    }
+
+
+    /* =========================
+       ANSWER AS A/B/C/D
+    ========================= */
+
+    if (
+        typeof answer === "string"
+    ) {
+
+        const trimmed =
+            answer.trim();
+
+
+        const letterMatch =
+            trimmed.match(
+                /^[A-D]$/i
+            );
+
+
+        if (
+            letterMatch
+        ) {
+
+            const index =
+                trimmed
+                    .toUpperCase()
+                    .charCodeAt(0)
+                    - 65;
+
+
+            if (
+                options[index]
+            ) {
+
+                answer =
+                    options[index];
+
+            }
+
+        }
+
+    }
+
+
+    const explanation =
+
+        raw.explanation ??
+
+        raw.explain ??
+
+        raw.solution ??
+
+        "";
+
+
+    /* =========================
+       INVALID QUESTION
+    ========================= */
+
+    if (
+        !question ||
+        options.length < 2 ||
+        answer === undefined
+    ) {
+
+        return null;
+
+    }
+
+
+    return {
+
+        question:
+            String(question),
+
+        options:
+            options,
+
+        answer:
+            String(answer),
+
+        explanation:
+            String(
+                explanation || ""
+            )
+
+    };
+
+}
+
+
+/* =========================================================
+   NORMALIZE QUESTION LIST
+========================================================= */
+
+function normalizeQuestions(
+    rawArray
+) {
+
+    if (
+        !Array.isArray(
+            rawArray
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    return rawArray
+
+        .map(
+            normalizeQuestion
+        )
+
+        .filter(
+            Boolean
+        );
+
+}
+
+
+/* =========================================================
+   SELECT PART AND LOAD QUESTIONS
+========================================================= */
+
+async function selectExamPart(
+    exam,
+    partName
+) {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+
+    selectedExam =
+        exam;
+
+    selectedPart =
+        partName;
+
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    answerLocked =
+        false;
+
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+
+    const box =
+        $("mockTestBox");
+
+
+    if (!box) {
+
+        console.error(
+            "❌ mockTestBox not found"
+        );
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="result-box">
+
+            <h3>
+                📚 ${escapeHTML(
+                    getExamName(exam)
+                )}
+            </h3>
+
+            <p>
+                Part
+                ${escapeHTML(
+                    getPartNumber(
+                        partName
+                    )
+                )}
+            </p>
+
+            <p>
+                ⏳ Loading questions...
+            </p>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        /* =========================
+           LOAD JSON
+        ========================= */
+
+        const data =
+            await fetchExamJSON(
+                exam
+            );
+
+
+        /* =========================
+           FIND PART
+        ========================= */
+
+        const rawPart =
+            getPartData(
+                data,
+                partName
+            );
+
+
+        let rawQuestions;
+
+
+        if (
+            rawPart !== null
+        ) {
+
+            rawQuestions =
+                extractQuestionArray(
+                    rawPart
+                );
+
+        } else {
+
+            rawQuestions =
+                extractQuestionArray(
+                    data
+                );
+
+        }
+
+
+        /* =========================
+           NORMALIZE
+        ========================= */
+
+        const questions =
+            normalizeQuestions(
+                rawQuestions
+            );
+
+
+        if (
+            !questions.length
+        ) {
+
+            throw new Error(
+
+                "Part " +
+                getPartNumber(
+                    partName
+                ) +
+                " এ কোনো valid question পাওয়া যায়নি।"
+
+            );
+
+        }
+
+
+        /* =========================
+           RANDOM 10 QUESTIONS
+        ========================= */
+
+        currentQuestions =
+            shuffleArray(
+                questions
+            ).slice(
+                0,
+                Math.min(
+                    QUESTIONS_PER_TEST,
+                    questions.length
+                )
+            );
+
+
+        currentQuestionIndex =
+            0;
+
+        score =
+            0;
+
+        answerLocked =
+            false;
+
+
+        testStartTime =
+            Date.now();
+
+        testEndTime =
+            null;
+
+
+        /* =========================
+           SHOW FIRST QUESTION
+        ========================= */
+
+        renderQuestion();
+
+
+        /* =========================
+           START TIMER
+        ========================= */
+
+        startLiveTimer();
+
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            "Question loading error:",
+            error
+        );
+
+
+        box.innerHTML = `
+
+            <div class="result-box">
+
+                <h3>
+                    ❌ Questions Load হয়নি
+                </h3>
+
+                <p>
+                    ${escapeHTML(
+                        error.message
+                    )}
+                </p>
+
+                <p>
+                    JSON file name এবং
+                    Part structure check করো।
+                </p>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts(
+                        '${escapeHTML(exam)}'
+                    )"
+                >
+
+                    🔙 Choose Part
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}/* =========================================================
+   ITTA LEARN - PART 4
+   QUESTION SCREEN + ANSWER + NEXT/PREVIOUS
+========================================================= */
+
+
+/* =========================================================
+   RENDER CURRENT QUESTION
+========================================================= */
+
+function renderQuestion() {
+
+    const box =
+        $("mockTestBox");
+
+
+    if (
+        !box ||
+        !currentQuestions.length
+    ) {
+
+        return;
+
+    }
+
+
+    const q =
+        currentQuestions[
+            currentQuestionIndex
+        ];
+
+
+    if (!q) {
+
+        return;
+
+    }
+
+
+    const progress =
+        `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
+
+
+    box.innerHTML = `
+
+        <div class="quiz-box">
+
+
+            <!-- HEADER -->
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    gap:10px;
+                    flex-wrap:wrap;
+                "
+            >
+
+                <strong>
+
+                    📚
+                    ${escapeHTML(
+                        getExamName(
+                            selectedExam
+                        )
+                    )}
+
+                    —
+                    Part
+                    ${escapeHTML(
+                        getPartNumber(
+                            selectedPart
+                        )
+                    )}
+
+                </strong>
+
+
+                <strong id="liveTimer">
+
+                    ⏱️ 00:00
+
+                </strong>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <p>
+
+                Question
+                ${progress}
+
+            </p>
+
+
+            <hr>
+
+
+            <!-- QUESTION -->
+
+            <h3>
+
+                ${escapeHTML(
+                    q.question
+                )}
+
+            </h3>
+
+
+            <!-- OPTIONS -->
+
+            <div
+                class="options"
+                style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:10px;
+                "
+            >
+
+                ${q.options.map(
+                    function(option, index) {
+
+                        return `
+
+                            <button
+
+                                type="button"
+
+                                class="
+                                    exam-btn
+                                    option-btn
+                                "
+
+                                id="
+                                    option-${index}
+                                "
+
+                                onclick="
+                                    answerQuestion(
+                                        ${index}
+                                    )
+                                "
+                            >
+
+                                ${String
+                                    .fromCharCode(
+                                        65 + index
+                                    )
+                                }.
+
+                                ${escapeHTML(
+                                    option
+                                )}
+
+                            </button>
+
+                        `;
+
+                    }
+                ).join("")}
+
+            </div>
+
+
+            <!-- ANSWER FEEDBACK -->
+
+            <div
+                id="answerFeedback"
+                style="
+                    margin-top:15px;
+                    line-height:1.6;
+                "
+            ></div>
+
+
+            <!-- NAVIGATION -->
+
+            <div
+                class="result-buttons"
+                style="
+                    margin-top:15px;
+                    display:flex;
+                    gap:8px;
+                    flex-wrap:wrap;
+                "
+            >
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="previousQuestion()"
+                >
+
+                    ◀ Previous
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="nextQuestion()"
+                >
+
+                    Next ▶
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="confirmExitTest()"
+                >
+
+                    ✕ Exit
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    /* =========================
+       UPDATE TIMER
+    ========================= */
+
+    updateLiveTimer();
+
+}
+
+
+/* =========================================================
+   ANSWER QUESTION
+========================================================= */
+
+function answerQuestion(
+    index
+) {
+
+    if (
+        answerLocked
+    ) {
+
+        return;
+
+    }
+
+
+    const q =
+        currentQuestions[
+            currentQuestionIndex
+        ];
+
+
+    if (!q) {
+
+        return;
+
+    }
+
+
+    const selected =
+        q.options[index] ??
+        "";
+
+
+    const correct =
+        String(
+            q.answer
+        ).trim();
+
+
+    const isCorrect =
+
+        selected
+            .trim()
+            .toLowerCase()
+
+        ===
+
+        correct
+            .trim()
+            .toLowerCase();
+
+
+    /* =========================
+       LOCK ANSWER
+    ========================= */
+
+    answerLocked =
+        true;
+
+
+    /* =========================
+       SCORE
+    ========================= */
+
+    if (
+        isCorrect
+    ) {
+
+        score++;
+
+    }
+
+
+    /* =========================
+       DISABLE OPTIONS
+    ========================= */
+
+    document
+        .querySelectorAll(
+            ".option-btn"
+        )
+        .forEach(
+            function(button) {
+
+                button.disabled =
+                    true;
+
+            }
+        );
+
+
+    /* =========================
+       FEEDBACK
+    ========================= */
+
+    const feedback =
+        $("answerFeedback");
+
+
+    if (
+        feedback
+    ) {
+
+        if (
+            isCorrect
+        ) {
+
+            feedback.innerHTML = `
+
+                <div
+                    style="
+                        padding:10px;
+                        border-radius:8px;
+                    "
+                >
+
+                    <strong>
+                        ✅ Correct Answer!
+                    </strong>
+
+                </div>
+
+            `;
+
+        } else {
+
+            feedback.innerHTML = `
+
+                <div
+                    style="
+                        padding:10px;
+                        border-radius:8px;
+                    "
+                >
+
+                    <strong>
+                        ❌ Wrong Answer
+                    </strong>
+
+                    <br>
+
+                    Correct Answer:
+
+                    <strong>
+                        ${escapeHTML(
+                            correct
+                        )}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           EXPLANATION
+        ========================= */
+
+        if (
+            q.explanation
+        ) {
+
+            feedback.innerHTML += `
+
+                <p>
+
+                    <strong>
+                        📖 Explanation:
+                    </strong>
+
+                    <br>
+
+                    ${escapeHTML(
+                        q.explanation
+                    )}
+
+                </p>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =========================
+       AUTO NEXT
+    ========================= */
+
+    clearAutoNextTimer();
+
+
+    autoNextTimer =
+        setTimeout(
+            function() {
+
+                nextQuestion();
+
+            },
+            AUTO_NEXT_DELAY
+        );
+
 }
 
 
@@ -569,448 +2099,1489 @@ function isCorrectAnswer(
 
 function nextQuestion() {
 
-  if (!selectedAnswer) {
+    clearAutoNextTimer();
 
-    alert(
-      "Please select an answer first."
-    );
 
-    return;
-  }
+    if (
+        !currentQuestions.length
+    ) {
 
-  const q =
-    currentQuestions[
-      currentQuestionIndex
-    ];
+        return;
 
-  if (
-    isCorrectAnswer(
-      q,
-      selectedAnswer
-    )
-  ) {
-    score++;
-  }
+    }
 
-  currentQuestionIndex++;
 
-  showQuestion();
+    /* =========================
+       ANSWER MUST BE SELECTED
+    ========================= */
+
+    if (
+        !answerLocked
+    ) {
+
+        alert(
+            "আগে একটি answer select করো।"
+        );
+
+        return;
+
+    }
+
+
+    /* =========================
+       NEXT
+    ========================= */
+
+    if (
+        currentQuestionIndex
+        <
+        currentQuestions.length - 1
+    ) {
+
+        currentQuestionIndex++;
+
+        answerLocked =
+            false;
+
+        renderQuestion();
+
+        return;
+
+    }
+
+
+    /* =========================
+       LAST QUESTION
+    ========================= */
+
+    finishTest();
+
 }
 
 
 /* =========================================================
-   RESULT
+   PREVIOUS QUESTION
+========================================================= */
+
+function previousQuestion() {
+
+    clearAutoNextTimer();
+
+
+    if (
+        !currentQuestions.length
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        currentQuestionIndex <= 0
+    ) {
+
+        alert(
+            "এটাই প্রথম question।"
+        );
+
+        return;
+
+    }
+
+
+    currentQuestionIndex--;
+
+    answerLocked =
+        false;
+
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   UPDATE LIVE TIMER
+========================================================= */
+
+function updateLiveTimer() {
+
+    const timer =
+        $("liveTimer");
+
+
+    if (
+        !timer ||
+        !testStartTime
+    ) {
+
+        return;
+
+    }
+
+
+    const elapsed =
+        Math.max(
+            0,
+            Math.floor(
+                (
+                    Date.now()
+                    -
+                    testStartTime
+                ) / 1000
+            )
+        );
+
+
+    const minutes =
+        Math.floor(
+            elapsed / 60
+        );
+
+
+    const seconds =
+        elapsed % 60;
+
+
+    timer.textContent =
+
+        "⏱️ " +
+
+        String(
+            minutes
+        ).padStart(
+            2,
+            "0"
+        )
+
+        +
+
+        ":" +
+
+        String(
+            seconds
+        ).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+/* =========================================================
+   START LIVE TIMER
+========================================================= */
+
+function startLiveTimer() {
+
+    stopLiveTimer();
+
+
+    function tick() {
+
+        updateLiveTimer();
+
+    }
+
+
+    tick();
+
+
+    testTimerInterval =
+        setInterval(
+            tick,
+            1000
+        );
+
+}
+
+
+/* =========================================================
+   FINISH TEST
+========================================================= */
+
+function finishTest() {
+
+    if (
+        !currentQuestions.length
+    ) {
+
+        showExamParts(
+            selectedExam
+        );
+
+        return;
+
+    }
+
+
+    testEndTime =
+        Date.now();
+
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+
+    showResult();
+
+   }/* =========================================================
+   ITTA LEARN - PART 5
+   RESULT + RETRY + EXIT + NAVIGATION
+========================================================= */
+
+
+/* =========================================================
+   SHOW RESULT
 ========================================================= */
 
 function showResult() {
 
-  const area =
-    $("questionArea");
+    stopLiveTimer();
+    clearAutoNextTimer();
 
-  if (!area) {
-    return;
-  }
+    const box =
+        $("mockTestBox");
 
-  const total =
-    currentQuestions.length;
-
-  const percentage =
-    total
-      ? Math.round(
-          (score / total) * 100
-        )
-      : 0;
-
-  area.innerHTML = `
-    <div class="result-box">
-      <h3>Test Completed</h3>
-      <div class="result-score">
-        ${score} / ${total}
-      </div>
-      <p>
-        Score: ${percentage}%
-      </p>
-      <button
-        type="button"
-        id="restartTestBtn">
-        Restart Test
-      </button>
-    </div>
-  `;
-
-  const restart =
-    $("restartTestBtn");
-
-  if (restart) {
-
-    restart.addEventListener(
-      "click",
-      () => loadPart(
-        currentExam,
-        currentPart
-      )
-    );
-  }
-}
+    if (!box) {
+        return;
+    }
 
 
-/* =========================================================
-   MESSAGE
-========================================================= */
+    const total =
+        currentQuestions.length;
 
-function showMessage(message) {
-
-  const area =
-    $("questionArea");
-
-  if (!area) {
-    return;
-  }
-
-  area.innerHTML = `
-    <div class="status">
-      ${escapeHtml(message)}
-    </div>
-  `;
-}
+    const percentage =
+        total > 0
+            ? Math.round(
+                (score / total) * 100
+            )
+            : 0;
 
 
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
+    let resultMessage = "";
 
-function escapeHtml(text) {
+    if (percentage >= 80) {
 
-  return String(text)
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-}
+        resultMessage =
+            "🏆 Excellent!";
+
+    } else if (percentage >= 60) {
+
+        resultMessage =
+            "👏 Very Good!";
+
+    } else if (percentage >= 40) {
+
+        resultMessage =
+            "👍 Good Try!";
+
+    } else {
+
+        resultMessage =
+            "📚 Keep Practising!";
+
+    }
 
 
-/* =========================================================
-   EXAM SELECTION
-========================================================= */
-
-async function selectExam(
-  examName
-) {
-
-  currentExam =
-    examName;
-
-  try {
-
-    let data =
-      questionData[examName];
-
-    if (!data) {
-      data =
-        await loadExamQuestions(
-          examName
+    const examName =
+        getExamName(
+            selectedExam
         );
-    }
 
-    renderPartButtons(data);
 
-  } catch (error) {
+    const partNumber =
+        getPartNumber(
+            selectedPart
+        );
 
-    console.error(error);
 
-    showMessage(
-      "Unable to load this exam."
-    );
-  }
+    box.innerHTML = `
+
+        <div class="result-box">
+
+            <h2>
+                🏆 Test Completed
+            </h2>
+
+            <h3>
+                ${escapeHTML(
+                    examName
+                )}
+                —
+                Part ${escapeHTML(
+                    partNumber
+                )}
+            </h3>
+
+
+            <div
+                class="result-score"
+                style="
+                    margin:20px 0;
+                    text-align:center;
+                "
+            >
+
+                <div
+                    style="
+                        font-size:40px;
+                        font-weight:bold;
+                    "
+                >
+
+                    ${score}/${total}
+
+                </div>
+
+
+                <div
+                    style="
+                        font-size:22px;
+                        margin-top:8px;
+                    "
+                >
+
+                    ${percentage}%
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                ${resultMessage}
+            </h3>
+
+
+            <div
+                style="
+                    margin:15px 0;
+                    line-height:1.8;
+                "
+            >
+
+                <p>
+
+                    📊 Correct:
+                    <strong>
+                        ${score}
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    ❌ Incorrect:
+                    <strong>
+                        ${Math.max(
+                            0,
+                            total - score
+                        )}
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    📝 Total:
+                    <strong>
+                        ${total}
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="result-buttons"
+                style="
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:10px;
+                    justify-content:center;
+                "
+            >
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="retryCurrentPart()"
+                >
+
+                    🔄 Retry Part
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="showExamParts(
+                        '${escapeHTML(
+                            selectedExam
+                        )}'
+                    )"
+                >
+
+                    📚 Choose Part
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="exam-btn"
+                    onclick="backToExamList()"
+                >
+
+                    🔙 All Exams
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
 }
 
 
 /* =========================================================
-   RENDER PART BUTTONS
+   RETRY CURRENT PART
 ========================================================= */
 
-function renderPartButtons(
-  data
+function retryCurrentPart() {
+
+    const exam =
+        selectedExam;
+
+    const part =
+        selectedPart;
+
+
+    if (
+        !exam ||
+        !part
+    ) {
+
+        backToExamList();
+
+        return;
+
+    }
+
+
+    selectExamPart(
+        exam,
+        part
+    );
+
+}
+
+
+/* =========================================================
+   CHOOSE EXAM AGAIN
+========================================================= */
+
+function chooseExamAgain() {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+    backToExamList();
+
+}
+
+
+/* =========================================================
+   EXIT TEST CONFIRMATION
+========================================================= */
+
+function confirmExitTest() {
+
+    const confirmed =
+        window.confirm(
+            "তুমি কি এই test থেকে বের হতে চাও?"
+        );
+
+
+    if (
+        confirmed
+    ) {
+
+        exitCurrentTest();
+
+    }
+
+}
+
+
+/* =========================================================
+   EXIT CURRENT TEST
+========================================================= */
+
+function exitCurrentTest() {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    answerLocked =
+        false;
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+
+    showExamParts(
+        selectedExam
+    );
+
+}
+
+
+/* =========================================================
+   GO BACK TO PARTS
+========================================================= */
+
+function backToParts() {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+
+    if (
+        selectedExam
+    ) {
+
+        showExamParts(
+            selectedExam
+        );
+
+    } else {
+
+        backToExamList();
+
+    }
+
+}
+
+
+/* =========================================================
+   GO BACK TO HOME / MOCK TEST
+========================================================= */
+
+function goBack() {
+
+    backToExamList();
+
+}
+
+
+/* =========================================================
+   GENERIC BACK BUTTON
+========================================================= */
+
+function goBackToMockTest() {
+
+    backToExamList();
+
+}
+
+
+/* =========================================================
+   START QUIZ ALIAS
+========================================================= */
+
+function startQuiz(
+    exam,
+    part
 ) {
 
-  const container =
-    $("partGrid");
+    if (
+        exam &&
+        part
+    ) {
 
-  if (!container) {
-    return;
-  }
+        selectExamPart(
+            exam,
+            part
+        );
 
-  container.innerHTML = "";
+        return;
 
-  const parts =
-    getParts(data);
-
-  const names =
-    Object.keys(parts)
-      .sort(
-        (a, b) => {
-          const na =
-            parseInt(
-              a.replace(/\D/g, "")
-            ) || 0;
-
-          const nb =
-            parseInt(
-              b.replace(/\D/g, "")
-            ) || 0;
-
-          return na - nb;
-        }
-      );
-
-  names.forEach(
-    partName => {
-
-      const button =
-        document.createElement("button");
-
-      button.type =
-        "button";
-
-      button.className =
-        "part-btn";
-
-      button.textContent =
-        partName;
-
-      button.addEventListener(
-        "click",
-        () => loadPart(
-          currentExam,
-          partName
-        )
-      );
-
-      container.appendChild(
-        button
-      );
-    }
-  );
-   }/* =========================================================
-   AI TUTOR
-========================================================= */
-
-async function askTutor() {
-
-  const input =
-    $("questionInput");
-
-  const answerBox =
-    $("answerBox");
-
-  if (!input || !answerBox) {
-    return;
-  }
-
-  const question =
-    input.value.trim();
-
-  if (!question) {
-
-    answerBox.textContent =
-      "Please enter a question first.";
-
-    return;
-  }
-
-  answerBox.innerHTML =
-    `<div class="loading">Thinking</div>`;
-
-  try {
-
-    const response =
-      await fetch("/ask", {
-
-        method: "POST",
-
-        headers: {
-          "Content-Type":
-            "application/json"
-        },
-
-        body: JSON.stringify({
-          question: question
-        })
-
-      });
-
-    const data =
-      await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data.error ||
-        "AI request failed"
-      );
     }
 
-    answerBox.innerHTML = "";
 
-    const answer =
-      document.createElement("div");
+    if (
+        exam
+    ) {
 
-    answer.textContent =
-      data.answer ||
-      "No answer received.";
+        startMockTest(
+            exam
+        );
 
-    answerBox.appendChild(
-      answer
-    );
+        return;
 
-
-    /* =====================================================
-       AI GENERATED SVG DIAGRAM
-    ===================================================== */
-
-    if (data.diagram) {
-
-      const diagramBox =
-        document.createElement("div");
-
-      diagramBox.className =
-        "answer-diagram";
-
-      diagramBox.innerHTML =
-        data.diagram;
-
-      answerBox.appendChild(
-        diagramBox
-      );
     }
 
-  } catch (error) {
 
-    console.error(error);
+    backToExamList();
 
-    answerBox.textContent =
-      "AI service is temporarily unavailable. Please try again.";
-  }
 }
 
 
 /* =========================================================
-   MICROPHONE / VOICE INPUT
+   LOAD QUESTIONS ALIAS
 ========================================================= */
 
-let recognition = null;
-let isListening = false;
+function loadQuestions(
+    exam,
+    part
+) {
 
-function startMic() {
+    if (
+        !exam
+    ) {
 
-  const input =
-    $("questionInput");
+        showMessage(
+            "Exam select করো।",
+            "warning"
+        );
 
-  if (!input) {
-    return;
-  }
+        return;
 
-  const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+    }
 
-  if (!SpeechRecognition) {
 
-    alert(
-      "Voice input is not supported on this browser."
+    selectExamPart(
+        exam,
+        part || "part1"
     );
 
-    return;
-  }
+}
 
-  if (!recognition) {
+
+/* =========================================================
+   CURRENT SCORE
+========================================================= */
+
+function getCurrentScore() {
+
+    return score;
+
+}
+
+
+/* =========================================================
+   CURRENT QUESTION NUMBER
+========================================================= */
+
+function getCurrentQuestionNumber() {
+
+    return (
+        currentQuestionIndex + 1
+    );
+
+}
+
+
+/* =========================================================
+   TOTAL QUESTION NUMBER
+========================================================= */
+
+function getTotalQuestionNumber() {
+
+    return currentQuestions.length;
+
+           }/* =========================================================
+   ITTA LEARN - PART 6
+   🎙️ MICROPHONE + 🤖 AI TUTOR
+========================================================= */
+
+
+/* =========================================================
+   FIND AI INPUT ELEMENT
+========================================================= */
+
+function getAIInput() {
+
+    const possibleIds = [
+
+        "questionInput",
+        "aiInput",
+        "userInput",
+        "promptInput",
+        "chatInput",
+        "messageInput"
+
+    ];
+
+    for (
+        const id of possibleIds
+    ) {
+
+        const element =
+            $(id);
+
+        if (
+            element
+        ) {
+
+            return element;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   FIND AI RESPONSE BOX
+========================================================= */
+
+function getAIResponseBox() {
+
+    const possibleIds = [
+
+        "aiResponse",
+        "response",
+        "chatResponse",
+        "answerBox",
+        "aiOutput",
+        "responseBox"
+
+    ];
+
+
+    for (
+        const id of possibleIds
+    ) {
+
+        const element =
+            $(id);
+
+        if (
+            element
+        ) {
+
+            return element;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   MICROPHONE SUPPORT CHECK
+========================================================= */
+
+function isMicSupported() {
+
+    return Boolean(
+
+        window.SpeechRecognition ||
+
+        window.webkitSpeechRecognition
+
+    );
+
+}
+
+
+/* =========================================================
+   CREATE SPEECH RECOGNITION
+========================================================= */
+
+function createRecognition() {
+
+    const SpeechRecognition =
+
+        window.SpeechRecognition ||
+
+        window.webkitSpeechRecognition;
+
+
+    if (
+        !SpeechRecognition
+    ) {
+
+        return null;
+
+    }
+
+
+    const recog =
+        new SpeechRecognition();
+
+
+    recog.lang =
+        "bn-IN";
+
+
+    recog.continuous =
+        false;
+
+
+    recog.interimResults =
+        true;
+
+
+    recog.maxAlternatives =
+        1;
+
+
+    return recog;
+
+}
+
+
+/* =========================================================
+   START MICROPHONE
+========================================================= */
+
+function startMicrophone() {
+
+    if (
+        isListening
+    ) {
+
+        stopMicrophone();
+
+        return;
+
+    }
+
+
+    if (
+        !isMicSupported()
+    ) {
+
+        alert(
+            "এই browser/device-এ microphone speech recognition support নেই।"
+        );
+
+        return;
+
+    }
+
+
+    const input =
+        getAIInput();
+
+
+    if (
+        !input
+    ) {
+
+        alert(
+            "AI input box পাওয়া যায়নি।"
+        );
+
+        return;
+
+    }
+
 
     recognition =
-      new SpeechRecognition();
+        createRecognition();
 
-    recognition.lang =
-      "en-IN";
 
-    recognition.continuous =
-      false;
+    if (
+        !recognition
+    ) {
 
-    recognition.interimResults =
-      false;
+        return;
+
+    }
+
+
+    let finalText =
+        "";
+
 
     recognition.onstart =
-      () => {
+        function () {
 
-        isListening = true;
+            isListening =
+                true;
 
-        const mic =
-          $("micBtn");
 
-        if (mic) {
-          mic.textContent =
-            "🔴 Listening...";
-        }
-      };
+            updateMicButtons(
+                true
+            );
+
+        };
 
 
     recognition.onresult =
-      event => {
+        function (event) {
 
-        const transcript =
-          event.results[0][0].transcript;
+            let interimText =
+                "";
 
-        input.value =
-          transcript;
-      };
+
+            for (
+                let i =
+                    event.resultIndex;
+
+                i <
+                    event.results.length;
+
+                i++
+            ) {
+
+                const transcript =
+
+                    event
+                        .results[i][0]
+                        .transcript;
+
+
+                if (
+                    event
+                        .results[i]
+                        .isFinal
+                ) {
+
+                    finalText +=
+                        transcript + " ";
+
+                } else {
+
+                    interimText +=
+                        transcript;
+
+                }
+
+            }
+
+
+            input.value =
+                (
+                    finalText +
+                    interimText
+                ).trim();
+
+
+            /* =========================
+               TRIGGER INPUT EVENT
+            ========================= */
+
+            input.dispatchEvent(
+                new Event(
+                    "input",
+                    {
+                        bubbles: true
+                    }
+                )
+            );
+
+        };
 
 
     recognition.onerror =
-      event => {
+        function (event) {
 
-        console.error(
-          "Speech recognition error:",
-          event.error
-        );
-      };
+            console.error(
+                "🎙️ Mic error:",
+                event.error
+            );
+
+
+            isListening =
+                false;
+
+
+            updateMicButtons(
+                false
+            );
+
+
+            if (
+                event.error ===
+                "not-allowed"
+            ) {
+
+                alert(
+                    "Microphone permission allow করতে হবে।"
+                );
+
+            }
+
+        };
 
 
     recognition.onend =
-      () => {
+        function () {
 
-        isListening = false;
+            isListening =
+                false;
 
-        const mic =
-          $("micBtn");
 
-        if (mic) {
-          mic.textContent =
-            "🎙️";
+            updateMicButtons(
+                false
+            );
+
+
+            recognition =
+                null;
+
+        };
+
+
+    try {
+
+        recognition.start();
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            "Mic start error:",
+            error
+        );
+
+        isListening =
+            false;
+
+        updateMicButtons(
+            false
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   STOP MICROPHONE
+========================================================= */
+
+function stopMicrophone() {
+
+    if (
+        recognition
+    ) {
+
+        try {
+
+            recognition.stop();
+
+        } catch (
+            error
+        ) {
+
+            console.warn(
+                error
+            );
+
         }
-      };
-  }
 
-  if (isListening) {
+    }
 
-    recognition.stop();
 
-    return;
-  }
+    recognition =
+        null;
 
-  recognition.start();
+    isListening =
+        false;
+
+
+    updateMicButtons(
+        false
+    );
+
+}
+
+
+/* =========================================================
+   MIC BUTTON UI
+========================================================= */
+
+function updateMicButtons(
+    listening
+) {
+
+    const buttons =
+
+        document.querySelectorAll(
+            "[data-mic-button]"
+        );
+
+
+    buttons.forEach(
+        function(button) {
+
+            button.textContent =
+
+                listening
+                    ? "⏹️ Stop Mic"
+                    : "🎙️ Mic";
+
+        }
+    );
+
+
+    const oldButtons =
+
+        document.querySelectorAll(
+            "#micBtn, #micButton, .mic-btn"
+        );
+
+
+    oldButtons.forEach(
+        function(button) {
+
+            if (
+                !button
+                    .hasAttribute(
+                        "data-mic-button"
+                    )
+            ) {
+
+                button.textContent =
+
+                    listening
+                        ? "⏹️"
+                        : "🎙️";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MIC ALIASES
+========================================================= */
+
+function startVoiceInput() {
+
+    startMicrophone();
+
+}
+
+
+function startVoiceRecognition() {
+
+    startMicrophone();
+
+}
+
+
+function toggleMicrophone() {
+
+    startMicrophone();
+
+}
+
+
+function useMic() {
+
+    startMicrophone();
+
+}
+
+
+/* =========================================================
+   STOP VOICE
+========================================================= */
+
+function stopVoiceInput() {
+
+    stopMicrophone();
+
+}
+
+
+/* =========================================================
+   SEND QUESTION TO AI
+========================================================= */
+
+async function askIttaAI() {
+
+    const input =
+        getAIInput();
+
+
+    if (
+        !input
+    ) {
+
+        alert(
+            "AI input box পাওয়া যায়নি।"
+        );
+
+        return;
+
+    }
+
+
+    const question =
+        String(
+            input.value || ""
+        ).trim();
+
+
+    if (
+        !question
+    ) {
+
+        alert(
+            "আগে একটি প্রশ্ন লিখো বা Mic দিয়ে বলো।"
+        );
+
+        return;
+
+    }
+
+
+    const responseBox =
+        getAIResponseBox();
+
+
+    if (
+        responseBox
+    ) {
+
+        responseBox.innerHTML = `
+
+            <div>
+
+                ⏳ Itta AI ভাবছে...
+
+            </div>
+
+        `;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/ask",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            question:
+                                question
+
+                        })
+
+                }
+            );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                "Server error: " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        /* =========================
+           DIFFERENT RESPONSE FORMATS
+        ========================= */
+
+        const answer =
+
+            data.answer ??
+
+            data.response ??
+
+            data.text ??
+
+            data.message ??
+
+            "";
+
+
+        if (
+            !answer
+        ) {
+
+            throw new Error(
+                "AI কোনো উত্তর দেয়নি।"
+            );
+
+        }
+
+
+        if (
+            responseBox
+        ) {
+
+            responseBox.innerHTML = `
+
+                <div
+                    class="ai-answer"
+                >
+
+                    ${formatAIAnswer(
+                        answer
+                    )}
+
+                </div>
+
+            `;
+
+        }
+
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            "AI error:",
+            error
+        );
+
+
+        if (
+            responseBox
+        ) {
+
+            responseBox.innerHTML = `
+
+                <div>
+
+                    ❌ AI উত্তর পাওয়া যায়নি।
+
+                    <br>
+
+                    ${escapeHTML(
+                        error.message
+                    )}
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   AI SEND ALIASES
+========================================================= */
+
+function sendToAI() {
+
+    askIttaAI();
+
+}
+
+
+function askAI() {
+
+    askIttaAI();
+
+}
+
+
+function sendQuestion() {
+
+    askIttaAI();
+
+}
+
+
+/* =========================================================
+   FORMAT AI RESPONSE
+========================================================= */
+
+function formatAIAnswer(
+    text
+) {
+
+    let output =
+        escapeHTML(
+            text
+        );
+
+
+    /* =========================
+       BASIC MARKDOWN
+    ========================= */
+
+    output =
+        output.replace(
+            /\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>"
+        );
+
+
+    output =
+        output.replace(
+            /\n/g,
+            "<br>"
+        );
+
+
+    return output;
+
 }
 
 
@@ -1018,138 +3589,2127 @@ function startMic() {
    ENTER KEY FOR AI
 ========================================================= */
 
-function setupAI() {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-  const input =
-    $("questionInput");
+        const target =
+            event.target;
 
-  const askBtn =
-    $("askBtn");
-
-  const micBtn =
-    $("micBtn");
-
-  if (askBtn) {
-
-    askBtn.addEventListener(
-      "click",
-      askTutor
-    );
-  }
-
-  if (micBtn) {
-
-    micBtn.addEventListener(
-      "click",
-      startMic
-    );
-  }
-
-  if (input) {
-
-    input.addEventListener(
-      "keydown",
-      event => {
 
         if (
-          event.key === "Enter" &&
-          !event.shiftKey
+            !target
         ) {
 
-          event.preventDefault();
+            return;
 
-          askTutor();
         }
-      }
-    );
-  }
-}
 
 
-/* =========================================================
-   EXAM BUTTON SETUP
-========================================================= */
+        const isInput =
 
-function setupExamButtons() {
+            target.id ===
+                "questionInput"
 
-  document
-    .querySelectorAll(
-      "[data-exam]"
-    )
-    .forEach(button => {
+            ||
 
-      button.addEventListener(
-        "click",
-        () => {
+            target.id ===
+                "aiInput"
 
-          const exam =
-            button.dataset.exam;
+            ||
 
-          selectExam(exam);
+            target.id ===
+                "userInput"
+
+            ||
+
+            target.id ===
+                "chatInput";
+
+
+        if (
+            isInput &&
+            event.key === "Enter" &&
+            !event.shiftKey
+        ) {
+
+            event.preventDefault();
+
+            askIttaAI();
+
         }
-      );
-    });
+
+    }
+);
+
+
+/* =========================================================
+   AUTOMATICALLY CONNECT OLD MIC BUTTONS
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const micButtons =
+
+            document.querySelectorAll(
+                "#micBtn, #micButton, .mic-btn, [data-mic-button]"
+            );
+
+
+        micButtons.forEach(
+            function(button) {
+
+                button.setAttribute(
+                    "data-mic-button",
+                    "true"
+                );
+
+
+                button.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+                        startMicrophone();
+
+                    }
+                );
+
+            }
+        );
+
+
+        const sendButtons =
+
+            document.querySelectorAll(
+                "#askBtn, #sendBtn, #askButton, .ask-btn"
+            );
+
+
+        sendButtons.forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+                        askIttaAI();
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);/* =========================================================
+   ITTA LEARN - PART 7
+   PREMIUM PARTS 21–100 + BUTTON COMPATIBILITY
+========================================================= */
+
+
+/* =========================================================
+   PREMIUM ACCESS
+========================================================= */
+
+let premiumUnlocked = false;
+
+
+/* =========================================================
+   CHECK PREMIUM STATUS
+========================================================= */
+
+function isPremiumUnlocked() {
+
+    try {
+
+        return (
+            premiumUnlocked === true ||
+            localStorage.getItem(
+                "itta_premium_unlocked"
+            ) === "true"
+        );
+
+    } catch (error) {
+
+        return premiumUnlocked === true;
+
+    }
+
 }
 
 
 /* =========================================================
-   INITIALIZE
+   SAVE PREMIUM STATUS
 ========================================================= */
 
-function initializeApp() {
+function unlockPremiumLocal() {
 
-  setupAI();
+    premiumUnlocked =
+        true;
 
-  setupExamButtons();
 
-  const firstExam =
-    Object.keys(exams)[0];
+    try {
 
-  if (firstExam) {
+        localStorage.setItem(
+            "itta_premium_unlocked",
+            "true"
+        );
 
-    selectExam(
-      firstExam
-    );
-  }
+    } catch (error) {
+
+        console.warn(
+            "LocalStorage unavailable"
+        );
+
+    }
+
 }
 
 
 /* =========================================================
-   GLOBAL FUNCTIONS
-   Supports HTML onclick=""
+   SHOW PREMIUM PARTS
 ========================================================= */
 
-window.askTutor =
-  askTutor;
-
-window.startMic =
-  startMic;
-
-window.selectExam =
-  selectExam;
-
-window.loadPart =
-  loadPart;
-
-window.nextQuestion =
-  nextQuestion;
-
-
-/* =========================================================
-   START APP
-========================================================= */
-
-if (
-  document.readyState ===
-  "loading"
+function showPaidParts(
+    exam
 ) {
 
-  document.addEventListener(
+    selectedExam =
+        exam;
+
+
+    const box =
+        $("mockTestBox");
+
+
+    if (!box) {
+
+        return;
+
+    }
+
+
+    let partsHTML =
+        "";
+
+
+    for (
+        let i =
+            PAID_PART_START;
+
+        i <=
+            PAID_PART_END;
+
+        i++
+    ) {
+
+        partsHTML += `
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="openPremiumPart(
+                    '${escapeHTML(exam)}',
+                    'part${i}'
+                )"
+            >
+
+                ⭐ Part ${i}
+
+            </button>
+
+        `;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="exam-parts">
+
+            <h3>
+                ⭐ Premium —
+                ${escapeHTML(
+                    getExamName(exam)
+                )}
+            </h3>
+
+
+            <p>
+
+                Parts 21–100
+
+                <br>
+
+                Premium Access:
+                ₹${PREMIUM_PRICE}
+
+            </p>
+
+
+            <div
+                class="exam-grid"
+            >
+
+                ${partsHTML}
+
+            </div>
+
+
+            <br>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showExamParts(
+                    '${escapeHTML(exam)}'
+                )"
+            >
+
+                🔙 Back
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   OPEN PREMIUM PART
+========================================================= */
+
+function openPremiumPart(
+    exam,
+    part
+) {
+
+    if (
+        !isPremiumUnlocked()
+    ) {
+
+        showPremiumPayment(
+            exam,
+            part
+        );
+
+        return;
+
+    }
+
+
+    selectExamPart(
+        exam,
+        part
+    );
+
+}
+
+
+/* =========================================================
+   PREMIUM PAYMENT SCREEN
+========================================================= */
+
+function showPremiumPayment(
+    exam,
+    part
+) {
+
+    const box =
+        $("mockTestBox");
+
+
+    if (!box) {
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="result-box">
+
+            <h2>
+                ⭐ Premium Access
+            </h2>
+
+
+            <p>
+
+                Exam:
+
+                <strong>
+                    ${escapeHTML(
+                        getExamName(exam)
+                    )}
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Part:
+
+                <strong>
+                    ${escapeHTML(
+                        getPartNumber(part)
+                    )}
+                </strong>
+
+            </p>
+
+
+            <h3>
+                ₹${PREMIUM_PRICE}
+            </h3>
+
+
+            <p>
+
+                Premium Parts
+                21–100 unlock করার জন্য
+                Premium access প্রয়োজন।
+
+            </p>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="startPremiumPayment(
+                    '${escapeHTML(exam)}',
+                    '${escapeHTML(part)}'
+                )"
+            >
+
+                💳 Unlock Premium
+
+            </button>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showPaidParts(
+                    '${escapeHTML(exam)}'
+                )"
+            >
+
+                🔙 Back
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   PAYMENT PLACEHOLDER
+========================================================= */
+
+function startPremiumPayment(
+    exam,
+    part
+) {
+
+    /*
+       IMPORTANT:
+
+       এখানে fake payment success করা হয়নি।
+
+       Real payment gateway connect করার পরে
+       payment successful হলে:
+
+       premiumPaymentSuccess();
+
+       call করবে।
+    */
+
+
+    const box =
+        $("mockTestBox");
+
+
+    if (!box) {
+
+        return;
+
+    }
+
+
+    box.innerHTML = `
+
+        <div class="result-box">
+
+            <h3>
+                💳 Premium Payment
+            </h3>
+
+
+            <p>
+
+                Real payment gateway
+                এখনো connect করা হয়নি।
+
+            </p>
+
+
+            <p>
+
+                Payment gateway connect করার পরে
+                successful payment হলে
+                Premium automatically unlock হবে।
+
+            </p>
+
+
+            <button
+                type="button"
+                class="exam-btn"
+                onclick="showPaidParts(
+                    '${escapeHTML(exam)}'
+                )"
+            >
+
+                🔙 Back
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   REAL PAYMENT SUCCESS CALLBACK
+========================================================= */
+
+function premiumPaymentSuccess() {
+
+    unlockPremiumLocal();
+
+
+    alert(
+        "✅ Premium successfully unlocked!"
+    );
+
+
+    if (
+        selectedExam
+    ) {
+
+        showPaidParts(
+            selectedExam
+        );
+
+    } else {
+
+        backToExamList();
+
+    }
+
+}
+
+
+/* =========================================================
+   MANUAL PREMIUM UNLOCK FUNCTION
+   FOR TESTING ONLY
+========================================================= */
+
+function testUnlockPremium() {
+
+    unlockPremiumLocal();
+
+
+    alert(
+        "✅ Premium test access enabled."
+    );
+
+}
+
+
+/* =========================================================
+   LOCK PREMIUM
+========================================================= */
+
+function resetPremiumAccess() {
+
+    premiumUnlocked =
+        false;
+
+
+    try {
+
+        localStorage.removeItem(
+            "itta_premium_unlocked"
+        );
+
+    } catch (error) {
+
+        console.warn(
+            error
+        );
+
+    }
+
+
+    alert(
+        "Premium access reset."
+    );
+
+}
+
+
+/* =========================================================
+   GLOBAL BUTTON COMPATIBILITY
+========================================================= */
+
+function showMockTest() {
+
+    backToExamList();
+
+}
+
+
+function openMockTests() {
+
+    backToExamList();
+
+}
+
+
+function openQuiz() {
+
+    backToExamList();
+
+}
+
+
+function startMock() {
+
+    backToExamList();
+
+}
+
+
+function showQuiz() {
+
+    backToExamList();
+
+}
+
+
+/* =========================================================
+   EXAM BUTTON ALIASES
+========================================================= */
+
+function openSSC() {
+
+    startMockTest("SSC");
+
+}
+
+
+function openUPSC() {
+
+    startMockTest("UPSC");
+
+}
+
+
+function openBank() {
+
+    startMockTest("BANK");
+
+}
+
+
+function openWBP() {
+
+    startMockTest("WBP");
+
+}
+
+
+function openKolkataPolice() {
+
+    startMockTest(
+        "KOLKATA_POLICE"
+    );
+
+}
+
+
+function openRailway() {
+
+    startMockTest(
+        "RAILWAY"
+    );
+
+}
+
+
+function openWBCS() {
+
+    startMockTest(
+        "WBCS"
+    );
+
+}
+
+
+function openWBPSCClerkship() {
+
+    startMockTest(
+        "WBPSC_CLERKSHIP"
+    );
+
+}
+
+
+/* =========================================================
+   GENERIC EXAM OPENER
+========================================================= */
+
+function openExam(
+    exam
+) {
+
+    if (
+        examFiles[exam]
+    ) {
+
+        startMockTest(
+            exam
+        );
+
+        return;
+
+    }
+
+
+    const normalized =
+        String(
+            exam || ""
+        )
+        .toUpperCase()
+        .replace(
+            /\s+/g,
+            "_"
+        );
+
+
+    if (
+        examFiles[normalized]
+    ) {
+
+        startMockTest(
+            normalized
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Exam পাওয়া যায়নি: " +
+        exam
+    );
+
+}
+
+
+/* =========================================================
+   SAFE WINDOW EXPORTS
+========================================================= */
+
+window.startMockTest =
+    startMockTest;
+
+window.openMockTest =
+    openMockTest;
+
+window.showExamParts =
+    showExamParts;
+
+window.selectExamPart =
+    selectExamPart;
+
+window.selectPart =
+    selectPart;
+
+window.loadPart =
+    loadPart;
+
+window.answerQuestion =
+    answerQuestion;
+
+window.nextQuestion =
+    nextQuestion;
+
+window.previousQuestion =
+    previousQuestion;
+
+window.finishTest =
+    finishTest;
+
+window.showResult =
+    showResult;
+
+window.retryCurrentPart =
+    retryCurrentPart;
+
+window.chooseExamAgain =
+    chooseExamAgain;
+
+window.backToExamList =
+    backToExamList;
+
+window.backToParts =
+    backToParts;
+
+window.exitCurrentTest =
+    exitCurrentTest;
+
+window.confirmExitTest =
+    confirmExitTest;
+
+window.startQuiz =
+    startQuiz;
+
+window.loadQuestions =
+    loadQuestions;
+
+
+/* =========================================================
+   AI GLOBAL FUNCTIONS
+========================================================= */
+
+window.askIttaAI =
+    askIttaAI;
+
+window.askAI =
+    askAI;
+
+window.sendToAI =
+    sendToAI;
+
+window.sendQuestion =
+    sendQuestion;
+
+
+/* =========================================================
+   MIC GLOBAL FUNCTIONS
+========================================================= */
+
+window.startMicrophone =
+    startMicrophone;
+
+window.stopMicrophone =
+    stopMicrophone;
+
+window.startVoiceInput =
+    startVoiceInput;
+
+window.startVoiceRecognition =
+    startVoiceRecognition;
+
+window.toggleMicrophone =
+    toggleMicrophone;
+
+window.useMic =
+    useMic;
+
+window.stopVoiceInput =
+    stopVoiceInput;
+
+
+/* =========================================================
+   PREMIUM GLOBAL FUNCTIONS
+========================================================= */
+
+window.showPaidParts =
+    showPaidParts;
+
+window.openPremiumPart =
+    openPremiumPart;
+
+window.startPremiumPayment =
+    startPremiumPayment;
+
+window.premiumPaymentSuccess =
+    premiumPaymentSuccess;
+
+window.testUnlockPremium =
+    testUnlockPremium;
+
+window.resetPremiumAccess =
+    resetPremiumAccess;
+
+
+/* =========================================================
+   EXAM GLOBAL FUNCTIONS
+========================================================= */
+
+window.openSSC =
+    openSSC;
+
+window.openUPSC =
+    openUPSC;
+
+window.openBank =
+    openBank;
+
+window.openWBP =
+    openWBP;
+
+window.openKolkataPolice =
+    openKolkataPolice;
+
+window.openRailway =
+    openRailway;
+
+window.openWBCS =
+    openWBCS;
+
+window.openWBPSCClerkship =
+    openWBPSCClerkship;
+
+window.openExam =
+    openExam;
+
+window.showMockTest =
+    showMockTest;
+
+window.openMockTests =
+    openMockTests;
+
+window.openQuiz =
+    openQuiz;
+
+window.startMock =
+    startMock;
+
+window.showQuiz =
+    showQuiz;
+
+
+/* =========================================================
+   FINAL INITIALIZATION
+========================================================= */
+
+document.addEventListener(
     "DOMContentLoaded",
-    initializeApp
-  );
+    function() {
 
-} else {
+        console.log(
+            "================================="
+        );
 
-  initializeApp();
-             }
+        console.log(
+            "✅ ITTA LEARN SCRIPT READY"
+        );
+
+        console.log(
+            "✅ SSC"
+        );
+
+        console.log(
+            "✅ UPSC"
+        );
+
+        console.log(
+            "✅ BANK"
+        );
+
+        console.log(
+            "✅ WBP"
+        );
+
+        console.log(
+            "✅ KOLKATA POLICE"
+        );
+
+        console.log(
+            "✅ RAILWAY"
+        );
+
+        console.log(
+            "✅ WBCS"
+        );
+
+        console.log(
+            "✅ WBPSC CLERKSHIP"
+        );
+
+        console.log(
+            "🎙️ MICROPHONE READY"
+        );
+
+        console.log(
+            "🤖 AI READY"
+        );
+
+        console.log(
+            "⭐ PREMIUM READY"
+        );
+
+        console.log(
+            "================================="
+        );
+
+    }
+);/* =========================================================
+   ITTA LEARN - PART 8
+   FINAL COMPATIBILITY + ERROR HANDLING
+========================================================= */
+
+
+/* =========================================================
+   SAFE FUNCTION CALL
+========================================================= */
+
+function safeCall(
+    fn,
+    ...args
+) {
+
+    try {
+
+        if (
+            typeof fn === "function"
+        ) {
+
+            return fn(
+                ...args
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Function error:",
+            error
+        );
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   HANDLE JSON / FETCH ERROR
+========================================================= */
+
+window.addEventListener(
+    "unhandledrejection",
+    function(event) {
+
+        console.error(
+            "Unhandled Promise Error:",
+            event.reason
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "error",
+    function(event) {
+
+        console.error(
+            "JavaScript Error:",
+            event.error || event.message
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CONNECT OLD EXAM BUTTONS
+========================================================= */
+
+function connectExamButtons() {
+
+    const examMap = {
+
+        "ssc":
+            "SSC",
+
+        "upsc":
+            "UPSC",
+
+        "bank":
+            "BANK",
+
+        "wbp":
+            "WBP",
+
+        "kolkata-police":
+            "KOLKATA_POLICE",
+
+        "kolkata_police":
+            "KOLKATA_POLICE",
+
+        "railway":
+            "RAILWAY",
+
+        "wbcs":
+            "WBCS",
+
+        "wbpsc-clerkship":
+            "WBPSC_CLERKSHIP",
+
+        "wbpsc_clerkship":
+            "WBPSC_CLERKSHIP"
+
+    };
+
+
+    Object.keys(
+        examMap
+    ).forEach(
+        function(key) {
+
+            const elements =
+                document.querySelectorAll(
+                    `[data-exam="${key}"]`
+                );
+
+
+            elements.forEach(
+                function(element) {
+
+                    element.addEventListener(
+                        "click",
+                        function(event) {
+
+                            event.preventDefault();
+
+                            startMockTest(
+                                examMap[key]
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONNECT AI BUTTONS
+========================================================= */
+
+function connectAIButtons() {
+
+    const aiButtons =
+        document.querySelectorAll(
+            "#askBtn, #askButton, #sendBtn, #sendButton, .ask-btn, .send-ai-btn"
+        );
+
+
+    aiButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    askIttaAI();
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONNECT MICROPHONE BUTTONS
+========================================================= */
+
+function connectMicrophoneButtons() {
+
+    const micButtons =
+        document.querySelectorAll(
+            "#micBtn, #micButton, #voiceBtn, #voiceButton, .mic-btn, .voice-btn"
+        );
+
+
+    micButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    toggleMicrophone();
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONNECT ENTER KEY
+========================================================= */
+
+function connectAIEnterKey() {
+
+    const input =
+        getAIInput();
+
+
+    if (
+        !input
+    ) {
+
+        return;
+
+    }
+
+
+    input.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
+
+                event.preventDefault();
+
+                askIttaAI();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CHECK REQUIRED ELEMENTS
+========================================================= */
+
+function checkRequiredElements() {
+
+    const mockBox =
+        $("mockTestBox");
+
+
+    if (
+        !mockBox
+    ) {
+
+        console.warn(
+            "⚠️ mockTestBox পাওয়া যায়নি। HTML-এ id='mockTestBox' আছে কি না check করো।"
+        );
+
+    }
+
+
+    const aiInput =
+        getAIInput();
+
+
+    if (
+        !aiInput
+    ) {
+
+        console.warn(
+            "⚠️ AI input box পাওয়া যায়নি।"
+        );
+
+    }
+
+
+    const aiResponse =
+        getAIResponseBox();
+
+
+    if (
+        !aiResponse
+    ) {
+
+        console.warn(
+            "⚠️ AI response box পাওয়া যায়নি।"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CHECK EXAM CONFIGURATION
+========================================================= */
+
+function checkExamConfiguration() {
+
+    Object.keys(
+        examFiles
+    ).forEach(
+        function(exam) {
+
+            if (
+                !examFiles[exam]
+            ) {
+
+                console.error(
+                    "❌ JSON file missing for:",
+                    exam
+                );
+
+            } else {
+
+                console.log(
+                    "📁 " +
+                    exam +
+                    " → " +
+                    examFiles[exam]
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   TEST JSON FILES
+========================================================= */
+
+async function testExamJSON(
+    exam
+) {
+
+    try {
+
+        const data =
+            await fetchExamJSON(
+                exam
+            );
+
+
+        const questions =
+            extractQuestionArray(
+                data
+            );
+
+
+        console.log(
+            "✅ " +
+            exam +
+            " JSON loaded. Questions:",
+            questions.length
+        );
+
+
+        return true;
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            "❌ " +
+            exam +
+            " JSON failed:",
+            error
+        );
+
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   TEST ALL EXAMS
+========================================================= */
+
+async function testAllExamJSON() {
+
+    const results = {};
+
+
+    for (
+        const exam of
+        Object.keys(
+            examFiles
+        )
+    ) {
+
+        results[exam] =
+            await testExamJSON(
+                exam
+            );
+
+    }
+
+
+    console.table(
+        results
+    );
+
+
+    return results;
+
+}
+
+
+/* =========================================================
+   OPTIONAL DEBUG FUNCTION
+========================================================= */
+
+function debugIttaLearn() {
+
+    console.log(
+        "========== ITTA LEARN DEBUG =========="
+    );
+
+
+    console.log(
+        "Selected Exam:",
+        selectedExam
+    );
+
+
+    console.log(
+        "Selected Part:",
+        selectedPart
+    );
+
+
+    console.log(
+        "Questions:",
+        currentQuestions.length
+    );
+
+
+    console.log(
+        "Current Question:",
+        currentQuestionIndex + 1
+    );
+
+
+    console.log(
+        "Score:",
+        score
+    );
+
+
+    console.log(
+        "Premium:",
+        isPremiumUnlocked()
+    );
+
+
+    console.log(
+        "Mic Supported:",
+        isMicSupported()
+    );
+
+
+    console.log(
+        "======================================"
+    );
+
+}
+
+
+/* =========================================================
+   RESET EVERYTHING
+========================================================= */
+
+function resetIttaLearn() {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+    stopMicrophone();
+
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    selectedExam =
+        "";
+
+    selectedPart =
+        "";
+
+    selectedExamCategory =
+        "";
+
+    answerLocked =
+        false;
+
+    testStartTime =
+        null;
+
+    testEndTime =
+        null;
+
+
+    backToExamList();
+
+}
+
+
+/* =========================================================
+   GLOBAL DEBUG / RESET
+========================================================= */
+
+window.testExamJSON =
+    testExamJSON;
+
+window.testAllExamJSON =
+    testAllExamJSON;
+
+window.debugIttaLearn =
+    debugIttaLearn;
+
+window.resetIttaLearn =
+    resetIttaLearn;
+
+
+/* =========================================================
+   FINAL DOM INITIALIZATION
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        try {
+
+            connectExamButtons();
+
+            connectAIButtons();
+
+            connectMicrophoneButtons();
+
+            connectAIEnterKey();
+
+            checkRequiredElements();
+
+            checkExamConfiguration();
+
+
+            console.log(
+                "✅ Button compatibility connected"
+            );
+
+
+            console.log(
+                "✅ AI buttons connected"
+            );
+
+
+            console.log(
+                "✅ Mic buttons connected"
+            );
+
+
+            console.log(
+                "✅ JSON configuration checked"
+            );
+
+
+            console.log(
+                "🎉 ITTA LEARN FINAL SCRIPT INITIALIZED"
+            );
+
+
+        } catch (
+            error
+        ) {
+
+            console.error(
+                "❌ Initialization error:",
+                error
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FINAL GLOBAL ERROR PROTECTION
+========================================================= */
+
+window.addEventListener(
+    "beforeunload",
+    function() {
+
+        stopLiveTimer();
+
+        clearAutoNextTimer();
+
+        if (
+            recognition
+        ) {
+
+            try {
+
+                recognition.stop();
+
+            } catch (
+                error
+            ) {
+
+                console.warn(
+                    error
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   END OF SCRIPT
+========================================================= *//* =========================================================
+   ITTA LEARN - PART 9
+   ADVANCED PART FINDER + JSON COMPATIBILITY
+========================================================= */
+
+
+/* =========================================================
+   FIND PART KEY
+========================================================= */
+
+function findPartKey(data, partName) {
+
+    if (
+        !data ||
+        typeof data !== "object"
+    ) {
+
+        return null;
+
+    }
+
+
+    const number =
+        getPartNumber(
+            partName
+        );
+
+
+    const wantedNumber =
+        String(number).trim();
+
+
+    const keys =
+        Object.keys(data);
+
+
+    for (
+        const key of keys
+    ) {
+
+        const normalized =
+            String(key)
+                .toLowerCase()
+                .replace(
+                    /[\s_-]/g,
+                    ""
+                );
+
+
+        const wanted =
+            "part" +
+            wantedNumber;
+
+
+        if (
+            normalized === wanted
+        ) {
+
+            return key;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   ADVANCED PART QUESTION FINDER
+========================================================= */
+
+function findQuestionsFromPart(
+    data,
+    partName
+) {
+
+    if (
+        !data
+    ) {
+
+        return [];
+
+    }
+
+
+    /* =========================
+       DIRECT PART
+    ========================= */
+
+    const directPart =
+        getPartData(
+            data,
+            partName
+        );
+
+
+    if (
+        directPart !== null
+    ) {
+
+        const directQuestions =
+            extractQuestionArray(
+                directPart
+            );
+
+
+        if (
+            directQuestions.length
+        ) {
+
+            return directQuestions;
+
+        }
+
+    }
+
+
+    /* =========================
+       FLEXIBLE PART KEY
+    ========================= */
+
+    const partKey =
+        findPartKey(
+            data,
+            partName
+        );
+
+
+    if (
+        partKey
+    ) {
+
+        const partQuestions =
+            extractQuestionArray(
+                data[partKey]
+            );
+
+
+        if (
+            partQuestions.length
+        ) {
+
+            return partQuestions;
+
+        }
+
+    }
+
+
+    /* =========================
+       NESTED QUESTIONS
+    ========================= */
+
+    const possibleContainers = [
+
+        data.parts,
+
+        data.part,
+
+        data.questionParts,
+
+        data.question_parts
+
+    ];
+
+
+    for (
+        const container
+        of possibleContainers
+    ) {
+
+        if (
+            !container ||
+            typeof container !== "object"
+        ) {
+
+            continue;
+
+        }
+
+
+        const nestedKey =
+            findPartKey(
+                container,
+                partName
+            );
+
+
+        if (
+            nestedKey
+        ) {
+
+            const nestedQuestions =
+                extractQuestionArray(
+                    container[nestedKey]
+                );
+
+
+            if (
+                nestedQuestions.length
+            ) {
+
+                return nestedQuestions;
+
+            }
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+/* =========================================================
+   REPLACE PART LOADER WITH ADVANCED LOADER
+========================================================= */
+
+async function loadSelectedPart(
+    exam,
+    partName
+) {
+
+    const data =
+        await fetchExamJSON(
+            exam
+        );
+
+
+    const rawQuestions =
+        findQuestionsFromPart(
+            data,
+            partName
+        );
+
+
+    const questions =
+        normalizeQuestions(
+            rawQuestions
+        );
+
+
+    if (
+        !questions.length
+    ) {
+
+        throw new Error(
+
+            exam +
+            " → " +
+            partName +
+            " এ valid questions পাওয়া যায়নি।"
+
+        );
+
+    }
+
+
+    return questions;
+
+}
+
+
+/* =========================================================
+   ADVANCED QUESTION STARTER
+========================================================= */
+
+async function startSelectedPart(
+    exam,
+    partName
+) {
+
+    stopLiveTimer();
+
+    clearAutoNextTimer();
+
+
+    selectedExam =
+        exam;
+
+    selectedPart =
+        partName;
+
+
+    currentQuestions =
+        [];
+
+    currentQuestionIndex =
+        0;
+
+    score =
+        0;
+
+    answerLocked =
+        false;
+
+
+    const box =
+        $("mockTestBox");
+
+
+    if (
+        box
+    ) {
+
+        box.innerHTML = `
+
+            <div class="result-box">
+
+                <h3>
+                    📚 Loading...
+                </h3>
+
+                <p>
+
+                    ${escapeHTML(
+                        getExamName(
+                            exam
+                        )
+                    )}
+
+                    —
+
+                    Part
+                    ${escapeHTML(
+                        getPartNumber(
+                            partName
+                        )
+                    )}
+
+                </p>
+
+                <p>
+                    ⏳ Questions loading...
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    try {
+
+        const questions =
+            await loadSelectedPart(
+                exam,
+                partName
+            );
+
+
+        currentQuestions =
+            shuffleArray(
+                questions
+            ).slice(
+                0,
+                Math.min(
+                    QUESTIONS_PER_TEST,
+                    questions.length
+                )
+            );
+
+
+        currentQuestionIndex =
+            0;
+
+        score =
+            0;
+
+        answerLocked =
+            false;
+
+        testStartTime =
+            Date.now();
+
+        testEndTime =
+            null;
+
+
+        renderQuestion();
+
+        startLiveTimer();
+
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
+
+        if (
+            box
+        ) {
+
+            box.innerHTML = `
+
+                <div class="result-box">
+
+                    <h3>
+                        ❌ Questions পাওয়া যায়নি
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(
+                            error.message
+                        )}
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="exam-btn"
+                        onclick="showExamParts(
+                            '${escapeHTML(exam)}'
+                        )"
+                    >
+
+                        🔙 Back
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   ADVANCED PART FUNCTION
+========================================================= */
+
+function openPart(
+    exam,
+    part
+) {
+
+    return startSelectedPart(
+        exam,
+        part
+    );
+
+}
+
+
+/* =========================================================
+   GLOBAL EXPORT
+========================================================= */
+
+window.openPart =
+    openPart;
+
+window.startSelectedPart =
+    startSelectedPart;
+
+window.loadSelectedPart =
+    loadSelectedPart;
+
+window.findQuestionsFromPart =
+    findQuestionsFromPart;
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+console.log(
+    "✅ Advanced JSON Part Finder loaded"
+);
+
+console.log(
+    "✅ Part 1 / part1 / Part_1 supported"
+);
