@@ -65,7 +65,7 @@ const examFiles = {
         "bank_questions.json",
 
     WBP:
-        "wbp_questions.json",
+        "wbp_questions_1_to_100_bengali.json",
 
     KOLKATA_POLICE:
         "kolkata_police_questions.json",
@@ -74,7 +74,7 @@ const examFiles = {
         "railway_questions.json",
 
     WBCS:
-        "wbcs_questions.json",
+        "wbsc_questions.json",
 
     WBPSC_CLERKSHIP:
         "wbpsc_clerkship_questions.json"
@@ -3287,6 +3287,18 @@ function updateMicButtons(
 
 
 /* =========================================================
+   HTML COMPATIBILITY ALIASES
+========================================================= */
+
+function startMic() {
+    startMicrophone();
+}
+
+async function askTutor() {
+    return askIttaAI();
+}
+
+/* =========================================================
    MIC ALIASES
 ========================================================= */
 
@@ -4419,6 +4431,12 @@ window.sendQuestion =
    MIC GLOBAL FUNCTIONS
 ========================================================= */
 
+window.startMic =
+    startMic;
+
+window.askTutor =
+    askTutor;
+
 window.startMicrophone =
     startMicrophone;
 
@@ -5305,146 +5323,46 @@ function findQuestionsFromPart(
     data,
     partName
 ) {
+    if (!data || typeof data !== "object") return [];
 
-    if (
-        !data
-    ) {
+    const number = Number(getPartNumber(partName));
+    if (!number) return [];
 
-        return [];
+    const containers = [data, data.parts, data.part, data.questionParts, data.question_parts];
 
-    }
+    for (const container of containers) {
+        if (!container) continue;
 
-
-    /* =========================
-       DIRECT PART
-    ========================= */
-
-    const directPart =
-        getPartData(
-            data,
-            partName
-        );
-
-
-    if (
-        directPart !== null
-    ) {
-
-        const directQuestions =
-            extractQuestionArray(
-                directPart
-            );
-
-
-        if (
-            directQuestions.length
-        ) {
-
-            return directQuestions;
-
-        }
-
-    }
-
-
-    /* =========================
-       FLEXIBLE PART KEY
-    ========================= */
-
-    const partKey =
-        findPartKey(
-            data,
-            partName
-        );
-
-
-    if (
-        partKey
-    ) {
-
-        const partQuestions =
-            extractQuestionArray(
-                data[partKey]
-            );
-
-
-        if (
-            partQuestions.length
-        ) {
-
-            return partQuestions;
-
-        }
-
-    }
-
-
-    /* =========================
-       NESTED QUESTIONS
-    ========================= */
-
-    const possibleContainers = [
-
-        data.parts,
-
-        data.part,
-
-        data.questionParts,
-
-        data.question_parts
-
-    ];
-
-
-    for (
-        const container
-        of possibleContainers
-    ) {
-
-        if (
-            !container ||
-            typeof container !== "object"
-        ) {
-
-            continue;
-
-        }
-
-
-        const nestedKey =
-            findPartKey(
-                container,
-                partName
-            );
-
-
-        if (
-            nestedKey
-        ) {
-
-            const nestedQuestions =
-                extractQuestionArray(
-                    container[nestedKey]
-                );
-
-
-            if (
-                nestedQuestions.length
-            ) {
-
-                return nestedQuestions;
-
+        // Object format: { "Part 1": [...] } / { "part1": [...] }
+        if (!Array.isArray(container) && typeof container === "object") {
+            for (const key of Object.keys(container)) {
+                const keyNumber = Number(String(key).match(/\d+/)?.[0] || 0);
+                if (keyNumber === number) {
+                    const value = container[key];
+                    const questions = extractQuestionArray(value);
+                    if (questions.length) return questions;
+                }
             }
-
         }
 
+        // Array format: [{ part: 1, questions: [...] }, ...]
+        if (Array.isArray(container)) {
+            for (const item of container) {
+                if (!item || typeof item !== "object") continue;
+                const itemNumber = Number(
+                    item.part ?? item.partNumber ?? item.part_no ?? item.number ??
+                    (String(item.id ?? "").match(/\d+/)?.[0] || 0)
+                );
+                if (itemNumber === number) {
+                    const questions = extractQuestionArray(item.questions ?? item.data ?? item.items ?? item);
+                    if (questions.length) return questions;
+                }
+            }
+        }
     }
-
 
     return [];
-
 }
-
 
 /* =========================================================
    REPLACE PART LOADER WITH ADVANCED LOADER
