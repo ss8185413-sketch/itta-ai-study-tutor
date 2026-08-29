@@ -1493,33 +1493,15 @@ async function selectExamPart(
            FIND PART
         ========================= */
 
-        const rawPart =
-            getPartData(
+        // Handle all supported JSON layouts:
+        // {"Part 1": [...]}, {"part1": [...]},
+        // {"parts":{"Part 1":[...]}}, and
+        // {"parts":[{"part":1,"questions":[...]}]}.
+        const rawQuestions =
+            findQuestionsFromPart(
                 data,
                 partName
             );
-
-
-        let rawQuestions;
-
-
-        if (
-            rawPart !== null
-        ) {
-
-            rawQuestions =
-                extractQuestionArray(
-                    rawPart
-                );
-
-        } else {
-
-            rawQuestions =
-                extractQuestionArray(
-                    data
-                );
-
-        }
 
 
         /* =========================
@@ -2830,6 +2812,9 @@ function getAIInput() {
 
     const possibleIds = [
 
+        // Current Itta Learn HTML uses id="question".
+        // Keep legacy IDs for compatibility with older layouts.
+        "question",
         "questionInput",
         "aiInput",
         "userInput",
@@ -2870,6 +2855,9 @@ function getAIResponseBox() {
 
     const possibleIds = [
 
+        // Current Itta Learn HTML uses id="answer".
+        // Keep legacy IDs for compatibility with older layouts.
+        "answer",
         "aiResponse",
         "response",
         "chatResponse",
