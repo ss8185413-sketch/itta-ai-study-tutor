@@ -138,11 +138,124 @@
 }
 </style>
 
+
+<style>
+/* =========================
+   ITTA LEARN AUTH GATE
+========================= */
+body.auth-loading .app,
+body.auth-locked .app { display: none !important; }
+
+#authScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #eef5ff, #ffffff);
+}
+
+.auth-card {
+    width: min(100%, 420px);
+    background: #fff;
+    border: 1px solid #dce9ff;
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 12px 35px rgba(0, 60, 150, .12);
+    box-sizing: border-box;
+}
+
+.auth-brand { text-align: center; margin-bottom: 18px; }
+.auth-brand-logo {
+    width: 58px; height: 58px; margin: 0 auto 10px;
+    border-radius: 16px; display: grid; place-items: center;
+    background: #0756d9; color: #fff; font-weight: 900; font-size: 22px;
+}
+.auth-brand h2 { margin: 0; }
+.auth-brand p { margin: 6px 0 0; opacity: .72; }
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.auth-tab {
+    border: 1px solid #d7e4fb; background: #f6f9ff; color: #0756d9;
+    padding: 11px; border-radius: 12px; font-weight: 800; cursor: pointer;
+}
+.auth-tab.active { background: #0756d9; color: #fff; }
+.auth-form { display: none; }
+.auth-form.active { display: block; }
+.auth-form label { display: block; font-weight: 700; margin: 12px 0 6px; }
+.auth-form input {
+    width: 100%; box-sizing: border-box; padding: 13px 14px;
+    border: 1px solid #cfdcf1; border-radius: 12px; font-size: 16px;
+    outline: none;
+}
+.auth-form input:focus { border-color: #0756d9; }
+.auth-submit {
+    width: 100%; margin-top: 16px; padding: 13px 16px;
+    border: 0; border-radius: 12px; background: #0756d9; color: #fff;
+    font-weight: 800; font-size: 16px; cursor: pointer;
+}
+.auth-submit:disabled { opacity: .65; cursor: wait; }
+.auth-message { min-height: 22px; margin-top: 12px; text-align: center; font-size: 14px; }
+.auth-userbar { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.auth-user-email { font-size: 13px; opacity: .75; word-break: break-all; }
+.auth-logout {
+    border: 1px solid #d7e4fb; background: #fff; color: #0756d9;
+    padding: 8px 12px; border-radius: 10px; font-weight: 700; cursor: pointer;
+}
+</style>
+
 </head>
 
-<body>
+<body class="auth-loading">
+
+
+<!-- =========================
+     LOGIN / SIGN UP GATE
+========================== -->
+<section id="authScreen" aria-label="Itta Learn Login">
+    <div class="auth-card">
+        <div class="auth-brand">
+            <div class="auth-brand-logo">IQ</div>
+            <h2>Itta Learn</h2>
+            <p>Login or create an account to continue</p>
+        </div>
+
+        <div class="auth-tabs">
+            <button type="button" id="loginTab" class="auth-tab active" onclick="showAuthForm('login')">Login</button>
+            <button type="button" id="signupTab" class="auth-tab" onclick="showAuthForm('signup')">Sign Up</button>
+        </div>
+
+        <form id="loginForm" class="auth-form active" onsubmit="loginUser(event)">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" type="email" autocomplete="email" required placeholder="Enter your email">
+
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" type="password" autocomplete="current-password" required minlength="6" placeholder="Enter your password">
+
+            <button id="loginSubmit" class="auth-submit" type="submit">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth-form" onsubmit="signupUser(event)">
+            <label for="signupEmail">Email</label>
+            <input id="signupEmail" type="email" autocomplete="email" required placeholder="Enter your email">
+
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="Create a password">
+
+            <button id="signupSubmit" class="auth-submit" type="submit">Create Account</button>
+        </form>
+
+        <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
+    </div>
+</section>
 
 <main class="app">
+
+    <div class="auth-userbar">
+        <span id="authUserEmail" class="auth-user-email"></span>
+        <button type="button" class="auth-logout" onclick="logoutUser()">Logout</button>
+    </div>
+
 
     <!-- =========================
          HEADER
@@ -187,8 +300,7 @@
 
             <button
                 type="button"
-                class="secondary-btn mic-btn"
-                data-mic-button
+                class="secondary-btn"
                 onclick="startMic()"
             >
                 🎙️ Mic
@@ -330,7 +442,8 @@
 
 </main>
 
-<script src="script.js?v=20260829-fixed-2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
