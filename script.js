@@ -8,6 +8,164 @@
 
 
 /* =========================================================
+   SUPABASE AUTHENTICATION
+   LOGIN / SIGN UP GATE
+========================================================= */
+
+const SUPABASE_URL = "https://aihtcylgmafslwkmagfa.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ggO6yw6McKguUBC1_YWAAA_jrC6bS0h";
+
+let supabaseClient = null;
+let currentAuthUser = null;
+
+function setAuthMessage(message, isError = false) {
+    const box = document.getElementById("authMessage");
+    if (!box) return;
+    box.textContent = message || "";
+    box.style.color = isError ? "#c62828" : "#176b3a";
+}
+
+function showAuthForm(mode) {
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    const loginTab = document.getElementById("loginTab");
+    const signupTab = document.getElementById("signupTab");
+    if (!loginForm || !signupForm) return;
+
+    const isLogin = mode === "login";
+    loginForm.classList.toggle("active", isLogin);
+    signupForm.classList.toggle("active", !isLogin);
+    loginTab?.classList.toggle("active", isLogin);
+    signupTab?.classList.toggle("active", !isLogin);
+    setAuthMessage("");
+}
+
+function setAppVisibility(isLoggedIn) {
+    const body = document.body;
+    const authScreen = document.getElementById("authScreen");
+    if (!body || !authScreen) return;
+
+    body.classList.remove("auth-loading", "auth-locked");
+    if (isLoggedIn) {
+        authScreen.style.display = "none";
+        body.classList.remove("auth-locked");
+        body.classList.add("auth-ready");
+    } else {
+        authScreen.style.display = "flex";
+        body.classList.add("auth-locked");
+        body.classList.remove("auth-ready");
+    }
+}
+
+function updateAuthUserBar(user) {
+    const emailBox = document.getElementById("authUserEmail");
+    if (emailBox) emailBox.textContent = user?.email ? `Logged in: ${user.email}` : "";
+}
+
+async function loginUser(event) {
+    event.preventDefault();
+    if (!supabaseClient) return setAuthMessage("Authentication is not ready. Please refresh.", true);
+
+    const email = document.getElementById("loginEmail")?.value.trim();
+    const password = document.getElementById("loginPassword")?.value;
+    const button = document.getElementById("loginSubmit");
+    if (!email || !password) return;
+
+    button.disabled = true;
+    button.textContent = "Logging in...";
+    setAuthMessage("");
+
+    try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        currentAuthUser = data.user;
+        updateAuthUserBar(currentAuthUser);
+        setAppVisibility(true);
+    } catch (error) {
+        setAuthMessage(error?.message || "Login failed.", true);
+    } finally {
+        button.disabled = false;
+        button.textContent = "Login";
+    }
+}
+
+async function signupUser(event) {
+    event.preventDefault();
+    if (!supabaseClient) return setAuthMessage("Authentication is not ready. Please refresh.", true);
+
+    const email = document.getElementById("signupEmail")?.value.trim();
+    const password = document.getElementById("signupPassword")?.value;
+    const button = document.getElementById("signupSubmit");
+    if (!email || !password) return;
+
+    button.disabled = true;
+    button.textContent = "Creating...";
+    setAuthMessage("");
+
+    try {
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) throw error;
+
+        if (data.session) {
+            currentAuthUser = data.user;
+            updateAuthUserBar(currentAuthUser);
+            setAppVisibility(true);
+        } else {
+            setAuthMessage("Account created. Please check your email to confirm your account, then Login.");
+            showAuthForm("login");
+        }
+    } catch (error) {
+        setAuthMessage(error?.message || "Sign up failed.", true);
+    } finally {
+        button.disabled = false;
+        button.textContent = "Create Account";
+    }
+}
+
+async function logoutUser() {
+    if (!supabaseClient) return;
+    try {
+        const { error } = await supabaseClient.auth.signOut();
+        if (error) throw error;
+    } catch (error) {
+        console.error("Logout error:", error);
+        setAuthMessage(error?.message || "Logout failed.", true);
+    }
+}
+
+async function initSupabaseAuth() {
+    try {
+        if (!window.supabase || typeof window.supabase.createClient !== "function") {
+            throw new Error("Supabase library could not be loaded.");
+        }
+
+        supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+        const { data, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+
+        currentAuthUser = data?.session?.user || null;
+        updateAuthUserBar(currentAuthUser);
+        setAppVisibility(!!currentAuthUser);
+
+        supabaseClient.auth.onAuthStateChange((_event, session) => {
+            currentAuthUser = session?.user || null;
+            updateAuthUserBar(currentAuthUser);
+            setAppVisibility(!!currentAuthUser);
+        });
+    } catch (error) {
+        console.error("Supabase auth initialization error:", error);
+        setAuthMessage(error?.message || "Could not connect to authentication.", true);
+        setAppVisibility(false);
+    }
+}
+
+
+
+/* =========================================================
    GLOBAL VARIABLES
 ========================================================= */
 
@@ -65,7 +223,7 @@ const examFiles = {
         "bank_questions.json",
 
     WBP:
-        "wbp_questions_1_to_100_bengali.json",
+        "wbp_questions.json",
 
     KOLKATA_POLICE:
         "kolkata_police_questions.json",
@@ -74,7 +232,7 @@ const examFiles = {
         "railway_questions.json",
 
     WBCS:
-        "wbsc_questions.json",
+        "wbcs_questions.json",
 
     WBPSC_CLERKSHIP:
         "wbpsc_clerkship_questions.json"
@@ -1493,15 +1651,33 @@ async function selectExamPart(
            FIND PART
         ========================= */
 
-        // Handle all supported JSON layouts:
-        // {"Part 1": [...]}, {"part1": [...]},
-        // {"parts":{"Part 1":[...]}}, and
-        // {"parts":[{"part":1,"questions":[...]}]}.
-        const rawQuestions =
-            findQuestionsFromPart(
+        const rawPart =
+            getPartData(
                 data,
                 partName
             );
+
+
+        let rawQuestions;
+
+
+        if (
+            rawPart !== null
+        ) {
+
+            rawQuestions =
+                extractQuestionArray(
+                    rawPart
+                );
+
+        } else {
+
+            rawQuestions =
+                extractQuestionArray(
+                    data
+                );
+
+        }
 
 
         /* =========================
@@ -2812,9 +2988,6 @@ function getAIInput() {
 
     const possibleIds = [
 
-        // Current Itta Learn HTML uses id="question".
-        // Keep legacy IDs for compatibility with older layouts.
-        "question",
         "questionInput",
         "aiInput",
         "userInput",
@@ -2855,9 +3028,6 @@ function getAIResponseBox() {
 
     const possibleIds = [
 
-        // Current Itta Learn HTML uses id="answer".
-        // Keep legacy IDs for compatibility with older layouts.
-        "answer",
         "aiResponse",
         "response",
         "chatResponse",
@@ -3273,18 +3443,6 @@ function updateMicButtons(
 
 }
 
-
-/* =========================================================
-   HTML COMPATIBILITY ALIASES
-========================================================= */
-
-function startMic() {
-    startMicrophone();
-}
-
-async function askTutor() {
-    return askIttaAI();
-}
 
 /* =========================================================
    MIC ALIASES
@@ -4419,12 +4577,6 @@ window.sendQuestion =
    MIC GLOBAL FUNCTIONS
 ========================================================= */
 
-window.startMic =
-    startMic;
-
-window.askTutor =
-    askTutor;
-
 window.startMicrophone =
     startMicrophone;
 
@@ -5311,46 +5463,146 @@ function findQuestionsFromPart(
     data,
     partName
 ) {
-    if (!data || typeof data !== "object") return [];
 
-    const number = Number(getPartNumber(partName));
-    if (!number) return [];
+    if (
+        !data
+    ) {
 
-    const containers = [data, data.parts, data.part, data.questionParts, data.question_parts];
+        return [];
 
-    for (const container of containers) {
-        if (!container) continue;
-
-        // Object format: { "Part 1": [...] } / { "part1": [...] }
-        if (!Array.isArray(container) && typeof container === "object") {
-            for (const key of Object.keys(container)) {
-                const keyNumber = Number(String(key).match(/\d+/)?.[0] || 0);
-                if (keyNumber === number) {
-                    const value = container[key];
-                    const questions = extractQuestionArray(value);
-                    if (questions.length) return questions;
-                }
-            }
-        }
-
-        // Array format: [{ part: 1, questions: [...] }, ...]
-        if (Array.isArray(container)) {
-            for (const item of container) {
-                if (!item || typeof item !== "object") continue;
-                const itemNumber = Number(
-                    item.part ?? item.partNumber ?? item.part_no ?? item.number ??
-                    (String(item.id ?? "").match(/\d+/)?.[0] || 0)
-                );
-                if (itemNumber === number) {
-                    const questions = extractQuestionArray(item.questions ?? item.data ?? item.items ?? item);
-                    if (questions.length) return questions;
-                }
-            }
-        }
     }
 
+
+    /* =========================
+       DIRECT PART
+    ========================= */
+
+    const directPart =
+        getPartData(
+            data,
+            partName
+        );
+
+
+    if (
+        directPart !== null
+    ) {
+
+        const directQuestions =
+            extractQuestionArray(
+                directPart
+            );
+
+
+        if (
+            directQuestions.length
+        ) {
+
+            return directQuestions;
+
+        }
+
+    }
+
+
+    /* =========================
+       FLEXIBLE PART KEY
+    ========================= */
+
+    const partKey =
+        findPartKey(
+            data,
+            partName
+        );
+
+
+    if (
+        partKey
+    ) {
+
+        const partQuestions =
+            extractQuestionArray(
+                data[partKey]
+            );
+
+
+        if (
+            partQuestions.length
+        ) {
+
+            return partQuestions;
+
+        }
+
+    }
+
+
+    /* =========================
+       NESTED QUESTIONS
+    ========================= */
+
+    const possibleContainers = [
+
+        data.parts,
+
+        data.part,
+
+        data.questionParts,
+
+        data.question_parts
+
+    ];
+
+
+    for (
+        const container
+        of possibleContainers
+    ) {
+
+        if (
+            !container ||
+            typeof container !== "object"
+        ) {
+
+            continue;
+
+        }
+
+
+        const nestedKey =
+            findPartKey(
+                container,
+                partName
+            );
+
+
+        if (
+            nestedKey
+        ) {
+
+            const nestedQuestions =
+                extractQuestionArray(
+                    container[nestedKey]
+                );
+
+
+            if (
+                nestedQuestions.length
+            ) {
+
+                return nestedQuestions;
+
+            }
+
+        }
+
+    }
+
+
     return [];
+
 }
+
 
 /* =========================================================
    REPLACE PART LOADER WITH ADVANCED LOADER
@@ -5619,3 +5871,11 @@ console.log(
 console.log(
     "✅ Part 1 / part1 / Part_1 supported"
 );
+
+
+/* =========================================================
+   START AUTH BEFORE APP CONTENT IS AVAILABLE
+========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    initSupabaseAuth();
+});
