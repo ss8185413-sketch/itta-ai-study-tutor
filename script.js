@@ -8,164 +8,6 @@
 
 
 /* =========================================================
-   SUPABASE AUTHENTICATION
-   LOGIN / SIGN UP GATE
-========================================================= */
-
-const SUPABASE_URL = "https://aihtcylgmafslwkmagfa.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ggO6yw6McKguUBC1_YWAAA_jrC6bS0h";
-
-let supabaseClient = null;
-let currentAuthUser = null;
-
-function setAuthMessage(message, isError = false) {
-    const box = document.getElementById("authMessage");
-    if (!box) return;
-    box.textContent = message || "";
-    box.style.color = isError ? "#c62828" : "#176b3a";
-}
-
-function showAuthForm(mode) {
-    const loginForm = document.getElementById("loginForm");
-    const signupForm = document.getElementById("signupForm");
-    const loginTab = document.getElementById("loginTab");
-    const signupTab = document.getElementById("signupTab");
-    if (!loginForm || !signupForm) return;
-
-    const isLogin = mode === "login";
-    loginForm.classList.toggle("active", isLogin);
-    signupForm.classList.toggle("active", !isLogin);
-    loginTab?.classList.toggle("active", isLogin);
-    signupTab?.classList.toggle("active", !isLogin);
-    setAuthMessage("");
-}
-
-function setAppVisibility(isLoggedIn) {
-    const body = document.body;
-    const authScreen = document.getElementById("authScreen");
-    if (!body || !authScreen) return;
-
-    body.classList.remove("auth-loading", "auth-locked");
-    if (isLoggedIn) {
-        authScreen.style.display = "none";
-        body.classList.remove("auth-locked");
-        body.classList.add("auth-ready");
-    } else {
-        authScreen.style.display = "flex";
-        body.classList.add("auth-locked");
-        body.classList.remove("auth-ready");
-    }
-}
-
-function updateAuthUserBar(user) {
-    const emailBox = document.getElementById("authUserEmail");
-    if (emailBox) emailBox.textContent = user?.email ? `Logged in: ${user.email}` : "";
-}
-
-async function loginUser(event) {
-    event.preventDefault();
-    if (!supabaseClient) return setAuthMessage("Authentication is not ready. Please refresh.", true);
-
-    const email = document.getElementById("loginEmail")?.value.trim();
-    const password = document.getElementById("loginPassword")?.value;
-    const button = document.getElementById("loginSubmit");
-    if (!email || !password) return;
-
-    button.disabled = true;
-    button.textContent = "Logging in...";
-    setAuthMessage("");
-
-    try {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        currentAuthUser = data.user;
-        updateAuthUserBar(currentAuthUser);
-        setAppVisibility(true);
-    } catch (error) {
-        setAuthMessage(error?.message || "Login failed.", true);
-    } finally {
-        button.disabled = false;
-        button.textContent = "Login";
-    }
-}
-
-async function signupUser(event) {
-    event.preventDefault();
-    if (!supabaseClient) return setAuthMessage("Authentication is not ready. Please refresh.", true);
-
-    const email = document.getElementById("signupEmail")?.value.trim();
-    const password = document.getElementById("signupPassword")?.value;
-    const button = document.getElementById("signupSubmit");
-    if (!email || !password) return;
-
-    button.disabled = true;
-    button.textContent = "Creating...";
-    setAuthMessage("");
-
-    try {
-        const { data, error } = await supabaseClient.auth.signUp({ email, password });
-        if (error) throw error;
-
-        if (data.session) {
-            currentAuthUser = data.user;
-            updateAuthUserBar(currentAuthUser);
-            setAppVisibility(true);
-        } else {
-            setAuthMessage("Account created. Please check your email to confirm your account, then Login.");
-            showAuthForm("login");
-        }
-    } catch (error) {
-        setAuthMessage(error?.message || "Sign up failed.", true);
-    } finally {
-        button.disabled = false;
-        button.textContent = "Create Account";
-    }
-}
-
-async function logoutUser() {
-    if (!supabaseClient) return;
-    try {
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) throw error;
-    } catch (error) {
-        console.error("Logout error:", error);
-        setAuthMessage(error?.message || "Logout failed.", true);
-    }
-}
-
-async function initSupabaseAuth() {
-    try {
-        if (!window.supabase || typeof window.supabase.createClient !== "function") {
-            throw new Error("Supabase library could not be loaded.");
-        }
-
-        supabaseClient = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_PUBLISHABLE_KEY
-        );
-
-        const { data, error } = await supabaseClient.auth.getSession();
-        if (error) throw error;
-
-        currentAuthUser = data?.session?.user || null;
-        updateAuthUserBar(currentAuthUser);
-        setAppVisibility(!!currentAuthUser);
-
-        supabaseClient.auth.onAuthStateChange((_event, session) => {
-            currentAuthUser = session?.user || null;
-            updateAuthUserBar(currentAuthUser);
-            setAppVisibility(!!currentAuthUser);
-        });
-    } catch (error) {
-        console.error("Supabase auth initialization error:", error);
-        setAuthMessage(error?.message || "Could not connect to authentication.", true);
-        setAppVisibility(false);
-    }
-}
-
-
-
-/* =========================================================
    GLOBAL VARIABLES
 ========================================================= */
 
@@ -223,7 +65,7 @@ const examFiles = {
         "bank_questions.json",
 
     WBP:
-        "wbp_questions.json",
+        "wbp_questions_1_to_100_bengali.json",
 
     KOLKATA_POLICE:
         "kolkata_police_questions.json",
@@ -232,7 +74,7 @@ const examFiles = {
         "railway_questions.json",
 
     WBCS:
-        "wbcs_questions.json",
+        "wbsc_questions.json",
 
     WBPSC_CLERKSHIP:
         "wbpsc_clerkship_questions.json"
@@ -1651,33 +1493,15 @@ async function selectExamPart(
            FIND PART
         ========================= */
 
-        const rawPart =
-            getPartData(
+        // Handle all supported JSON layouts:
+        // {"Part 1": [...]}, {"part1": [...]},
+        // {"parts":{"Part 1":[...]}}, and
+        // {"parts":[{"part":1,"questions":[...]}]}.
+        const rawQuestions =
+            findQuestionsFromPart(
                 data,
                 partName
             );
-
-
-        let rawQuestions;
-
-
-        if (
-            rawPart !== null
-        ) {
-
-            rawQuestions =
-                extractQuestionArray(
-                    rawPart
-                );
-
-        } else {
-
-            rawQuestions =
-                extractQuestionArray(
-                    data
-                );
-
-        }
 
 
         /* =========================
@@ -2988,6 +2812,9 @@ function getAIInput() {
 
     const possibleIds = [
 
+        // Current Itta Learn HTML uses id="question".
+        // Keep legacy IDs for compatibility with older layouts.
+        "question",
         "questionInput",
         "aiInput",
         "userInput",
@@ -3028,6 +2855,9 @@ function getAIResponseBox() {
 
     const possibleIds = [
 
+        // Current Itta Learn HTML uses id="answer".
+        // Keep legacy IDs for compatibility with older layouts.
+        "answer",
         "aiResponse",
         "response",
         "chatResponse",
@@ -3443,6 +3273,18 @@ function updateMicButtons(
 
 }
 
+
+/* =========================================================
+   HTML COMPATIBILITY ALIASES
+========================================================= */
+
+function startMic() {
+    startMicrophone();
+}
+
+async function askTutor() {
+    return askIttaAI();
+}
 
 /* =========================================================
    MIC ALIASES
@@ -4577,6 +4419,12 @@ window.sendQuestion =
    MIC GLOBAL FUNCTIONS
 ========================================================= */
 
+window.startMic =
+    startMic;
+
+window.askTutor =
+    askTutor;
+
 window.startMicrophone =
     startMicrophone;
 
@@ -5463,146 +5311,46 @@ function findQuestionsFromPart(
     data,
     partName
 ) {
+    if (!data || typeof data !== "object") return [];
 
-    if (
-        !data
-    ) {
+    const number = Number(getPartNumber(partName));
+    if (!number) return [];
 
-        return [];
+    const containers = [data, data.parts, data.part, data.questionParts, data.question_parts];
 
-    }
+    for (const container of containers) {
+        if (!container) continue;
 
-
-    /* =========================
-       DIRECT PART
-    ========================= */
-
-    const directPart =
-        getPartData(
-            data,
-            partName
-        );
-
-
-    if (
-        directPart !== null
-    ) {
-
-        const directQuestions =
-            extractQuestionArray(
-                directPart
-            );
-
-
-        if (
-            directQuestions.length
-        ) {
-
-            return directQuestions;
-
-        }
-
-    }
-
-
-    /* =========================
-       FLEXIBLE PART KEY
-    ========================= */
-
-    const partKey =
-        findPartKey(
-            data,
-            partName
-        );
-
-
-    if (
-        partKey
-    ) {
-
-        const partQuestions =
-            extractQuestionArray(
-                data[partKey]
-            );
-
-
-        if (
-            partQuestions.length
-        ) {
-
-            return partQuestions;
-
-        }
-
-    }
-
-
-    /* =========================
-       NESTED QUESTIONS
-    ========================= */
-
-    const possibleContainers = [
-
-        data.parts,
-
-        data.part,
-
-        data.questionParts,
-
-        data.question_parts
-
-    ];
-
-
-    for (
-        const container
-        of possibleContainers
-    ) {
-
-        if (
-            !container ||
-            typeof container !== "object"
-        ) {
-
-            continue;
-
-        }
-
-
-        const nestedKey =
-            findPartKey(
-                container,
-                partName
-            );
-
-
-        if (
-            nestedKey
-        ) {
-
-            const nestedQuestions =
-                extractQuestionArray(
-                    container[nestedKey]
-                );
-
-
-            if (
-                nestedQuestions.length
-            ) {
-
-                return nestedQuestions;
-
+        // Object format: { "Part 1": [...] } / { "part1": [...] }
+        if (!Array.isArray(container) && typeof container === "object") {
+            for (const key of Object.keys(container)) {
+                const keyNumber = Number(String(key).match(/\d+/)?.[0] || 0);
+                if (keyNumber === number) {
+                    const value = container[key];
+                    const questions = extractQuestionArray(value);
+                    if (questions.length) return questions;
+                }
             }
-
         }
 
+        // Array format: [{ part: 1, questions: [...] }, ...]
+        if (Array.isArray(container)) {
+            for (const item of container) {
+                if (!item || typeof item !== "object") continue;
+                const itemNumber = Number(
+                    item.part ?? item.partNumber ?? item.part_no ?? item.number ??
+                    (String(item.id ?? "").match(/\d+/)?.[0] || 0)
+                );
+                if (itemNumber === number) {
+                    const questions = extractQuestionArray(item.questions ?? item.data ?? item.items ?? item);
+                    if (questions.length) return questions;
+                }
+            }
+        }
     }
-
 
     return [];
-
 }
-
 
 /* =========================================================
    REPLACE PART LOADER WITH ADVANCED LOADER
@@ -5871,11 +5619,515 @@ console.log(
 console.log(
     "✅ Part 1 / part1 / Part_1 supported"
 );
-
-
 /* =========================================================
-   START AUTH BEFORE APP CONTENT IS AVAILABLE
+   ITTA LEARN - SUPABASE LOGIN / SIGN UP
+   ADD-ON ONLY — EXISTING APP LOGIC LEFT UNCHANGED
 ========================================================= */
-document.addEventListener("DOMContentLoaded", function () {
-    initSupabaseAuth();
-});
+
+(function () {
+    "use strict";
+
+    const ITTA_SUPABASE_URL =
+        "https://aihtcylgmafslwkmagfa.supabase.co";
+
+    const ITTA_SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_ggO6yw6McKguUBC1_YWAAA_jrC6bS0h";
+
+    let ittaSupabase = null;
+    let ittaAuthReady = false;
+
+    function ittaLoadSupabase() {
+        return new Promise(function (resolve, reject) {
+            if (window.supabase && typeof window.supabase.createClient === "function") {
+                resolve();
+                return;
+            }
+
+            const existing = document.querySelector(
+                'script[data-itta-supabase="true"]'
+            );
+
+            if (existing) {
+                existing.addEventListener("load", function () { resolve(); });
+                existing.addEventListener("error", function () {
+                    reject(new Error("Supabase library load failed."));
+                });
+                return;
+            }
+
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+            script.async = true;
+            script.dataset.ittaSupabase = "true";
+
+            script.onload = function () { resolve(); };
+            script.onerror = function () {
+                reject(new Error("Supabase library load failed."));
+            };
+
+            document.head.appendChild(script);
+        });
+    }
+
+    function ittaEscape(value) {
+        if (typeof escapeHTML === "function") {
+            return escapeHTML(value);
+        }
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function ittaFindLoginButton() {
+        const selectors = [
+            "#loginBtn",
+            "#loginButton",
+            "#signupBtn",
+            "#signUpBtn",
+            "#authBtn",
+            "[data-auth-button]",
+            ".login-btn",
+            ".signup-btn"
+        ];
+
+        for (const selector of selectors) {
+            const element = document.querySelector(selector);
+            if (element) return element;
+        }
+
+        return null;
+    }
+
+    function ittaCreateAuthUI() {
+        if (document.getElementById("ittaAuthArea")) return;
+
+        const host = document.createElement("div");
+        host.id = "ittaAuthArea";
+        host.style.cssText =
+            "margin:12px 0;text-align:center;position:relative;z-index:10;";
+
+        host.innerHTML = `
+            <button
+                id="ittaLoginOpenBtn"
+                type="button"
+                class="exam-btn"
+                style="cursor:pointer;"
+            >🔐 Login / Sign Up</button>
+
+            <span
+                id="ittaUserStatus"
+                style="display:none;margin-left:8px;font-weight:600;"
+            ></span>
+        `;
+
+        const preferredHost =
+            document.querySelector("header") ||
+            document.querySelector("nav") ||
+            document.querySelector("main") ||
+            document.body.firstElementChild;
+
+        if (preferredHost && preferredHost.parentNode) {
+            preferredHost.parentNode.insertBefore(host, preferredHost.nextSibling);
+        } else {
+            document.body.prepend(host);
+        }
+
+        document.getElementById("ittaLoginOpenBtn").addEventListener(
+            "click",
+            function () {
+                ittaOpenAuthModal();
+            }
+        );
+    }
+
+    function ittaCreateModal() {
+        if (document.getElementById("ittaAuthModal")) return;
+
+        const modal = document.createElement("div");
+        modal.id = "ittaAuthModal";
+        modal.style.cssText =
+            "display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);" +
+            "z-index:99999;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;";
+
+        modal.innerHTML = `
+            <div
+                style="
+                    width:min(420px,100%);
+                    max-height:90vh;
+                    overflow:auto;
+                    background:#fff;
+                    border-radius:16px;
+                    padding:20px;
+                    box-sizing:border-box;
+                    box-shadow:0 10px 40px rgba(0,0,0,.25);
+                    color:#111;
+                "
+            >
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                    <h2 id="ittaAuthTitle" style="margin:0;">🔐 Login</h2>
+                    <button
+                        id="ittaAuthCloseBtn"
+                        type="button"
+                        aria-label="Close"
+                        style="border:0;background:transparent;font-size:24px;cursor:pointer;"
+                    >×</button>
+                </div>
+
+                <p id="ittaAuthMessage" style="margin:12px 0;line-height:1.5;"></p>
+
+                <label style="display:block;margin:10px 0 6px;">Email</label>
+                <input
+                    id="ittaAuthEmail"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="Enter email"
+                    style="width:100%;padding:11px;box-sizing:border-box;border:1px solid #ccc;border-radius:8px;"
+                >
+
+                <label style="display:block;margin:10px 0 6px;">Password</label>
+                <input
+                    id="ittaAuthPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Enter password"
+                    style="width:100%;padding:11px;box-sizing:border-box;border:1px solid #ccc;border-radius:8px;"
+                >
+
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+                    <button
+                        id="ittaLoginSubmit"
+                        type="button"
+                        class="exam-btn"
+                    >🔐 Login</button>
+
+                    <button
+                        id="ittaSignupSubmit"
+                        type="button"
+                        class="exam-btn"
+                    >📝 Sign Up</button>
+
+                    <button
+                        id="ittaLogoutSubmit"
+                        type="button"
+                        class="exam-btn"
+                        style="display:none;"
+                    >🚪 Logout</button>
+                </div>
+
+                <p style="margin:14px 0 0;font-size:13px;opacity:.75;">
+                    Your password is handled by Supabase Authentication.
+                </p>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        document.getElementById("ittaAuthCloseBtn").addEventListener(
+            "click",
+            ittaCloseAuthModal
+        );
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                ittaCloseAuthModal();
+            }
+        });
+
+        document.getElementById("ittaLoginSubmit").addEventListener(
+            "click",
+            ittaLogin
+        );
+
+        document.getElementById("ittaSignupSubmit").addEventListener(
+            "click",
+            ittaSignup
+        );
+
+        document.getElementById("ittaLogoutSubmit").addEventListener(
+            "click",
+            ittaLogout
+        );
+    }
+
+    function ittaOpenAuthModal() {
+        const modal = document.getElementById("ittaAuthModal");
+        if (!modal) return;
+
+        modal.style.display = "flex";
+
+        const password = document.getElementById("ittaAuthPassword");
+        if (password) password.value = "";
+
+        ittaSetMessage("", "info");
+        ittaUpdateAuthUI();
+    }
+
+    function ittaCloseAuthModal() {
+        const modal = document.getElementById("ittaAuthModal");
+        if (modal) modal.style.display = "none";
+    }
+
+    function ittaSetMessage(message, type) {
+        const box = document.getElementById("ittaAuthMessage");
+        if (!box) return;
+
+        const prefix =
+            type === "success" ? "✅ " :
+            type === "error" ? "❌ " :
+            type === "warning" ? "⚠️ " :
+            "";
+
+        box.innerHTML =
+            prefix + ittaEscape(message);
+
+        box.style.fontWeight = type === "error" ? "600" : "400";
+    }
+
+    function ittaGetCredentials() {
+        const emailElement = document.getElementById("ittaAuthEmail");
+        const passwordElement = document.getElementById("ittaAuthPassword");
+
+        const email = String(emailElement?.value || "").trim();
+        const password = String(passwordElement?.value || "");
+
+        if (!email) {
+            ittaSetMessage("Email লিখুন।", "warning");
+            return null;
+        }
+
+        if (!password || password.length < 6) {
+            ittaSetMessage("Password কমপক্ষে 6 characters হতে হবে।", "warning");
+            return null;
+        }
+
+        return { email, password };
+    }
+
+    async function ittaEnsureProfile(user) {
+        if (!ittaSupabase || !user) return;
+
+        try {
+            await ittaSupabase
+                .from("profiles")
+                .upsert(
+                    {
+                        id: user.id,
+                        email: user.email
+                    },
+                    { onConflict: "id" }
+                );
+        } catch (error) {
+            console.warn("Profile sync skipped:", error);
+        }
+    }
+
+    async function ittaLogin() {
+        if (!ittaSupabase) {
+            ittaSetMessage("Supabase এখনও ready হয়নি। একটু পরে আবার চেষ্টা করুন।", "error");
+            return;
+        }
+
+        const credentials = ittaGetCredentials();
+        if (!credentials) return;
+
+        ittaSetMessage("Login হচ্ছে...", "info");
+
+        const result = await ittaSupabase.auth.signInWithPassword({
+            email: credentials.email,
+            password: credentials.password
+        });
+
+        if (result.error) {
+            console.error("Supabase login error:", result.error);
+            ittaSetMessage(result.error.message, "error");
+            return;
+        }
+
+        await ittaEnsureProfile(result.data.user);
+
+        ittaSetMessage("Login successful!", "success");
+        ittaUpdateAuthUI(result.data.user);
+
+        setTimeout(function () {
+            ittaCloseAuthModal();
+        }, 600);
+    }
+
+    async function ittaSignup() {
+        if (!ittaSupabase) {
+            ittaSetMessage("Supabase এখনও ready হয়নি। একটু পরে আবার চেষ্টা করুন।", "error");
+            return;
+        }
+
+        const credentials = ittaGetCredentials();
+        if (!credentials) return;
+
+        ittaSetMessage("Account তৈরি হচ্ছে...", "info");
+
+        const result = await ittaSupabase.auth.signUp({
+            email: credentials.email,
+            password: credentials.password
+        });
+
+        if (result.error) {
+            console.error("Supabase signup error:", result.error);
+            ittaSetMessage(result.error.message, "error");
+            return;
+        }
+
+        if (result.data.user) {
+            await ittaEnsureProfile(result.data.user);
+        }
+
+        if (result.data.session) {
+            ittaSetMessage("Sign Up successful!", "success");
+            ittaUpdateAuthUI(result.data.user);
+
+            setTimeout(function () {
+                ittaCloseAuthModal();
+            }, 600);
+        } else {
+            ittaSetMessage(
+                "Account তৈরি হয়েছে। Email verification চাইলে আপনার email inbox check করুন।",
+                "success"
+            );
+        }
+    }
+
+    async function ittaLogout() {
+        if (!ittaSupabase) return;
+
+        const result = await ittaSupabase.auth.signOut();
+
+        if (result.error) {
+            console.error("Supabase logout error:", result.error);
+            ittaSetMessage(result.error.message, "error");
+            return;
+        }
+
+        ittaSetMessage("Logout successful.", "success");
+        ittaUpdateAuthUI(null);
+    }
+
+    function ittaUpdateAuthUI(user) {
+        const openButton = document.getElementById("ittaLoginOpenBtn");
+        const status = document.getElementById("ittaUserStatus");
+        const loginButton = document.getElementById("ittaLoginSubmit");
+        const signupButton = document.getElementById("ittaSignupSubmit");
+        const logoutButton = document.getElementById("ittaLogoutSubmit");
+        const title = document.getElementById("ittaAuthTitle");
+
+        if (user) {
+            if (openButton) openButton.textContent = "👤 Account";
+            if (status) {
+                status.style.display = "inline";
+                status.textContent = user.email || "Logged in";
+            }
+            if (loginButton) loginButton.style.display = "none";
+            if (signupButton) signupButton.style.display = "none";
+            if (logoutButton) logoutButton.style.display = "inline-block";
+            if (title) title.textContent = "👤 Account";
+        } else {
+            if (openButton) openButton.textContent = "🔐 Login / Sign Up";
+            if (status) status.style.display = "none";
+            if (loginButton) loginButton.style.display = "inline-block";
+            if (signupButton) signupButton.style.display = "inline-block";
+            if (logoutButton) logoutButton.style.display = "none";
+            if (title) title.textContent = "🔐 Login";
+        }
+    }
+
+    function ittaConnectExistingAuthButtons() {
+        const selectors = [
+            "#loginBtn",
+            "#loginButton",
+            "#signupBtn",
+            "#signUpBtn",
+            "#authBtn",
+            "[data-auth-button]",
+            ".login-btn",
+            ".signup-btn"
+        ];
+
+        document.querySelectorAll(selectors.join(",")).forEach(function (button) {
+            if (button.dataset.ittaAuthConnected === "true") return;
+
+            button.dataset.ittaAuthConnected = "true";
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                ittaOpenAuthModal();
+            });
+        });
+    }
+
+    async function ittaInitAuth() {
+        try {
+            await ittaLoadSupabase();
+
+            ittaSupabase = window.supabase.createClient(
+                ITTA_SUPABASE_URL,
+                ITTA_SUPABASE_PUBLISHABLE_KEY
+            );
+
+            ittaAuthReady = true;
+
+            const sessionResult =
+                await ittaSupabase.auth.getSession();
+
+            const user =
+                sessionResult.data?.session?.user || null;
+
+            await ittaEnsureProfile(user);
+            ittaUpdateAuthUI(user);
+
+            ittaSupabase.auth.onAuthStateChange(function (_event, session) {
+                const currentUser = session?.user || null;
+                ittaUpdateAuthUI(currentUser);
+
+                if (currentUser) {
+                    setTimeout(function () {
+                        ittaEnsureProfile(currentUser);
+                    }, 0);
+                }
+            });
+
+            console.log("✅ Supabase Login / Sign Up ready");
+        } catch (error) {
+            console.error("❌ Supabase Auth initialization failed:", error);
+            ittaSetMessage(
+                "Login system load হয়নি। Existing app functionality is unchanged.",
+                "error"
+            );
+        }
+    }
+
+    function ittaInitAuthUI() {
+        ittaCreateAuthUI();
+        ittaCreateModal();
+        ittaConnectExistingAuthButtons();
+        ittaInitAuth();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            ittaInitAuthUI,
+            { once: true }
+        );
+    } else {
+        ittaInitAuthUI();
+    }
+
+    window.ittaOpenAuth = ittaOpenAuthModal;
+    window.ittaLogin = ittaLogin;
+    window.ittaSignup = ittaSignup;
+    window.ittaLogout = ittaLogout;
+    window.ittaGetSupabase = function () {
+        return ittaSupabase;
+    };
+
+})();
