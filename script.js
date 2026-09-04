@@ -47,6 +47,12 @@ const PAID_PART_END = 100;
 
 const PREMIUM_PRICE = 49;
 
+const PREMIUM_PAYMENT_HANDLER = {
+    working: false,
+    currentExam: null,
+    currentPart: null
+};
+
 
 /* =========================================================
    ALL 8 EXAMS
@@ -3769,6 +3775,53 @@ function unlockPremiumLocal() {
 
     }
 
+    if (typeof window !== "undefined") {
+
+        const supabase =
+            typeof window.ittaGetSupabase === "function"
+                ? window.ittaGetSupabase()
+                : null;
+
+        if (
+            supabase &&
+            supabase.auth &&
+            supabase.auth.getSession &&
+            supabase.from
+        ) {
+
+            supabase.auth.getSession().then(function (sessionResult) {
+                const user =
+                    sessionResult && sessionResult.data && sessionResult.data.session
+                        ? sessionResult.data.session.user
+                        : null;
+
+                if (!user) {
+                    return;
+                }
+
+                supabase
+                    .from("profiles")
+                    .upsert(
+                        {
+                            id: user.id,
+                            email: user.email,
+                            premium: true,
+                            premium_status: "active",
+                            premium_updated_at: new Date().toISOString()
+                        },
+                        { onConflict: "id" }
+                    )
+                    .catch(function (error) {
+                        console.warn("Premium sync with Supabase profile failed:", error);
+                    });
+            }).catch(function (error) {
+                console.warn("Premium sync session read failed:", error);
+            });
+
+        }
+
+    }
+
 }
 
 
@@ -4018,80 +4071,218 @@ function showPremiumPayment(
 
 
 /* =========================================================
-   PAYMENT PLACEHOLDER
+   PAYMENT FLOW
 ========================================================= */
 
-function startPremiumPayment(
+async function getCurrentUserForPayment() {
+
+    try {
+
+        const supabase =
+            typeof window.ittaGetSupabase === "function"
+                ? window.ittaGetSupabase()
+                : null;
+
+        const session =
+            supabase && supabase.auth && supabase.auth.getSession
+                ? await supabase.auth.getSession()
+                : null;
+
+        const user =
+            session && session.data && session.data.session
+                ? session.data.session.user
+                : null;
+
+        if (!user) {
+            return null;
+        }
+
+        return {
+            id: user.id,
+            email: user.email || ""
+        };
+
+    } catch (error) {
+
+        return null;
+
+    }
+
+}
+
+async function startPremiumPayment(
     exam,
     part
 ) {
 
-    /*
-       IMPORTANT:
-
-       এখানে fake payment success করা হয়নি।
-
-       Real payment gateway connect করার পরে
-       payment successful হলে:
-
-       premiumPaymentSuccess();
-
-       call করবে।
-    */
-
-
-    const box =
-        $("mockTestBox");
-
-
-    if (!box) {
+    if (
+        PREMIUM_PAYMENT_HANDLER.working
+    ) {
 
         return;
 
     }
 
+    const currentUser =
+        await getCurrentUserForPayment();
+
+    if (!currentUser) {
+
+        alert(
+            "Please log in or sign up first before buying Premium access."
+        );
+
+        return;
+
+    }
+
+    PREMIUM_PAYMENT_HANDLER.working = true;
+    PREMIUM_PAYMENT_HANDLER.currentExam = exam;
+    PREMIUM_PAYMENT_HANDLER.currentPart = part;
+
+    const box =
+        $("mockTestBox");
+
+    if (!box) {
+
+        PREMIUM_PAYMENT_HANDLER.working = false;
+        return;
+
+    }
 
     box.innerHTML = `
 
         <div class="result-box">
 
             <h3>
-                💳 Premium Payment
+                💳 Secure Premium Checkout
             </h3>
 
-
             <p>
-
-                Real payment gateway
-                এখনো connect করা হয়নি।
-
+                Creating your secure payment order...
             </p>
 
-
             <p>
-
-                Payment gateway connect করার পরে
-                successful payment হলে
-                Premium automatically unlock হবে।
-
+                Please wait while the payment is prepared.
             </p>
-
-
-            <button
-                type="button"
-                class="exam-btn"
-                onclick="showPaidParts(
-                    '${escapeHTML(exam)}'
-                )"
-            >
-
-                🔙 Back
-
-            </button>
-
         </div>
 
     `;
+
+    try {
+
+        const createOrderResponse = await fetch(
+            "/api/razorpay/create-order",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user: currentUser
+                })
+            }
+        );
+
+        const createOrderData = await createOrderResponse.json();
+
+        if (
+            !createOrderResponse.ok ||
+            !createOrderData.success ||
+            !createOrderData.order_id ||
+            !createOrderData.key_id
+        ) {
+
+            throw new Error(
+                createOrderData.error ||
+                "Unable to create a secure payment order."
+            );
+
+        }
+
+        if (!window.Razorpay) {
+
+            throw new Error(
+                "Razorpay checkout is unavailable right now."
+            );
+
+        }
+
+        const rzp = new window.Razorpay({
+            key: createOrderData.key_id,
+            amount: createOrderData.amount || PREMIUM_PRICE * 100,
+            currency: createOrderData.currency || "INR",
+            name: "Itta Learn",
+            description: "Premium Access",
+            order_id: createOrderData.order_id,
+            handler: async function (response) {
+
+                try {
+
+                    const verificationResponse = await fetch(
+                        "/api/razorpay/verify-payment",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_signature: response.razorpay_signature
+                            })
+                        }
+                    );
+
+                    const verificationData = await verificationResponse.json();
+
+                    if (
+                        !verificationResponse.ok ||
+                        !verificationData.success
+                    ) {
+
+                        throw new Error(
+                            verificationData.error ||
+                            "Payment verification failed."
+                        );
+
+                    }
+
+                    premiumPaymentSuccess();
+
+                } catch (error) {
+
+                    PREMIUM_PAYMENT_HANDLER.working = false;
+                    alert(
+                        error.message ||
+                        "Payment verification failed. Premium was not unlocked."
+                    );
+                    showPremiumPayment(exam, part);
+
+                }
+
+            },
+            theme: {
+                color: "#0756d9"
+            },
+            modal: {
+                ondismiss: function () {
+                    PREMIUM_PAYMENT_HANDLER.working = false;
+                    alert("Payment cancelled. Premium access was not unlocked.");
+                    showPremiumPayment(exam, part);
+                }
+            }
+        });
+
+        rzp.open();
+
+    } catch (error) {
+
+        PREMIUM_PAYMENT_HANDLER.working = false;
+        alert(error.message || "Payment failed. Please try again.");
+        showPremiumPayment(exam, part);
+
+    }
 
 }
 
@@ -4102,6 +4293,11 @@ function startPremiumPayment(
 
 function premiumPaymentSuccess() {
 
+    const paidExam =
+        PREMIUM_PAYMENT_HANDLER.currentExam ||
+        selectedExam;
+
+    PREMIUM_PAYMENT_HANDLER.working = false;
     unlockPremiumLocal();
 
 
@@ -4111,11 +4307,11 @@ function premiumPaymentSuccess() {
 
 
     if (
-        selectedExam
+        paidExam
     ) {
 
         showPaidParts(
-            selectedExam
+            paidExam
         );
 
     } else {
@@ -6064,6 +6260,41 @@ console.log(
         });
     }
 
+    async function ittaLoadPremiumState() {
+        try {
+            if (!ittaSupabase || !ittaSupabase.auth || !ittaSupabase.auth.getSession) {
+                return;
+            }
+
+            const sessionResult = await ittaSupabase.auth.getSession();
+            const user = sessionResult.data?.session?.user || null;
+
+            if (!user) {
+                premiumUnlocked = false;
+                return;
+            }
+
+            const profileResult = await ittaSupabase
+                .from("profiles")
+                .select("premium, premium_status")
+                .eq("id", user.id)
+                .maybeSingle();
+
+            if (profileResult && profileResult.data) {
+                const premiumValue = profileResult.data.premium === true || profileResult.data.premium_status === "active";
+                premiumUnlocked = premiumValue;
+
+                if (premiumValue) {
+                    localStorage.setItem("itta_premium_unlocked", "true");
+                } else {
+                    localStorage.removeItem("itta_premium_unlocked");
+                }
+            }
+        } catch (error) {
+            console.warn("Premium state sync from Supabase failed:", error);
+        }
+    }
+
     async function ittaInitAuth() {
         try {
             await ittaLoadSupabase();
@@ -6083,6 +6314,7 @@ console.log(
 
             await ittaEnsureProfile(user);
             ittaUpdateAuthUI(user);
+            await ittaLoadPremiumState();
 
             ittaSupabase.auth.onAuthStateChange(function (_event, session) {
                 const currentUser = session?.user || null;
@@ -6091,7 +6323,15 @@ console.log(
                 if (currentUser) {
                     setTimeout(function () {
                         ittaEnsureProfile(currentUser);
+                        ittaLoadPremiumState();
                     }, 0);
+                } else {
+                    premiumUnlocked = false;
+                    try {
+                        localStorage.removeItem("itta_premium_unlocked");
+                    } catch (error) {
+                        console.warn("Unable to clear local premium flag:", error);
+                    }
                 }
             });
 

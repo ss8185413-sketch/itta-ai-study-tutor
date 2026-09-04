@@ -1,15 +1,178 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
 
 const app = express();
+const PREMIUM_PRICE_INR = 49;
+const PREMIUM_AMOUNT_IN_PAISE = PREMIUM_PRICE_INR * 100;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
+function getRazorpayConfig() {
+  const keyId = process.env.RAZORPAY_KEY_ID;
+  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+  if (!keyId || !keySecret) {
+    return {
+      ok: false,
+      message:
+        "Server configuration error: RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET must be set in environment variables."
+    };
+  }
+
+  return {
+    ok: true,
+    keyId,
+    keySecret
+  };
+}
+
+function createRazorpayClient() {
+  const config = getRazorpayConfig();
+
+  if (!config.ok) {
+    throw new Error(config.message);
+  }
+
+  return new Razorpay({
+    key_id: config.keyId,
+    key_secret: config.keySecret
+  });
+}
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.post("/api/razorpay/create-order", async (req, res) => {
+  try {
+    const config = getRazorpayConfig();
+
+    if (!config.ok) {
+      return res.status(500).json({
+        success: false,
+        error: config.message
+      });
+    }
+
+    const user = req.body?.user || {};
+
+    if (!user.id && !user.email) {
+      return res.status(401).json({
+        success: false,
+        error: "Authentication required to purchase Premium."
+      });
+    }
+
+    const razorpay = createRazorpayClient();
+    const order = await razorpay.orders.create({
+      amount: PREMIUM_AMOUNT_IN_PAISE,
+      currency: "INR",
+      receipt: `itta-premium-${Date.now()}`
+    });
+
+    return res.json({
+      success: true,
+      order_id: order.id,
+      key_id: config.keyId,
+      amount: PREMIUM_AMOUNT_IN_PAISE,
+      currency: "INR"
+    });
+  } catch (error) {
+    console.error("Razorpay create-order error:", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Unable to create Razorpay order on the server."
+    });
+  }
+});
+
+app.post("/api/razorpay/verify-payment", async (req, res) => {
+  try {
+    const config = getRazorpayConfig();
+
+    if (!config.ok) {
+      return res.status(500).json({
+        success: false,
+        error: config.message
+      });
+    }
+
+    const {
+      razorpay_payment_id,
+      razorpay_order_id,
+      razorpay_signature
+    } = req.body || {};
+
+    if (!razorpay_payment_id || !razorpay_order_id || !razorpay_signature) {
+      return res.status(400).json({
+        success: false,
+        error: "Missing Razorpay payment details."
+      });
+    }
+
+    const expectedSignature = crypto
+      .createHmac("sha256", config.keySecret)
+      .update(`${razorpay_order_id}|${razorpay_payment_id}`)
+      .digest("hex");
+
+    if (expectedSignature !== razorpay_signature) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid Razorpay signature. Payment could not be verified."
+      });
+    }
+
+    const razorpay = createRazorpayClient();
+    const order = await razorpay.orders.fetch(razorpay_order_id);
+    const payment = await razorpay.payments.fetch(razorpay_payment_id);
+
+    if (!order || order.id !== razorpay_order_id) {
+      return res.status(400).json({
+        success: false,
+        error: "Razorpay order does not exist or does not match."
+      });
+    }
+
+    if (!payment || payment.order_id !== razorpay_order_id) {
+      return res.status(400).json({
+        success: false,
+        error: "Razorpay payment does not correspond to the provided order."
+      });
+    }
+
+    if (order.amount !== PREMIUM_AMOUNT_IN_PAISE) {
+      return res.status(400).json({
+        success: false,
+        error: "Unexpected order amount."
+      });
+    }
+
+    if (payment.status !== "captured" || order.status !== "paid") {
+      return res.status(400).json({
+        success: false,
+        error: "Payment is not yet captured or order is not paid."
+      });
+    }
+
+    return res.json({
+      success: true,
+      message: "Premium payment verified successfully.",
+      premium: true
+    });
+  } catch (error) {
+    console.error("Razorpay verify-payment error:", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Payment verification failed server-side."
+    });
+  }
 });
 
 async function askGemini(question) {
