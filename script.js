@@ -1408,6 +1408,25 @@ async function selectExamPart(
     partName
 ) {
 
+    const partNumber = Number(
+        getPartNumber(partName)
+    );
+
+    if (
+        partNumber >= PAID_PART_START &&
+        partNumber <= PAID_PART_END &&
+        !isPremiumUnlocked()
+    ) {
+
+        showPremiumPayment(
+            exam,
+            partName
+        );
+
+        return;
+
+    }
+
     stopLiveTimer();
 
     clearAutoNextTimer();
@@ -3724,6 +3743,7 @@ document.addEventListener(
 ========================================================= */
 
 let premiumUnlocked = false;
+let verifiedPaymentForUnlock = false;
 
 
 /* =========================================================
@@ -3732,20 +3752,7 @@ let premiumUnlocked = false;
 
 function isPremiumUnlocked() {
 
-    try {
-
-        return (
-            premiumUnlocked === true ||
-            localStorage.getItem(
-                "itta_premium_unlocked"
-            ) === "true"
-        );
-
-    } catch (error) {
-
-        return premiumUnlocked === true;
-
-    }
+    return premiumUnlocked === true;
 
 }
 
@@ -3756,71 +3763,16 @@ function isPremiumUnlocked() {
 
 function unlockPremiumLocal() {
 
+    if (!verifiedPaymentForUnlock) {
+        return false;
+    }
+
     premiumUnlocked =
         true;
 
+    verifiedPaymentForUnlock = false;
 
-    try {
-
-        localStorage.setItem(
-            "itta_premium_unlocked",
-            "true"
-        );
-
-    } catch (error) {
-
-        console.warn(
-            "LocalStorage unavailable"
-        );
-
-    }
-
-    if (typeof window !== "undefined") {
-
-        const supabase =
-            typeof window.ittaGetSupabase === "function"
-                ? window.ittaGetSupabase()
-                : null;
-
-        if (
-            supabase &&
-            supabase.auth &&
-            supabase.auth.getSession &&
-            supabase.from
-        ) {
-
-            supabase.auth.getSession().then(function (sessionResult) {
-                const user =
-                    sessionResult && sessionResult.data && sessionResult.data.session
-                        ? sessionResult.data.session.user
-                        : null;
-
-                if (!user) {
-                    return;
-                }
-
-                supabase
-                    .from("profiles")
-                    .upsert(
-                        {
-                            id: user.id,
-                            email: user.email,
-                            premium: true,
-                            premium_status: "active",
-                            premium_updated_at: new Date().toISOString()
-                        },
-                        { onConflict: "id" }
-                    )
-                    .catch(function (error) {
-                        console.warn("Premium sync with Supabase profile failed:", error);
-                    });
-            }).catch(function (error) {
-                console.warn("Premium sync session read failed:", error);
-            });
-
-        }
-
-    }
+    return true;
 
 }
 
@@ -4248,6 +4200,7 @@ async function startPremiumPayment(
 
                     }
 
+                    verifiedPaymentForUnlock = true;
                     premiumPaymentSuccess();
 
                 } catch (error) {
@@ -4293,12 +4246,15 @@ async function startPremiumPayment(
 
 function premiumPaymentSuccess() {
 
+    if (!unlockPremiumLocal()) {
+        return;
+    }
+
     const paidExam =
         PREMIUM_PAYMENT_HANDLER.currentExam ||
         selectedExam;
 
     PREMIUM_PAYMENT_HANDLER.working = false;
-    unlockPremiumLocal();
 
 
     alert(
@@ -4324,23 +4280,6 @@ function premiumPaymentSuccess() {
 
 
 /* =========================================================
-   MANUAL PREMIUM UNLOCK FUNCTION
-   FOR TESTING ONLY
-========================================================= */
-
-function testUnlockPremium() {
-
-    unlockPremiumLocal();
-
-
-    alert(
-        "✅ Premium test access enabled."
-    );
-
-}
-
-
-/* =========================================================
    LOCK PREMIUM
 ========================================================= */
 
@@ -4348,21 +4287,6 @@ function resetPremiumAccess() {
 
     premiumUnlocked =
         false;
-
-
-    try {
-
-        localStorage.removeItem(
-            "itta_premium_unlocked"
-        );
-
-    } catch (error) {
-
-        console.warn(
-            error
-        );
-
-    }
 
 
     alert(
@@ -4655,12 +4579,6 @@ window.openPremiumPart =
 
 window.startPremiumPayment =
     startPremiumPayment;
-
-window.premiumPaymentSuccess =
-    premiumPaymentSuccess;
-
-window.testUnlockPremium =
-    testUnlockPremium;
 
 window.resetPremiumAccess =
     resetPremiumAccess;
@@ -6260,41 +6178,6 @@ console.log(
         });
     }
 
-    async function ittaLoadPremiumState() {
-        try {
-            if (!ittaSupabase || !ittaSupabase.auth || !ittaSupabase.auth.getSession) {
-                return;
-            }
-
-            const sessionResult = await ittaSupabase.auth.getSession();
-            const user = sessionResult.data?.session?.user || null;
-
-            if (!user) {
-                premiumUnlocked = false;
-                return;
-            }
-
-            const profileResult = await ittaSupabase
-                .from("profiles")
-                .select("premium, premium_status")
-                .eq("id", user.id)
-                .maybeSingle();
-
-            if (profileResult && profileResult.data) {
-                const premiumValue = profileResult.data.premium === true || profileResult.data.premium_status === "active";
-                premiumUnlocked = premiumValue;
-
-                if (premiumValue) {
-                    localStorage.setItem("itta_premium_unlocked", "true");
-                } else {
-                    localStorage.removeItem("itta_premium_unlocked");
-                }
-            }
-        } catch (error) {
-            console.warn("Premium state sync from Supabase failed:", error);
-        }
-    }
-
     async function ittaInitAuth() {
         try {
             await ittaLoadSupabase();
@@ -6314,7 +6197,6 @@ console.log(
 
             await ittaEnsureProfile(user);
             ittaUpdateAuthUI(user);
-            await ittaLoadPremiumState();
 
             ittaSupabase.auth.onAuthStateChange(function (_event, session) {
                 const currentUser = session?.user || null;
@@ -6323,15 +6205,9 @@ console.log(
                 if (currentUser) {
                     setTimeout(function () {
                         ittaEnsureProfile(currentUser);
-                        ittaLoadPremiumState();
                     }, 0);
                 } else {
                     premiumUnlocked = false;
-                    try {
-                        localStorage.removeItem("itta_premium_unlocked");
-                    } catch (error) {
-                        console.warn("Unable to clear local premium flag:", error);
-                    }
                 }
             });
 
