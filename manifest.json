@@ -1,0 +1,23 @@
+{
+  "name": "Itta Learn",
+  "short_name": "Itta Learn",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fbff",
+  "theme_color": "#0756d9",
+  "description": "Itta Learn - Competitive Exam Mock Test and AI Study Tutor",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
