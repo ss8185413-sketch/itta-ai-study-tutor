@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Itta Learn - AI Study Tutor and Competitive Exam Mock Test App">
+  <title>Itta Learn</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <main class="app">
+    <header class="app-header">
+      <div class="brand-wrap">
+        <div class="brand-logo" aria-hidden="true">IL</div>
+        <div class="brand-copy">
+          <div class="brand-kicker">SMART LEARNING PLATFORM</div>
+          <h1>Itta Learn</h1>
+          <p>Learn smarter. Practice better. Improve every day.</p>
+        </div>
+      </div>
+      <div class="header-badge">✨ AI Powered</div>
+    </header>
+
+    <div class="hero-strip">
+      <div>
+        <span class="hero-eyebrow">YOUR STUDY HUB</span>
+        <h2>Everything you need to prepare, in one place.</h2>
+        <p>Ask Itta AI, take quick quizzes, and practice competitive exams with Parts 1–100.</p>
+      </div>
+      <div class="hero-icon">📚</div>
+    </div>
+
+    <section class="card tutor-card" aria-labelledby="tutorTitle">
+      <div class="section-heading">
+        <div class="section-icon ai-icon">✨</div>
+        <div>
+          <span class="section-kicker">STUDY ASSISTANT</span>
+          <h2 id="tutorTitle">Itta AI Tutor</h2>
+          <p>Ask a question and get a study-focused explanation.</p>
+        </div>
+      </div>
+
+      <div class="ai-input-wrap">
+        <textarea id="question" rows="5" placeholder="Type your study question here..."></textarea>
+        <div class="input-hint">💡 Tip: Ask about Math, Science, History, Geography, English, GK and more.</div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="primary-btn" onclick="askTutor()">✨ Ask Itta AI</button>
+        <button type="button" class="secondary-btn" onclick="startMic()">🎙️ Voice</button>
+      </div>
+
+      <div id="answer" class="answer-box">
+        <div class="answer-placeholder-icon">💬</div>
+        <div>
+          <strong>Your AI answer will appear here.</strong>
+          <span>Start by asking your study question above.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card quick-card" aria-labelledby="quickTitle">
+      <div class="section-heading">
+        <div class="section-icon quiz-icon">🧠</div>
+        <div>
+          <span class="section-kicker">QUICK PRACTICE</span>
+          <h2 id="quickTitle">Quick Study Quiz</h2>
+          <p>Test your knowledge with a fast practice session.</p>
+        </div>
+      </div>
+      <button type="button" class="primary-btn full-btn" onclick="startQuiz()">🧠 Start Quick Quiz</button>
+      <div id="quizBox"></div>
+    </section>
+
+    <section class="card mock-card" aria-labelledby="mockTitle">
+      <div class="mock-banner">
+        <div class="mock-banner-icon">🏆</div>
+        <div>
+          <span class="section-kicker">COMPETITIVE PREPARATION</span>
+          <h2 id="mockTitle">Mock Test Center</h2>
+          <p>Choose an exam and practice Parts 1–100 for free.</p>
+        </div>
+      </div>
+
+      <div class="exam-grid">
+        <button type="button" class="exam-btn exam-ssc" onclick="startMockTest('SSC')"><span class="exam-icon">📘</span><span><b>SSC</b><small>Staff Selection Commission</small></span></button>
+        <button type="button" class="exam-btn exam-upsc" onclick="startMockTest('UPSC')"><span class="exam-icon">🏛️</span><span><b>UPSC</b><small>Union Public Service Commission</small></span></button>
+        <button type="button" class="exam-btn exam-bank" onclick="startMockTest('BANK')"><span class="exam-icon">🏦</span><span><b>Bank</b><small>Banking Awareness & PYQ</small></span></button>
+        <button type="button" class="exam-btn exam-wbp" onclick="startMockTest('WBP')"><span class="exam-icon">🛡️</span><span><b>WBP</b><small>West Bengal Police</small></span></button>
+        <button type="button" class="exam-btn exam-kp" onclick="startMockTest('KOLKATA_POLICE')"><span class="exam-icon">👮</span><span><b>Kolkata Police</b><small>Police Recruitment Practice</small></span></button>
+        <button type="button" class="exam-btn exam-rail" onclick="startMockTest('RAILWAY')"><span class="exam-icon">🚆</span><span><b>Railway</b><small>Railway Exam Practice</small></span></button>
+        <button type="button" class="exam-btn exam-wbcs" onclick="startMockTest('WBCS')"><span class="exam-icon">🏛️</span><span><b>WBCS</b><small>West Bengal Civil Service</small></span></button>
+        <button type="button" class="exam-btn exam-clerk" onclick="startMockTest('WBPSC_CLERKSHIP')"><span class="exam-icon">📋</span><span><b>WBPSC Clerkship</b><small>Clerkship Exam Practice</small></span></button>
+      </div>
+
+      <div id="mockTestBox" class="mock-test-box">
+        <div class="welcome-box">
+          <div class="welcome-icon">🎯</div>
+          <h3>Select an exam to begin</h3>
+          <p>Choose any exam above to view its categories and Parts 1–100.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <div class="footer-brand">✨ Itta Learn</div>
+      <p>© 2026 Itta Learn · Learn • Practice • Progress</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
