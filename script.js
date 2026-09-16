@@ -40,9 +40,9 @@ const QUESTIONS_PER_TEST = 10;
 const AUTO_NEXT_DELAY = 900;
 
 const FREE_PART_START = 1;
-const FREE_PART_END = 20;
+const FREE_PART_END = 100;
 
-const PAID_PART_START = 21;
+const PAID_PART_START = 101;
 const PAID_PART_END = 100;
 
 const PREMIUM_PRICE = 49;
@@ -771,7 +771,7 @@ function showExamParts(
 
 
     /* =========================
-       FREE PARTS 1–20
+       FREE PARTS 1–100
     ========================= */
 
     let freeParts =
@@ -847,7 +847,7 @@ function showExamParts(
 
 
             <h4>
-                🆓 Free Parts 1–20
+                🆓 Free Parts 1–100
             </h4>
 
 
@@ -858,33 +858,6 @@ function showExamParts(
                 ${freeParts}
 
             </div>
-
-
-            <hr>
-
-
-            <h4>
-                ⭐ Premium Parts 21–100
-            </h4>
-
-
-            <p>
-                Premium Access:
-                ₹${PREMIUM_PRICE}
-            </p>
-
-
-            <button
-                type="button"
-                class="exam-btn premium-main-btn"
-                onclick="showPaidParts(
-                    '${escapeHTML(exam)}'
-                )"
-            >
-
-                ⭐ Open Premium Parts
-
-            </button>
 
 
             <br>
@@ -3734,7 +3707,7 @@ document.addEventListener(
     }
 );/* =========================================================
    ITTA LEARN - PART 7
-   PREMIUM PARTS 21–100 + BUTTON COMPATIBILITY
+   LEGACY PREMIUM CODE (DISABLED FOR PARTS 1–100)
 ========================================================= */
 
 
@@ -3898,20 +3871,7 @@ function openPremiumPart(
     part
 ) {
 
-    if (
-        !isPremiumUnlocked()
-    ) {
-
-        showPremiumPayment(
-            exam,
-            part
-        );
-
-        return;
-
-    }
-
-
+    // All Parts 1–100 are free.
     selectExamPart(
         exam,
         part
