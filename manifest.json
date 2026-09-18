@@ -3,6 +3,7 @@
   "short_name": "Itta Learn",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#f8fbff",
   "theme_color": "#0756d9",
   "description": "Itta Learn - Competitive Exam Mock Test and AI Study Tutor",
